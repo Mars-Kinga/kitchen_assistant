@@ -1,0 +1,656 @@
+from __future__ import annotations
+
+import sys
+from pathlib import Path
+
+import pytest
+
+from runtime_core.executor import RuntimeExecutor
+from runtime_core.skill_manager import SkillManager
+
+
+ROOT = Path(__file__).resolve().parents[1]
+SKILL_ROOT = ROOT / "skills" / "kitchen_assistant"
+if str(SKILL_ROOT) not in sys.path:
+    sys.path.insert(0, str(SKILL_ROOT))
+
+from kitchen.cooking_question_service import RuleBasedCookingQuestionService  # noqa: E402
+from kitchen.models import CookingContext, RecipeCandidate, RecipeSearchRequest  # noqa: E402
+from kitchen.recipe_normalizer import RecipeNormalizationError, RecipeNormalizer  # noqa: E402
+from kitchen.response_phrases import (  # noqa: E402
+    FINISHED_RESPONSES, SINGLE_DINER_COMPANIONS, STEP_ENCOURAGEMENTS,
+)
+from kitchen.request_parser import parse_updates  # noqa: E402
+from kitchen.session_store import KitchenSession  # noqa: E402
+from kitchen.states import (  # noqa: E402
+    CANCELLED, COLLECTING_INGREDIENTS, COLLECTING_PREFERENCES, COOKING, PAUSED,
+    PRESENTING_CANDIDATES, WAITING_MEAT_THAW, WAITING_RECIPE_CONFIRMATION,
+)
+from providers.mock_recipe_provider import MockRecipeSearchProvider  # noqa: E402
+from providers.online_recipe_provider import OnlineRecipeSearchProvider  # noqa: E402
+
+
+def items(response: dict) -> list[dict]:
+    return response.get("steps", [response])
+
+
+def assert_multimodal(response: dict) -> None:
+    for item in items(response):
+        assert item.get("speech") or item.get("question")
+        for key in ("display", "robot_action", "led_effect", "expression"):
+            assert item.get(key), key
+
+
+def make_session(*, clock=lambda: 100.0, provider=None) -> KitchenSession:
+    return KitchenSession(SKILL_ROOT / "recipes" / "recipes.json", clock=clock, recipe_provider=provider)
+
+
+def start_known_dish(session: KitchenSession, dish: str = "番茄鸡蛋面") -> dict:
+    response = session.handle(f"我想做{dish}")
+    assert response["kitchen_state"] == COLLECTING_PREFERENCES
+    response = session.handle("一个人吃")
+    assert response["kitchen_state"] == COLLECTING_PREFERENCES
+    response = session.handle("少盐")
+    assert response["kitchen_state"] == PRESENTING_CANDIDATES
+    return response
+
+
+def choose_and_confirm(session: KitchenSession, choice: str = "第一个") -> dict:
+    chosen = session.handle(choice)
+    assert chosen["kitchen_state"] == WAITING_RECIPE_CONFIRMATION
+    assert session.current_recipe is None
+    cooking = session.handle("开始吧")
+    assert cooking["kitchen_state"] == COOKING
+    assert session.current_recipe is not None
+    return cooking
+
+
+def test_hello_and_active_kitchen_short_commands_route_correctly() -> None:
+    manager = SkillManager()
+    manager.load_skills()
+    assert manager.run_user_text("你好")["selected_skill"] == "hello_skill"
+    started = manager.run_user_text("厨房助手你好")
+    assert started["selected_skill"] == "kitchen_assistant"
+    started = manager.run_user_text("我想做番茄鸡蛋面")
+    assert started["selected_skill"] == "kitchen_assistant"
+    assert manager.run_user_text("一个人")["selected_skill"] == "kitchen_assistant"
+    assert manager.run_user_text("少盐")["kitchen_state"] == PRESENTING_CANDIDATES
+    assert manager.run_user_text("第一个")["kitchen_state"] == WAITING_RECIPE_CONFIRMATION
+    assert manager.run_user_text("可以")["kitchen_state"] == COOKING
+    assert manager.run_user_text("下一步")["selected_skill"] == "kitchen_assistant"
+    ended = manager.run_user_text("退出厨房助手")
+    assert ended["kitchen_state"] == CANCELLED
+    assert manager.active_skill_name is None
+
+
+def test_free_form_requested_dish_keeps_full_name_and_generic_cooking_phrase_stays_generic() -> None:
+    assert parse_updates("我要做番茄肥牛").requested_dish == "番茄肥牛"
+    assert parse_updates("我想好要做什么了，要做番茄肥牛").requested_dish == "番茄肥牛"
+    assert parse_updates("红烧排骨怎么做").requested_dish == "红烧排骨"
+    assert parse_updates("香菇滑鸡怎么做").requested_dish == "香菇滑鸡"
+    assert parse_updates("我要做饭了").requested_dish is None
+
+
+def test_food_how_to_questions_route_to_kitchen_without_capturing_generic_how_to() -> None:
+    manager = SkillManager()
+    manager.load_skills()
+    assert manager.run_user_text("红烧排骨怎么做")['selected_skill'] == "kitchen_assistant"
+    assert manager.run_user_text("香菇滑鸡怎么做")['selected_skill'] == "kitchen_assistant"
+    fresh_manager = SkillManager()
+    fresh_manager.load_skills()
+    assert fresh_manager.run_user_text("Python 程序怎么做")['route'] == "normal_chat"
+
+
+def test_inventory_parser_keeps_explicit_pantry_separate_from_requested_dish() -> None:
+    updates = parse_updates("我有牛排、橄榄油、黄油、盐和黑胡椒，想做煎牛排")
+    assert updates.requested_dish == "煎牛排"
+    assert {"牛排", "橄榄油", "黄油", "盐", "黑胡椒"} <= set(updates.ingredients)
+
+
+def test_common_allergy_and_omission_phrases_become_restrictions() -> None:
+    updates = parse_updates("我对鸡蛋过敏，不要香菜，也不吃牛肉")
+    assert {"鸡蛋", "香菜", "牛肉"} <= set(updates.restrictions)
+
+
+@pytest.mark.parametrize("text", ["1个人", "一 个 人", "2个人", "三个人"])
+def test_serving_parser_accepts_common_person_count_phrases(text: str) -> None:
+    assert parse_updates(text).servings in {1, 2, 3}
+
+
+def test_bare_number_is_accepted_only_when_session_asks_for_servings() -> None:
+    session = make_session()
+    session.handle("我想做番茄鸡蛋面")
+    response = session.handle("1")
+    assert session.servings == 1
+    assert "口味" in response["question"]
+
+
+def test_single_serving_gets_companion_feedback() -> None:
+    session = make_session()
+    session.handle("我想做番茄鸡蛋面")
+    response = session.handle("1个人")
+    assert "一个人吃饭" in response["question"]
+    assert response["led_effect"] == "warm_white"
+    assert response["robot_action"] == "encourage_gesture"
+
+
+def test_known_dish_requires_explicit_confirmation_before_cooking() -> None:
+    session = make_session()
+    response = start_known_dish(session)
+    assert response["recipe_candidates"][0]["title"] == "番茄鸡蛋面"
+    chosen = session.handle("第一个")
+    assert_multimodal(chosen)
+    assert session.current_recipe is None
+    waiting = session.handle("我再想想")
+    assert waiting["kitchen_state"] == WAITING_RECIPE_CONFIRMATION
+    cooking = session.handle("按这个做")
+    assert cooking["kitchen_state"] == COOKING
+    assert_multimodal(cooking)
+
+
+def test_natural_affirmation_confirms_recipe_without_redundant_prompt() -> None:
+    session = make_session()
+    start_known_dish(session, "番茄炒蛋")
+    session.handle("第一个")
+    response = session.handle("好的")
+    assert response["kitchen_state"] == COOKING
+    assert "请明确说" not in str(response)
+
+
+def test_plain_start_confirms_recipe() -> None:
+    session = make_session()
+    start_known_dish(session, "番茄炒蛋")
+    session.handle("第一个")
+    response = session.handle("开始")
+    assert response["kitchen_state"] == COOKING
+    assert session.current_recipe is not None
+
+
+def test_bare_candidate_number_selects_the_requested_item() -> None:
+    session = make_session()
+    session.handle("我不知道晚饭做什么")
+    session.handle("我有鸡蛋、番茄和面条")
+    response = session.handle("一个人，少盐")
+    assert response["kitchen_state"] == PRESENTING_CANDIDATES
+    assert len(session.recipe_candidates) >= 2
+    response = session.handle("2")
+    assert response["kitchen_state"] == WAITING_RECIPE_CONFIRMATION
+    assert session.selected_candidate == session.recipe_candidates[1]
+
+
+def test_unknown_inventory_is_not_displayed_as_missing_ingredients() -> None:
+    session = make_session()
+    candidates = start_known_dish(session, "番茄鸡蛋面")
+    assert "缺：" not in candidates["steps"][-1]["display"]
+    selected = session.handle("第一个")
+    assert "食材库存：未提供" in selected["display"]
+
+
+def test_offline_requested_dish_matches_exactly_or_returns_no_candidates() -> None:
+    session = make_session()
+    candidates = start_known_dish(session, "红烧排骨")
+    assert [item["title"] for item in candidates["recipe_candidates"]] == ["红烧排骨"]
+
+    session = make_session()
+    response = start_known_dish(session, "鱼香肉丝")
+    assert response["recipe_candidates"] == []
+    assert "不会用无关菜谱替代" in response["steps"][-1]["speech"]
+
+
+def test_unknown_dinner_flow_parses_ingredients_and_ranks_candidates() -> None:
+    session = make_session()
+    response = session.handle("我不知道晚饭做什么")
+    assert response["kitchen_state"] == COLLECTING_INGREDIENTS
+    assert_multimodal(response)
+    response = session.handle("我有鸡蛋、番茄和面条")
+    assert session.request.available_ingredients == ["鸡蛋", "番茄", "面条"]
+    assert response["kitchen_state"] == COLLECTING_PREFERENCES
+    response = session.handle("一个人，少盐")
+    assert response["kitchen_state"] == PRESENTING_CANDIDATES
+    candidates = response["recipe_candidates"]
+    assert len(candidates) <= 3
+    assert candidates[0]["title"] == "番茄鸡蛋面"
+    assert candidates[0]["missing_ingredients"] == []
+    chosen = session.handle("第二个")
+    assert chosen["kitchen_state"] == WAITING_RECIPE_CONFIRMATION
+
+
+def test_candidates_support_refresh_and_simple_fast_filters() -> None:
+    session = make_session()
+    start_known_dish(session, "咖喱饭")
+    first_ids = [candidate.candidate_id for candidate in session.recipe_candidates]
+    session.handle("换一批")
+    assert session.state == PRESENTING_CANDIDATES
+    assert all(candidate.candidate_id not in first_ids for candidate in session.recipe_candidates) or not session.recipe_candidates
+    session = make_session()
+    start_known_dish(session, "咖喱饭")
+    session.handle("第一个")
+    filtered = session.handle("换一个更简单的")
+    assert filtered["kitchen_state"] == PRESENTING_CANDIDATES
+    assert session.request.difficulty_preference == "简单"
+
+
+def test_combined_top_candidate_selection_and_confirmation_still_emits_overview() -> None:
+    session = make_session()
+    start_known_dish(session)
+    response = session.handle("就这个，开始吧")
+    assert response["kitchen_state"] == COOKING
+    assert any("来源：" in item.get("display", "") for item in items(response))
+
+
+def test_dynamic_recipe_steps_and_legacy_tomato_egg_fallback_work() -> None:
+    session = make_session()
+    start_known_dish(session, "番茄炒蛋")
+    cooking = choose_and_confirm(session)
+    assert session.current_recipe["name"] == "番茄炒蛋"
+    assert_multimodal(cooking)
+    original = session.step_index
+    repeated = session.handle("再说一遍")
+    assert session.step_index == original
+    session.handle("下一步")
+    assert session.step_index == original + 1
+    back = session.handle("上一步")
+    assert session.step_index == original
+    assert_multimodal(back)
+
+
+def test_explicit_step_completion_advances_context_but_questions_do_not() -> None:
+    session = make_session()
+    start_known_dish(session, "番茄炒蛋")
+    choose_and_confirm(session)
+    original = session.step_index
+    question = session.handle("番茄切好了吗？")
+    assert session.step_index == original
+    assert question["kitchen_state"] == COOKING
+    completed = session.handle("番茄已经洗好并切好了")
+    assert session.step_index == original + 1
+    assert completed["current_step"] == original + 2
+    assert "已完成第 1 步" in completed["steps"][0]["speech"]
+
+
+def test_boiling_completion_advances_but_boiling_question_does_not() -> None:
+    session = make_session()
+    session.current_recipe = RecipeNormalizer().normalize({
+        "name": "测试汤", "ingredients": [{"name": "水", "amount": 500, "unit": "毫升"}],
+        "steps": [{"instruction": "锅中加水烧开。"}, {"instruction": "放入食材煮熟。"}],
+    })
+    session.state = COOKING
+    question = session.handle("水烧开了吗？")
+    assert session.step_index == 0
+    assert "持续冒出" in question["speech"]
+    completed = session.handle("水烧开了")
+    assert session.step_index == 1
+    assert "已完成第 1 步" in completed["steps"][0]["speech"]
+
+
+def test_ok_completion_phrase_advances_with_encouragement_feedback() -> None:
+    session = make_session()
+    start_known_dish(session, "番茄炒蛋")
+    choose_and_confirm(session)
+    response = session.handle("OK了")
+    assert session.step_index == 1
+    assert response["steps"][0]["led_effect"] == "green_dynamic"
+    assert "已完成第 1 步" in response["steps"][0]["speech"]
+
+
+def test_plain_good_acknowledges_without_advancing_but_explicit_done_advances() -> None:
+    session = make_session()
+    start_known_dish(session, "番茄炒蛋")
+    choose_and_confirm(session)
+    before = session.step_index
+    response = session.handle("好的")
+    assert session.step_index == before
+    assert response["current_step"] == before + 1
+    completed = session.handle("做好了")
+    assert session.step_index == before + 1
+    assert completed["current_step"] == before + 2
+    before = session.step_index
+    thanks = session.handle("谢谢")
+    assert session.step_index == before
+    assert "不客气" in thanks["speech"]
+    assert thanks["led_effect"] == "warm_white"
+
+
+def test_gratitude_and_waiting_phrases_rotate_without_changing_state() -> None:
+    session = make_session()
+    start_known_dish(session, "番茄炒蛋")
+    choose_and_confirm(session)
+    before = session.step_index
+    first_thanks = session.handle("谢谢")
+    second_thanks = session.handle("谢谢")
+    assert first_thanks["speech"] != second_thanks["speech"]
+    assert session.step_index == before
+    first_ack = session.handle("好的")
+    second_ack = session.handle("好的")
+    assert first_ack["speech"] != second_ack["speech"]
+    assert session.step_index == before
+
+
+def test_pause_resume_timer_and_completion_remain_available() -> None:
+    now = [100.0]
+    session = make_session(clock=lambda: now[0])
+    start_known_dish(session)
+    choose_and_confirm(session)
+    session.handle("帮我计时五秒")
+    now[0] = 102.0
+    assert "3 秒" in session.handle("还有多久")["speech"]
+    paused = session.handle("暂停一下")
+    assert paused["kitchen_state"] == PAUSED
+    assert session.handle("继续")["kitchen_state"] == COOKING
+    now[0] = 106.0
+    assert "计时结束" in session.handle("计时结束了吗")["display"]
+    assert "取消" in session.handle("取消计时")["speech"]
+
+
+def test_heat_step_announces_timer_and_starts_when_food_hits_pan() -> None:
+    now = [100.0]
+    session = make_session(clock=lambda: now[0])
+    session.current_recipe = RecipeNormalizer().normalize({
+        "name": "宫保鸡丁",
+        "ingredients": [{"name": "鸡肉丁", "amount": 150, "unit": "克"}],
+        "steps": [{
+            "instruction": "倒入腌制好的鸡肉丁，中火快速翻炒至鸡肉丁完全变色",
+            "duration_seconds": 120,
+            "heat_level": "中火",
+        }],
+    })
+    session.state = COOKING
+    prompt = session.handle("再说一遍")
+    assert "准备计时 2 分钟" in prompt["speech"]
+    assert "下锅了" in prompt["speech"]
+    assert session.timer is None
+
+    started = session.handle("鸡肉丁下锅了")
+    assert "开始计时 2 分钟" in started["speech"]
+    assert session.timer is not None
+
+
+def test_paused_timer_freezes_and_resumes_from_remaining_time() -> None:
+    now = [100.0]
+    session = make_session(clock=lambda: now[0])
+    start_known_dish(session)
+    choose_and_confirm(session)
+    session.handle("帮我计时十秒")
+    now[0] = 103.0
+    session.handle("暂停一下")
+    now[0] = 1000.0
+    assert session.poll() is None
+    assert "7 秒" in session.handle("还有多久")["speech"]
+    session.handle("继续")
+    now[0] = 1006.0
+    assert "1 秒" in session.handle("还有多久")["speech"]
+    now[0] = 1008.0
+    assert "计时结束" in session.poll()["speech"]
+
+
+def test_invalid_detail_never_substitutes_an_unrelated_fallback_recipe() -> None:
+    fallback = MockRecipeSearchProvider(SKILL_ROOT / "recipes")
+
+    class InvalidDetailProvider:
+        mode = "ai_generated"
+
+        def __init__(self) -> None:
+            self.fallback = fallback
+
+        def search_recipes(self, request):
+            return [RecipeCandidate(
+                candidate_id="clear_noodles", title="清汤面", source_name="测试生成", source_url=None,
+                summary="测试候选。", estimated_minutes=10, difficulty="简单",
+                main_ingredients=["面条"], missing_ingredients=[], match_reason="测试。",
+            )]
+
+        def get_recipe_detail(self, candidate):
+            return {"name": "无效菜谱", "ingredients": [], "steps": []}
+
+        def fallback_recipe(self):
+            return fallback.fallback_recipe()
+
+    session = make_session(provider=InvalidDetailProvider())
+    session.handle("我想做清汤面")
+    session.handle("一个人，不吃鸡蛋")
+    session.handle("正常")
+    session.handle("第一个")
+    response = session.handle("开始吧")
+    assert response["kitchen_state"] == WAITING_RECIPE_CONFIRMATION
+    assert session.current_recipe is None
+    assert "详情失败" in response["display"]
+
+
+def test_user_language_catalogs_are_kept_out_of_session_logic() -> None:
+    assert len(SINGLE_DINER_COMPANIONS) == 6
+    assert len(STEP_ENCOURAGEMENTS) >= 27
+    assert len(FINISHED_RESPONSES) == 20
+    assert "哇！好香啊！{dish}大功告成！" in FINISHED_RESPONSES
+    assert "今天这顿饭必须给自己点个赞！{dish}完成啦！" in FINISHED_RESPONSES
+
+
+def test_raw_meat_requires_safe_thaw_confirmation_and_steak_timer_flow() -> None:
+    now = [100.0]
+    fallback = MockRecipeSearchProvider(SKILL_ROOT / "recipes")
+
+    class SteakProvider:
+        mode = "mock"
+
+        def __init__(self, fallback_provider) -> None:
+            self.fallback = fallback_provider
+
+        def search_recipes(self, request: RecipeSearchRequest):
+            assert request.steak_doneness == "五分熟"
+            return [RecipeCandidate(
+                candidate_id="steak", title="煎牛排", source_name="本地测试", source_url=None,
+                summary="适合一人份的煎牛排。", estimated_minutes=12, difficulty="简单",
+                main_ingredients=["牛排"], missing_ingredients=[], match_reason="按熟度计时。",
+            )]
+
+        def get_recipe_detail(self, candidate: RecipeCandidate):
+            return {
+                "recipe_id": candidate.candidate_id, "name": "煎牛排", "source_name": "本地测试",
+                "servings": 1, "ingredients": [{"name": "牛排", "amount": 1, "unit": "块"}],
+                "steps": [
+                    {"instruction": "牛排擦干表面并静置回温。"},
+                    {"instruction": "锅热后下油，放入牛排正面煎。", "duration_seconds": 10, "heat_level": "中大火"},
+                    {"instruction": "翻面后煎另一面。", "duration_seconds": 8, "heat_level": "中大火"},
+                    {"instruction": "关火后移到盘中静置。", "duration_seconds": None},
+                ],
+            }
+
+    session = make_session(clock=lambda: now[0], provider=SteakProvider(fallback))
+    session.handle("我要做煎牛排")
+    doneness = session.handle("1")
+    assert "几成熟" in doneness["question"]
+    thickness = session.handle("五分熟")
+    assert "多厚" in thickness["question"]
+    assert "口味" in session.handle("普通厚度")["question"]
+    candidates = session.handle("正常")
+    assert candidates["kitchen_state"] == PRESENTING_CANDIDATES
+    session.handle("第一个")
+    thaw = session.handle("开始吧")
+    assert thaw["kitchen_state"] == WAITING_MEAT_THAW
+    assert "解冻" in thaw["question"]
+    not_thawed = session.handle("还没有解冻")
+    assert not_thawed["kitchen_state"] == WAITING_MEAT_THAW
+    assert "微波炉" in not_thawed["speech"] and "室温" in not_thawed["speech"]
+    cooking = session.handle("解冻好了")
+    assert cooking["kitchen_state"] == COOKING
+    session.handle("下一步")
+    started = session.handle("开始煎")
+    assert "正面开始计时 10 秒" in started["speech"]
+    now[0] = 111.0
+    flip = session.poll()
+    assert flip is not None and "翻面好了" in flip["speech"]
+    second_side = session.handle("翻面好了")
+    assert "另一面开始计时 8 秒" in "".join(item.get("speech", "") for item in items(second_side))
+    now[0] = 120.0
+    rested = session.poll()
+    assert rested is not None and "静置" in "".join(item["speech"] for item in items(rested))
+    assert session.step_index == 3
+
+
+@pytest.mark.parametrize(
+    ("question", "required", "safety"),
+    [
+        ("我拿了一个小锅，面太长放不进去，可以先软化再压进去吗？", "先把面条一端", "NORMAL"),
+        ("面条粘在一起了怎么办", "轻轻搅动", "NORMAL"),
+        ("我怎么看水有没有烧开？", "持续冒出", "NORMAL"),
+        ("水放多了怎么办", "水多一点", "NORMAL"),
+        ("水放少了怎么办", "补加开水", "CAUTION"),
+        ("我没有白糖怎么办", "可以不放", "NORMAL"),
+        ("我没有葱，可以不放吗？", "可以不放葱", "NORMAL"),
+        ("我不吃辣", "不放辣椒", "NORMAL"),
+        ("锅太小怎么办", "减少一次下锅", "CAUTION"),
+        ("现在用什么火？", "当前这一步", "CAUTION"),
+        ("油温过高怎么办", "调小火", "CAUTION"),
+        ("油一直在溅", "调小火", "CAUTION"),
+        ("我忘记放调料", "少量补", "NORMAL"),
+        ("锅里大量冒烟了", "关闭加热", "STOP_AND_CHECK"),
+        ("锅里起火了", "不要向油火泼水", "STOP_AND_CHECK"),
+        ("我闻到燃气味", "不要开关电器", "STOP_AND_CHECK"),
+    ],
+)
+def test_rule_based_questions_cover_normal_and_safety_cases(question: str, required: str, safety: str) -> None:
+    session = make_session()
+    start_known_dish(session)
+    choose_and_confirm(session)
+    before = session.step_index
+    response = session.handle(question)
+    assert required in (response.get("speech") or "")
+    assert response["safety_level"] == safety
+    assert session.step_index == before
+    if safety == "STOP_AND_CHECK":
+        assert session.state == PAUSED
+        assert response["robot_action"] == "stop"
+        assert response["led_effect"] == "red"
+    else:
+        assert session.state == COOKING
+        assert session.handle("下一步")["kitchen_state"] == COOKING
+
+
+def test_normalizer_normalizes_steps_maps_feedback_and_rejects_invalid_data() -> None:
+    normalizer = RecipeNormalizer()
+    recipe = normalizer.normalize({
+        "recipe_id": "raw", "name": "测试面", "source_name": "测试来源", "source_url": None,
+        "estimated_minutes": 12,
+        "ingredients": ["面条", {"name": "鸡蛋", "amount": "1", "unit": "个"}],
+        "steps": [{"step_number": 9, "instruction": "切番茄后倒入锅中。"}, {"instruction": "完成后装盘。"}],
+    })
+    assert [step["step_number"] for step in recipe["steps"]] == [1, 2]
+    assert recipe["steps"][0]["robot_action"] == "show_concern"
+    assert recipe["steps"][0]["led_effect"] == "blue_dynamic"
+    assert recipe["source_name"] == "测试来源"
+    assert recipe["estimated_time_minutes"] == 12
+    assert recipe["ingredients"][1]["unit"] == "个"
+    with pytest.raises(RecipeNormalizationError):
+        normalizer.normalize({"ingredients": [{"name": "鸡蛋"}], "steps": [{"instruction": "做"}]})
+    with pytest.raises(RecipeNormalizationError):
+        normalizer.normalize({"name": "无步骤", "ingredients": [{"name": "鸡蛋"}], "steps": []})
+
+
+def test_normalizer_only_keeps_heat_timers_and_removes_duplicate_thaw_work() -> None:
+    recipe = RecipeNormalizer().normalize({
+        "name": "肥牛饭",
+        "ingredients": [{"name": "肥牛片", "amount": 200, "unit": "克"}],
+        "steps": [
+            {"instruction": "淘洗大米", "duration_seconds": 120},
+            {"instruction": "洋葱切丝，冷冻肥牛片用温水快速解冻", "duration_seconds": 60, "safety_note": "解冻生肉后洗手"},
+            {"instruction": "小火煮肥牛至变色", "duration_seconds": 90, "heat_level": "小火"},
+        ],
+    })
+    assert [step["step_number"] for step in recipe["steps"]] == [1, 2, 3]
+    assert recipe["steps"][0]["duration_seconds"] is None
+    assert recipe["steps"][1]["instruction"] == "洋葱切丝"
+    assert recipe["steps"][1]["duration_seconds"] is None
+    assert recipe["steps"][1]["safety_note"] is None
+    assert recipe["steps"][2]["duration_seconds"] == 90
+    assert all("解冻" not in step["instruction"] for step in recipe["steps"])
+
+
+def test_normalizer_splits_dense_prep_and_clamps_unrealistic_stir_fry_times() -> None:
+    recipe = RecipeNormalizer().normalize({
+        "name": "鱼香肉丝",
+        "ingredients": [
+            {"name": "猪肉丝", "amount": 100, "unit": "克"},
+            {"name": "泡发木耳", "amount": 50, "unit": "克"},
+            {"name": "胡萝卜", "amount": 50, "unit": "克"},
+        ],
+        "steps": [
+            {"instruction": "将猪肉丝放入小碗，加料酒、玉米淀粉、盐，抓匀腌制，泡发木耳切丝，胡萝卜切丝，泡椒切碎，姜蒜切碎（可选）"},
+            {"instruction": "下入猪肉丝快速翻炒", "duration_seconds": 30},
+            {"instruction": "放入木耳和胡萝卜翻炒至变软", "duration_seconds": 60},
+        ],
+    })
+    assert "腌制" in recipe["steps"][0]["instruction"] and "木耳" not in recipe["steps"][0]["instruction"]
+    assert "泡发木耳" in recipe["steps"][1]["instruction"]
+    assert all(word in recipe["steps"][2]["instruction"] for word in ("胡萝卜", "泡椒", "姜蒜"))
+    assert recipe["steps"][3]["duration_seconds"] == 120
+    assert "完全变色" in recipe["steps"][3]["instruction"]
+    assert recipe["steps"][4]["duration_seconds"] == 180
+    assert "实际" in recipe["steps"][4]["safety_note"]
+
+
+def test_thanks_can_route_to_kitchen_without_starting_a_new_session() -> None:
+    manager = SkillManager()
+    manager.load_skills()
+    response = manager.run_user_text("谢谢")
+    assert response["selected_skill"] == "kitchen_assistant"
+    assert response["session_active"] is False
+    assert "不客气" in response["speech"]
+
+
+def test_provider_is_offline_and_online_placeholder_falls_back_without_fake_source() -> None:
+    mock = MockRecipeSearchProvider(SKILL_ROOT / "recipes")
+    request = RecipeSearchRequest(requested_dish="番茄鸡蛋面", servings=1, taste_preferences=["少盐"])
+    candidates = mock.search_recipes(request)
+    assert candidates[0].source_name == "Mock Recipe Provider"
+    assert candidates[0].source_url is None
+    online = OnlineRecipeSearchProvider(mock)
+    assert online.mode == "web_search"
+    session = make_session(provider=online)
+    start_known_dish(session)
+    response = session.handle("第一个")
+    assert response["provider_mode"] == "mock"
+
+
+def test_provider_timeout_and_bad_detail_fall_back_to_local_recipe() -> None:
+    mock = MockRecipeSearchProvider(SKILL_ROOT / "recipes")
+
+    class TimeoutProvider:
+        mode = "web_search"
+        fallback = mock
+
+        def search_recipes(self, request: RecipeSearchRequest):
+            raise TimeoutError("simulated offline timeout")
+
+        def get_recipe_detail(self, candidate):
+            return {"name": "坏数据", "ingredients": [], "steps": []}
+
+    session = make_session(provider=TimeoutProvider())
+    response = start_known_dish(session)
+    assert response["provider_mode"] == "mock"
+    assert any("离线" in item.get("display", "") for item in items(response))
+    session.handle("第一个")
+    cooking = session.handle("开始吧")
+    assert cooking["kitchen_state"] == COOKING
+    assert session.current_recipe["name"] == "番茄鸡蛋面"
+
+
+def test_executor_executes_multimodal_search_candidate_and_safety_feedback(capsys: pytest.CaptureFixture[str]) -> None:
+    session = make_session()
+    response = start_known_dish(session)
+    executor = RuntimeExecutor(no_play=True)
+    executor.execute_plan(response)
+    session.handle("第一个")
+    safety = session.handle("开始吧")
+    executor.execute_plan(safety)
+    danger = session.handle("锅里起火了")
+    executor.execute_plan(danger)
+    output = capsys.readouterr().out
+    for marker in ("模拟SDK-灯带", "模拟SDK-表情", "模拟SDK-动作", "模拟SDK-屏幕", "模拟SDK-语音请求"):
+        assert marker in output
+    assert "effect=red" in output
+
+
+def test_mock_sdk_unknown_values_still_degrade_safely(capsys: pytest.CaptureFixture[str]) -> None:
+    executor = RuntimeExecutor(no_play=True)
+    executor.execute_plan({"speech": "测试", "robot_action": "not_real", "led_effect": "not_real", "expression": "not_real"})
+    output = capsys.readouterr().out
+    assert "未知动作" in output and "未知灯带效果" in output and "未知表情" in output

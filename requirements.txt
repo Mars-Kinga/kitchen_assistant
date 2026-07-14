@@ -1,0 +1,8 @@
+numpy>=1.24
+scipy>=1.10
+sounddevice>=0.4.6
+edge-tts>=6.1.0
+pyttsx3>=2.90
+pygame>=2.5.0
+pytest>=7.0
+openai>=1.0

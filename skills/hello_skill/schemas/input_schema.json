@@ -1,0 +1,10 @@
+{
+  "type": "object",
+  "required": ["user_text"],
+  "properties": {
+    "user_text": {
+      "type": "string",
+      "description": "用户原始输入"
+    }
+  }
+}

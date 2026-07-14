@@ -1,0 +1,14 @@
+{
+  "name": "hello_skill",
+  "display_name": "问候 Skill",
+  "version": "1.0.0",
+  "description": "一个最简单的示例 Skill，根据用户问候生成简短回复。",
+  "triggers": ["你好", "您好", "打招呼", "问候", "hello"],
+  "negative_triggers": [],
+  "entrypoint": "scripts/run.py",
+  "input_schema": "schemas/input_schema.json",
+  "output_schema": "schemas/output_schema.json",
+  "required_services": [],
+  "required_capabilities": ["voice"],
+  "enabled": true
+}

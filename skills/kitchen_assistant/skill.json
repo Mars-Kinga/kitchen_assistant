@@ -1,0 +1,15 @@
+{
+  "name": "kitchen_assistant",
+  "display_name": "AI 厨房助手",
+  "version": "1.0.0",
+  "description": "单进程多菜谱搜索、AI 生成（可选）、确认与模拟机器人烹饪指导。",
+  "priority": 10,
+  "triggers": ["厨房助手", "帮我做饭", "教我做饭", "我想做", "我要做", "要做", "我想煮", "我要煮", "帮我找", "菜谱", "做晚饭", "晚饭做什么", "不知道今天吃什么", "不知道晚饭", "做菜", "下厨", "做法", "红烧排骨", "糖醋排骨", "红烧肉", "水煮肉片", "鱼香肉丝", "麻婆豆腐", "宫保鸡丁", "回锅肉", "清蒸鱼", "红烧鱼", "番茄肥牛", "肥牛饭", "番茄炒蛋", "番茄鸡蛋汤", "番茄鸡蛋面", "简单汤面", "青菜鸡蛋面", "蛋炒饭", "炒饭", "炒面", "意面", "土豆丝", "蒜蓉西兰花", "鸡蛋羹", "可乐鸡翅", "咖喱饭", "牛肉面", "煎牛排", "牛排", "排骨", "豆腐", "西兰花", "香菇", "谢谢", "辛苦了"],
+  "negative_triggers": [],
+  "entrypoint": "scripts/run.py",
+  "input_schema": "schemas/input_schema.json",
+  "output_schema": "schemas/output_schema.json",
+  "required_services": [],
+  "required_capabilities": ["voice", "display", "motion", "light", "expression"],
+  "enabled": true
+}
