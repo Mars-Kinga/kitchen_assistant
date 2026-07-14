@@ -1,0 +1,147 @@
+{
+  "recipe_id": "cached_cb704e5aa5dc665e",
+  "name": "快手宫保鸡丁",
+  "source_name": "本地缓存菜谱",
+  "source_url": null,
+  "servings": 1,
+  "ingredients": [
+    {
+      "name": "鸡肉丁",
+      "amount": "150",
+      "unit": "g",
+      "optional": false
+    },
+    {
+      "name": "花生米",
+      "amount": "50",
+      "unit": "g",
+      "optional": false
+    },
+    {
+      "name": "宫保调味酱",
+      "amount": "30",
+      "unit": "g",
+      "optional": false
+    },
+    {
+      "name": "食用油",
+      "amount": "15",
+      "unit": "ml",
+      "optional": false
+    },
+    {
+      "name": "料酒",
+      "amount": "5",
+      "unit": "ml",
+      "optional": true
+    },
+    {
+      "name": "盐",
+      "amount": "1",
+      "unit": "g",
+      "optional": true
+    },
+    {
+      "name": "蒜片",
+      "amount": "3",
+      "unit": "g",
+      "optional": true
+    },
+    {
+      "name": "葱段",
+      "amount": "5",
+      "unit": "g",
+      "optional": true
+    }
+  ],
+  "equipment": [
+    "炒锅",
+    "菜板",
+    "菜刀",
+    "小碗",
+    "锅铲"
+  ],
+  "estimated_time_minutes": 15,
+  "difficulty": "简单",
+  "notes": [
+    "处理生鸡肉后需彻底清洁双手，避免交叉污染",
+    "炒花生米时需小火慢炒，防止油温过高导致油溅烫伤"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "instruction": "将鸡肉丁放入小碗，加入料酒、盐抓匀，腌制5分钟",
+      "display_text": "步骤 1/6：将鸡肉丁放入小碗，加入料酒、盐抓匀，",
+      "duration_seconds": null,
+      "heat_level": null,
+      "robot_action": "nod",
+      "led_effect": "warm_white",
+      "expression": "focused",
+      "safety_note": null
+    },
+    {
+      "step_number": 2,
+      "instruction": "冷锅倒入少量食用油，放入花生米，小火不停翻炒至表皮微裂后盛出备用",
+      "display_text": "步骤 2/6：冷锅倒入少量食用油，放入花生米，小火",
+      "duration_seconds": 60,
+      "heat_level": "小火",
+      "robot_action": "encourage_gesture",
+      "led_effect": "yellow",
+      "expression": "warning",
+      "safety_note": "炒花生米时需持续翻动，避免炒糊"
+    },
+    {
+      "step_number": 3,
+      "instruction": "炒锅烧热，倒入剩余食用油，放入蒜片、葱段炒出香味",
+      "display_text": "步骤 3/6：炒锅烧热，倒入剩余食用油，放入蒜片、",
+      "duration_seconds": null,
+      "heat_level": "中火",
+      "robot_action": "encourage_gesture",
+      "led_effect": "green_dynamic",
+      "expression": "happy",
+      "safety_note": null
+    },
+    {
+      "step_number": 4,
+      "instruction": "倒入腌制好的鸡肉丁，中火快速翻炒至鸡肉丁完全变色",
+      "display_text": "步骤 4/6：倒入腌制好的鸡肉丁，中火快速翻炒至鸡",
+      "duration_seconds": 120,
+      "heat_level": "中火",
+      "robot_action": "encourage_gesture",
+      "led_effect": "yellow",
+      "expression": "warning",
+      "safety_note": "计时只是下限参考，应以肉丝完全变色、中心无粉红为准。"
+    },
+    {
+      "step_number": 5,
+      "instruction": "加入宫保调味酱，快速翻炒使酱汁均匀裹在食材上",
+      "display_text": "步骤 5/6：加入宫保调味酱，快速翻炒使酱汁均匀裹",
+      "duration_seconds": 60,
+      "heat_level": "中火",
+      "robot_action": "encourage_gesture",
+      "led_effect": "green_dynamic",
+      "expression": "happy",
+      "safety_note": null
+    },
+    {
+      "step_number": 6,
+      "instruction": "最后倒入炒好的花生米，翻炒10秒后即可出锅",
+      "display_text": "步骤 6/6：最后倒入炒好的花生米，翻炒10秒后即",
+      "duration_seconds": 10,
+      "heat_level": "中火",
+      "robot_action": "encourage_gesture",
+      "led_effect": "green_dynamic",
+      "expression": "happy",
+      "safety_note": null
+    }
+  ],
+  "summary": "简化版宫保鸡丁，使用现成宫保调味酱，缩短制作时间，适合新手快速完成",
+  "_cache_request": {
+    "requested_dish": "宫保鸡丁",
+    "servings": 1,
+    "taste_preferences": [
+      "正常口味"
+    ],
+    "dietary_restrictions": []
+  }
+}

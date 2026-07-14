@@ -1,0 +1,11 @@
+{
+  "type": "object",
+  "required": ["route", "task_name", "speech"],
+  "properties": {
+    "route": { "type": "string" },
+    "task_name": { "type": "string" },
+    "speech": { "type": "string" },
+    "display": { "type": "string" },
+    "fallback": { "type": "string" }
+  }
+}

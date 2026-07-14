@@ -1,0 +1,502 @@
+[
+  {
+    "recipe_id": "tomato_egg",
+    "name": "番茄炒蛋",
+    "default_servings": 2,
+    "estimated_time_minutes": 15,
+    "ingredients": [
+      {
+        "name": "鸡蛋",
+        "amount": "2 个"
+      },
+      {
+        "name": "番茄",
+        "amount": "2 个"
+      },
+      {
+        "name": "食用油",
+        "amount": "1 汤匙 + 1 茶匙"
+      },
+      {
+        "name": "盐",
+        "amount": "1/4 茶匙"
+      },
+      {
+        "name": "生抽",
+        "amount": "1 茶匙",
+        "optional": true
+      },
+      {
+        "name": "葱花",
+        "amount": "1 汤匙",
+        "optional": true
+      }
+    ],
+    "notes": [
+      "热油和灶具请由使用者自行安全操作。",
+      "少盐口味请在最后调味时少量添加。"
+    ],
+    "steps": [
+      {
+        "step_number": 1,
+        "instruction": "把 2 个鸡蛋打入碗中，加一小撮盐后搅拌到蛋黄蛋清均匀。",
+        "display_text": "步骤 1/7：打鸡蛋并搅拌",
+        "robot_action": "encourage_gesture",
+        "led_effect": "warm_white",
+        "expression": "happy"
+      },
+      {
+        "step_number": 2,
+        "instruction": "把番茄洗净切块，注意刀具安全。",
+        "display_text": "步骤 2/7：切番茄",
+        "robot_action": "show_concern",
+        "led_effect": "yellow",
+        "expression": "alert",
+        "safety_note": "切菜时请注意手指与刀具的距离。"
+      },
+      {
+        "step_number": 3,
+        "instruction": "先开中火预热空锅约 30 秒；锅温热后倒入 1 汤匙油，油在锅里能轻松流动时倒入蛋液。",
+        "display_text": "步骤 3/7：热锅后倒油和蛋液",
+        "robot_action": "nod",
+        "led_effect": "yellow",
+        "expression": "focused",
+        "safety_note": "热油可能飞溅，请保持安全距离。"
+      },
+      {
+        "step_number": 4,
+        "instruction": "把鸡蛋快速炒到刚凝固、仍然嫩滑时盛出备用，不要炒得太老。",
+        "display_text": "步骤 4/7：炒熟鸡蛋并盛出",
+        "robot_action": "encourage_gesture",
+        "led_effect": "green_dynamic",
+        "expression": "happy"
+      },
+      {
+        "step_number": 5,
+        "instruction": "锅中补 1 茶匙油，倒入番茄，中火翻炒 2 到 3 分钟，直到番茄明显出汁。",
+        "display_text": "步骤 5/7：补油后炒番茄出汁",
+        "robot_action": "encourage_gesture",
+        "led_effect": "green_dynamic",
+        "expression": "focused"
+      },
+      {
+        "step_number": 6,
+        "instruction": "倒回鸡蛋，加入 1/4 茶匙盐；喜欢咸香可加 1 茶匙生抽，快速翻匀后尝味。",
+        "display_text": "步骤 6/7：回锅调味翻匀",
+        "robot_action": "nod",
+        "led_effect": "warm_white",
+        "expression": "happy"
+      },
+      {
+        "step_number": 7,
+        "instruction": "关火装盘；喜欢的话撒 1 汤匙葱花。确认关火后再离开灶台。",
+        "display_text": "步骤 7/7：关火装盘",
+        "robot_action": "high_five",
+        "led_effect": "rainbow",
+        "expression": "excited",
+        "safety_note": "确认关火后再离开灶台。"
+      }
+    ],
+    "summary": "经典家常番茄炒蛋，适合新手练习。",
+    "difficulty": "简单",
+    "equipment": [
+      "炒锅"
+    ],
+    "source_name": "本地示例菜谱",
+    "source_url": null
+  },
+  {
+    "recipe_id": "mock_tomato_egg_noodles",
+    "name": "番茄鸡蛋面",
+    "summary": "适合一人食的清爽汤面。",
+    "estimated_time_minutes": 15,
+    "difficulty": "简单",
+    "equipment": [
+      "小锅"
+    ],
+    "ingredients": [
+      {
+        "name": "番茄",
+        "amount": "1 个"
+      },
+      {
+        "name": "鸡蛋",
+        "amount": "1 个"
+      },
+      {
+        "name": "面条",
+        "amount": "1 把"
+      },
+      {
+        "name": "盐",
+        "amount": "适量"
+      }
+    ],
+    "steps": [
+      {
+        "instruction": "锅中加水烧开，放入面条并轻轻搅动。",
+        "heat_level": "大火"
+      },
+      {
+        "instruction": "番茄切块后放入锅中煮出汤味。",
+        "heat_level": "中火"
+      },
+      {
+        "instruction": "打入鸡蛋或倒入蛋液，按口味加盐后关火。",
+        "heat_level": "中小火"
+      }
+    ]
+  },
+  {
+    "recipe_id": "mock_simple_noodle_soup",
+    "name": "简单汤面",
+    "summary": "食材少、十分钟左右完成的热汤面。",
+    "estimated_time_minutes": 10,
+    "difficulty": "简单",
+    "equipment": [
+      "小锅"
+    ],
+    "ingredients": [
+      {
+        "name": "面条",
+        "amount": "1 把"
+      },
+      {
+        "name": "青菜",
+        "amount": "一小把"
+      },
+      {
+        "name": "盐",
+        "amount": "适量"
+      }
+    ],
+    "steps": [
+      {
+        "instruction": "小锅加水烧开，放入面条。",
+        "heat_level": "大火"
+      },
+      {
+        "instruction": "面条变软后轻轻搅动，加入青菜。",
+        "heat_level": "中火"
+      },
+      {
+        "instruction": "煮熟后按口味加盐，关火盛出。",
+        "heat_level": "中小火"
+      }
+    ]
+  },
+  {
+    "recipe_id": "mock_greens_egg_noodles",
+    "name": "青菜鸡蛋面",
+    "summary": "带鸡蛋和青菜的基础营养面。",
+    "estimated_time_minutes": 12,
+    "difficulty": "简单",
+    "equipment": [
+      "小锅"
+    ],
+    "ingredients": [
+      {
+        "name": "面条",
+        "amount": "1 把"
+      },
+      {
+        "name": "鸡蛋",
+        "amount": "1 个"
+      },
+      {
+        "name": "青菜",
+        "amount": "一小把"
+      }
+    ],
+    "steps": [
+      {
+        "instruction": "锅中水烧开后放入面条。",
+        "heat_level": "大火"
+      },
+      {
+        "instruction": "面条煮软后放入鸡蛋和青菜。",
+        "heat_level": "中火"
+      },
+      {
+        "instruction": "食材煮熟后调味，关火装碗。",
+        "heat_level": "中小火"
+      }
+    ]
+  },
+  {
+    "recipe_id": "mock_egg_fried_rice",
+    "name": "蛋炒饭",
+    "summary": "利用隔夜米饭的快手炒饭。",
+    "estimated_time_minutes": 12,
+    "difficulty": "简单",
+    "equipment": [
+      "炒锅"
+    ],
+    "ingredients": [
+      {
+        "name": "米饭",
+        "amount": "1 碗"
+      },
+      {
+        "name": "鸡蛋",
+        "amount": "1 个"
+      },
+      {
+        "name": "葱",
+        "amount": "可选"
+      }
+    ],
+    "steps": [
+      {
+        "instruction": "鸡蛋打散，热锅后倒入蛋液炒散。",
+        "heat_level": "中火"
+      },
+      {
+        "instruction": "加入米饭，用铲子压散并翻炒均匀。",
+        "heat_level": "中火"
+      },
+      {
+        "instruction": "按口味调味，可选加入葱后关火。",
+        "heat_level": "中小火"
+      }
+    ]
+  },
+  {
+    "recipe_id": "mock_shredded_potato",
+    "name": "土豆丝",
+    "summary": "适合新手练习切配和快炒的家常菜。",
+    "estimated_time_minutes": 15,
+    "difficulty": "简单",
+    "equipment": [
+      "炒锅"
+    ],
+    "ingredients": [
+      {
+        "name": "土豆",
+        "amount": "2 个"
+      },
+      {
+        "name": "盐",
+        "amount": "适量"
+      },
+      {
+        "name": "辣椒",
+        "amount": "可选"
+      }
+    ],
+    "steps": [
+      {
+        "instruction": "土豆洗净切丝，清水冲去表面淀粉。",
+        "heat_level": null
+      },
+      {
+        "instruction": "热锅倒油，放入土豆丝快速翻炒。",
+        "heat_level": "大火"
+      },
+      {
+        "instruction": "土豆断生后按口味调味，关火装盘。",
+        "heat_level": "中火"
+      }
+    ]
+  },
+  {
+    "recipe_id": "mock_cola_wings",
+    "name": "可乐鸡翅",
+    "summary": "咸甜口味的鸡翅焖煮做法。",
+    "estimated_time_minutes": 30,
+    "difficulty": "普通",
+    "equipment": [
+      "炒锅"
+    ],
+    "ingredients": [
+      {
+        "name": "鸡翅",
+        "amount": "6 个"
+      },
+      {
+        "name": "可乐",
+        "amount": "1 小瓶"
+      },
+      {
+        "name": "葱",
+        "amount": "可选"
+      }
+    ],
+    "steps": [
+      {
+        "instruction": "鸡翅处理干净后擦干表面水分。",
+        "heat_level": null
+      },
+      {
+        "instruction": "热锅少油，将鸡翅两面煎到微黄。",
+        "heat_level": "中火"
+      },
+      {
+        "instruction": "倒入可乐焖煮至熟透收汁，确认鸡翅全熟后关火。",
+        "heat_level": "中小火",
+        "safety_note": "生禽肉必须彻底熟透。"
+      }
+    ]
+  },
+  {
+    "recipe_id": "mock_curry_rice",
+    "name": "咖喱饭",
+    "summary": "一锅完成的温和咖喱饭。",
+    "estimated_time_minutes": 25,
+    "difficulty": "普通",
+    "equipment": [
+      "炒锅"
+    ],
+    "ingredients": [
+      {
+        "name": "咖喱",
+        "amount": "2 块"
+      },
+      {
+        "name": "土豆",
+        "amount": "1 个"
+      },
+      {
+        "name": "米饭",
+        "amount": "1 碗"
+      }
+    ],
+    "steps": [
+      {
+        "instruction": "土豆切块，锅中少油翻炒几分钟。",
+        "heat_level": "中火"
+      },
+      {
+        "instruction": "加水没过食材，煮到土豆变软。",
+        "heat_level": "中小火"
+      },
+      {
+        "instruction": "关小火加入咖喱块搅拌融化，浇在米饭上。",
+        "heat_level": "小火"
+      }
+    ]
+  },
+  {
+    "recipe_id": "mock_beef_noodles",
+    "name": "牛肉面",
+    "summary": "有牛肉时可做的简化汤面。",
+    "estimated_time_minutes": 25,
+    "difficulty": "普通",
+    "equipment": [
+      "小锅"
+    ],
+    "ingredients": [
+      {
+        "name": "牛肉",
+        "amount": "150 克"
+      },
+      {
+        "name": "面条",
+        "amount": "1 把"
+      },
+      {
+        "name": "青菜",
+        "amount": "一小把"
+      }
+    ],
+    "steps": [
+      {
+        "instruction": "牛肉切薄片，加水煮至熟透并撇去浮沫。",
+        "heat_level": "中火",
+        "safety_note": "牛肉应煮熟后食用。"
+      },
+      {
+        "instruction": "放入面条煮软，加入青菜。",
+        "heat_level": "中火"
+      },
+      {
+        "instruction": "按口味调味后关火盛出。",
+        "heat_level": "中小火"
+      }
+    ]
+  },
+  {
+    "recipe_id": "mock_red_braised_ribs",
+    "name": "红烧排骨",
+    "summary": "酱香软烂的家常红烧排骨，适合两人份慢炖。",
+    "estimated_time_minutes": 55,
+    "difficulty": "普通",
+    "equipment": [
+      "炒锅"
+    ],
+    "ingredients": [
+      {
+        "name": "排骨",
+        "amount": "500 克"
+      },
+      {
+        "name": "姜",
+        "amount": "3 片"
+      },
+      {
+        "name": "葱",
+        "amount": "1 根"
+      },
+      {
+        "name": "冰糖",
+        "amount": "10 克"
+      },
+      {
+        "name": "生抽",
+        "amount": "1 汤匙"
+      },
+      {
+        "name": "老抽",
+        "amount": "1 茶匙"
+      },
+      {
+        "name": "料酒",
+        "amount": "1 汤匙"
+      },
+      {
+        "name": "八角",
+        "amount": "1 个",
+        "optional": true
+      },
+      {
+        "name": "食用油",
+        "amount": "1 汤匙"
+      },
+      {
+        "name": "盐",
+        "amount": "1/4 茶匙"
+      }
+    ],
+    "steps": [
+      {
+        "instruction": "排骨洗净后冷水下锅，水开后焯约2分钟，捞出并冲去浮沫。",
+        "duration_seconds": 120,
+        "heat_level": "大火",
+        "safety_note": "生肉和熟食使用的砧板、刀具要分开并及时洗手。"
+      },
+      {
+        "instruction": "炒锅中小火倒入食用油和冰糖，炒到冰糖融化、颜色变成浅棕色。",
+        "duration_seconds": null,
+        "heat_level": "中小火",
+        "safety_note": "糖色容易飞溅和变苦，颜色变深就立刻进行下一步。"
+      },
+      {
+        "instruction": "倒入排骨翻炒上色，加入姜、葱、料酒、生抽、老抽和八角炒匀。",
+        "duration_seconds": null,
+        "heat_level": "中火"
+      },
+      {
+        "instruction": "加入开水至大约没过排骨一半，盖盖转小火焖约35分钟。",
+        "duration_seconds": 2100,
+        "heat_level": "小火",
+        "safety_note": "锅盖留一点缝并留意汤汁，避免干锅。"
+      },
+      {
+        "instruction": "开盖尝味后加盐，转中火收汁；确认排骨中心熟透、没有血水后关火装盘。",
+        "duration_seconds": 300,
+        "heat_level": "中火",
+        "safety_note": "猪肉必须彻底熟透；若中心仍有血水，补少量热水后继续焖煮。"
+      }
+    ]
+  }
+]

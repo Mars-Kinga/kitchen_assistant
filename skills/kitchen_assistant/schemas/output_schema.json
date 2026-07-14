@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "required": ["route", "task_name"],
+  "properties": {
+    "route": {"const": "skill_result"},
+    "task_name": {"type": "string"},
+    "session_active": {"type": "boolean"},
+    "kitchen_state": {"type": "string"},
+    "speech": {"type": "string"},
+    "question": {"type": "string"},
+    "display": {"type": "string"},
+    "robot_action": {"type": "string"},
+    "led_effect": {"type": "string"},
+    "expression": {"type": "string"},
+    "steps": {"type": "array"},
+    "recipe_candidates": {"type": "array"},
+    "selected_candidate": {"type": ["object", "null"]},
+    "current_recipe": {"type": ["object", "null"]},
+    "current_step": {"type": "integer"},
+    "provider_mode": {"type": "string"},
+    "source_name": {"type": "string"},
+    "source_url": {"type": ["string", "null"]},
+    "safety_level": {"type": "string"}
+  },
+  "anyOf": [
+    {"required": ["speech", "display", "robot_action", "led_effect", "expression"]},
+    {"required": ["question", "display", "robot_action", "led_effect", "expression"]},
+    {"required": ["steps"]}
+  ]
+}
