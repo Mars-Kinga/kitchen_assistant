@@ -78,7 +78,7 @@ def three_candidate_payload() -> str:
 def recipe_payload() -> str:
     return json.dumps({
         "title": "AI 番茄鸡蛋面", "servings": 1, "estimated_minutes": 15, "difficulty": "简单",
-        "ingredients": [{"name": "面条", "amount": 100, "unit": "克", "optional": False}, {"name": "番茄", "amount": 1, "unit": "个", "optional": False}],
+        "ingredients": [{"name": "面条", "amount": 100, "unit": "克", "optional": False}, {"name": "番茄", "amount": 1, "unit": "个", "optional": False}, {"name": "鸡蛋", "amount": 1, "unit": "个", "optional": False}],
         "equipment": ["小锅"], "safety_notes": ["注意沸水和蒸汽"],
         "steps": [{"step_number": 7, "instruction": "锅中加水烧开后放入面条。", "duration_seconds": None, "heat_level": "大火", "safety_note": "注意沸水。"}, {"step_number": 9, "instruction": "加入番茄煮软后关火。", "duration_seconds": 180, "heat_level": "中火", "safety_note": None}],
         "source_url": "https://invented.example/not-allowed",
@@ -152,6 +152,17 @@ def test_prompts_compact_payload_and_only_add_relevant_dish_rules() -> None:
     assert sum(len(message["content"]) for message in recipe_prompt) < 1400
 
 
+def test_inventory_recommendation_prompts_require_every_stated_ingredient() -> None:
+    request = {"available_ingredients": ["牛肉", "蘑菇"], "servings": 1}
+    candidate_prompt = candidate_messages(request)[0]["content"]
+    recipe_prompt = recipe_messages({"title": "蘑菇牛肉"}, request)[0]["content"]
+
+    assert "牛肉、蘑菇" in candidate_prompt
+    assert "不能忽略其中任何一种" in candidate_prompt
+    assert "牛肉、蘑菇" in recipe_prompt
+    assert "不可遗漏" in recipe_prompt
+
+
 def test_steak_prompt_requires_complete_ingredients_and_avoids_generic_two_minute_sides() -> None:
     system_prompt = recipe_messages({"title": "煎牛排"}, {"servings": 1, "steak_thickness_cm": 2})[0]["content"]
     for ingredient in ("黑胡椒", "黄油", "橄榄油"):
@@ -200,13 +211,60 @@ def test_generated_recipe_is_persisted_and_reused_without_a_second_llm_call(
 
     session = KitchenSession(recipe_provider=reloaded_provider)
     session.handle("我想做番茄鸡蛋面")
-    session.handle("一个人")
+    session.handle("两个人")
     local_candidates = session.handle("少盐")
     assert local_candidates["provider_mode"] == "local_cache"
     assert "本地菜谱缓存" in local_candidates["steps"][0]["display"]
     session.handle("第一个")
     assert session.handle("开始")["kitchen_state"] == COOKING
+    assert session.current_recipe["ingredients"][0]["amount"] == "200"
     assert second_client.completions.calls == []
+
+
+def test_generated_pantry_recommendations_are_reused_by_ingredient_keywords(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path,
+) -> None:
+    generated_dir = tmp_path / "generated"
+    request = RecipeSearchRequest(
+        available_ingredients=["番茄", "鸡蛋", "面条"], servings=1, taste_preferences=["少盐"],
+    )
+    first_llm, _ = llm_with(monkeypatch, [candidate_payload(), recipe_payload()])
+    first_provider = DoubaoAIRecipeProvider(
+        first_llm, MockRecipeSearchProvider(SKILL_ROOT / "recipes", generated_dir=generated_dir),
+    )
+    assert first_provider.search_recipes(request)
+
+    second_llm, second_client = llm_with(monkeypatch, [])
+    second_provider = DoubaoAIRecipeProvider(
+        second_llm, MockRecipeSearchProvider(SKILL_ROOT / "recipes", generated_dir=generated_dir),
+    )
+    cached = second_provider.search_recipes(request)
+
+    assert cached and second_provider.mode == "local_cache"
+    assert all({"番茄", "鸡蛋", "面条"} <= set(candidate.main_ingredients) for candidate in cached)
+    assert second_client.completions.calls == []
+
+
+def test_outdated_generated_caches_are_removed_on_provider_startup(tmp_path: Path) -> None:
+    generated_dir = tmp_path / "generated"
+    generated_dir.mkdir()
+    legacy = generated_dir / "cached_00c8598b4fde391d.json"
+    legacy.write_text(json.dumps({
+        "recipe_id": "cached_00c8598b4fde391d",
+        "name": "旧糖醋排骨",
+        "ingredients": [{"name": "排骨", "amount": "200克"}],
+        "steps": [{"instruction": "洗净"}],
+    }, ensure_ascii=False), encoding="utf-8")
+    bundle = generated_dir / "cached_糖醋排骨.json"
+    bundle.write_text(json.dumps({"cache_version": 2, "recipes": []}, ensure_ascii=False), encoding="utf-8")
+    MockRecipeSearchProvider(SKILL_ROOT / "recipes", generated_dir=generated_dir)
+    assert not legacy.exists()
+    assert not bundle.exists()
+
+    current_bundle = generated_dir / "cached_新糖醋排骨.json"
+    current_bundle.write_text(json.dumps({"cache_version": MockRecipeSearchProvider.CACHE_VERSION, "recipes": []}, ensure_ascii=False), encoding="utf-8")
+    MockRecipeSearchProvider(SKILL_ROOT / "recipes", generated_dir=generated_dir)
+    assert current_bundle.exists()
 
 
 def test_all_ai_candidates_are_warmed_and_persisted(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
@@ -220,7 +278,11 @@ def test_all_ai_candidates_are_warmed_and_persisted(monkeypatch: pytest.MonkeyPa
 
     assert len(candidates) == 3
     assert len(fake.completions.calls) == 4  # one candidate call + three detail calls
-    assert len(list(generated_dir.glob("cached_*.json"))) == 3
+    cache_files = list(generated_dir.glob("cached_*.json"))
+    assert len(cache_files) == 1
+    bundle = json.loads(cache_files[0].read_text(encoding="utf-8"))
+    assert len(bundle["recipes"]) == 3
+    assert cache_files[0].name.startswith("cached_番茄鸡蛋面")
     before = len(fake.completions.calls)
     assert provider.get_recipe_detail(candidates[2])["name"] == "AI 番茄鸡蛋面"
     assert len(fake.completions.calls) == before

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 import threading
 import time
@@ -18,6 +19,18 @@ if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8")
 if hasattr(sys.stderr, "reconfigure"):
     sys.stderr.reconfigure(encoding="utf-8")
+
+
+_EXIT_PHRASES = frozenset({
+    "quit", "exit", "退出", "再见", "拜拜", "拜了", "bye", "goodbye",
+    "结束吧", "结束程序", "关闭程序", "不聊了", "下次见", "我先走了",
+})
+
+
+def is_exit_command(text: str) -> bool:
+    """Recognize common typed and ASR-transcribed ways to end the runtime."""
+    normalized = re.sub(r"[\s，。！？、,.!?]", "", str(text or "").casefold())
+    return normalized in _EXIT_PHRASES or normalized.startswith("退出")
 
 
 def create_runtime(args: argparse.Namespace) -> tuple[SkillManager, RuntimeExecutor, RuntimeLogger]:
@@ -45,7 +58,12 @@ def handle_input(
     if not user_text:
         return None
 
-    result = manager.run_user_text(user_text)
+    def render_progress(progress: dict) -> None:
+        logger.log("skill_progress", progress)
+        print("\n[处理中]")
+        executor.execute_plan(progress)
+
+    result = manager.run_user_text(user_text, progress_callback=render_progress)
     logger.log("user_input", {"text": user_text})
     logger.log("system_result", result)
 
@@ -73,7 +91,7 @@ def voice_loop_once(
     executor: RuntimeExecutor,
     logger: RuntimeLogger,
     args: argparse.Namespace,
-) -> bool:
+) -> bool | None:
     input_wav = out_dir / f"user_{idx:03d}.wav"
     try:
         record_wav_vad(
@@ -105,12 +123,16 @@ def voice_loop_once(
         print("没有识别到有效文本，本轮跳过。")
         return False
 
+    if is_exit_command(user_text):
+        print("已退出。")
+        return None
+
     handle_input(user_text, manager, executor, logger)
     return True
 
 
 def run_text_loop(manager: SkillManager, executor: RuntimeExecutor, logger: RuntimeLogger) -> None:
-    print("\n进入文字交互模式。输入 quit 退出。")
+    print("\n进入文字交互模式。输入 quit、退出或再见结束。")
     stop_notifier = threading.Event()
 
     def notify_due_timers() -> None:
@@ -128,7 +150,7 @@ def run_text_loop(manager: SkillManager, executor: RuntimeExecutor, logger: Runt
     try:
         while True:
             user_text = input("\n请输入用户文字：").strip()
-            if user_text.lower() in {"quit", "exit", "退出"}:
+            if is_exit_command(user_text):
                 print("已退出。")
                 break
             handle_input(user_text, manager, executor, logger)
@@ -165,7 +187,10 @@ def run_voice_loop(
             else:
                 print(f"\n第 {idx} 轮：等待你说话...")
 
-            if voice_loop_once(idx, out_dir, manager, executor, logger, args):
+            outcome = voice_loop_once(idx, out_dir, manager, executor, logger, args)
+            if outcome is None:
+                break
+            if outcome:
                 idx += 1
     except KeyboardInterrupt:
         print("\n收到 Ctrl+C，正在退出。")
@@ -203,6 +228,9 @@ def main() -> None:
 
     one_shot = " ".join(args.user_text).strip()
     if one_shot:
+        if is_exit_command(one_shot):
+            print("已退出。")
+            return
         handle_input(one_shot, manager, executor, logger)
         return
 

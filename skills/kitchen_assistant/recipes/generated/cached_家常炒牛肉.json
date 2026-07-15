@@ -1,0 +1,140 @@
+{
+  "cache_version": 5,
+  "recipes": [
+    {
+      "recipe_id": "cached_家常炒牛肉_0c3533f6e7ba",
+      "name": "家常炒牛肉",
+      "source_name": "本地缓存菜谱",
+      "source_url": null,
+      "servings": 1,
+      "ingredients": [
+        {
+          "name": "牛肉",
+          "amount": "150",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "盐",
+          "amount": "2",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "生抽",
+          "amount": "15",
+          "unit": "毫升",
+          "optional": false
+        },
+        {
+          "name": "料酒",
+          "amount": "10",
+          "unit": "毫升",
+          "optional": false
+        },
+        {
+          "name": "食用油",
+          "amount": "20",
+          "unit": "毫升",
+          "optional": false
+        }
+      ],
+      "equipment": [
+        "炒锅",
+        "菜刀",
+        "菜板",
+        "小碗",
+        "筷子"
+      ],
+      "estimated_time_minutes": 15,
+      "difficulty": "简单",
+      "notes": [
+        "处理生牛肉后需彻底洗手，避免交叉污染；炒牛肉时火力保持中火，防止炒焦；确保牛肉完全炒熟，无粉色生肉部分"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "将150克牛肉切成0.3厘米厚的薄片，放入干净碗中，加入10毫升料酒、2克盐，用筷子抓匀，腌制10分钟",
+          "display_text": "步骤 1/4：将150克牛肉切成0.3厘米厚的薄片，放入干净碗中，加入10毫升料酒、2克盐，用筷子抓匀，腌制10分钟",
+          "duration_seconds": 600,
+          "heat_level": null,
+          "robot_action": "show_concern",
+          "led_effect": "warm_white",
+          "expression": "focused",
+          "safety_note": null,
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 2,
+          "instruction": "取干净小碗，倒入15毫升生抽，放置一旁备用",
+          "display_text": "步骤 2/4：取干净小碗，倒入15毫升生抽，放置一旁备用",
+          "duration_seconds": null,
+          "heat_level": null,
+          "robot_action": "nod",
+          "led_effect": "warm_white",
+          "expression": "focused",
+          "safety_note": null,
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 3,
+          "instruction": "将炒锅置于炉灶上，开中火加热，倒入20毫升食用油，油热后放入腌制好的牛肉片，快速滑炒至牛肉全部变色（无粉色）",
+          "display_text": "步骤 3/4：将炒锅置于炉灶上，开中火加热，倒入20毫升食用油，油热后放入腌制好的牛肉片，快速滑炒至牛肉全部变色（无粉色）",
+          "duration_seconds": 120,
+          "heat_level": "中火",
+          "robot_action": "encourage_gesture",
+          "led_effect": "yellow",
+          "expression": "warning",
+          "safety_note": null,
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 4,
+          "instruction": "向炒锅中倒入准备好的15毫升生抽，快速翻炒10秒至均匀，关火，将炒好的牛肉盛入盘中",
+          "display_text": "步骤 4/4：向炒锅中倒入准备好的15毫升生抽，快速翻炒10秒至均匀，关火，将炒好的牛肉盛入盘中",
+          "duration_seconds": 10,
+          "heat_level": null,
+          "robot_action": "encourage_gesture",
+          "led_effect": "rainbow",
+          "expression": "excited",
+          "safety_note": null,
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        }
+      ],
+      "summary": "适合1人份的家常炒牛肉，操作简单，口味正常",
+      "_cache_request": {
+        "cache_version": 5,
+        "requested_dish": "家常炒牛肉",
+        "servings": 1,
+        "taste_preferences": [
+          "正常口味"
+        ],
+        "dietary_restrictions": []
+      }
+    }
+  ]
+}

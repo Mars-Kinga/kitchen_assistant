@@ -1,0 +1,193 @@
+{
+  "cache_version": 5,
+  "recipes": [
+    {
+      "recipe_id": "cached_香煎蘑菇牛肉片_fa4b12af3f96",
+      "name": "香煎蘑菇牛肉片",
+      "source_name": "本地缓存菜谱",
+      "source_url": null,
+      "servings": 1,
+      "ingredients": [
+        {
+          "name": "牛肉",
+          "amount": "100",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "蘑菇",
+          "amount": "150",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "盐",
+          "amount": "2",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "料酒",
+          "amount": "10",
+          "unit": "毫升",
+          "optional": false
+        },
+        {
+          "name": "食用油",
+          "amount": "15",
+          "unit": "毫升",
+          "optional": false
+        }
+      ],
+      "equipment": [
+        "平底锅",
+        "菜刀",
+        "菜板",
+        "小碗"
+      ],
+      "estimated_time_minutes": 10,
+      "difficulty": "简单",
+      "notes": [
+        "处理生牛肉后需彻底清洁双手，避免交叉污染；煎制过程中注意防止食用油溅出烫伤；蘑菇需煎至熟透后食用"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "将100克牛肉切成薄片，150克蘑菇洗净后切为厚片",
+          "display_text": "步骤 1/7：将100克牛肉切成薄片，150克蘑菇洗净后切为厚片",
+          "duration_seconds": null,
+          "heat_level": null,
+          "robot_action": "show_concern",
+          "led_effect": "blue_dynamic",
+          "expression": "focused",
+          "safety_note": null,
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 2,
+          "instruction": "把切好的牛肉片放入小碗，加入5毫升料酒、1克盐，抓匀后腌制10分钟",
+          "display_text": "步骤 2/7：把切好的牛肉片放入小碗，加入5毫升料酒、1克盐，抓匀后腌制10分钟",
+          "duration_seconds": 600,
+          "heat_level": null,
+          "robot_action": "show_concern",
+          "led_effect": "warm_white",
+          "expression": "focused",
+          "safety_note": "腌制时可覆盖保鲜膜，避免牛肉表面风干",
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 3,
+          "instruction": "平底锅倒入10毫升食用油，开中小火，放入腌制好的牛肉片煎至完全变色",
+          "display_text": "步骤 3/7：平底锅倒入10毫升食用油，开中小火，放入腌制好的牛肉片煎至完全变色",
+          "duration_seconds": 60,
+          "heat_level": "中小火",
+          "robot_action": "nod",
+          "led_effect": "yellow",
+          "expression": "warning",
+          "safety_note": "煎牛肉时不要频繁翻动，防止肉片破碎",
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 4,
+          "instruction": "将煎好的牛肉片盛出备用，往同一平底锅补加5毫升食用油，放入切好的蘑菇片",
+          "display_text": "步骤 4/7：将煎好的牛肉片盛出备用，往同一平底锅补加5毫升食用油，放入切好的蘑菇片",
+          "duration_seconds": null,
+          "heat_level": null,
+          "robot_action": "show_concern",
+          "led_effect": "blue_dynamic",
+          "expression": "focused",
+          "safety_note": null,
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 5,
+          "instruction": "开中火煎蘑菇片，至两面金黄、水分收干",
+          "display_text": "步骤 5/7：开中火煎蘑菇片，至两面金黄、水分收干",
+          "duration_seconds": 120,
+          "heat_level": "中火",
+          "robot_action": "nod",
+          "led_effect": "yellow",
+          "expression": "warning",
+          "safety_note": "蘑菇煎至出水后转小火收干，避免糊底",
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 6,
+          "instruction": "倒入煎好的牛肉片，加入剩余1克盐、5毫升料酒，快速翻炒均匀后关火",
+          "display_text": "步骤 6/7：倒入煎好的牛肉片，加入剩余1克盐、5毫升料酒，快速翻炒均匀后关火",
+          "duration_seconds": 30,
+          "heat_level": null,
+          "robot_action": "encourage_gesture",
+          "led_effect": "rainbow",
+          "expression": "excited",
+          "safety_note": "翻炒动作轻柔，保持牛肉鲜嫩口感",
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 7,
+          "instruction": "将做好的香煎蘑菇牛肉片装盘即可",
+          "display_text": "步骤 7/7：将做好的香煎蘑菇牛肉片装盘即可",
+          "duration_seconds": null,
+          "heat_level": null,
+          "robot_action": "nod",
+          "led_effect": "rainbow",
+          "expression": "excited",
+          "safety_note": null,
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        }
+      ],
+      "summary": "香煎做法保留食材本味，牛肉鲜嫩多汁，蘑菇焦香，操作简单",
+      "_cache_request": {
+        "cache_version": 5,
+        "requested_dish": "香煎蘑菇牛肉片",
+        "servings": 1,
+        "taste_preferences": [
+          "正常口味"
+        ],
+        "dietary_restrictions": []
+      }
+    }
+  ]
+}

@@ -3,7 +3,7 @@ from __future__ import annotations
 import importlib.util
 import json
 from pathlib import Path
-from typing import Any
+from typing import Any, Callable
 
 from .agent import SkillAgent
 
@@ -37,7 +37,11 @@ class SkillManager:
             self.registry.append(item)
         return self.registry
 
-    def run_user_text(self, user_text: str) -> dict[str, Any]:
+    def run_user_text(
+        self,
+        user_text: str,
+        progress_callback: Callable[[dict[str, Any]], None] | None = None,
+    ) -> dict[str, Any]:
         if not self.registry:
             self.load_skills()
 
@@ -63,7 +67,7 @@ class SkillManager:
             }
 
         arguments = {"user_text": user_text}
-        result = self.call_skill(skill, arguments)
+        result = self.call_skill(skill, arguments, progress_callback=progress_callback)
         result["selected_skill"] = skill["name"]
         result["_route"] = route_result
         result["_arguments"] = arguments
@@ -101,7 +105,13 @@ class SkillManager:
             self.active_skill_name = None
         return result
 
-    def call_skill(self, skill: dict[str, Any], arguments: dict[str, Any]) -> dict[str, Any]:
+    def call_skill(
+        self,
+        skill: dict[str, Any],
+        arguments: dict[str, Any],
+        *,
+        progress_callback: Callable[[dict[str, Any]], None] | None = None,
+    ) -> dict[str, Any]:
         entrypoint = Path(skill["_entrypoint_path"])
         module = self._modules.get(skill["name"])
         if module is None:
@@ -114,4 +124,13 @@ class SkillManager:
         if not hasattr(module, "run"):
             raise RuntimeError(f"Skill 入口缺少 run(arguments) 函数：{entrypoint}")
 
-        return module.run(arguments)
+        set_progress_callback = getattr(module, "set_progress_callback", None)
+        if progress_callback is None or not callable(set_progress_callback):
+            return module.run(arguments)
+        set_progress_callback(progress_callback)
+        try:
+            return module.run(arguments)
+        finally:
+            # Callbacks belong to one host turn only.  Keeping one around
+            # would make a later timer event write into a stale executor.
+            set_progress_callback(None)

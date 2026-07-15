@@ -1,0 +1,455 @@
+{
+  "cache_version": 5,
+  "recipes": [
+    {
+      "recipe_id": "cached_番茄炒蛋_少油版_64de9ce6a185",
+      "name": "番茄炒蛋（少油版）",
+      "source_name": "本地缓存菜谱",
+      "source_url": null,
+      "servings": 2,
+      "ingredients": [
+        {
+          "name": "番茄",
+          "amount": "2",
+          "unit": "个",
+          "optional": false
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "3",
+          "unit": "个",
+          "optional": false
+        },
+        {
+          "name": "盐",
+          "amount": "2",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "糖",
+          "amount": "5",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "食用油",
+          "amount": "10",
+          "unit": "毫升",
+          "optional": false
+        }
+      ],
+      "equipment": [
+        "炒锅",
+        "菜刀",
+        "菜板",
+        "小碗",
+        "筷子",
+        "锅铲"
+      ],
+      "estimated_time_minutes": 18,
+      "difficulty": "简单",
+      "notes": [
+        "使用菜刀时注意安全，避免割伤手指；烹饪时注意油温，防止热油溅出烫伤；鸡蛋需完全熟透后食用"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "将2个番茄洗净，顶部划十字后放入沸水中烫10秒去皮，切成1厘米见方的小块，3个鸡蛋打入小碗，加入1克盐用筷子搅散",
+          "display_text": "步骤 1/4：将2个番茄洗净，顶部划十字后放入沸水中烫10秒去皮，切成1厘米见方的小块，3个鸡蛋打入小碗，加入1克盐用筷子搅散",
+          "duration_seconds": null,
+          "heat_level": null,
+          "robot_action": "show_concern",
+          "led_effect": "yellow",
+          "expression": "warning",
+          "safety_note": null,
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 2,
+          "instruction": "锅中倒入10毫升食用油，开中火加热至油微热，倒入打散的鸡蛋液，待蛋液底部凝固后用锅铲划成小块，盛出备用",
+          "display_text": "步骤 2/4：锅中倒入10毫升食用油，开中火加热至油微热，倒入打散的鸡蛋液，待蛋液底部凝固后用锅铲划成小块，盛出备用",
+          "duration_seconds": 30,
+          "heat_level": "中火",
+          "robot_action": "encourage_gesture",
+          "led_effect": "yellow",
+          "expression": "warning",
+          "safety_note": "注意油温不宜过高，防止油溅出烫伤",
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 3,
+          "instruction": "锅中无需补油（利用炒鸡蛋的余油），放入切好的番茄块，开中火翻炒至番茄出沙，加入剩余1克盐和5克糖调味，翻炒均匀",
+          "display_text": "步骤 3/4：锅中无需补油（利用炒鸡蛋的余油），放入切好的番茄块，开中火翻炒至番茄出沙，加入剩余1克盐和5克糖调味，翻炒均匀",
+          "duration_seconds": 60,
+          "heat_level": "中火",
+          "robot_action": "show_concern",
+          "led_effect": "yellow",
+          "expression": "warning",
+          "safety_note": null,
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 4,
+          "instruction": "倒入炒好的鸡蛋块，与番茄翻炒均匀，待鸡蛋裹上番茄汁后即可出锅",
+          "display_text": "步骤 4/4：倒入炒好的鸡蛋块，与番茄翻炒均匀，待鸡蛋裹上番茄汁后即可出锅",
+          "duration_seconds": 20,
+          "heat_level": "中火",
+          "robot_action": "encourage_gesture",
+          "led_effect": "green_dynamic",
+          "expression": "happy",
+          "safety_note": null,
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        }
+      ],
+      "summary": "少油健康版番茄炒蛋，保留酸甜风味，减少油脂摄入，2人份",
+      "_cache_request": {
+        "cache_version": 5,
+        "requested_dish": "番茄炒蛋",
+        "servings": 2,
+        "taste_preferences": [
+          "正常口味"
+        ],
+        "dietary_restrictions": []
+      }
+    },
+    {
+      "recipe_id": "cached_番茄炒蛋_c7c41b0ffc2c",
+      "name": "番茄炒蛋",
+      "source_name": "本地缓存菜谱",
+      "source_url": null,
+      "servings": 2,
+      "ingredients": [
+        {
+          "name": "番茄",
+          "amount": "2",
+          "unit": "个",
+          "optional": false
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "3",
+          "unit": "个",
+          "optional": false
+        },
+        {
+          "name": "盐",
+          "amount": "2",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "糖",
+          "amount": "10",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "食用油",
+          "amount": "20",
+          "unit": "毫升",
+          "optional": false
+        }
+      ],
+      "equipment": [
+        "炒锅",
+        "菜刀",
+        "菜板",
+        "小碗",
+        "炒勺"
+      ],
+      "estimated_time_minutes": 15,
+      "difficulty": "简单",
+      "notes": [
+        "热油时避免水滴溅入锅中，防止烫伤；切菜时手指远离刀刃；鸡蛋需完全炒熟后食用"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "将2个番茄洗净，放在菜板上切成1厘米见方的小块，放入碗中备用",
+          "display_text": "步骤 1/5：将2个番茄洗净，放在菜板上切成1厘米见方的小块，放入碗中备用",
+          "duration_seconds": null,
+          "heat_level": null,
+          "robot_action": "show_concern",
+          "led_effect": "blue_dynamic",
+          "expression": "focused",
+          "safety_note": null,
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 2,
+          "instruction": "将3个鸡蛋打入小碗，加入1克盐，用筷子充分打散，静置腌制30秒",
+          "display_text": "步骤 2/5：将3个鸡蛋打入小碗，加入1克盐，用筷子充分打散，静置腌制30秒",
+          "duration_seconds": 30,
+          "heat_level": null,
+          "robot_action": "encourage_gesture",
+          "led_effect": "green_dynamic",
+          "expression": "happy",
+          "safety_note": null,
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 3,
+          "instruction": "将炒锅置于火上，倒入20毫升食用油，开中火加热，油热后倒入打散的鸡蛋液，待蛋液凝固成块，用炒勺划成小块后盛出备用",
+          "display_text": "步骤 3/5：将炒锅置于火上，倒入20毫升食用油，开中火加热，油热后倒入打散的鸡蛋液，待蛋液凝固成块，用炒勺划成小块后盛出备用",
+          "duration_seconds": 60,
+          "heat_level": "中火",
+          "robot_action": "encourage_gesture",
+          "led_effect": "yellow",
+          "expression": "warning",
+          "safety_note": "热油时避免水滴溅入锅中，防止烫伤",
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 4,
+          "instruction": "锅中留少许底油，开中火，倒入切好的番茄块，翻炒至番茄出沙，加入1克盐和10克糖，翻炒均匀",
+          "display_text": "步骤 4/5：锅中留少许底油，开中火，倒入切好的番茄块，翻炒至番茄出沙，加入1克盐和10克糖，翻炒均匀",
+          "duration_seconds": 120,
+          "heat_level": "中火",
+          "robot_action": "show_concern",
+          "led_effect": "yellow",
+          "expression": "warning",
+          "safety_note": null,
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 5,
+          "instruction": "倒入炒好的鸡蛋块，开小火翻炒均匀，即可盛出装盘",
+          "display_text": "步骤 5/5：倒入炒好的鸡蛋块，开小火翻炒均匀，即可盛出装盘",
+          "duration_seconds": 30,
+          "heat_level": "小火",
+          "robot_action": "encourage_gesture",
+          "led_effect": "rainbow",
+          "expression": "excited",
+          "safety_note": null,
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        }
+      ],
+      "summary": "经典家常番茄炒蛋，酸甜适口，操作简单，适合新手，2人份",
+      "_cache_request": {
+        "cache_version": 5,
+        "requested_dish": "番茄炒蛋",
+        "servings": 2,
+        "taste_preferences": [
+          "正常口味"
+        ],
+        "dietary_restrictions": []
+      }
+    },
+    {
+      "recipe_id": "cached_番茄炒蛋_加葱花版_680fe2e58f27",
+      "name": "番茄炒蛋（加葱花版）",
+      "source_name": "本地缓存菜谱",
+      "source_url": null,
+      "servings": 2,
+      "ingredients": [
+        {
+          "name": "番茄",
+          "amount": "2",
+          "unit": "个",
+          "optional": false
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "3",
+          "unit": "个",
+          "optional": false
+        },
+        {
+          "name": "葱花",
+          "amount": "10",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "盐",
+          "amount": "2",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "糖",
+          "amount": "5",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "食用油",
+          "amount": "30",
+          "unit": "毫升",
+          "optional": false
+        }
+      ],
+      "equipment": [
+        "炒锅",
+        "瓷碗",
+        "菜刀",
+        "菜板",
+        "硅胶铲",
+        "筷子"
+      ],
+      "estimated_time_minutes": 16,
+      "difficulty": "简单",
+      "notes": [
+        "使用刀具时请集中注意力，避免割伤",
+        "煎炒时油温较高，请勿将手或面部靠近锅口，防止油溅烫伤"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "将2个番茄洗净去蒂，切成1厘米见方的小块，将10克葱花洗净，切成碎末",
+          "display_text": "步骤 1/5：将2个番茄洗净去蒂，切成1厘米见方的小块，将10克葱花洗净，切成碎末",
+          "duration_seconds": null,
+          "heat_level": null,
+          "robot_action": "show_concern",
+          "led_effect": "warm_white",
+          "expression": "focused",
+          "safety_note": null,
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 2,
+          "instruction": "将3个鸡蛋打入瓷碗中，加入1克盐，用筷子快速搅拌均匀至无蛋清结块",
+          "display_text": "步骤 2/5：将3个鸡蛋打入瓷碗中，加入1克盐，用筷子快速搅拌均匀至无蛋清结块",
+          "duration_seconds": null,
+          "heat_level": null,
+          "robot_action": "encourage_gesture",
+          "led_effect": "green_dynamic",
+          "expression": "happy",
+          "safety_note": null,
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 3,
+          "instruction": "热锅后倒入30毫升食用油，开中火，待油热至微微冒烟，倒入打散的鸡蛋液，用硅胶铲快速划散，炒至鸡蛋完全凝固，盛出备用",
+          "display_text": "步骤 3/5：热锅后倒入30毫升食用油，开中火，待油热至微微冒烟，倒入打散的鸡蛋液，用硅胶铲快速划散，炒至鸡蛋完全凝固，盛出备用",
+          "duration_seconds": 30,
+          "heat_level": "中火",
+          "robot_action": "encourage_gesture",
+          "led_effect": "yellow",
+          "expression": "warning",
+          "safety_note": "注意油溅，避免被烫伤",
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 4,
+          "instruction": "锅中留10毫升底油，开中火，倒入切好的番茄块，翻炒至番茄出沙，加入1克盐和5克糖，翻炒均匀",
+          "display_text": "步骤 4/5：锅中留10毫升底油，开中火，倒入切好的番茄块，翻炒至番茄出沙，加入1克盐和5克糖，翻炒均匀",
+          "duration_seconds": 60,
+          "heat_level": "中火",
+          "robot_action": "show_concern",
+          "led_effect": "yellow",
+          "expression": "warning",
+          "safety_note": null,
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 5,
+          "instruction": "倒入炒好的鸡蛋，转小火，翻炒均匀使鸡蛋裹上番茄汤汁，撒入切好的10克葱花，翻炒10秒后关火盛出",
+          "display_text": "步骤 5/5：倒入炒好的鸡蛋，转小火，翻炒均匀使鸡蛋裹上番茄汤汁，撒入切好的10克葱花，翻炒10秒后关火盛出",
+          "duration_seconds": 10,
+          "heat_level": "小火",
+          "robot_action": "show_concern",
+          "led_effect": "rainbow",
+          "expression": "excited",
+          "safety_note": null,
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        }
+      ],
+      "summary": "带葱香的家常番茄炒蛋，风味更丰富，口感清爽，2人份",
+      "_cache_request": {
+        "cache_version": 5,
+        "requested_dish": "番茄炒蛋",
+        "servings": 2,
+        "taste_preferences": [
+          "正常口味"
+        ],
+        "dietary_restrictions": []
+      }
+    }
+  ]
+}

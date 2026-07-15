@@ -1,0 +1,133 @@
+{
+  "cache_version": 5,
+  "recipes": [
+    {
+      "recipe_id": "cached_香煎牛肉片_574e6388bf9c",
+      "name": "香煎牛肉片",
+      "source_name": "本地缓存菜谱",
+      "source_url": null,
+      "servings": 1,
+      "ingredients": [
+        {
+          "name": "牛肉",
+          "amount": "100",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "盐",
+          "amount": "1",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "黑胡椒",
+          "amount": "0.5",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "食用油",
+          "amount": "10",
+          "unit": "毫升",
+          "optional": false
+        }
+      ],
+      "equipment": [
+        "平底锅",
+        "菜刀",
+        "砧板"
+      ],
+      "estimated_time_minutes": 10,
+      "difficulty": "简单",
+      "notes": [
+        "处理生牛肉后需及时清洁双手，避免交叉污染",
+        "煎制时注意油温，防止热油溅出烫伤"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "将100克牛肉切成0.3厘米厚的薄片，放入干净的盘中",
+          "display_text": "步骤 1/4：将100克牛肉切成0.3厘米厚的薄片，放入干净的盘中",
+          "duration_seconds": null,
+          "heat_level": null,
+          "robot_action": "show_concern",
+          "led_effect": "blue_dynamic",
+          "expression": "focused",
+          "safety_note": null,
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 2,
+          "instruction": "往牛肉片中加入1克盐、0.5克黑胡椒，用手抓匀，静置腌制600秒",
+          "display_text": "步骤 2/4：往牛肉片中加入1克盐、0.5克黑胡椒，用手抓匀，静置腌制600秒",
+          "duration_seconds": 600,
+          "heat_level": null,
+          "robot_action": "nod",
+          "led_effect": "warm_white",
+          "expression": "focused",
+          "safety_note": null,
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 3,
+          "instruction": "平底锅烧热，倒入10毫升食用油，调至中火，放入腌制好的牛肉片，煎至两面变色、边缘微卷即可",
+          "display_text": "步骤 3/4：平底锅烧热，倒入10毫升食用油，调至中火，放入腌制好的牛肉片，煎至两面变色、边缘微卷即可",
+          "duration_seconds": 60,
+          "heat_level": "中火",
+          "robot_action": "nod",
+          "led_effect": "yellow",
+          "expression": "warning",
+          "safety_note": "煎制时注意油温，防止热油溅出烫伤",
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 4,
+          "instruction": "将煎好的牛肉片盛出装盘",
+          "display_text": "步骤 4/4：将煎好的牛肉片盛出装盘",
+          "duration_seconds": null,
+          "heat_level": null,
+          "robot_action": "nod",
+          "led_effect": "rainbow",
+          "expression": "excited",
+          "safety_note": null,
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        }
+      ],
+      "summary": "新手友好的香煎牛肉片，无需复杂烹饪，1人份刚好",
+      "_cache_request": {
+        "cache_version": 5,
+        "requested_dish": "香煎牛肉片",
+        "servings": 1,
+        "taste_preferences": [
+          "正常口味"
+        ],
+        "dietary_restrictions": []
+      }
+    }
+  ]
+}

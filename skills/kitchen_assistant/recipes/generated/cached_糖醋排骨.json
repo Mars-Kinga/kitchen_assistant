@@ -1,0 +1,534 @@
+{
+  "cache_version": 5,
+  "recipes": [
+    {
+      "recipe_id": "cached_电饭煲版糖醋排骨_432af2bd73f6",
+      "name": "电饭煲版糖醋排骨",
+      "source_name": "本地缓存菜谱",
+      "source_url": null,
+      "servings": 3,
+      "ingredients": [
+        {
+          "name": "猪肋排",
+          "amount": "300",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "白糖",
+          "amount": "20",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "香醋",
+          "amount": "30",
+          "unit": "毫升",
+          "optional": false
+        },
+        {
+          "name": "生抽",
+          "amount": "25",
+          "unit": "毫升",
+          "optional": false
+        },
+        {
+          "name": "料酒",
+          "amount": "15",
+          "unit": "毫升",
+          "optional": false
+        },
+        {
+          "name": "生姜",
+          "amount": "5",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "大蒜",
+          "amount": "3",
+          "unit": "瓣",
+          "optional": false
+        }
+      ],
+      "equipment": [
+        "电饭煲",
+        "菜刀",
+        "菜板",
+        "汤锅",
+        "小碗"
+      ],
+      "estimated_time_minutes": 40,
+      "difficulty": "简单",
+      "notes": [
+        "处理生猪肉后需彻底清洁双手及接触过生肉的厨具",
+        "电饭煲工作过程中请勿打开上盖，避免蒸汽烫伤",
+        "排骨焯水需冷水下锅，可有效去除血水残留"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "将300克猪肋排切成3厘米长的段，放入盛有1000毫升冷水的汤锅中，加入5毫升料酒，大火煮沸后焯水2分钟，捞出用温水冲洗干净并沥干水分",
+          "display_text": "步骤 1/4：将300克猪肋排切成3厘米长的段，放入盛有1000毫升冷水的汤锅中，加入5毫升料酒，大火煮沸后焯水2分钟，一边焯水一边撇去浮沫，捞出用温水冲洗干净并沥干水分",
+          "duration_seconds": 120,
+          "heat_level": "大火",
+          "robot_action": "show_concern",
+          "led_effect": "yellow",
+          "expression": "warning",
+          "safety_note": "焯水时需冷水下锅，避免血水凝固残留",
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 2,
+          "instruction": "取干净小碗，倒入15毫升生抽、10毫升香醋、20克白糖、10毫升料酒，加入5克生姜片、2瓣拍碎的大蒜，搅拌均匀制成腌制调味汁，腌制10分钟",
+          "display_text": "步骤 2/4：取干净小碗，倒入15毫升生抽、10毫升香醋、20克白糖、10毫升料酒，加入5克生姜片、2瓣拍碎的大蒜，搅拌均匀制成腌制调味汁，腌制10分钟",
+          "duration_seconds": 600,
+          "heat_level": null,
+          "robot_action": "encourage_gesture",
+          "led_effect": "green_dynamic",
+          "expression": "happy",
+          "safety_note": null,
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 3,
+          "instruction": "将沥干的排骨放入腌制调味汁中，充分抓拌均匀，腌制10分钟",
+          "display_text": "步骤 3/4：将沥干的排骨放入腌制调味汁中，充分抓拌均匀，腌制10分钟",
+          "duration_seconds": 600,
+          "heat_level": null,
+          "robot_action": "nod",
+          "led_effect": "warm_white",
+          "expression": "focused",
+          "safety_note": "腌制时需确保每块排骨都裹上调味汁，入味更均匀",
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 4,
+          "instruction": "将腌制好的排骨连同碗中的调味汁一起倒入电饭煲内胆，盖上盖子后按下煮饭键，烹饪至电饭煲自动跳闸，再焖5分钟即可",
+          "display_text": "步骤 4/4：将腌制好的排骨连同碗中的调味汁一起倒入电饭煲内胆，盖上盖子后按下煮饭键，烹饪至电饭煲自动跳闸，再焖5分钟即可",
+          "duration_seconds": 300,
+          "heat_level": "电饭煲煮饭模式",
+          "robot_action": "nod",
+          "led_effect": "warm_white",
+          "expression": "focused",
+          "safety_note": "电饭煲工作时请勿频繁开盖，以免影响烹饪效果",
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        }
+      ],
+      "summary": "用电饭煲制作的糖醋排骨，无需翻炒，零失败率，新手易上手",
+      "_cache_request": {
+        "cache_version": 5,
+        "requested_dish": "糖醋排骨",
+        "servings": 3,
+        "taste_preferences": [
+          "正常口味"
+        ],
+        "dietary_restrictions": []
+      }
+    },
+    {
+      "recipe_id": "cached_糖醋排骨_a791cb46926f",
+      "name": "糖醋排骨",
+      "source_name": "本地缓存菜谱",
+      "source_url": null,
+      "servings": 3,
+      "ingredients": [
+        {
+          "name": "猪肋排",
+          "amount": "500",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "白糖",
+          "amount": "30",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "香醋",
+          "amount": "40",
+          "unit": "毫升",
+          "optional": false
+        },
+        {
+          "name": "生抽",
+          "amount": "20",
+          "unit": "毫升",
+          "optional": false
+        },
+        {
+          "name": "料酒",
+          "amount": "20",
+          "unit": "毫升",
+          "optional": false
+        },
+        {
+          "name": "盐",
+          "amount": "2",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "姜片",
+          "amount": "3",
+          "unit": "片",
+          "optional": false
+        },
+        {
+          "name": "食用油",
+          "amount": "20",
+          "unit": "毫升",
+          "optional": false
+        }
+      ],
+      "equipment": [
+        "炒锅",
+        "菜刀",
+        "菜板",
+        "汤锅",
+        "小碗",
+        "筷子"
+      ],
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "notes": [
+        "处理生猪肉后需彻底洗手，避免交叉污染",
+        "焯水时水沸腾易溅出，需注意避让",
+        "煎排骨时需不时翻动，防止糊底粘锅",
+        "收汁时需保持火候节奏，避免汤汁烧干"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "将500克猪肋排块放入冷水汤锅，加入10毫升料酒、3片姜片，大火煮沸后焯3分钟，捞出用温水冲洗沥干",
+          "display_text": "步骤 1/5：将500克猪肋排块放入冷水汤锅，加入10毫升料酒、3片姜片，大火煮沸后焯3分钟，一边焯水一边撇去浮沫，捞出用温水冲洗沥干",
+          "duration_seconds": 180,
+          "heat_level": "大火",
+          "robot_action": "nod",
+          "led_effect": "yellow",
+          "expression": "warning",
+          "safety_note": "焯水时水沸腾易溅出，需注意避让",
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 2,
+          "instruction": "将焯好的猪肋排放入容器，加入10毫升生抽、10毫升料酒、1克盐，用筷子抓匀后腌制15分钟",
+          "display_text": "步骤 2/5：将焯好的猪肋排放入容器，加入10毫升生抽、10毫升料酒、1克盐，用筷子抓匀后腌制15分钟",
+          "duration_seconds": 900,
+          "heat_level": null,
+          "robot_action": "nod",
+          "led_effect": "warm_white",
+          "expression": "focused",
+          "safety_note": "腌制时确保排骨均匀裹上调料",
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 3,
+          "instruction": "取干净小碗，加入40毫升香醋、30克白糖、10毫升生抽，用筷子搅拌均匀制成糖醋汁",
+          "display_text": "步骤 3/5：取干净小碗，加入40毫升香醋、30克白糖、10毫升生抽，用筷子搅拌均匀制成糖醋汁",
+          "duration_seconds": null,
+          "heat_level": null,
+          "robot_action": "encourage_gesture",
+          "led_effect": "green_dynamic",
+          "expression": "happy",
+          "safety_note": "搅拌至白糖完全溶解",
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 4,
+          "instruction": "炒锅倒入20毫升食用油，中火加热至六成热，放入腌制好的猪肋排，煎至两面金黄",
+          "display_text": "步骤 4/5：炒锅倒入20毫升食用油，中火加热至六成热，放入腌制好的猪肋排，煎至两面金黄",
+          "duration_seconds": 240,
+          "heat_level": "中火",
+          "robot_action": "encourage_gesture",
+          "led_effect": "yellow",
+          "expression": "warning",
+          "safety_note": "煎制时需不时翻动，避免糊底",
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 5,
+          "instruction": "倒入调好的糖醋汁，加入200毫升清水，大火煮沸后转小火焖煮8分钟，最后开大火收汁至汤汁浓稠",
+          "display_text": "步骤 5/5：倒入调好的糖醋汁，加入200毫升清水，大火煮沸后转小火焖煮8分钟，最后开大火收汁至汤汁浓稠",
+          "duration_seconds": 480,
+          "heat_level": "大火转小火再转大火",
+          "robot_action": "nod",
+          "led_effect": "yellow",
+          "expression": "warning",
+          "safety_note": "收汁时不停翻动，防止粘锅",
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        }
+      ],
+      "summary": "经典家常糖醋排骨，酸甜适口，操作步骤简单，适合新手制作",
+      "_cache_request": {
+        "cache_version": 5,
+        "requested_dish": "糖醋排骨",
+        "servings": 3,
+        "taste_preferences": [
+          "正常口味"
+        ],
+        "dietary_restrictions": []
+      }
+    },
+    {
+      "recipe_id": "cached_快手版糖醋排骨_658e2f5d7a04",
+      "name": "快手版糖醋排骨",
+      "source_name": "本地缓存菜谱",
+      "source_url": null,
+      "servings": 3,
+      "ingredients": [
+        {
+          "name": "猪肋排",
+          "amount": "300",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "白糖",
+          "amount": "20",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "香醋",
+          "amount": "30",
+          "unit": "毫升",
+          "optional": false
+        },
+        {
+          "name": "生抽",
+          "amount": "20",
+          "unit": "毫升",
+          "optional": false
+        },
+        {
+          "name": "料酒",
+          "amount": "15",
+          "unit": "毫升",
+          "optional": false
+        },
+        {
+          "name": "生姜",
+          "amount": "5",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "大蒜",
+          "amount": "2",
+          "unit": "瓣",
+          "optional": true
+        },
+        {
+          "name": "白芝麻",
+          "amount": "5",
+          "unit": "克",
+          "optional": true
+        },
+        {
+          "name": "食用油",
+          "amount": "20",
+          "unit": "毫升",
+          "optional": false
+        },
+        {
+          "name": "盐",
+          "amount": "1",
+          "unit": "克",
+          "optional": false
+        }
+      ],
+      "equipment": [
+        "炒锅",
+        "菜刀",
+        "菜板",
+        "汤碗",
+        "小碗",
+        "漏勺",
+        "筷子"
+      ],
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "notes": [
+        "处理生猪肉后需彻底洗手，避免交叉污染",
+        "使用刀具时注意姿势，防止割伤",
+        "热油操作时需远离水源，避免溅水烫伤"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "将300克猪肋排放入冷水锅中，加入5毫升料酒、3克生姜片，大火加热至沸腾，撇去表面浮沫后捞出，用漏勺沥干水分",
+          "display_text": "步骤 1/6：将300克猪肋排放入冷水锅中，加入5毫升料酒、3克生姜片，大火加热至沸腾，撇去表面浮沫后捞出，用漏勺沥干水分",
+          "duration_seconds": 300,
+          "heat_level": "大火",
+          "robot_action": "nod",
+          "led_effect": "yellow",
+          "expression": "warning",
+          "safety_note": "焯水时冷水下锅可有效去除血水",
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 2,
+          "instruction": "将沥干的猪肋排放入汤碗中，加入10毫升生抽、10毫升料酒、1克盐、2克生姜片，用筷子抓匀，腌制10分钟",
+          "display_text": "步骤 2/6：将沥干的猪肋排放入汤碗中，加入10毫升生抽、10毫升料酒、1克盐、2克生姜片，用筷子抓匀，腌制10分钟",
+          "duration_seconds": 600,
+          "heat_level": null,
+          "robot_action": "nod",
+          "led_effect": "warm_white",
+          "expression": "focused",
+          "safety_note": "腌制时确保每块排骨都裹上调料，入味更快",
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 3,
+          "instruction": "取干净小碗，加入20克白糖、30毫升香醋、10毫升生抽、5毫升料酒，用筷子搅拌至白糖完全溶解，制成糖醋汁备用",
+          "display_text": "步骤 3/6：取干净小碗，加入20克白糖、30毫升香醋、10毫升生抽、5毫升料酒，用筷子搅拌至白糖完全溶解，制成糖醋汁备用",
+          "duration_seconds": null,
+          "heat_level": null,
+          "robot_action": "encourage_gesture",
+          "led_effect": "green_dynamic",
+          "expression": "happy",
+          "safety_note": "提前调好糖醋汁可缩短烹饪时间，避免手忙脚乱",
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 4,
+          "instruction": "将炒锅烧热，倒入20毫升食用油，小火加热，放入腌制好的猪肋排，煎至两面金黄",
+          "display_text": "步骤 4/6：将炒锅烧热，倒入20毫升食用油，小火加热，放入腌制好的猪肋排，煎至两面金黄",
+          "duration_seconds": 300,
+          "heat_level": "小火",
+          "robot_action": "encourage_gesture",
+          "led_effect": "yellow",
+          "expression": "warning",
+          "safety_note": "煎排骨时用小火，避免表面糊底而内部未熟",
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 5,
+          "instruction": "倒入调好的糖醋汁，翻炒使排骨均匀裹上酱汁，大火煮沸后转小火，盖上锅盖焖煮10分钟",
+          "display_text": "步骤 5/6：倒入调好的糖醋汁，翻炒使排骨均匀裹上酱汁，大火煮沸后转小火，盖上锅盖焖煮10分钟",
+          "duration_seconds": 600,
+          "heat_level": "小火",
+          "robot_action": "encourage_gesture",
+          "led_effect": "yellow",
+          "expression": "warning",
+          "safety_note": "焖煮时盖好锅盖，防止汤汁过快蒸发",
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 6,
+          "instruction": "转大火快速翻炒收汁，至汤汁浓稠裹住排骨，撒上5克白芝麻（可选），即可出锅装盘",
+          "display_text": "步骤 6/6：转大火快速翻炒收汁，至汤汁浓稠裹住排骨，撒上5克白芝麻（可选），即可出锅装盘",
+          "duration_seconds": 120,
+          "heat_level": "大火",
+          "robot_action": "encourage_gesture",
+          "led_effect": "rainbow",
+          "expression": "excited",
+          "safety_note": "收汁时需不停翻炒，避免酱汁糊底",
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        }
+      ],
+      "summary": "简化步骤的糖醋排骨，缩短预处理时间，新手也能快速完成",
+      "_cache_request": {
+        "cache_version": 5,
+        "requested_dish": "糖醋排骨",
+        "servings": 3,
+        "taste_preferences": [
+          "正常口味"
+        ],
+        "dietary_restrictions": []
+      }
+    }
+  ]
+}

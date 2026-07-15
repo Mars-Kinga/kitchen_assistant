@@ -1,0 +1,122 @@
+{
+  "cache_version": 5,
+  "recipes": [
+    {
+      "recipe_id": "cached_简易滑炒牛肉_f7db7437e9d6",
+      "name": "简易滑炒牛肉",
+      "source_name": "本地缓存菜谱",
+      "source_url": null,
+      "servings": 1,
+      "ingredients": [
+        {
+          "name": "牛肉",
+          "amount": "150",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "盐",
+          "amount": "1",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "生抽",
+          "amount": "15",
+          "unit": "毫升",
+          "optional": false
+        },
+        {
+          "name": "淀粉",
+          "amount": "5",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "食用油",
+          "amount": "20",
+          "unit": "毫升",
+          "optional": false
+        }
+      ],
+      "equipment": [
+        "炒锅",
+        "菜刀",
+        "砧板",
+        "小碗"
+      ],
+      "estimated_time_minutes": 12,
+      "difficulty": "简单",
+      "notes": [
+        "处理生牛肉后需用肥皂彻底清洁双手",
+        "滑炒时注意油温，避免热油溅出烫伤"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "将150克牛肉切成厚度约0.3厘米的薄片",
+          "display_text": "步骤 1/3：将150克牛肉切成厚度约0.3厘米的薄片",
+          "duration_seconds": null,
+          "heat_level": null,
+          "robot_action": "show_concern",
+          "led_effect": "blue_dynamic",
+          "expression": "focused",
+          "safety_note": null,
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 2,
+          "instruction": "把切好的牛肉片放入小碗，加入1克盐、15毫升生抽、5克淀粉，抓拌均匀后腌制，腌制10分钟",
+          "display_text": "步骤 2/3：把切好的牛肉片放入小碗，加入1克盐、15毫升生抽、5克淀粉，抓拌均匀后腌制，腌制10分钟",
+          "duration_seconds": 600,
+          "heat_level": null,
+          "robot_action": "show_concern",
+          "led_effect": "warm_white",
+          "expression": "focused",
+          "safety_note": null,
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 3,
+          "instruction": "热锅后倒入20毫升食用油，待油温升至六成热，放入腌制好的牛肉片，大火快速滑炒至全部变色后盛出",
+          "display_text": "步骤 3/3：热锅后倒入20毫升食用油，待油温升至六成热，放入腌制好的牛肉片，大火快速滑炒至全部变色后盛出",
+          "duration_seconds": 30,
+          "heat_level": "大火",
+          "robot_action": "encourage_gesture",
+          "led_effect": "yellow",
+          "expression": "warning",
+          "safety_note": null,
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        }
+      ],
+      "summary": "1人份的简易滑炒牛肉，口感嫩滑，操作简单",
+      "_cache_request": {
+        "cache_version": 5,
+        "requested_dish": "简易滑炒牛肉",
+        "servings": 1,
+        "taste_preferences": [
+          "正常口味"
+        ],
+        "dietary_restrictions": []
+      }
+    }
+  ]
+}

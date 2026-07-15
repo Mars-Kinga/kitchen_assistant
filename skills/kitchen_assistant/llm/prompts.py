@@ -3,6 +3,8 @@ from __future__ import annotations
 import json
 from typing import Any, Iterable
 
+from kitchen.dish_profiles import profile_prompt_rules
+
 
 _REQUEST_FIELDS = (
     "requested_dish",
@@ -23,11 +25,12 @@ _CANDIDATE_FIELDS = (
     "estimated_minutes",
     "difficulty",
     "main_ingredients",
+    "main_seasonings",
 )
 
 _CANDIDATE_SCHEMA = (
     '{"candidates":[{"title":string,"summary":string,"estimated_minutes":number,'
-    '"difficulty":"简单"|"中等","main_ingredients":[string],'
+    '"difficulty":"简单"|"中等","main_ingredients":[string],"main_seasonings":[string],'
     '"missing_ingredients":[string],"match_reason":string}]}'
 )
 
@@ -46,10 +49,15 @@ def candidate_messages(request: dict[str, Any]) -> list[dict[str, str]]:
         "遵守忌口和设备/时间限制，优先使用已有食材。",
         "若requested_dish存在：首个title必须包含该菜名；其余只能是合理变体，不得换成无关菜。缺食材也保留原菜。",
         "available_ingredients缺失或为空=库存未知，此时missing_ingredients必须为[]；仅在库存明确时列出确实缺少的食材。",
-        "main_ingredients列全核心食材（如番茄肥牛必须同时有番茄、肥牛），不得把菜名中的核心食材误报为缺少。",
+        "main_ingredients列全核心食材（如番茄肥牛必须同时有番茄、肥牛），不得把菜名中的核心食材误报为缺少；盐、糖、油、生抽、老抽、醋、料酒、胡椒等列入main_seasonings。",
     ]
-    if _contains(request, ("牛排",)):
-        rules.append("牛排候选至少列：牛排、耐高温食用油/精炼橄榄油、盐、黑胡椒；黄油、蒜、迷迭香可选。")
+    if request.get("available_ingredients") and not request.get("requested_dish"):
+        ingredients = "、".join(str(item) for item in request["available_ingredients"])
+        rules.append(
+            f"用户尚未指定菜名，明确现有食材为：{ingredients}。每个候选都必须实际使用这些食材，"
+            "并在main_ingredients或main_seasonings逐项列出；不能忽略其中任何一种，也不能用无关菜替代。"
+        )
+    rules.extend(profile_prompt_rules(request, stage="candidate"))
     rules.append(f"输出结构：{_CANDIDATE_SCHEMA}")
     return _messages("\n".join(rules), _select(request, _REQUEST_FIELDS))
 
@@ -57,13 +65,23 @@ def candidate_messages(request: dict[str, Any]) -> list[dict[str, str]]:
 def recipe_messages(candidate: dict[str, Any], request: dict[str, Any]) -> list[dict[str, str]]:
     rules = [
         "任务：生成面向新手的完整结构化菜谱。只输出合法JSON；不要Markdown、解释、URL、来源、机器人动作或设备控制。",
-        "严格遵守servings、忌口、设备和口味；每种食材/调料给明确amount与unit，避免“适量”。可选食材标optional=true。",
+        "严格遵守servings、忌口、设备和口味；每种食材/调料给明确amount与unit，禁止“适量”“少许”“按口味”。肉类和蔬菜写克数，鸡蛋/土豆等写个数，液体调料写毫升或汤匙/茶匙；可选食材也给用量并标optional=true。",
+        "步骤中第一次加入主食材、肉类、蔬菜或调味料时，重复写出对应的明确用量，例如“倒入10毫升生抽、5毫升老抽和1克盐”；不得只写“加调味料”或“加少量盐”。",
         "中式调味只按菜品需要选用盐、油、生抽、老抽、料酒、葱姜蒜等，不要机械堆料。",
         "炒制写清热锅→用油量→下料状态→火力→熟度判断；需要补油时说明。不要声称看见现场或保证已熟。",
         "运行时另行确认肉类解冻，steps不要包含解冻。每步只含一个易记操作阶段；腌制、泡发、切配应分步，同类切配最多合并3项。",
-        "duration_seconds仅用于煮炖焖煎烤蒸炸焯收汁等火候步骤；洗切拌腌调味装盘填null。时间须符合家庭烹饪常识，并写可观察的完成状态。",
+        "duration_seconds用于煮炖焖煎烤蒸炸焯收汁等火候步骤，以及腌制、浸泡、泡发、静置等等待步骤；腌制必须明确时长并填入duration_seconds。洗切拌调味装盘填null。时间须符合家庭烹饪常识，并写可观察的完成状态。",
+        "等待腌制/浸泡期间只能安排不动火的辅助准备，例如量好生抽、老抽、盐、糖、醋并放入小碗，或洗切配菜；不要提前热油、炒糖色、油炸或让用户空烧锅。",
+        "不要生成“腌制期间准备调料碗”这类空泛步骤；如要准备糖醋汁/调味汁，必须在同一步写明每种调料及用量。一次腌制只对应一个等待计时步骤，不能额外生成第二个“腌制期间”步骤。",
         "step_number从1连续。",
     ]
+
+    if request.get("available_ingredients") and not request.get("requested_dish"):
+        ingredients = "、".join(str(item) for item in request["available_ingredients"])
+        rules.append(
+            f"这是根据用户已有的{ingredients}推荐的菜。完整菜谱必须在ingredients和实际步骤中使用这些食材，"
+            "且首次加入时写明用量；不可遗漏。"
+        )
 
     dish_context = {"candidate": candidate, "request": request}
     if _contains(dish_context, ("鸡蛋", "炒蛋", "蛋汤", "蛋面")):
@@ -74,12 +92,7 @@ def recipe_messages(candidate: dict[str, Any], request: dict[str, Any]) -> list[
         rules.append("木耳、胡萝卜等炒至断生/变软通常参考120–240秒，按切配粗细和实际状态调整。")
     if _contains(dish_context, ("米饭", "盖饭", "炒饭")):
         rules.append("普通电饭煲从生米开始不得写十分钟煮熟；快手盖饭/炒饭应明确使用已煮熟米饭。")
-    if _contains(dish_context, ("牛排",)):
-        rules.extend((
-            "牛排必须遵守steak_doneness并参考steak_thickness_cm；食材至少有牛排、盐、黑胡椒、耐高温食用油/精炼橄榄油，黄油、蒜、迷迭香列为可选。",
-            "把正面煎、翻面煎、静置拆开；两面分别计时并说明起点。约2厘米牛排每面初始30–90秒，不得默认每面120 秒；仅厚度≥3厘米或全熟可更久。",
-            "牛排时间仅为初始参考；提示用食品温度计或切开中心检查，不保证熟度。",
-        ))
+    rules.extend(profile_prompt_rules(candidate, request, stage="recipe"))
     rules.append(f"输出结构：{_RECIPE_SCHEMA}")
 
     payload = {

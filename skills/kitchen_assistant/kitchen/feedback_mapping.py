@@ -45,11 +45,21 @@ def enrich_step(step: dict[str, Any], index: int, total: int) -> dict[str, Any]:
     return {
         "step_number": index,
         "instruction": instruction,
-        "display_text": str(step.get("display_text") or f"步骤 {index}/{total}：{instruction[:18]}"),
+        # Do not truncate quantities or safety checks on the screen. Provider
+        # display_text is intentionally ignored because models often return a
+        # short preview instead of the full instruction.
+        "display_text": f"步骤 {index}/{total}：{instruction}",
         "duration_seconds": step.get("duration_seconds"),
         "heat_level": step.get("heat_level"),
         "robot_action": supplied_action if supplied_action in SUPPORTED_ACTIONS else action,
         "led_effect": supplied_effect if supplied_effect in SUPPORTED_EFFECTS else led,
         "expression": supplied_expression if supplied_expression in SUPPORTED_EXPRESSIONS else expression,
         "safety_note": step.get("safety_note"),
+        "timer_label": step.get("timer_label"),
+        "timer_end_action": step.get("timer_end_action"),
+        "confirmation_markers": step.get("confirmation_markers"),
+        "waiting_speech": step.get("waiting_speech"),
+        "waiting_display": step.get("waiting_display"),
+        "timer_end_speech": step.get("timer_end_speech"),
+        "timer_end_display": step.get("timer_end_display"),
     }

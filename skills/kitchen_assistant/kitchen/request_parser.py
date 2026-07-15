@@ -15,7 +15,7 @@ KNOWN_DISHES = (
 )
 KNOWN_INGREDIENTS = (
     "鸡蛋", "番茄", "面条", "青菜", "土豆", "米饭", "鸡翅", "排骨", "五花肉", "猪肉", "鸡肉", "鱼", "虾",
-    "可乐", "咖喱", "牛肉", "肥牛", "牛排", "豆腐", "茄子", "西兰花", "香菇", "洋葱",
+    "可乐", "咖喱", "牛肉", "肥牛", "牛排", "豆腐", "茄子", "西兰花", "蘑菇", "香菇", "洋葱",
     "葱", "姜", "蒜", "香菜", "八角", "冰糖", "白糖", "辣椒", "生抽", "老抽", "料酒", "蚝油",
     "橄榄油", "食用油", "黄油", "黑胡椒", "海盐", "盐", "迷迭香",
 )
@@ -62,8 +62,14 @@ def parse_updates(text: str) -> RequestUpdates:
             break
     if updates.requested_dish is None:
         updates.requested_dish = _extract_requested_dish(text) or _extract_dish_question(text)
+    updates.asks_for_recommendation = any(word in text for word in (
+        "不知道", "有什么做什么", "怎么搭配", "现有的东西", "冰箱里", "推荐",
+        "不知道吃什么", "不知道做什么菜", "不知道做啥", "不知道吃啥", "做什么菜",
+    )) and updates.requested_dish is None
     # A dish name is a request, not proof that the user owns its ingredients.
-    updates.ingredients = extract_ingredients(text)
+    # When someone says e.g. “牛肉和蘑菇不知道做什么”, the ingredient list is
+    # still an explicit pantry declaration even without “我有”.
+    updates.ingredients = extract_ingredients(text, allow_bare=updates.asks_for_recommendation)
     updates.servings = extract_servings(text)
     updates.taste = extract_flavor(text)
     if "辣" in text and "不吃辣" not in text and "不要辣" not in text:
@@ -100,9 +106,6 @@ def parse_updates(text: str) -> RequestUpdates:
         updates.steak_thickness_cm = float(thickness.group(1))
     elif any(word in text for word in ("普通厚度", "一般厚度", "不清楚多厚", "不知道多厚")):
         updates.steak_thickness_cm = 2.0
-    updates.asks_for_recommendation = any(word in text for word in (
-        "不知道", "有什么做什么", "怎么搭配", "现有的东西", "冰箱里", "推荐",
-    )) and updates.requested_dish is None
     return updates
 
 
@@ -147,7 +150,10 @@ def _without_requested_dish_span(text: str) -> str:
 
 
 def _has_inventory_signal(text: str) -> bool:
-    return any(marker in text for marker in ("我有", "家里有", "冰箱有", "冰箱里", "现有", "还有", "手边有"))
+    return any(marker in text for marker in (
+        "我有", "家里有", "冰箱有", "冰箱里", "现有", "还有", "手边有",
+        "手头有", "现在有", "只有", "仅有", "只剩", "剩下",
+    ))
 
 
 def extract_ingredients(text: str, *, allow_bare: bool = False) -> list[str]:
