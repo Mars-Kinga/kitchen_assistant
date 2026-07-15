@@ -1,0 +1,730 @@
+{
+  "cache_version": 5,
+  "recipes": [
+    {
+      "recipe_id": "cached_新手零失败宫保鸡丁_9c23f9bdaeff",
+      "name": "新手零失败宫保鸡丁",
+      "source_name": "本地缓存菜谱",
+      "source_url": null,
+      "servings": 1,
+      "ingredients": [
+        {
+          "name": "鸡肉丁",
+          "amount": "150",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "花生米",
+          "amount": "20",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "盐",
+          "amount": "1",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "糖",
+          "amount": "5",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "生抽",
+          "amount": "15",
+          "unit": "毫升",
+          "optional": false
+        },
+        {
+          "name": "醋",
+          "amount": "10",
+          "unit": "毫升",
+          "optional": false
+        },
+        {
+          "name": "淀粉",
+          "amount": "5",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "大葱",
+          "amount": "5",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "生姜",
+          "amount": "3",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "大蒜",
+          "amount": "3",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "干辣椒",
+          "amount": "2",
+          "unit": "个",
+          "optional": false
+        }
+      ],
+      "equipment": [
+        "炒锅",
+        "菜板",
+        "菜刀",
+        "小碗",
+        "锅铲",
+        "筷子"
+      ],
+      "estimated_time_minutes": 20,
+      "difficulty": "简单",
+      "notes": [
+        "处理生鸡肉后需彻底洗手",
+        "热油时避免水滴入锅中防止溅出",
+        "炒制时注意火候避免糊底"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "将150克鸡肉丁、5克大葱、3克生姜、3克大蒜分别切好",
+          "display_text": "步骤 1/8：将150克鸡肉丁、5克大葱、3克生姜、3克大蒜分别切好",
+          "duration_seconds": null,
+          "heat_level": null,
+          "robot_action": "show_concern",
+          "led_effect": "blue_dynamic",
+          "expression": "focused",
+          "safety_note": null,
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 2,
+          "instruction": "把切好的150克鸡肉丁放入小碗，加入1克盐、2克淀粉，抓匀后腌制，腌制15分钟",
+          "display_text": "步骤 2/8：把切好的150克鸡肉丁放入小碗，加入1克盐、2克淀粉，抓匀后腌制，腌制15分钟",
+          "duration_seconds": 900,
+          "heat_level": null,
+          "robot_action": "show_concern",
+          "led_effect": "warm_white",
+          "expression": "focused",
+          "safety_note": null,
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 3,
+          "instruction": "取另一个小碗，加入15毫升生抽、10毫升醋、5克糖、剩余3克淀粉，搅拌均匀制成宫保汁",
+          "display_text": "步骤 3/8：取另一个小碗，加入15毫升生抽、10毫升醋、5克糖、剩余3克淀粉，搅拌均匀制成宫保汁",
+          "duration_seconds": null,
+          "heat_level": null,
+          "robot_action": "encourage_gesture",
+          "led_effect": "green_dynamic",
+          "expression": "happy",
+          "safety_note": null,
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 4,
+          "instruction": "热锅后倒入10毫升食用油，放入腌制好的鸡肉丁，中火翻炒至鸡肉完全变色",
+          "display_text": "步骤 4/8：热锅后倒入10毫升食用油，放入腌制好的鸡肉丁，中火翻炒至鸡肉完全变色",
+          "duration_seconds": 120,
+          "heat_level": "中火",
+          "robot_action": "encourage_gesture",
+          "led_effect": "yellow",
+          "expression": "warning",
+          "safety_note": "翻炒时注意均匀受热，避免粘锅 计时只是下限参考，应以肉类完全变色、中心无粉红为准。",
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 5,
+          "instruction": "锅中留少量底油，放入切好的大葱、生姜、大蒜、2个干辣椒，小火炒出香味",
+          "display_text": "步骤 5/8：锅中留少量底油，放入切好的大葱、生姜、大蒜、2个干辣椒，小火炒出香味",
+          "duration_seconds": 30,
+          "heat_level": "小火",
+          "robot_action": "show_concern",
+          "led_effect": "yellow",
+          "expression": "warning",
+          "safety_note": "注意控制火候，避免干辣椒炒糊",
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 6,
+          "instruction": "倒入炒好的鸡肉丁和20克花生米，快速翻炒均匀，炒到肉类完全变色、中心无粉红",
+          "display_text": "步骤 6/8：倒入炒好的鸡肉丁和20克花生米，快速翻炒均匀，炒到肉类完全变色、中心无粉红",
+          "duration_seconds": 120,
+          "heat_level": "中火",
+          "robot_action": "encourage_gesture",
+          "led_effect": "green_dynamic",
+          "expression": "happy",
+          "safety_note": "计时只是下限参考，应以肉类完全变色、中心无粉红为准。",
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 7,
+          "instruction": "倒入调好的宫保汁，继续翻炒至汤汁浓稠包裹所有食材",
+          "display_text": "步骤 7/8：倒入调好的宫保汁，继续翻炒至汤汁浓稠包裹所有食材",
+          "duration_seconds": 60,
+          "heat_level": "中火",
+          "robot_action": "encourage_gesture",
+          "led_effect": "green_dynamic",
+          "expression": "happy",
+          "safety_note": null,
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 8,
+          "instruction": "将炒好的宫保鸡丁盛入盘中即可",
+          "display_text": "步骤 8/8：将炒好的宫保鸡丁盛入盘中即可",
+          "duration_seconds": null,
+          "heat_level": null,
+          "robot_action": "encourage_gesture",
+          "led_effect": "green_dynamic",
+          "expression": "happy",
+          "safety_note": null,
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        }
+      ],
+      "summary": "调整调料比例降低操作难度，零失败的宫保鸡丁，正常口味",
+      "_cache_request": {
+        "cache_version": 5,
+        "requested_dish": "宫保鸡丁",
+        "servings": 1,
+        "taste_preferences": [
+          "正常口味"
+        ],
+        "dietary_restrictions": []
+      }
+    },
+    {
+      "recipe_id": "cached_快手家常宫保鸡丁_45fb2fac13c2",
+      "name": "快手家常宫保鸡丁",
+      "source_name": "本地缓存菜谱",
+      "source_url": null,
+      "servings": 1,
+      "ingredients": [
+        {
+          "name": "鸡胸肉丁",
+          "amount": "150",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "花生米",
+          "amount": "30",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "干辣椒",
+          "amount": "5",
+          "unit": "个",
+          "optional": false
+        },
+        {
+          "name": "盐",
+          "amount": "2",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "生抽",
+          "amount": "15",
+          "unit": "毫升",
+          "optional": false
+        },
+        {
+          "name": "醋",
+          "amount": "10",
+          "unit": "毫升",
+          "optional": false
+        },
+        {
+          "name": "糖",
+          "amount": "8",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "淀粉",
+          "amount": "5",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "料酒",
+          "amount": "10",
+          "unit": "毫升",
+          "optional": false
+        },
+        {
+          "name": "生姜",
+          "amount": "5",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "大蒜",
+          "amount": "3",
+          "unit": "瓣",
+          "optional": false
+        },
+        {
+          "name": "大葱",
+          "amount": "10",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "食用油",
+          "amount": "20",
+          "unit": "毫升",
+          "optional": false
+        }
+      ],
+      "equipment": [
+        "炒锅",
+        "菜板",
+        "菜刀",
+        "小碗",
+        "筷子",
+        "锅铲",
+        "量勺"
+      ],
+      "estimated_time_minutes": 15,
+      "difficulty": "简单",
+      "notes": [
+        "切肉时注意手指安全，避免切伤",
+        "干辣椒易糊，翻炒时需控制火候",
+        "鸡胸肉炒制时间不宜过长，避免变老"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "将150克鸡胸肉切成1厘米见方的小丁，放入碗中，加入5克淀粉、10毫升料酒、1克盐，用筷子抓匀腌制，腌制15分钟",
+          "display_text": "步骤 1/8：将150克鸡胸肉切成1厘米见方的小丁，放入碗中，加入5克淀粉、10毫升料酒、1克盐，用筷子抓匀腌制，腌制15分钟",
+          "duration_seconds": 900,
+          "heat_level": null,
+          "robot_action": "show_concern",
+          "led_effect": "warm_white",
+          "expression": "focused",
+          "safety_note": "切肉时手指远离刀刃，防止割伤",
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 2,
+          "instruction": "将5克生姜切丝，3瓣大蒜切片",
+          "display_text": "步骤 2/8：将5克生姜切丝，3瓣大蒜切片",
+          "duration_seconds": null,
+          "heat_level": null,
+          "robot_action": "show_concern",
+          "led_effect": "blue_dynamic",
+          "expression": "focused",
+          "safety_note": "切配食材时保持案板稳定",
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 3,
+          "instruction": "10克大葱切葱花，取小碗，倒入15毫升生抽、10毫升醋、8克糖、1克盐，搅拌均匀制成宫保调味汁",
+          "display_text": "步骤 3/8：10克大葱切葱花，取小碗，倒入15毫升生抽、10毫升醋、8克糖、1克盐，搅拌均匀制成宫保调味汁",
+          "duration_seconds": null,
+          "heat_level": null,
+          "robot_action": "show_concern",
+          "led_effect": "green_dynamic",
+          "expression": "happy",
+          "safety_note": "切配食材时保持案板稳定",
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 4,
+          "instruction": "炒锅置于小火，倒入5毫升食用油，放入30克花生米，小火翻炒至花生米表皮微裂、出香，盛出备用",
+          "display_text": "步骤 4/8：炒锅置于小火，倒入5毫升食用油，放入30克花生米，小火翻炒至花生米表皮微裂、出香，盛出备用",
+          "duration_seconds": 120,
+          "heat_level": "小火",
+          "robot_action": "encourage_gesture",
+          "led_effect": "yellow",
+          "expression": "warning",
+          "safety_note": "小火翻炒避免花生米炒糊，需频繁翻动",
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 5,
+          "instruction": "炒锅补加15毫升食用油，放入5个干辣椒、姜丝、蒜片，小火炒至干辣椒变色、出香",
+          "display_text": "步骤 5/8：炒锅补加15毫升食用油，放入5个干辣椒、姜丝、蒜片，小火炒至干辣椒变色、出香",
+          "duration_seconds": 60,
+          "heat_level": "小火",
+          "robot_action": "encourage_gesture",
+          "led_effect": "yellow",
+          "expression": "warning",
+          "safety_note": "干辣椒易焦，翻炒时注意观察颜色变化",
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 6,
+          "instruction": "转中火，倒入腌制好的鸡胸肉丁，快速翻炒至鸡胸肉丁全部变色、熟透",
+          "display_text": "步骤 6/8：转中火，倒入腌制好的鸡胸肉丁，快速翻炒至鸡胸肉丁全部变色、熟透",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "robot_action": "encourage_gesture",
+          "led_effect": "yellow",
+          "expression": "warning",
+          "safety_note": "鸡胸肉易熟，避免长时间翻炒导致肉质变老",
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 7,
+          "instruction": "倒入调好的宫保调味汁，快速翻炒至汤汁浓稠裹住所有食材",
+          "display_text": "步骤 7/8：倒入调好的宫保调味汁，快速翻炒至汤汁浓稠裹住所有食材",
+          "duration_seconds": 60,
+          "heat_level": "中火",
+          "robot_action": "encourage_gesture",
+          "led_effect": "green_dynamic",
+          "expression": "happy",
+          "safety_note": "收汁时需不停翻炒，防止汤汁糊底",
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 8,
+          "instruction": "放入炒好的花生米，翻炒均匀后关火，撒上葱花即可装盘",
+          "display_text": "步骤 8/8：放入炒好的花生米，翻炒均匀后关火，撒上葱花即可装盘",
+          "duration_seconds": null,
+          "heat_level": null,
+          "robot_action": "encourage_gesture",
+          "led_effect": "rainbow",
+          "expression": "excited",
+          "safety_note": "关火后操作避免花生米受热变软，保持酥脆口感",
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        }
+      ],
+      "summary": "缩短烹饪流程的宫保鸡丁，保留经典风味，适合新手快速完成",
+      "_cache_request": {
+        "cache_version": 5,
+        "requested_dish": "宫保鸡丁",
+        "servings": 1,
+        "taste_preferences": [
+          "正常口味"
+        ],
+        "dietary_restrictions": []
+      }
+    },
+    {
+      "recipe_id": "cached_宫保鸡丁_a4eb70696464",
+      "name": "宫保鸡丁",
+      "source_name": "本地缓存菜谱",
+      "source_url": null,
+      "servings": 1,
+      "ingredients": [
+        {
+          "name": "鸡肉丁",
+          "amount": "150",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "花生米",
+          "amount": "50",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "干辣椒",
+          "amount": "3",
+          "unit": "个",
+          "optional": false
+        },
+        {
+          "name": "花椒",
+          "amount": "1",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "盐",
+          "amount": "2",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "糖",
+          "amount": "10",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "生抽",
+          "amount": "15",
+          "unit": "毫升",
+          "optional": false
+        },
+        {
+          "name": "醋",
+          "amount": "10",
+          "unit": "毫升",
+          "optional": false
+        },
+        {
+          "name": "料酒",
+          "amount": "10",
+          "unit": "毫升",
+          "optional": false
+        },
+        {
+          "name": "淀粉",
+          "amount": "5",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "姜",
+          "amount": "5",
+          "unit": "克",
+          "optional": true
+        },
+        {
+          "name": "蒜",
+          "amount": "5",
+          "unit": "克",
+          "optional": true
+        },
+        {
+          "name": "葱",
+          "amount": "10",
+          "unit": "克",
+          "optional": true
+        }
+      ],
+      "equipment": [
+        "炒锅",
+        "菜刀",
+        "菜板",
+        "小碗",
+        "漏勺",
+        "盘子"
+      ],
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "notes": [
+        "处理生鸡肉时，刀具、菜板需与熟食分开，避免交叉污染；炒干辣椒、花椒时用小火，防止炒糊发苦；花生米炸制时需不停翻动，避免炸焦"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "将150克鸡肉切成1厘米见方的丁，放入碗中，加入10毫升料酒、5克淀粉，抓匀后腌制，腌制20分钟",
+          "display_text": "步骤 1/6：将150克鸡肉切成1厘米见方的丁，放入碗中，加入10毫升料酒、5克淀粉，抓匀后腌制，腌制20分钟",
+          "duration_seconds": 1200,
+          "heat_level": null,
+          "robot_action": "show_concern",
+          "led_effect": "blue_dynamic",
+          "expression": "focused",
+          "safety_note": null,
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 2,
+          "instruction": "准备调味碗，倒入15毫升生抽、10毫升醋、10克糖、2克盐、5克淀粉和10毫升清水，搅拌均匀",
+          "display_text": "步骤 2/6：准备调味碗，倒入15毫升生抽、10毫升醋、10克糖、2克盐、5克淀粉和10毫升清水，搅拌均匀",
+          "duration_seconds": null,
+          "heat_level": null,
+          "robot_action": "encourage_gesture",
+          "led_effect": "green_dynamic",
+          "expression": "happy",
+          "safety_note": null,
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 3,
+          "instruction": "冷锅倒入10毫升食用油，放入50克花生米，小火加热，期间不停翻动，炸至花生米表面金黄后捞出控油",
+          "display_text": "步骤 3/6：冷锅倒入10毫升食用油，放入50克花生米，小火加热，期间不停翻动，炸至花生米表面金黄后捞出控油",
+          "duration_seconds": 30,
+          "heat_level": "小火",
+          "robot_action": "nod",
+          "led_effect": "yellow",
+          "expression": "warning",
+          "safety_note": "注意观察花生米颜色，避免炸焦",
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 4,
+          "instruction": "热锅倒入15毫升食用油，放入1克花椒、3个干辣椒，小火炒至香味溢出，倒入腌制好的鸡肉丁，中火翻炒至鸡肉丁完全变色",
+          "display_text": "步骤 4/6：热锅倒入15毫升食用油，放入1克花椒、3个干辣椒，小火炒至香味溢出，倒入腌制好的鸡肉丁，中火翻炒至鸡肉丁完全变色",
+          "duration_seconds": 120,
+          "heat_level": "中火",
+          "robot_action": "encourage_gesture",
+          "led_effect": "yellow",
+          "expression": "warning",
+          "safety_note": "翻炒时避免鸡肉丁粘连 计时只是下限参考，应以肉类完全变色、中心无粉红为准。",
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 5,
+          "instruction": "倒入调好的调味汁，快速翻炒至汤汁浓稠包裹所有食材",
+          "display_text": "步骤 5/6：倒入调好的调味汁，快速翻炒至汤汁浓稠包裹所有食材",
+          "duration_seconds": 60,
+          "heat_level": "中火",
+          "robot_action": "encourage_gesture",
+          "led_effect": "green_dynamic",
+          "expression": "happy",
+          "safety_note": "注意翻炒防止糊底",
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 6,
+          "instruction": "倒入炸好的花生米，翻炒均匀后关火，盛出装盘",
+          "display_text": "步骤 6/6：倒入炸好的花生米，翻炒均匀后关火，盛出装盘",
+          "duration_seconds": null,
+          "heat_level": null,
+          "robot_action": "encourage_gesture",
+          "led_effect": "rainbow",
+          "expression": "excited",
+          "safety_note": null,
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        }
+      ],
+      "summary": "经典家常宫保鸡丁，酸甜适口（正常口味），新手易上手的快手家常菜",
+      "_cache_request": {
+        "cache_version": 5,
+        "requested_dish": "宫保鸡丁",
+        "servings": 1,
+        "taste_preferences": [
+          "正常口味"
+        ],
+        "dietary_restrictions": []
+      }
+    }
+  ]
+}

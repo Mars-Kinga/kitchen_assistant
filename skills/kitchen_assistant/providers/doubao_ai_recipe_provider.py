@@ -1,12 +1,15 @@
 from __future__ import annotations
 
 import re
+import threading
+from concurrent.futures import ThreadPoolExecutor
 from copy import deepcopy
 from pathlib import Path
 from typing import Any
 
 from kitchen.dietary_rules import ingredient_conflicts
-from kitchen.models import RecipeCandidate, RecipeSearchRequest
+from kitchen.dish_profiles import matching_profiles
+from kitchen.models import RecipeCandidate, RecipeSearchRequest, split_main_foods_and_seasonings
 from kitchen.recipe_normalizer import RecipeNormalizer
 from llm.doubao_client import DoubaoClientError, DoubaoLLMClient
 from llm.prompts import candidate_messages, recipe_messages
@@ -30,6 +33,9 @@ class DoubaoAIRecipeProvider:
         self._mode = "ai_generated"
         self.last_cache_path: Path | None = None
         self.last_cache_paths: list[Path] = []
+        self.last_cache_candidate_count = 0
+        self._last_cached_candidate_ids: set[str] = set()
+        self._cache_lock = threading.Lock()
 
     @property
     def mode(self) -> str:
@@ -38,6 +44,8 @@ class DoubaoAIRecipeProvider:
     def search_recipes(self, request: RecipeSearchRequest) -> list[RecipeCandidate]:
         self.last_cache_path = None
         self.last_cache_paths = []
+        self.last_cache_candidate_count = 0
+        self._last_cached_candidate_ids = set()
         cached_search = getattr(self.fallback, "search_cached_recipes", None)
         if callable(cached_search):
             cached = cached_search(request)
@@ -63,13 +71,18 @@ class DoubaoAIRecipeProvider:
             # Generate and persist all three details while the request is
             # active. A later choice can then use memory or the JSON cache
             # without another model call.
-            for candidate in candidates:
-                try:
-                    self.get_recipe_detail(candidate)
-                except Exception:
-                    # One malformed detail must not hide the other valid
-                    # candidates; the selected item can be retried later.
-                    continue
+            # Detail calls are independent. Keep all three candidates cached,
+            # but overlap network latency so a recommendation round waits for
+            # roughly one model response instead of three sequential ones.
+            with ThreadPoolExecutor(max_workers=min(3, len(candidates))) as pool:
+                futures = [pool.submit(self.get_recipe_detail, candidate) for candidate in candidates]
+                for future in futures:
+                    try:
+                        future.result()
+                    except Exception:
+                        # One malformed detail must not hide the other valid
+                        # candidates; the selected item can be retried later.
+                        continue
             return candidates
         except (DoubaoClientError, ValueError, TypeError, AIRecipeProviderError) as exc:
             raise AIRecipeProviderError("豆包候选菜谱生成失败") from exc
@@ -88,8 +101,9 @@ class DoubaoAIRecipeProvider:
             raise AIRecipeProviderError("候选菜谱上下文已失效")
         try:
             raw = self.llm_client.generate_json(recipe_messages(candidate.as_dict(), _request_payload(request)))
-            _ensure_steak_ingredients(raw, request)
-            _normalize_steak_sear_durations(raw, request)
+            _ensure_profile_ingredients(raw, request)
+            _ensure_inventory_ingredients(raw, request)
+            _normalize_profile_timers(raw, request)
             _validate_raw_recipe(raw)
             raw["recipe_id"] = candidate.candidate_id
             raw["name"] = str(raw.get("title") or candidate.title).strip()
@@ -118,8 +132,11 @@ class DoubaoAIRecipeProvider:
         try:
             normalized = RecipeNormalizer().normalize(raw)
             normalized["summary"] = candidate.summary
-            saved = save(normalized, request)
+            with self._cache_lock:
+                saved = save(normalized, request)
             self.last_cache_path = saved if isinstance(saved, Path) else None
+            self._last_cached_candidate_ids.add(candidate.candidate_id)
+            self.last_cache_candidate_count = len(self._last_cached_candidate_ids)
             if isinstance(saved, Path) and saved not in self.last_cache_paths:
                 self.last_cache_paths.append(saved)
         except (OSError, ValueError, TypeError):
@@ -138,17 +155,29 @@ def _candidate_from_row(row: Any, index: int, request: RecipeSearchRequest) -> R
     minutes = row.get("estimated_minutes")
     if not isinstance(minutes, int) or not 1 <= minutes <= 240:
         raise ValueError("预计时间无效")
-    ingredients = _string_list(row.get("main_ingredients"))
-    if not ingredients:
+    labels = _string_list(row.get("main_ingredients"))
+    seasonings = _string_list(row.get("main_seasonings"))
+    if not labels:
         raise ValueError("候选缺少主要食材")
-    if "牛排" in str(request.requested_dish or title):
-        _append_missing(ingredients, ["牛排", "精炼橄榄油", "黄油", "盐", "黑胡椒"])
+    for profile in matching_profiles(request.requested_dish, title):
+        _append_missing(labels, [str(item) for item in profile.get("candidate_ingredients", []) if str(item)])
+    ingredients, inferred_seasonings = split_main_foods_and_seasonings(labels)
+    _, declared_seasonings = split_main_foods_and_seasonings(seasonings)
+    _append_missing(inferred_seasonings, declared_seasonings)
     # No pantry declaration means “unknown”, rather than “everything missing”.
     missing = _string_list(row.get("missing_ingredients")) if request.available_ingredients else []
-    if ingredient_conflicts(ingredients, request.dietary_restrictions):
+    if ingredient_conflicts([*ingredients, *inferred_seasonings], request.dietary_restrictions):
         raise ValueError("候选违反忌口")
     if request.requested_dish and index == 1 and request.requested_dish not in title:
         raise ValueError("候选没有保留指定菜名")
+    if not request.requested_dish and request.available_ingredients:
+        labels_for_matching = [*ingredients, *inferred_seasonings]
+        missing_inventory = [
+            item for item in request.available_ingredients
+            if not _inventory_ingredient_present(item, labels_for_matching)
+        ]
+        if missing_inventory:
+            raise ValueError(f"候选遗漏用户已有食材：{'、'.join(missing_inventory)}")
     candidate_id = f"ai_{_slug(title)}_{index}"
     return RecipeCandidate(
         candidate_id=candidate_id,
@@ -161,7 +190,32 @@ def _candidate_from_row(row: Any, index: int, request: RecipeSearchRequest) -> R
         main_ingredients=ingredients,
         missing_ingredients=missing,
         match_reason=_text(row.get("match_reason"), "匹配说明"),
+        main_seasonings=inferred_seasonings,
     )
+
+
+_INVENTORY_ALIASES = {
+    "蘑菇": ("蘑菇", "香菇", "口蘑", "平菇", "白玉菇"),
+    "牛肉": ("牛肉", "肥牛", "牛腩", "牛里脊"),
+}
+
+
+def _inventory_ingredient_present(required: str, labels: list[str]) -> bool:
+    aliases = _INVENTORY_ALIASES.get(required, (required,))
+    return any(alias in label or label in alias for alias in aliases for label in labels)
+
+
+def _ensure_inventory_ingredients(raw: Any, request: RecipeSearchRequest) -> None:
+    """Do not let a detail response silently drop pantry food from its candidate."""
+    if request.requested_dish or not request.available_ingredients or not isinstance(raw, dict):
+        return
+    ingredient_rows = raw.get("ingredients")
+    if not isinstance(ingredient_rows, list):
+        return
+    labels = [str(item.get("name", "")) for item in ingredient_rows if isinstance(item, dict)]
+    missing = [item for item in request.available_ingredients if not _inventory_ingredient_present(item, labels)]
+    if missing:
+        raise ValueError(f"完整菜谱遗漏用户已有食材：{'、'.join(missing)}")
 
 
 def _validate_raw_recipe(raw: Any) -> None:
@@ -175,12 +229,20 @@ def _validate_raw_recipe(raw: Any) -> None:
     for item in ingredients:
         if not isinstance(item, dict) or not _text(item.get("name"), "食材"):
             raise ValueError("食材无效")
+        amount = _text(item.get("amount"), "")
+        if not amount or any(marker in amount for marker in ("适量", "少量", "少许", "按口味")):
+            raise ValueError("食材必须给出明确用量")
     steps = raw.get("steps")
     if not isinstance(steps, list) or not steps:
         raise ValueError("菜谱必须包含步骤")
     for index, step in enumerate(steps, start=1):
         if not isinstance(step, dict) or not _text(step.get("instruction"), "步骤"):
             raise ValueError("步骤说明无效")
+        instruction = _text(step.get("instruction"), "步骤")
+        if any(marker in instruction for marker in ("准备调料碗", "准备调料", "准备酱汁")):
+            concrete_seasonings = ("生抽", "老抽", "米醋", "醋", "白砂糖", "白糖", "盐", "料酒", "蚝油", "胡椒")
+            if not any(marker in instruction for marker in concrete_seasonings):
+                raise ValueError("调料准备步骤必须写明具体调料和用量")
         # The provider owns a public data shape, but sequential numbering is
         # enforced here before the normalizer maps multimodal fields.
         step["step_number"] = index
@@ -207,77 +269,57 @@ def _request_payload(request: RecipeSearchRequest) -> dict[str, Any]:
     }
 
 
-def _normalize_steak_sear_durations(raw: Any, request: RecipeSearchRequest) -> None:
-    """Bound AI steak timers to cautious initial sear windows.
-
-    The model supplies the recipe, but local code guards against a generic
-    “two minutes per side” default when the user supplied an ordinary-thickness
-    steak. These are initial timings only; the step text keeps the required
-    temperature/centre check instead of claiming a guaranteed doneness.
-    """
-    if not isinstance(raw, dict) or "牛排" not in str(request.requested_dish or raw.get("title", "")):
+def _normalize_profile_timers(raw: Any, request: RecipeSearchRequest) -> None:
+    """Apply cautious, data-defined timing bounds for matching dish profiles."""
+    if not isinstance(raw, dict):
         return
     steps = raw.get("steps")
     if not isinstance(steps, list):
         return
-    thickness = request.steak_thickness_cm or 2.0
-    if thickness <= 2.2:
-        maximum = 90
-    elif thickness <= 3.0:
-        maximum = 120
-    else:
-        maximum = 150
-    default_seconds = _default_steak_sear_seconds(request.steak_doneness, thickness, maximum)
-    for step in steps:
-        if not isinstance(step, dict):
+    for profile in matching_profiles(request.requested_dish, raw.get("title")):
+        policy = profile.get("sear_timer")
+        if not isinstance(policy, dict):
             continue
-        instruction = str(step.get("instruction", ""))
-        is_side = "煎" in instruction and any(word in instruction for word in ("正面", "翻面", "反面", "另一面"))
-        if not is_side:
-            continue
-        duration = step.get("duration_seconds")
-        if not isinstance(duration, (int, float)) or duration <= 0 or duration > maximum:
-            duration = default_seconds
-            step["duration_seconds"] = duration
-        seconds = int(duration)
-        # Do not let an instruction contradict its structured timer.
-        instruction = re.sub(r"(?:约|大约)?\s*\d+(?:\.\d+)?\s*(?:分钟|min)", f"约 {seconds} 秒", instruction, flags=re.IGNORECASE)
-        if "初始参考" not in instruction:
-            instruction = f"{instruction}（约 {seconds} 秒为初始参考，按中心温度和上色情况调整。）"
-        step["instruction"] = instruction
-        safety_note = str(step.get("safety_note") or "")
-        if "温度计" not in safety_note:
-            step["safety_note"] = (safety_note + " 使用食品温度计或切开中心检查，不以计时保证熟度。").strip()
+        thickness = getattr(request, str(policy.get("thickness_field", "")), None) or float(policy.get("default_thickness_cm", 2.0))
+        maximum = next((int(limit) for threshold, limit in policy.get("maximum_seconds", []) if thickness <= float(threshold)), 150)
+        option = getattr(request, str(policy.get("option_field", "")), None)
+        base = int((policy.get("base_seconds_by_option") or {}).get(option or "", 60))
+        default_seconds = max(int(policy.get("minimum_seconds", 30)), min(maximum, base + round((float(thickness) - 2.0) * int(policy.get("per_cm_adjustment_seconds", 20)))))
+        for step in steps:
+            if not isinstance(step, dict):
+                continue
+            instruction = str(step.get("instruction", ""))
+            markers = tuple(str(marker) for marker in policy.get("side_markers", []) if str(marker))
+            if str(policy.get("action_marker", "")) not in instruction or not any(marker in instruction for marker in markers):
+                continue
+            duration = step.get("duration_seconds")
+            if not isinstance(duration, (int, float)) or duration <= 0 or duration > maximum:
+                duration = default_seconds
+                step["duration_seconds"] = duration
+            seconds = int(duration)
+            instruction = re.sub(r"(?:约|大约)?\s*\d+(?:\.\d+)?\s*(?:分钟|min)", f"约 {seconds} 秒", instruction, flags=re.IGNORECASE)
+            if "初始参考" not in instruction:
+                instruction = f"{instruction}（{str(policy.get('instruction_suffix', '')).format(seconds=seconds)}）"
+            step["instruction"] = instruction
+            safety_note = str(step.get("safety_note") or "")
+            reminder = str(policy.get("safety_note") or "")
+            if reminder and reminder not in safety_note:
+                step["safety_note"] = f"{safety_note} {reminder}".strip()
 
 
-def _ensure_steak_ingredients(raw: Any, request: RecipeSearchRequest) -> None:
-    """Ensure a generated steak recipe does not omit basic seasoning/oil."""
-    if not isinstance(raw, dict) or "牛排" not in str(request.requested_dish or raw.get("title", "")):
+def _ensure_profile_ingredients(raw: Any, request: RecipeSearchRequest) -> None:
+    """Ensure generated recipes include the basics declared by their profile."""
+    if not isinstance(raw, dict):
         return
     ingredients = raw.get("ingredients")
     if not isinstance(ingredients, list):
         return
     names = [str(item.get("name", "")) for item in ingredients if isinstance(item, dict)]
-    defaults = [
-        {"name": "牛排", "amount": 1, "unit": "块", "optional": False},
-        {"name": "精炼橄榄油", "amount": 1, "unit": "茶匙", "optional": False},
-        {"name": "盐", "amount": "1/4", "unit": "茶匙", "optional": False},
-        {"name": "黑胡椒", "amount": "1/4", "unit": "茶匙", "optional": False},
-        {"name": "黄油", "amount": 10, "unit": "克", "optional": True},
-        {"name": "蒜", "amount": 1, "unit": "瓣", "optional": True},
-        {"name": "迷迭香", "amount": 1, "unit": "小枝", "optional": True},
-    ]
-    for item in defaults:
-        if not any(item["name"] in name or name in item["name"] for name in names):
-            ingredients.append(item)
-            names.append(item["name"])
-
-
-def _default_steak_sear_seconds(doneness: str | None, thickness_cm: float, maximum: int) -> int:
-    base_for_two_cm = {"三分熟": 45, "五分熟": 60, "七分熟": 75, "全熟": 90}
-    base = base_for_two_cm.get(doneness or "", 60)
-    adjusted = base + round((thickness_cm - 2.0) * 20)
-    return max(30, min(maximum, adjusted))
+    for profile in matching_profiles(request.requested_dish, raw.get("title")):
+        for item in profile.get("default_ingredients", []):
+            if isinstance(item, dict) and not any(str(item.get("name", "")) in name or name in str(item.get("name", "")) for name in names):
+                ingredients.append(dict(item))
+                names.append(str(item.get("name", "")))
 
 
 def _append_missing(values: list[str], expected: list[str]) -> None:

@@ -1,0 +1,183 @@
+{
+  "cache_version": 5,
+  "recipes": [
+    {
+      "recipe_id": "cached_蘑菇牛肉片汤_f72c65ad6b34",
+      "name": "蘑菇牛肉片汤",
+      "source_name": "本地缓存菜谱",
+      "source_url": null,
+      "servings": 1,
+      "ingredients": [
+        {
+          "name": "牛肉",
+          "amount": "100",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "蘑菇",
+          "amount": "100",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "盐",
+          "amount": "2",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "生抽",
+          "amount": "10",
+          "unit": "毫升",
+          "optional": false
+        },
+        {
+          "name": "香油",
+          "amount": "5",
+          "unit": "毫升",
+          "optional": false
+        },
+        {
+          "name": "清水",
+          "amount": "500",
+          "unit": "毫升",
+          "optional": false
+        }
+      ],
+      "equipment": [
+        "汤锅",
+        "菜刀",
+        "菜板",
+        "汤勺",
+        "小碗"
+      ],
+      "estimated_time_minutes": 12,
+      "difficulty": "简单",
+      "notes": [
+        "处理生牛肉后需洗手，避免交叉污染",
+        "汤品需煮沸后食用，确保卫生"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "将100克牛肉洗净后切成薄片，100克蘑菇洗净撕成小朵",
+          "display_text": "步骤 1/6：将100克牛肉洗净后切成薄片，100克蘑菇洗净撕成小朵",
+          "duration_seconds": null,
+          "heat_level": null,
+          "robot_action": "show_concern",
+          "led_effect": "blue_dynamic",
+          "expression": "focused",
+          "safety_note": null,
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 2,
+          "instruction": "把切好的100克牛肉片放入小碗，加入1克盐、5毫升生抽抓匀，静置腌制，腌制10分钟",
+          "display_text": "步骤 2/6：把切好的100克牛肉片放入小碗，加入1克盐、5毫升生抽抓匀，静置腌制，腌制10分钟",
+          "duration_seconds": 600,
+          "heat_level": null,
+          "robot_action": "show_concern",
+          "led_effect": "warm_white",
+          "expression": "focused",
+          "safety_note": "腌制时确保牛肉片均匀裹上调料，提升滑嫩口感",
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 3,
+          "instruction": "汤锅倒入500毫升清水，开大火加热至沸腾",
+          "display_text": "步骤 3/6：汤锅倒入500毫升清水，开大火加热至沸腾",
+          "duration_seconds": 60,
+          "heat_level": "大火",
+          "robot_action": "nod",
+          "led_effect": "yellow",
+          "expression": "warning",
+          "safety_note": null,
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 4,
+          "instruction": "水沸腾后放入100克蘑菇小朵，转中火煮至蘑菇变软",
+          "display_text": "步骤 4/6：水沸腾后放入100克蘑菇小朵，转中火煮至蘑菇变软",
+          "duration_seconds": 120,
+          "heat_level": "中火",
+          "robot_action": "nod",
+          "led_effect": "yellow",
+          "expression": "warning",
+          "safety_note": null,
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 5,
+          "instruction": "放入腌制好的100克牛肉片，用汤勺轻轻划散，煮至牛肉完全变色",
+          "display_text": "步骤 5/6：放入腌制好的100克牛肉片，用汤勺轻轻划散，煮至牛肉完全变色",
+          "duration_seconds": 60,
+          "heat_level": "中火",
+          "robot_action": "nod",
+          "led_effect": "blue_dynamic",
+          "expression": "focused",
+          "safety_note": null,
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 6,
+          "instruction": "加入剩余1克盐、5毫升生抽搅匀，关火后淋入5毫升香油，盛出即可",
+          "display_text": "步骤 6/6：加入剩余1克盐、5毫升生抽搅匀，关火后淋入5毫升香油，盛出即可",
+          "duration_seconds": null,
+          "heat_level": null,
+          "robot_action": "encourage_gesture",
+          "led_effect": "rainbow",
+          "expression": "excited",
+          "safety_note": null,
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        }
+      ],
+      "summary": "清淡鲜美的快手汤品，牛肉片滑嫩，蘑菇提鲜，正常口味，1人份量合适",
+      "_cache_request": {
+        "cache_version": 5,
+        "requested_dish": "蘑菇牛肉片汤",
+        "servings": 1,
+        "taste_preferences": [
+          "正常口味"
+        ],
+        "dietary_restrictions": []
+      }
+    }
+  ]
+}

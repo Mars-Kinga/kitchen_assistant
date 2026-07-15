@@ -3,7 +3,13 @@ from __future__ import annotations
 from typing import Any
 
 from .dietary_rules import ingredient_conflicts
-from .models import RecipeCandidate, RecipeSearchRequest
+from .models import RecipeCandidate, RecipeSearchRequest, split_main_foods_and_seasonings
+
+
+_INGREDIENT_ALIASES = {
+    "蘑菇": ("蘑菇", "香菇", "口蘑", "平菇", "白玉菇"),
+    "牛肉": ("牛肉", "肥牛", "牛腩", "牛里脊"),
+}
 
 
 def rank_recipes(recipes: list[dict[str, Any]], request: RecipeSearchRequest) -> list[RecipeCandidate]:
@@ -12,6 +18,13 @@ def rank_recipes(recipes: list[dict[str, Any]], request: RecipeSearchRequest) ->
         ingredients = [str(item.get("name", "")) for item in raw.get("ingredients", [])]
         if ingredient_conflicts(ingredients, request.dietary_restrictions):
             continue
+        # If the user has not chosen a dish and explicitly supplied a pantry,
+        # recommending a dish that ignores part of that pantry is misleading.
+        # Return no offline candidate instead, so the configured AI provider
+        # can compose an appropriate dish from the stated ingredients.
+        if not request.requested_dish and request.available_ingredients:
+            if any(not _ingredient_is_present(item, ingredients) for item in request.available_ingredients):
+                continue
         recipe_id = str(raw["recipe_id"])
         if recipe_id in request.excluded_candidate_ids:
             continue
@@ -41,6 +54,7 @@ def rank_recipes(recipes: list[dict[str, Any]], request: RecipeSearchRequest) ->
         if request.available_equipment:
             score += 8 if equipment & set(request.available_equipment) else -20
         reason = _reason(present, missing, request, raw)
+        main_ingredients, main_seasonings = split_main_foods_and_seasonings(ingredients)
         candidate = RecipeCandidate(
             candidate_id=recipe_id,
             title=str(raw["name"]),
@@ -49,9 +63,10 @@ def rank_recipes(recipes: list[dict[str, Any]], request: RecipeSearchRequest) ->
             summary=str(raw.get("summary") or "离线示例菜谱。"),
             estimated_minutes=minutes if isinstance(minutes, int) else None,
             difficulty=str(raw.get("difficulty") or "简单"),
-            main_ingredients=ingredients,
+            main_ingredients=main_ingredients,
             missing_ingredients=missing,
             match_reason=reason,
+            main_seasonings=main_seasonings,
         )
         ranked.append((score, candidate))
     return [candidate for _, candidate in sorted(ranked, key=lambda pair: (-pair[0], pair[1].title))[:3]]
@@ -65,3 +80,8 @@ def _reason(present: list[str], missing: list[str], request: RecipeSearchRequest
     if present:
         return f"可利用现有的{'、'.join(present)}，只缺少少量主要食材。"
     return "符合当前的离线示例筛选条件。"
+
+
+def _ingredient_is_present(required: str, ingredients: list[str]) -> bool:
+    aliases = _INGREDIENT_ALIASES.get(required, (required,))
+    return any(alias in ingredient or ingredient in alias for alias in aliases for ingredient in ingredients)

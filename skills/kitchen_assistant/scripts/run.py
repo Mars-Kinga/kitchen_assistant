@@ -40,6 +40,11 @@ def run(arguments: dict[str, Any]) -> dict[str, Any]:
     return _SESSION.handle(str(arguments.get("user_text", "")))
 
 
+def set_progress_callback(callback: Any | None) -> None:
+    """Let the runtime render a waiting state before a blocking AI call."""
+    _SESSION.set_progress_callback(callback)
+
+
 def poll() -> dict[str, Any] | None:
     """Expose due kitchen timer events to the host runtime."""
     return _SESSION.poll()

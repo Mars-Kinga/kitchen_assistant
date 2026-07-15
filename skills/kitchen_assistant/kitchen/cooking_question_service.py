@@ -43,6 +43,12 @@ class RuleBasedCookingQuestionService:
             return CookingAnswer("可以不放辣椒和辣酱，其他步骤照常进行。", "不放辣椒和辣酱即可。")
         if "锅太小" in text:
             return CookingAnswer("锅太小时请减少一次下锅的量，给水和食材留出翻滚空间；容易溢锅的食材可分两次做。", "锅太小：减量或分两次做，留出空间。", CAUTION, False, "nod", "yellow", "focused")
+        if "高压锅" in text and any(word in text for word in ("没有", "不用", "替代", "怎么办")):
+            return CookingAnswer(
+                "没有高压锅可以改用普通带盖汤锅：加入足量热水没过肉类，先烧开后转小火慢炖，通常需要60到90分钟。每15到20分钟查看一次水量，必要时补开水；用筷子能较容易插入时再进入收汁或下一步。",
+                "无高压锅：普通锅小火慢炖60–90分钟，每15–20分钟查水量。",
+                CAUTION, False, "nod", "yellow", "focused",
+            )
         if any(word in text for word in ("有点糊", "一点糊", "快糊", "粘锅糊")):
             return CookingAnswer(
                 "先把火调小或暂时关火，把还没焦的部分轻轻移到干净区域或盛出，不要刮起锅底焦黑部分；确认没有大量烟或起火后再决定是否继续。",
