@@ -10,6 +10,7 @@ from typing import Any
 from kitchen.cache import MemoryRecipeCache
 from kitchen.dish_profiles import load_catalog
 from kitchen.models import RecipeCandidate, RecipeSearchRequest
+from kitchen.recipe_normalizer import RecipeNormalizationError, RecipeNormalizer
 from kitchen.recommendation_service import rank_recipes
 
 
@@ -149,6 +150,10 @@ class MockRecipeSearchProvider:
                         continue
                     recipe_id = str(recipe["recipe_id"])
                     if not recipe.get("name") or not recipe.get("ingredients") or not recipe.get("steps"):
+                        continue
+                    try:
+                        RecipeNormalizer().normalize(recipe)
+                    except RecipeNormalizationError:
                         continue
                     recipe["source_name"] = "本地缓存菜谱"
                     recipe["source_url"] = None

@@ -47,7 +47,7 @@ class DoubaoAIRecipeProvider:
         self.last_cache_candidate_count = 0
         self._last_cached_candidate_ids = set()
         cached_search = getattr(self.fallback, "search_cached_recipes", None)
-        if callable(cached_search):
+        if not request.bypass_cache and callable(cached_search):
             cached = cached_search(request)
             if cached:
                 self._mode = "local_cache"
@@ -103,6 +103,7 @@ class DoubaoAIRecipeProvider:
             raw = self.llm_client.generate_json(recipe_messages(candidate.as_dict(), _request_payload(request)))
             _ensure_profile_ingredients(raw, request)
             _ensure_inventory_ingredients(raw, request)
+            _ensure_equipment_constraints(raw, request)
             _normalize_profile_timers(raw, request)
             _validate_raw_recipe(raw)
             raw["recipe_id"] = candidate.candidate_id
@@ -218,6 +219,17 @@ def _ensure_inventory_ingredients(raw: Any, request: RecipeSearchRequest) -> Non
         raise ValueError(f"完整菜谱遗漏用户已有食材：{'、'.join(missing)}")
 
 
+def _ensure_equipment_constraints(raw: Any, request: RecipeSearchRequest) -> None:
+    if not isinstance(raw, dict):
+        return
+    equipment = {str(item) for item in raw.get("equipment", []) if str(item)}
+    if equipment & set(request.unavailable_equipment):
+        raise ValueError("完整菜谱使用了用户没有的厨具")
+    if request.equipment_only and request.available_equipment and equipment:
+        if not equipment & set(request.available_equipment):
+            raise ValueError("完整菜谱超出用户现有厨具")
+
+
 def _validate_raw_recipe(raw: Any) -> None:
     if not isinstance(raw, dict):
         raise ValueError("菜谱必须是对象")
@@ -239,6 +251,8 @@ def _validate_raw_recipe(raw: Any) -> None:
         if not isinstance(step, dict) or not _text(step.get("instruction"), "步骤"):
             raise ValueError("步骤说明无效")
         instruction = _text(step.get("instruction"), "步骤")
+        if any(marker in instruction for marker in ("适量", "少量", "少许", "按口味")):
+            raise ValueError("步骤用量必须明确")
         if any(marker in instruction for marker in ("准备调料碗", "准备调料", "准备酱汁")):
             concrete_seasonings = ("生抽", "老抽", "米醋", "醋", "白砂糖", "白糖", "盐", "料酒", "蚝油", "胡椒")
             if not any(marker in instruction for marker in concrete_seasonings):
@@ -263,6 +277,8 @@ def _request_payload(request: RecipeSearchRequest) -> dict[str, Any]:
         "dietary_restrictions": request.dietary_restrictions,
         "max_cooking_minutes": request.max_cooking_minutes,
         "available_equipment": request.available_equipment,
+        "unavailable_equipment": request.unavailable_equipment,
+        "equipment_only": request.equipment_only,
         "difficulty_preference": request.difficulty_preference,
         "steak_doneness": request.steak_doneness,
         "steak_thickness_cm": request.steak_thickness_cm,

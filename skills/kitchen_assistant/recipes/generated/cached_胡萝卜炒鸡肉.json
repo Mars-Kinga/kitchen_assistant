@@ -1,0 +1,202 @@
+{
+  "cache_version": 5,
+  "recipes": [
+    {
+      "recipe_id": "cached_胡萝卜炒鸡肉_079694a21663",
+      "name": "胡萝卜炒鸡肉",
+      "source_name": "本地缓存菜谱",
+      "source_url": null,
+      "servings": 1,
+      "ingredients": [
+        {
+          "name": "鸡肉",
+          "amount": "100",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "胡萝卜",
+          "amount": "100",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "盐",
+          "amount": "2",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "生抽",
+          "amount": "15",
+          "unit": "毫升",
+          "optional": false
+        },
+        {
+          "name": "食用油",
+          "amount": "10",
+          "unit": "毫升",
+          "optional": false
+        },
+        {
+          "name": "料酒",
+          "amount": "5",
+          "unit": "毫升",
+          "optional": true
+        }
+      ],
+      "equipment": [
+        "炒锅",
+        "菜刀",
+        "菜板",
+        "小碗",
+        "锅铲"
+      ],
+      "estimated_time_minutes": 15,
+      "difficulty": "简单",
+      "notes": [
+        "处理生鸡肉后需彻底洗手，避免交叉污染",
+        "炒制时油温不宜过高，防止油溅烫伤",
+        "收汁时需用小火，避免糊底"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "将100克鸡肉切成1厘米见方的丁，100克胡萝卜切成0.5厘米见方的丁",
+          "display_text": "步骤 1/7：将100克鸡肉切成1厘米见方的丁，100克胡萝卜切成0.5厘米见方的丁",
+          "duration_seconds": null,
+          "heat_level": null,
+          "robot_action": "show_concern",
+          "led_effect": "blue_dynamic",
+          "expression": "focused",
+          "safety_note": null,
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 2,
+          "instruction": "将切好的鸡肉丁放入小碗中，加入5毫升料酒（可选）、1克盐，抓匀后腌制，腌制10分钟",
+          "display_text": "步骤 2/7：将切好的鸡肉丁放入小碗中，加入5毫升料酒（可选）、1克盐，抓匀后腌制，腌制10分钟",
+          "duration_seconds": 600,
+          "heat_level": null,
+          "robot_action": "show_concern",
+          "led_effect": "warm_white",
+          "expression": "focused",
+          "safety_note": "腌制时确保鸡肉丁均匀裹上调料",
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 3,
+          "instruction": "取另一个小碗，倒入15毫升生抽和剩余1克盐，搅拌均匀",
+          "display_text": "步骤 3/7：取另一个小碗，倒入15毫升生抽和剩余1克盐，搅拌均匀",
+          "duration_seconds": null,
+          "heat_level": null,
+          "robot_action": "encourage_gesture",
+          "led_effect": "green_dynamic",
+          "expression": "happy",
+          "safety_note": null,
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 4,
+          "instruction": "热锅后倒入10毫升食用油，开中火，油热后放入腌制好的鸡肉丁，翻炒至完全变色",
+          "display_text": "步骤 4/7：热锅后倒入10毫升食用油，开中火，油热后放入腌制好的鸡肉丁，翻炒至完全变色",
+          "duration_seconds": 120,
+          "heat_level": "中火",
+          "robot_action": "encourage_gesture",
+          "led_effect": "yellow",
+          "expression": "warning",
+          "safety_note": "翻炒时避免油溅出 计时只是下限参考，应以肉类完全变色、中心无粉红为准。",
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 5,
+          "instruction": "放入切好的胡萝卜丁，继续翻炒至胡萝卜断生变软",
+          "display_text": "步骤 5/7：放入切好的胡萝卜丁，继续翻炒至胡萝卜断生变软",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "robot_action": "show_concern",
+          "led_effect": "green_dynamic",
+          "expression": "happy",
+          "safety_note": "胡萝卜丁炒至断生即可，避免过软失去口感 火力和切配粗细会影响时间，以蔬菜实际断生或达到所需软度为准。",
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 6,
+          "instruction": "倒入准备好的生抽盐调味汁，翻炒均匀后用小火收汁",
+          "display_text": "步骤 6/7：倒入准备好的生抽盐调味汁，翻炒均匀后用小火收汁",
+          "duration_seconds": 30,
+          "heat_level": "小火",
+          "robot_action": "encourage_gesture",
+          "led_effect": "yellow",
+          "expression": "warning",
+          "safety_note": "收汁时需不停翻炒，防止糊底",
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 7,
+          "instruction": "将炒好的胡萝卜炒鸡肉盛出装盘，炒到肉类完全变色、中心无粉红",
+          "display_text": "步骤 7/7：将炒好的胡萝卜炒鸡肉盛出装盘，炒到肉类完全变色、中心无粉红",
+          "duration_seconds": 120,
+          "heat_level": null,
+          "robot_action": "encourage_gesture",
+          "led_effect": "rainbow",
+          "expression": "excited",
+          "safety_note": "计时只是下限参考，应以肉类完全变色、中心无粉红为准。",
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        }
+      ],
+      "summary": "家常快手小炒，1人份正常口味，新手易操作，口感清爽",
+      "_cache_request": {
+        "cache_version": 5,
+        "requested_dish": "胡萝卜炒鸡肉",
+        "servings": 1,
+        "taste_preferences": [
+          "正常口味"
+        ],
+        "dietary_restrictions": []
+      }
+    }
+  ]
+}

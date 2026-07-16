@@ -3,6 +3,9 @@ from __future__ import annotations
 from typing import Any
 
 
+SUPPORTED_CAPABILITIES = frozenset({"voice", "display", "motion", "light", "expression"})
+
+
 class MockMotionSDK:
     """Simulated robot motion SDK.
 

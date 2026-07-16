@@ -1,0 +1,219 @@
+{
+  "cache_version": 5,
+  "recipes": [
+    {
+      "recipe_id": "cached_胡萝卜炖鸡肉_7441ff7c787a",
+      "name": "胡萝卜炖鸡肉",
+      "source_name": "本地缓存菜谱",
+      "source_url": null,
+      "servings": 1,
+      "ingredients": [
+        {
+          "name": "鸡肉",
+          "amount": "150",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "胡萝卜",
+          "amount": "100",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "盐",
+          "amount": "2",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "料酒",
+          "amount": "15",
+          "unit": "毫升",
+          "optional": false
+        },
+        {
+          "name": "食用油",
+          "amount": "10",
+          "unit": "毫升",
+          "optional": false
+        },
+        {
+          "name": "清水",
+          "amount": "200",
+          "unit": "毫升",
+          "optional": false
+        }
+      ],
+      "equipment": [
+        "炒锅",
+        "菜刀",
+        "菜板",
+        "小碗",
+        "燃气灶",
+        "汤勺"
+      ],
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "notes": [
+        "处理生鸡肉后需彻底洗手，避免交叉污染；烹饪时注意油温，防止热油溅伤；使用刀具时注意力道，避免割伤；炖煮时不要离开灶台，防止烧干水分"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "将150克鸡肉洗净切为2厘米见方的块，100克胡萝卜洗净切为滚刀块",
+          "display_text": "步骤 1/8：将150克鸡肉洗净切为2厘米见方的块，100克胡萝卜洗净切为滚刀块",
+          "duration_seconds": null,
+          "heat_level": null,
+          "robot_action": "show_concern",
+          "led_effect": "yellow",
+          "expression": "warning",
+          "safety_note": "切配时注意刀具安全",
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 2,
+          "instruction": "把切好的150克鸡肉放入小碗，加入15毫升料酒、2克盐，抓匀后腌制10分钟",
+          "display_text": "步骤 2/8：把切好的150克鸡肉放入小碗，加入15毫升料酒、2克盐，抓匀后腌制10分钟",
+          "duration_seconds": 600,
+          "heat_level": null,
+          "robot_action": "show_concern",
+          "led_effect": "warm_white",
+          "expression": "focused",
+          "safety_note": "腌制时确保鸡肉与调料充分接触",
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 3,
+          "instruction": "炒锅倒入10毫升食用油，开中火加热至油面微有波纹",
+          "display_text": "步骤 3/8：炒锅倒入10毫升食用油，开中火加热至油面微有波纹",
+          "duration_seconds": 30,
+          "heat_level": "中火",
+          "robot_action": "encourage_gesture",
+          "led_effect": "yellow",
+          "expression": "warning",
+          "safety_note": "加热时不要离开灶台，防止油温过高起火",
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 4,
+          "instruction": "放入腌制好的150克鸡肉块，翻炒至表面全部变色，炒到肉类完全变色、中心无粉红",
+          "display_text": "步骤 4/8：放入腌制好的150克鸡肉块，翻炒至表面全部变色，炒到肉类完全变色、中心无粉红",
+          "duration_seconds": 120,
+          "heat_level": "中火",
+          "robot_action": "encourage_gesture",
+          "led_effect": "green_dynamic",
+          "expression": "happy",
+          "safety_note": "翻炒时避免鸡肉粘锅 计时只是下限参考，应以肉类完全变色、中心无粉红为准。",
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 5,
+          "instruction": "加入切好的100克胡萝卜块，翻炒1分钟至胡萝卜边缘稍软",
+          "display_text": "步骤 5/8：加入切好的100克胡萝卜块，翻炒1分钟至胡萝卜边缘稍软",
+          "duration_seconds": 120,
+          "heat_level": "中火",
+          "robot_action": "show_concern",
+          "led_effect": "green_dynamic",
+          "expression": "happy",
+          "safety_note": "翻炒时可适当翻动，防止糊底 火力和切配粗细会影响时间，以蔬菜实际断生或达到所需软度为准。",
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 6,
+          "instruction": "加入200毫升清水，大火烧开后转小火，盖上锅盖炖10分钟至鸡肉软烂、胡萝卜入味",
+          "display_text": "步骤 6/8：加入200毫升清水，大火烧开后转小火，盖上锅盖炖10分钟至鸡肉软烂、胡萝卜入味",
+          "duration_seconds": 600,
+          "heat_level": "小火",
+          "robot_action": "nod",
+          "led_effect": "yellow",
+          "expression": "warning",
+          "safety_note": "小火炖煮时注意不要烧干水分",
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 7,
+          "instruction": "开中火收汁，翻炒至汤汁浓稠裹住食材",
+          "display_text": "步骤 7/8：开中火收汁，翻炒至汤汁浓稠裹住食材",
+          "duration_seconds": 120,
+          "heat_level": "中火",
+          "robot_action": "encourage_gesture",
+          "led_effect": "yellow",
+          "expression": "warning",
+          "safety_note": "收汁时需不停翻动，避免糊锅",
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 8,
+          "instruction": "关火，将胡萝卜炖鸡肉盛出装盘",
+          "display_text": "步骤 8/8：关火，将胡萝卜炖鸡肉盛出装盘",
+          "duration_seconds": null,
+          "heat_level": null,
+          "robot_action": "nod",
+          "led_effect": "rainbow",
+          "expression": "excited",
+          "safety_note": "盛出时注意容器温度，防止烫伤",
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        }
+      ],
+      "summary": "软烂入味的家常炖菜，1人份正常口味，新手零失败",
+      "_cache_request": {
+        "cache_version": 5,
+        "requested_dish": "胡萝卜炖鸡肉",
+        "servings": 1,
+        "taste_preferences": [
+          "正常口味"
+        ],
+        "dietary_restrictions": []
+      }
+    }
+  ]
+}

@@ -1,7 +1,9 @@
 {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
   "required": ["user_text"],
   "properties": {
-    "user_text": {"type": "string", "description": "用户本轮原始输入"}
-  }
+    "user_text": {"type": "string", "minLength": 1, "description": "用户本轮原始输入"}
+  },
+  "additionalProperties": false
 }

@@ -457,6 +457,62 @@ def test_heat_step_announces_timer_and_starts_when_food_hits_pan() -> None:
     assert session.timer is not None
 
 
+def test_timed_step_cannot_be_skipped_before_timer_starts() -> None:
+    session = make_session(clock=lambda: 100.0)
+    session.current_recipe = RecipeNormalizer().normalize({
+        "name": "计时保护测试",
+        "ingredients": [{"name": "鸡肉", "amount": 150, "unit": "克"}],
+        "steps": [
+            {"instruction": "放入鸡肉翻炒至完全变色", "duration_seconds": 120},
+            {"instruction": "关火装盘"},
+        ],
+    })
+    session.state = COOKING
+
+    blocked = session.handle("下一步")
+    assert blocked["current_step"] == 1
+    assert "计时还没有启动" in blocked["speech"]
+    assert session.step_index == 0
+
+    started = session.handle("开始计时")
+    assert "开始计时 2 分钟" in started["speech"]
+    assert session.timer is not None
+
+
+def test_timed_step_allows_explicit_external_timer_confirmation() -> None:
+    session = make_session(clock=lambda: 100.0)
+    session.current_recipe = RecipeNormalizer().normalize({
+        "name": "外部计时确认测试",
+        "ingredients": [{"name": "蘑菇", "amount": 100, "unit": "克"}],
+        "steps": [
+            {"instruction": "放入蘑菇煮软", "duration_seconds": 120},
+            {"instruction": "关火装盘"},
+        ],
+    })
+    session.state = COOKING
+
+    session.handle("做好了")
+    advanced = session.handle("确认完成")
+
+    assert advanced["current_step"] == 2
+    assert session.step_index == 1
+
+
+def test_preheat_step_keeps_explicit_seconds_timer() -> None:
+    recipe = RecipeNormalizer().normalize({
+        "name": "预热计时测试",
+        "ingredients": [{"name": "食用油", "amount": 10, "unit": "毫升"}],
+        "steps": [{"instruction": "中火预热空锅约30秒"}],
+    })
+
+    step = recipe["steps"][0]
+    assert step["duration_seconds"] == 30
+    session = make_session(clock=lambda: 100.0)
+    session.current_recipe = recipe
+    session.state = COOKING
+    assert "准备计时 30 秒" in session.handle("再说一遍")["speech"]
+
+
 def test_normalizer_adds_missing_meat_timer_and_rebuilds_full_display() -> None:
     recipe = RecipeNormalizer().normalize({
         "name": "宫保鸡丁",
@@ -611,6 +667,84 @@ def test_marinade_parallel_prep_can_boiling_plain_water_but_never_selects_final_
     assert "已记录你完成了" in recorded["speech"]
 
 
+def test_marinade_without_independent_prep_only_offers_free_waiting() -> None:
+    session = make_session(clock=lambda: 100.0)
+    session.current_recipe = RecipeNormalizer().normalize({
+        "name": "胡萝卜炖鸡肉",
+        "ingredients": [
+            {"name": "鸡肉", "amount": 150, "unit": "克"},
+            {"name": "胡萝卜", "amount": 100, "unit": "克"},
+            {"name": "盐", "amount": 2, "unit": "克"},
+            {"name": "料酒", "amount": 15, "unit": "毫升"},
+            {"name": "食用油", "amount": 10, "unit": "毫升"},
+        ],
+        "steps": [
+            {"instruction": "把切好的150克鸡肉放入小碗，加入15毫升料酒、2克盐，抓匀后腌制10分钟"},
+            {"instruction": "炒锅倒入10毫升食用油，开中火加热至油面微有波纹"},
+            {"instruction": "放入腌制好的150克鸡肉块，翻炒至表面全部变色"},
+        ],
+    })
+    session.state = COOKING
+
+    started = session.handle("开始计时")
+    speech = "".join(item.get("speech", "") for item in items(started))
+
+    assert "在这段时间里你可以同步做自己想做的事情，时间到了我会叫你～" in speech
+    assert "取一个小碗" not in speech
+    assert "量好" not in speech
+    assert session.parallel_offer_by_timer_step == {}
+
+
+def test_parallel_candidate_does_not_repeat_marinade_ingredients() -> None:
+    session = make_session(clock=lambda: 100.0)
+    session.current_recipe = RecipeNormalizer().normalize({
+        "name": "重复调料准备测试",
+        "ingredients": [
+            {"name": "鸡肉", "amount": 150, "unit": "克"},
+            {"name": "盐", "amount": 2, "unit": "克"},
+            {"name": "料酒", "amount": 15, "unit": "毫升"},
+        ],
+        "steps": [
+            {"instruction": "鸡肉加入15毫升料酒和2克盐，抓匀后腌制10分钟"},
+            {"instruction": "取一个小碗，量好2克盐和15毫升料酒，放在手边"},
+            {"instruction": "炒锅加热后倒油，放入鸡肉炒熟"},
+        ],
+    })
+    session.state = COOKING
+
+    started = session.handle("开始计时")
+    speech = "".join(item.get("speech", "") for item in items(started))
+
+    assert "在这段时间里你可以同步做自己想做的事情，时间到了我会叫你～" in speech
+    assert "量好2克盐" not in speech
+    assert session.parallel_offer_by_timer_step == {}
+
+
+def test_parallel_candidate_rejects_partial_reuse_of_marinade_seasoning() -> None:
+    session = make_session(clock=lambda: 100.0)
+    session.current_recipe = RecipeNormalizer().normalize({
+        "name": "部分重复调料测试",
+        "ingredients": [
+            {"name": "鸡肉", "amount": 150, "unit": "克"},
+            {"name": "盐", "amount": 2, "unit": "克"},
+            {"name": "葱", "amount": 10, "unit": "克"},
+        ],
+        "steps": [
+            {"instruction": "鸡肉加入2克盐抓匀后腌制10分钟"},
+            {"instruction": "切好10克葱，再量取2克盐放入调料碗"},
+            {"instruction": "炒锅加热后倒油，放入鸡肉炒熟"},
+        ],
+    })
+    session.state = COOKING
+
+    started = session.handle("开始计时")
+    speech = "".join(item.get("speech", "") for item in items(started))
+
+    assert "在这段时间里你可以同步做自己想做的事情，时间到了我会叫你～" in speech
+    assert "切好10克葱" not in speech
+    assert session.parallel_offer_by_timer_step == {}
+
+
 def test_normalizer_does_not_split_one_marinade_into_two_timers() -> None:
     recipe = RecipeNormalizer().normalize({
         "name": "蘑菇牛肉片汤",
@@ -745,7 +879,7 @@ def test_rib_marinade_without_duration_is_timed_after_blanching_and_never_prehea
     assert "等待期间可以先量好调味料" not in prompt["speech"]
     started = session.handle("开始计时")
     assert "开始计时 10 分钟" in started["speech"]
-    assert "生抽 10毫升、老抽 5毫升、盐 1克" in started["speech"]
+    assert "在这段时间里你可以同步做自己想做的事情，时间到了我会叫你～" in started["speech"]
     assert session.timer is not None
 
 

@@ -18,7 +18,7 @@ _LOW_SALT = ("少盐", "清淡", "淡一点")
 _NORMAL = ("正常口味", "正常就好", "正常", "正常的")
 _CN_NUMBERS = {"一": 1, "二": 2, "两": 2, "三": 3, "四": 4, "五": 5, "六": 6, "七": 7, "八": 8, "九": 9, "十": 10}
 _SPOKEN_NOISE = re.compile(r"[，,。！？!?、~～\s]+")
-_QUESTION_MARKERS = ("吗", "？", "?", "怎么", "如何", "什么时候", "要不要", "能不能")
+_QUESTION_MARKERS = ("吗", "？", "?", "怎么", "如何", "什么时候", "要不要", "能不能", "哪一步", "做到哪", "到哪", "当前")
 _COMPLETION_PROTOTYPES = (
     "做好了", "做完了", "弄好了", "弄完了", "完成了", "搞定了", "搞好了",
     "准备好了", "收拾好了", "腌好了", "腌完了", "可以了", "差不多了", "ok了", "ok啦",
@@ -51,6 +51,8 @@ def is_likely_step_completion(text: str) -> bool:
     compact = normalize_spoken_text(text)
     if not compact or any(marker in compact for marker in _QUESTION_MARKERS):
         return False
+    if any(marker in compact for marker in ("好像", "怎么办", "什么意思", "太咸", "快干", "要干", "粉红", "没熟", "还没")):
+        return False
     if any(negative in compact for negative in ("没", "没有", "还没", "不要")):
         return False
     if any(prototype in compact for prototype in _COMPLETION_PROTOTYPES):
@@ -77,7 +79,9 @@ def is_likely_next_step(text: str) -> bool:
     compact = normalize_spoken_text(text)
     if not compact or any(marker in compact for marker in _QUESTION_MARKERS):
         return False
-    if any(prototype in compact for prototype in _NEXT_STEP_PROTOTYPES):
+    if any(prototype in compact for prototype in _NEXT_STEP_PROTOTYPES) or any(
+        phrase in compact for phrase in ("前往下一步", "进入下一步", "到下一步")
+    ):
         return True
     return any(SequenceMatcher(a=compact, b=prototype).ratio() >= 0.75 for prototype in _NEXT_STEP_PROTOTYPES)
 
@@ -108,13 +112,15 @@ def extract_flavor(text: str) -> str | None:
 
 
 def extract_timer_seconds(text: str) -> int | None:
-    if "计时" not in text and "定时" not in text:
+    compact = text.replace(" ", "")
+    has_timer_marker = any(marker in compact for marker in ("计时", "定时", "记时", "倒计时", "掐表")) or re.search(r"记(?:个|一下)?时", compact) or re.search(r"记.*(?:秒|分)", compact)
+    if not has_timer_marker:
         return None
-    match = re.search(r"(\d+)\s*(秒|分钟|分)", text)
+    match = re.search(r"(\d+)\s*(秒|分钟|分)", compact)
     if match:
         value = int(match.group(1))
         return value * 60 if match.group(2) in {"分钟", "分"} else value
-    match = re.search(r"([一二两三四五六七八九十])\s*(秒|分钟|分)", text)
+    match = re.search(r"([一二两三四五六七八九十])\s*(秒|分钟|分)", compact)
     if match:
         value = _CN_NUMBERS[match.group(1)]
         return value * 60 if match.group(2) in {"分钟", "分"} else value

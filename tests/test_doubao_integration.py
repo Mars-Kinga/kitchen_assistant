@@ -14,7 +14,7 @@ if str(SKILL_ROOT) not in sys.path:
     sys.path.insert(0, str(SKILL_ROOT))
 
 from kitchen.cooking_question_service import DoubaoCookingQuestionService  # noqa: E402
-from kitchen.models import CookingContext, RecipeSearchRequest  # noqa: E402
+from kitchen.models import CookingContext, RecipeCandidate, RecipeSearchRequest  # noqa: E402
 from kitchen.session_store import KitchenSession  # noqa: E402
 from kitchen.states import COOKING, PRESENTING_CANDIDATES, WAITING_RECIPE_CONFIRMATION  # noqa: E402
 from llm.doubao_client import DoubaoClientError, DoubaoLLMClient, parse_json_response  # noqa: E402
@@ -178,6 +178,44 @@ def test_ai_provider_generates_candidates_and_normalized_recipe(monkeypatch: pyt
     candidates = provider.search_recipes(request)
     assert len(candidates) == 1
     assert candidates[0].source_name == "豆包 AI 生成"
+
+
+def test_ai_provider_bypasses_persisted_cache_for_explicit_fresh_search(monkeypatch: pytest.MonkeyPatch) -> None:
+    llm, fake = llm_with(monkeypatch, [candidate_payload(), recipe_payload()])
+
+    class CachedFallback:
+        def __init__(self) -> None:
+            self.calls = 0
+
+        def search_cached_recipes(self, request):
+            self.calls += 1
+            return [RecipeCandidate(
+                candidate_id="cached-old",
+                title="旧缓存菜谱",
+                source_name="本地缓存菜谱",
+                source_url=None,
+                summary="旧结果",
+                estimated_minutes=10,
+                difficulty="简单",
+                main_ingredients=["番茄", "鸡蛋", "面条"],
+                main_seasonings=["盐"],
+                missing_ingredients=[],
+                match_reason="cache",
+            )]
+
+    fallback = CachedFallback()
+    provider = DoubaoAIRecipeProvider(llm, fallback)
+    request = RecipeSearchRequest(
+        available_ingredients=["番茄", "鸡蛋", "面条"],
+        servings=1,
+        bypass_cache=True,
+    )
+
+    candidates = provider.search_recipes(request)
+
+    assert fallback.calls == 0
+    assert candidates[0].source_name == "豆包 AI 生成"
+    assert len(fake.completions.calls) == 2
     assert candidates[0].source_url is None
     raw = provider.get_recipe_detail(candidates[0])
     assert raw["source_name"] == "豆包 AI 生成" and raw["source_url"] is None

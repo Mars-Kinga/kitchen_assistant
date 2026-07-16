@@ -39,6 +39,8 @@ def create_runtime(args: argparse.Namespace) -> tuple[SkillManager, RuntimeExecu
     print(f"[启动] 已注册 {len(registry)} 个 Skill")
     for skill in registry:
         print(f"  - {skill['name']}: {skill.get('description', '')}")
+    for error in manager.load_errors:
+        print(f"[Skill 加载警告] {error}")
 
     executor = RuntimeExecutor(
         no_play=args.no_play,

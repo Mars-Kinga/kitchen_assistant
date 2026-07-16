@@ -9,6 +9,6 @@
   "input_schema": "schemas/input_schema.json",
   "output_schema": "schemas/output_schema.json",
   "required_services": [],
-  "required_capabilities": ["voice"],
+  "required_capabilities": ["voice", "display", "motion", "light", "expression"],
   "enabled": true
 }
