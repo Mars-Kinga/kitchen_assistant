@@ -11,6 +11,8 @@ def handle_chat(user_text: str) -> dict[str, Any]:
 
     return {
         "speech": speech,
+        "display": speech,
         "robot_action": "idle_wait",
+        "led_effect": "white",
         "expression": "neutral",
     }

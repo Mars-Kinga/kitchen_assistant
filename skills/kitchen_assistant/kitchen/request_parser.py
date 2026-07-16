@@ -14,9 +14,9 @@ KNOWN_DISHES = (
     "蒜蓉西兰花", "炒青菜", "鸡蛋羹", "土豆丝", "可乐鸡翅", "咖喱饭", "牛排",
 )
 KNOWN_INGREDIENTS = (
-    "鸡蛋", "番茄", "面条", "青菜", "土豆", "米饭", "鸡翅", "排骨", "五花肉", "猪肉", "鸡肉", "鱼", "虾",
+    "鸡蛋", "番茄", "面条", "青菜", "土豆", "胡萝卜", "米饭", "鸡翅", "排骨", "五花肉", "猪肉", "鸡肉", "牛腩", "鱼", "虾",
     "可乐", "咖喱", "牛肉", "肥牛", "牛排", "豆腐", "茄子", "西兰花", "蘑菇", "香菇", "洋葱",
-    "葱", "姜", "蒜", "香菜", "八角", "冰糖", "白糖", "辣椒", "生抽", "老抽", "料酒", "蚝油",
+    "葱", "姜", "蒜", "香菜", "八角", "冰糖", "白糖", "辣椒", "花生", "生抽", "老抽", "料酒", "蚝油",
     "橄榄油", "食用油", "黄油", "黑胡椒", "海盐", "盐", "迷迭香",
 )
 _DISH_ALIASES = {
@@ -26,8 +26,20 @@ _DISH_ALIASES = {
     "西红柿鸡蛋面": "番茄鸡蛋面",
     "可乐翅": "可乐鸡翅",
 }
+# Common speech-to-text near-misses belong here so every caller shares the
+# same canonical pantry vocabulary. Keep this list conservative: broad fuzzy
+# matching can invent ingredients the user never said they had.
+_INGREDIENT_ALIASES = {
+    "胡萝": "胡萝卜",
+    "胡罗卜": "胡萝卜",
+    "胡萝贝": "胡萝卜",
+}
+_FRESH_SEARCH_MARKERS = (
+    "不要本地", "不用本地", "别用本地", "不要缓存", "不用缓存", "别用缓存",
+    "上网搜索", "联网搜索", "在线搜索", "重新联网", "重新搜索", "换新菜谱",
+)
 _DISH_REQUEST = re.compile(
-    r"(?:我想做|我要做|想做|要做(?!什么)|帮我做|教我做|做一道|做一份|做个|来一份|来个)\s*([^，,。！？；;]+)"
+    r"(?:我想做|我要做|想做|要做(?!什么)|帮我做|教我做|教我烧|教我煮|教我炖|我想弄个|想弄个|弄个|做一道|做一份|做个|来一份|来个)\s*([^，,。！？；;]+)"
 )
 _DISH_QUESTION = re.compile(
     r"(?:^|[，,。！？；;])\s*(?:请问|想问|我想知道|想知道|教我|帮我|能教我|可以教我)?\s*([^，,。！？；;]{2,30}?)(?:怎么做|如何做|做法|教程|怎么烧|怎么煮|怎么炒|怎么炖|怎么焖|怎么煲)"
@@ -48,10 +60,14 @@ class RequestUpdates:
     steak_doneness: str | None = None
     steak_thickness_cm: float | None = None
     asks_for_recommendation: bool = False
+    unavailable_equipment: list[str] = field(default_factory=list)
+    equipment_only: bool = False
+    bypass_cache: bool = False
 
 
 def parse_updates(text: str) -> RequestUpdates:
     updates = RequestUpdates()
+    updates.bypass_cache = any(marker in text for marker in _FRESH_SEARCH_MARKERS)
     for alias, canonical in _DISH_ALIASES.items():
         if alias in text:
             updates.requested_dish = canonical
@@ -72,10 +88,15 @@ def parse_updates(text: str) -> RequestUpdates:
     updates.ingredients = extract_ingredients(text, allow_bare=updates.asks_for_recommendation)
     updates.servings = extract_servings(text)
     updates.taste = extract_flavor(text)
-    if "辣" in text and "不吃辣" not in text and "不要辣" not in text:
+    if "辣" in text and not any(word in text for word in ("不吃辣", "不要辣", "不辣")):
         updates.taste = "辣"
-    if "不吃辣" in text or "不要辣" in text:
+    if "不吃辣" in text or "不要辣" in text or "不辣" in text:
         updates.restrictions.append("辣")
+    for requirement in ("低脂", "高蛋白", "控糖", "低糖", "素食", "纯素"):
+        if requirement in text:
+            canonical = "控糖" if requirement == "低糖" else ("素食" if requirement == "纯素" else requirement)
+            if canonical not in updates.restrictions:
+                updates.restrictions.append(canonical)
     for ingredient in KNOWN_INGREDIENTS:
         if any(phrase in text for phrase in (
             f"不吃{ingredient}", f"不要{ingredient}", f"不放{ingredient}",
@@ -91,12 +112,13 @@ def parse_updates(text: str) -> RequestUpdates:
         updates.max_minutes = updates.max_minutes or 15
     if "简单一点" in text or "更简单" in text or "新手" in text:
         updates.difficulty = "简单"
-    if "小锅" in text:
-        updates.equipment.append("小锅")
-    if "炒锅" in text:
-        updates.equipment.append("炒锅")
-    if "电饭煲" in text:
-        updates.equipment.append("电饭煲")
+    equipment_names = ("高压锅", "烤箱", "空气炸锅", "炒锅", "平底锅", "小锅", "电饭煲")
+    negative_equipment_text = "，".join(re.findall(r"(?:没有|没|无|缺少)([^，,。！？；;]*)", text))
+    updates.unavailable_equipment = [item for item in equipment_names if item in negative_equipment_text]
+    for item in equipment_names:
+        if item in text and item not in updates.unavailable_equipment:
+            updates.equipment.append(item)
+    updates.equipment_only = "只有" in text and bool(updates.equipment)
     for doneness in ("三分熟", "五分熟", "七分熟", "全熟"):
         if doneness in text:
             updates.steak_doneness = doneness
@@ -152,7 +174,7 @@ def _without_requested_dish_span(text: str) -> str:
 def _has_inventory_signal(text: str) -> bool:
     return any(marker in text for marker in (
         "我有", "家里有", "冰箱有", "冰箱里", "现有", "还有", "手边有",
-        "手头有", "现在有", "只有", "仅有", "只剩", "剩下",
+        "手头有", "手上有", "现在有", "只有", "仅有", "只剩", "剩下",
     ))
 
 
@@ -161,7 +183,19 @@ def extract_ingredients(text: str, *, allow_bare: bool = False) -> list[str]:
     inventory_text = _without_requested_dish_span(text)
     if not allow_bare and not _has_inventory_signal(inventory_text):
         return []
-    return [item for item in KNOWN_INGREDIENTS if item in inventory_text]
+    if _has_inventory_signal(inventory_text):
+        signals = (
+            "我有", "家里有", "冰箱有", "冰箱里", "现有", "还有", "手边有",
+            "手头有", "手上有", "现在有", "只有", "仅有", "只剩", "剩下",
+        )
+        start = max((inventory_text.rfind(signal) for signal in signals), default=-1)
+        if start >= 0:
+            inventory_text = re.split(r"[，,。！？；;]", inventory_text[start:], maxsplit=1)[0]
+    return [
+        item for item in KNOWN_INGREDIENTS
+        if item in inventory_text
+        or any(alias in inventory_text and canonical == item for alias, canonical in _INGREDIENT_ALIASES.items())
+    ]
 
 
 def apply_updates(request: RecipeSearchRequest, updates: RequestUpdates) -> RecipeSearchRequest:
@@ -176,6 +210,9 @@ def apply_updates(request: RecipeSearchRequest, updates: RequestUpdates) -> Reci
     if updates.max_minutes:
         request.max_cooking_minutes = updates.max_minutes
     _extend_unique(request.available_equipment, updates.equipment)
+    _extend_unique(request.unavailable_equipment, updates.unavailable_equipment)
+    request.equipment_only = request.equipment_only or updates.equipment_only
+    request.bypass_cache = request.bypass_cache or updates.bypass_cache
     if updates.difficulty:
         request.difficulty_preference = updates.difficulty
     if updates.steak_doneness:

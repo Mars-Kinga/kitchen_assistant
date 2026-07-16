@@ -1,43 +1,26 @@
+"""兼容语音入口，默认进入逐轮手动录音模式。
+
+录音、ASR 和 Runtime 主链路仍由 ``robot_main`` 与
+``runtime_core.voice_io`` 维护；此文件只保留旧命令兼容性。
+"""
+
 from __future__ import annotations
 
-import json
+import sys
 
-from runtime_core.audio_in import AudioInput
-from runtime_core.executor import RuntimeExecutor
-from runtime_core.logger import RuntimeLogger
-from runtime_core.skill_manager import SkillManager
+from robot_main import main
 
 
-def main() -> None:
-    manager = SkillManager()
-    registry = manager.load_skills()
-    executor = RuntimeExecutor()
-    logger = RuntimeLogger()
-    audio = AudioInput()
-
-    print(f"[启动] 已注册 {len(registry)} 个 Skill")
-    for skill in registry:
-        print(f"  - {skill['name']}: {skill.get('description', '')}")
-
-    print("\n进入语音输入模式。按 Enter 开始一次语音输入，输入 exit 退出。")
-    while True:
-        command = input("\n按 Enter 开始录音 / 输入 exit 退出：").strip()
-        if command.lower() in {"exit", "quit", "q"}:
-            break
-
-        user_text = audio.listen_once()
-        if not user_text:
-            print("[语音输入] 没有识别到有效文本。")
-            continue
-
-        result = manager.run_user_text(user_text)
-        logger.log("user_input", {"mode": "voice", "text": user_text})
-        logger.log("system_result", result)
-
-        print("\n[Agent / Skill 结果]")
-        print(json.dumps(result, ensure_ascii=False, indent=2))
-        executor.execute(result)
+def build_voice_argv(arguments: list[str]) -> list[str]:
+    """Add voice/manual flags while preserving all shared CLI options."""
+    result = list(arguments)
+    if "--voice" not in result:
+        result.insert(0, "--voice")
+    if "--manual" not in result:
+        result.insert(1, "--manual")
+    return result
 
 
 if __name__ == "__main__":
+    sys.argv[1:] = build_voice_argv(sys.argv[1:])
     main()

@@ -1,30 +1,55 @@
 {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "feedback": {
+      "type": "object",
+      "required": ["display", "robot_action", "led_effect", "expression"],
+      "properties": {
+        "speech": {"type": "string", "minLength": 1},
+        "question": {"type": "string", "minLength": 1},
+        "display": {"type": "string", "minLength": 1},
+        "robot_action": {
+          "enum": ["idle_wait", "speak", "wave_hand", "handshake", "fist_bump", "high_five", "nod", "shake_head", "show_smile", "show_concern", "encourage_gesture", "hug", "turn_left", "turn_right", "step_forward", "step_back", "stop", "breathing_guide", "goodbye"]
+        },
+        "led_effect": {"enum": ["off", "white", "blue", "green", "yellow", "red", "warm_white", "green_dynamic", "blue_dynamic", "rainbow"]},
+        "expression": {"enum": ["neutral", "happy", "curious", "focused", "confident", "alert", "waiting", "confused", "excited", "warning"]}
+      },
+      "oneOf": [
+        {"required": ["speech"], "not": {"required": ["question"]}},
+        {"required": ["question"], "not": {"required": ["speech"]}}
+      ]
+    }
+  },
   "type": "object",
-  "required": ["route", "task_name"],
+  "required": ["route", "task_name", "kitchen_state", "session_active", "provider_mode"],
   "properties": {
     "route": {"const": "skill_result"},
-    "task_name": {"type": "string"},
+    "task_name": {"type": "string", "minLength": 1},
     "session_active": {"type": "boolean"},
-    "kitchen_state": {"type": "string"},
+    "kitchen_state": {"enum": ["IDLE", "COLLECTING_REQUEST", "COLLECTING_INGREDIENTS", "COLLECTING_PREFERENCES", "SEARCHING_RECIPES", "PRESENTING_CANDIDATES", "WAITING_RECIPE_CONFIRMATION", "WAITING_MEAT_THAW", "COOKING", "PAUSED", "COMPLETED", "CANCELLED"]},
     "speech": {"type": "string"},
     "question": {"type": "string"},
     "display": {"type": "string"},
     "robot_action": {"type": "string"},
     "led_effect": {"type": "string"},
     "expression": {"type": "string"},
-    "steps": {"type": "array"},
+    "steps": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/feedback"}},
     "recipe_candidates": {"type": "array"},
     "selected_candidate": {"type": ["object", "null"]},
     "current_recipe": {"type": ["object", "null"]},
-    "current_step": {"type": "integer"},
-    "provider_mode": {"type": "string"},
-    "source_name": {"type": "string"},
+    "current_step": {"type": ["integer", "null"], "minimum": 1},
+    "provider_mode": {"enum": ["mock", "local_cache", "ai_generated", "web_search"]},
+    "source_name": {"type": ["string", "null"]},
     "source_url": {"type": ["string", "null"]},
     "safety_level": {"type": "string"}
   },
   "anyOf": [
-    {"required": ["speech", "display", "robot_action", "led_effect", "expression"]},
-    {"required": ["question", "display", "robot_action", "led_effect", "expression"]},
+    {
+      "allOf": [
+        {"$ref": "#/$defs/feedback"},
+        {"not": {"required": ["steps"]}}
+      ]
+    },
     {"required": ["steps"]}
   ]
 }

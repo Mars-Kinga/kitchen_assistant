@@ -18,6 +18,10 @@ def rank_recipes(recipes: list[dict[str, Any]], request: RecipeSearchRequest) ->
         ingredients = [str(item.get("name", "")) for item in raw.get("ingredients", [])]
         if ingredient_conflicts(ingredients, request.dietary_restrictions):
             continue
+        if _dietary_requirement_is_unverified(raw, request):
+            continue
+        if _equipment_is_unavailable(raw, request):
+            continue
         # If the user has not chosen a dish and explicitly supplied a pantry,
         # recommending a dish that ignores part of that pantry is misleading.
         # Return no offline candidate instead, so the configured AI provider
@@ -85,3 +89,21 @@ def _reason(present: list[str], missing: list[str], request: RecipeSearchRequest
 def _ingredient_is_present(required: str, ingredients: list[str]) -> bool:
     aliases = _INGREDIENT_ALIASES.get(required, (required,))
     return any(alias in ingredient or ingredient in alias for alias in aliases for ingredient in ingredients)
+
+
+def _equipment_is_unavailable(raw: dict[str, Any], request: RecipeSearchRequest) -> bool:
+    equipment = [str(item) for item in raw.get("equipment", [])]
+    if any(item in set(request.unavailable_equipment) for item in equipment):
+        return True
+    if not request.equipment_only or not request.available_equipment or not equipment:
+        return False
+    return not any(item in set(request.available_equipment) for item in equipment)
+
+
+def _dietary_requirement_is_unverified(raw: dict[str, Any], request: RecipeSearchRequest) -> bool:
+    """Never label a local recipe low-fat/etc. without explicit data tags."""
+    requirements = {item for item in request.dietary_restrictions if item in {"低脂", "高蛋白", "控糖", "素食"}}
+    if not requirements:
+        return False
+    tags = {str(item) for item in raw.get("dietary_tags", []) if str(item)}
+    return not requirements.issubset(tags)

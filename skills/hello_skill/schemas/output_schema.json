@@ -1,11 +1,15 @@
 {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
-  "required": ["route", "task_name", "speech"],
+  "required": ["route", "task_name", "speech", "display", "robot_action", "led_effect", "expression"],
   "properties": {
-    "route": { "type": "string" },
-    "task_name": { "type": "string" },
-    "speech": { "type": "string" },
-    "display": { "type": "string" },
+    "route": { "const": "skill_result" },
+    "task_name": { "type": "string", "minLength": 1 },
+    "speech": { "type": "string", "minLength": 1 },
+    "display": { "type": "string", "minLength": 1 },
+    "robot_action": { "enum": ["wave_hand"] },
+    "led_effect": { "enum": ["blue_dynamic"] },
+    "expression": { "enum": ["happy"] },
     "fallback": { "type": "string" }
   }
 }

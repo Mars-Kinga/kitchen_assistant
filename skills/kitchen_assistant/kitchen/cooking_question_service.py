@@ -31,6 +31,8 @@ class RuleBasedCookingQuestionService:
             return CookingAnswer("面条下锅后前一两分钟轻轻搅动；水量太少可补一点开水，避免一次放太多面。", "前两分钟轻搅，必要时补开水。")
         if any(word in text for word in ("烧开", "开了吗", "沸腾")):
             return CookingAnswer("水面持续冒出较大的气泡、气泡翻滚且蒸汽明显时，通常就是烧开了。", "持续翻滚大气泡 = 水已烧开。")
+        if "水" in text and any(word in text for word in ("还没开", "还没有开", "没烧开", "没有烧开")):
+            return CookingAnswer("还没有烧开就先保持中大火，看到水面持续翻滚的大气泡和明显蒸汽后，再进行下一步；不要提前下需要沸水的食材。", "水还没开：继续加热到持续翻滚。", CAUTION, False, "nod", "yellow", "focused")
         if "水放多" in text:
             return CookingAnswer("水多一点通常没关系；可以多煮一会儿让汤收浓，或先盛出少量热汤再调味。", "水多可稍收汤，或先盛出少量热汤。")
         if "水放少" in text or "水不够" in text:
@@ -39,6 +41,19 @@ class RuleBasedCookingQuestionService:
             return CookingAnswer("没有白糖可以不放；番茄类菜可多炒一会儿让自然甜味释放，口味会稍微酸一些。", "白糖可省略，番茄多炒一会儿。")
         if "葱" in text and any(word in text for word in ("没有", "不放", "不要")):
             return CookingAnswer("可以不放葱，不影响基本做法；最后按口味补一点盐即可。", "葱可省略。")
+        if "生抽" in text and any(word in text for word in ("没有", "不放", "替代", "怎么办")):
+            return CookingAnswer("没有生抽时，可以用等量普通酱油替代；如果只有老抽，先用原生抽用量的一半，再加同量清水，避免颜色和咸味过重。", "生抽替代：普通酱油等量；老抽减半并加水。")
+        if "牛肉" in text and "鸡肉" in text and any(word in text for word in ("代替", "替换", "换成")):
+            return CookingAnswer("可以用同重量鸡肉代替牛肉；鸡肉切成相近厚度，翻炒到表面和中心都完全变白、没有粉红色，再进入下一步。", "鸡肉可等量替代，中心必须无粉红。")
+        if "粉红" in text or ("肉" in text and any(word in text for word in ("没熟", "生", "还是红"))):
+            return CookingAnswer("肉中心仍然粉红就不要进入下一步；调到中火继续加热并翻动较厚的部分，直到中心完全变色、没有粉红或血水，再告诉我做好了。", "肉还粉红：继续中火，中心无粉红再继续。", CAUTION, False, "show_concern", "yellow", "warning")
+        if "太咸" in text or "咸了" in text:
+            return CookingAnswer("先不要再加盐；可以加入少量无盐热水或无盐食材，让味道变淡，每次加一两汤匙后尝味，避免一次加太多。", "太咸：少量加无盐热水，分次尝味。")
+        if "锅里" in text and any(word in text for word in ("快干", "要干", "没水")):
+            return CookingAnswer("先把火调小；如果这一步需要汤汁，就沿锅边少量加入开水，每次约50毫升并观察，不要让锅空烧，也不要一次倒冷水。", "锅快干：调小火，沿锅边分次加50毫升开水。", CAUTION, False, "stop", "yellow", "warning")
+        if any(word in text for word in ("这一步什么意思", "这步什么意思", "什么意思")):
+            instruction = str(context.current_step.get("instruction") or "当前步骤").strip()
+            return CookingAnswer(f"这一步的意思是：{instruction}。先完成这项，再告诉我做好了，我不会替你自动跳步。", "当前步骤解释：" + instruction)
         if "不吃辣" in text or "不要辣" in text:
             return CookingAnswer("可以不放辣椒和辣酱，其他步骤照常进行。", "不放辣椒和辣酱即可。")
         if "锅太小" in text:

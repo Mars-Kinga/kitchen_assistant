@@ -35,6 +35,8 @@ from .states import (
 # Kept for callers written against the first kitchen MVP.
 COLLECTING_INFO = COLLECTING_PREFERENCES
 
+FREE_WAIT_DURING_TIMER_HINT = "在这段时间里你可以同步做自己想做的事情，时间到了我会叫你～"
+
 
 @dataclass
 class Timer:
@@ -83,6 +85,7 @@ class KitchenSession:
         self.conversation_summary: list[str] = []
         self.pending_step_confirmation: dict[str, Any] | None = None
         self.pending_timer_skip_confirmation = False
+        self.pending_unstarted_timer_confirmation = False
         self.completed_parallel_step_indexes: set[int] = set()
         self.offered_parallel_step_indexes: set[int] = set()
         self.parallel_offer_by_timer_step: dict[int, int] = {}
@@ -259,27 +262,32 @@ class KitchenSession:
         try:
             self.recipe_candidates = self._active_provider.search_recipes(self.request)
         except Exception:
-            fallback = getattr(self.provider, "fallback", None)
-            if fallback is None:
+            # An explicit fresh-search request must never silently fall back
+            # to the exact cache the user asked us to bypass.
+            if self.request.bypass_cache:
                 self.recipe_candidates = []
             else:
-                self._active_provider = fallback
-                self._used_provider_fallback = True
-                self.recipe_candidates = fallback.search_recipes(self.request)
-                # A local fallback must not silently turn a specifically
-                # requested dish into a recipe that merely shares one
-                # ingredient. Keep only exact-name variants in this case.
-                if configured_ai and self.request.requested_dish:
-                    self.recipe_candidates = [
-                        candidate for candidate in self.recipe_candidates
-                        if self.request.requested_dish in candidate.title
-                    ]
+                fallback = getattr(self.provider, "fallback", None)
+                if fallback is None:
+                    self.recipe_candidates = []
+                else:
+                    self._active_provider = fallback
+                    self._used_provider_fallback = True
+                    self.recipe_candidates = fallback.search_recipes(self.request)
+                    # A local fallback must not silently turn a specifically
+                    # requested dish into a recipe that merely shares one
+                    # ingredient. Keep only exact-name variants in this case.
+                    if configured_ai and self.request.requested_dish:
+                        self.recipe_candidates = [
+                            candidate for candidate in self.recipe_candidates
+                            if self.request.requested_dish in candidate.title
+                        ]
         self.state = PRESENTING_CANDIDATES
         actual_mode = self._provider_mode()
         if actual_mode == "local_cache":
             searching = feedback(
-                "我找到了之前保存的本地菜谱，这次不用重新生成，会更快也不会消耗菜谱生成 token。",
-                "已命中本地菜谱缓存",
+                "我找到了几个菜谱。",
+                "已找到菜谱",
                 robot_action="nod", led_effect="green_dynamic", expression="happy",
             )
         elif actual_mode == "ai_generated":
@@ -295,27 +303,48 @@ class KitchenSession:
                 robot_action="turn_left", led_effect="blue_dynamic", expression="focused",
             )
         if not self.recipe_candidates:
-            speech = (
-                "没有找到与指定菜名匹配的离线菜谱，我不会用无关菜谱替代。请配置生成服务，或换个菜名。"
-                if self.request.requested_dish
-                else "没有找到能同时使用你已说明食材的离线菜谱，我不会忽略其中任何一种。请配置生成服务，或补充食材后再试。"
-            )
+            if self.request.bypass_cache:
+                speech = "联网生成服务暂时不可用，我没有使用已保存结果。请检查联网生成服务配置后再试。"
+            else:
+                speech = (
+                    "没有找到与指定菜名匹配的离线菜谱，我不会用无关菜谱替代。请配置生成服务，或换个菜名。"
+                    if self.request.requested_dish
+                    else "没有找到能同时使用你已说明食材的离线菜谱，我不会忽略其中任何一种。请配置生成服务，或补充食材后再试。"
+                )
             return self._result(PRESENTING_CANDIDATES, True, searching, feedback(speech, "暂无候选｜没有匹配菜谱", robot_action="nod", led_effect="white", expression="neutral"), recipe_candidates=[], provider_mode=actual_mode)
         candidate_feedback = feedback(
-            "我列出了几个建议，想吃哪个呢？你可以说第一个、第二个或者直接说菜名。" if actual_mode == "ai_generated" else "我找到了几个本地菜谱。你可以说第一个、第二个或者直接说菜名。",
+            "我列出了几个建议，想吃哪个呢？你可以说第一个、第二个或者直接说菜名。" if actual_mode == "ai_generated" else "我找到了几个菜谱。你可以说第一个、第二个或者直接说菜名。",
             self._candidate_display(), robot_action="nod", led_effect="green_dynamic", expression="happy",
         )
         items = [] if progress_emitted else [searching]
         if self._used_provider_fallback:
             fallback_speech = (
-                "生成服务暂时不可用，我先使用本地示例菜谱为你推荐。"
-                if configured_ai else "目前没有配置真实联网服务，我先使用本地示例菜谱为你推荐。"
+                "生成服务暂时不可用，我先使用本地菜谱为你推荐。"
+                if configured_ai else "目前没有配置真实联网服务，我先使用本地菜谱为你推荐。"
             )
             items.append(feedback(fallback_speech, "已切换离线菜谱模式", robot_action="nod", led_effect="warm_white", expression="neutral"))
         items.append(candidate_feedback)
         return self._result(PRESENTING_CANDIDATES, True, *items, recipe_candidates=[candidate.as_dict() for candidate in self.recipe_candidates], provider_mode=self._provider_mode())
 
     def _presenting_candidates(self, text: str) -> dict[str, Any]:
+        updates = parse_updates(text)
+        if updates.bypass_cache:
+            if not getattr(self.provider, "supports_ai", False):
+                return self._result(
+                    PRESENTING_CANDIDATES,
+                    True,
+                    feedback(
+                        "当前没有配置可用的联网生成服务，我不会假装已经完成上网搜索，也不会改用已保存结果。",
+                        "联网搜索不可用｜保留当前候选",
+                        robot_action="show_concern", led_effect="yellow", expression="alert", question=True,
+                    ),
+                    recipe_candidates=[candidate.as_dict() for candidate in self.recipe_candidates],
+                    provider_mode=self._provider_mode(),
+                )
+            apply_updates(self.request, updates)
+            self.request.excluded_candidate_ids = []
+            self.selected_candidate = None
+            return self._search_recipes()
         if self._has(text, "换一批", "换一个", "不要这个"):
             self.request.excluded_candidate_ids.extend(candidate.candidate_id for candidate in self.recipe_candidates if candidate.candidate_id not in self.request.excluded_candidate_ids)
             return self._search_recipes()
@@ -349,7 +378,7 @@ class KitchenSession:
         missing = "、".join(candidate.missing_ingredients)
         generated = self._provider_mode() == "ai_generated"
         cached = self._provider_mode() == "local_cache"
-        source = "生成方式：根据你的需求生成" if generated else ("来源：本地已保存菜谱" if cached else f"来源：{candidate.source_name}")
+        source = "生成方式：根据你的需求生成" if generated else ("来源：已保存菜谱" if cached else f"来源：{candidate.source_name}")
         inventory = (
             f"缺少：{missing or '无'}"
             if self.request.available_ingredients
@@ -441,8 +470,8 @@ class KitchenSession:
             count = self._cache_candidate_count()
             suffix = f"（同一文件含 {count} 个候选）" if count > 1 else ""
             items.append(feedback(
-                f"这份完整菜谱已经保存到本地缓存{suffix}，下次相同需求会直接读取。",
-                f"菜谱已缓存：{cache_name}{suffix}",
+                f"这份完整菜谱已经保存{suffix}，下次相同需求可以直接使用。",
+                f"菜谱已保存：{cache_name}{suffix}",
                 robot_action="nod", led_effect="green_dynamic", expression="happy",
             ))
         items.extend((
@@ -456,6 +485,8 @@ class KitchenSession:
             return self._handle_parallel_timer_check(text)
         if self.pending_timer_skip_confirmation:
             return self._handle_timer_skip_confirmation(text)
+        if self.pending_unstarted_timer_confirmation:
+            return self._handle_unstarted_timer_confirmation(text)
         if self.pending_parallel_step_index is not None:
             return self._handle_parallel_step_confirmation(text)
         if self.pending_step_confirmation:
@@ -485,7 +516,7 @@ class KitchenSession:
             return self._result(PAUSED, True, feedback("好的，烹饪指导已暂停。", "烹饪已暂停", robot_action="stop", led_effect="yellow", expression="waiting"))
         if self._has(text, "再说一遍", "重复一下"):
             return self._result(COOKING, True, self._current_step_feedback("重复："), current_step=self.step_index + 1)
-        if self._has(text, "我做到哪一步", "当前是什么步骤", "当前步骤"):
+        if self._has(text, "我做到哪一步", "现在做到哪一步", "做到哪一步", "当前是什么步骤", "当前步骤"):
             step = self._step()
             return self._result(COOKING, True, feedback(f"你现在在第 {self.step_index + 1}/{len(self.current_recipe['steps'])} 步。{step['instruction']}", step["display_text"], robot_action="nod", led_effect="blue", expression="focused"), current_step=self.step_index + 1)
         if self._has(text, "上一步"):
@@ -496,6 +527,8 @@ class KitchenSession:
         if self._has(text, "下一步", "继续", "跳过", "结束计时", "提前结束") or is_likely_next_step(text):
             if self.timer is not None and self.timer.step_index == self.step_index:
                 return self._request_early_timer_end()
+            if self._current_step_has_unfinished_timer():
+                return self._request_unstarted_timer_confirmation()
             return self._advance_after_completion()
         if self._has(text, "开始计时", "开始煎", "开始炒", "开始煮", "开始"):
             timer_feedback = self._start_step_timer()
@@ -530,6 +563,8 @@ class KitchenSession:
                 robot_action="nod", led_effect="warm_white", expression="focused",
             ), current_step=self.step_index + 1)
         if self._acknowledges_step_completion(text):
+            if self._current_step_has_unfinished_timer():
+                return self._request_unstarted_timer_confirmation()
             return self._advance_after_completion()
         answer = self._answer_question(text)
         if answer:
@@ -594,6 +629,10 @@ class KitchenSession:
             self.timer = None
             self.pending_timer_skip_confirmation = False
             return self._result(self.state, True, feedback("计时已取消。", "计时已取消", robot_action="stop", led_effect="white", expression="neutral"))
+        if self._has(text, "继续计时", "继续倒计时", "不要结束"):
+            if self.timer is None:
+                return self._result(self.state, True, feedback("当前没有正在运行的计时。", "暂无计时", robot_action="nod", led_effect="white", expression="neutral"))
+            return self._timer_still_running_response()
         seconds = extract_timer_seconds(text)
         if seconds is not None:
             self.timer = Timer(self.clock() + seconds, seconds, label="烹饪", step_index=self.step_index)
@@ -731,6 +770,50 @@ class KitchenSession:
             robot_action="nod", led_effect="yellow", expression="alert",
         ), current_step=self.step_index + 1)
 
+    def _current_step_has_unfinished_timer(self) -> bool:
+        """Return whether the current timed step has neither run nor finished.
+
+        A duration is part of the cooking safety contract. Short commands such
+        as “下一步” must not silently bypass it before the user starts the
+        timer or explicitly confirms that they timed and checked it elsewhere.
+        """
+        seconds = self._step().get("duration_seconds")
+        return (
+            isinstance(seconds, (int, float))
+            and seconds > 0
+            and self.timer is None
+            and self._timed_step_ready_for_completion != self.step_index
+        )
+
+    def _request_unstarted_timer_confirmation(self) -> dict[str, Any]:
+        self.pending_unstarted_timer_confirmation = True
+        seconds = int(self._step()["duration_seconds"])
+        return self._result(COOKING, True, feedback(
+            f"当前第 {self.step_index + 1} 步建议计时 {self._format_seconds(seconds)}，但计时还没有启动。"
+            "如果你已经自行计时并检查完成，请说“确认完成”；要使用助手计时，请说“开始计时”。",
+            "当前步骤尚未计时｜确认完成 / 开始计时",
+            robot_action="show_concern", led_effect="yellow", expression="alert",
+        ), current_step=self.step_index + 1)
+
+    def _handle_unstarted_timer_confirmation(self, text: str) -> dict[str, Any]:
+        compact = text.replace(" ", "")
+        if self._has(compact, "开始计时", "给我计时", "启动计时"):
+            self.pending_unstarted_timer_confirmation = False
+            timer_feedback = self._start_step_timer()
+            assert timer_feedback is not None
+            return self._result(COOKING, True, timer_feedback, current_step=self.step_index + 1)
+        if self._has(compact, "确认完成", "已经计时并完成", "自行计时完成", "我自己计时了"):
+            self.pending_unstarted_timer_confirmation = False
+            return self._advance_after_completion()
+        if self._has(compact, "取消", "继续当前步骤", "还没完成", "不跳过"):
+            self.pending_unstarted_timer_confirmation = False
+            return self._result(COOKING, True, self._current_step_feedback("好的，继续当前步骤："), current_step=self.step_index + 1)
+        return self._result(COOKING, True, feedback(
+            "请说“确认完成”表示你已自行计时并检查完成，或说“开始计时”使用助手计时。",
+            "等待确认｜确认完成 / 开始计时",
+            robot_action="nod", led_effect="yellow", expression="alert",
+        ), current_step=self.step_index + 1)
+
     def _handle_parallel_step_confirmation(self, text: str) -> dict[str, Any]:
         assert self.pending_parallel_step_index is not None
         compact = text.replace(" ", "")
@@ -813,7 +896,7 @@ class KitchenSession:
         instruction = str(step.get("instruction", ""))
         if self._is_waiting_prep_instruction(instruction):
             return f"准备计时 {self._format_seconds(int(seconds))}；开始腌制/浸泡后说“开始了”或“给我计时”，我就开始计时。"
-        if not any(word in instruction for word in ("煮", "炖", "焖", "煎", "烤", "蒸", "炸", "焯", "炒", "收汁", "加热")):
+        if not any(word in instruction for word in ("预热", "煮", "炖", "焖", "煎", "烤", "蒸", "炸", "焯", "炒", "收汁", "加热")):
             return None
         return f"准备计时 {self._format_seconds(int(seconds))}；食材下锅后说“下锅了”或“开始”，我就开始计时。"
 
@@ -848,11 +931,26 @@ class KitchenSession:
             # permit; heating oil or cooking food still has to wait.
             if self._is_safe_water_boiling_prep(candidate_text):
                 return index, candidate_text
+            if self._reuses_waiting_step_ingredients(candidate_text, str(self._step().get("instruction", ""))):
+                continue
             if self._contains_heat_action(candidate_text) or self._is_final_cooking_step(candidate_text):
                 continue
             if self._is_actionable_parallel_prep(candidate_text):
                 return index, candidate_text
         return None
+
+    def _reuses_waiting_step_ingredients(self, candidate: str, waiting_step: str) -> bool:
+        """Reject prep that reuses anything already measured into this step."""
+        if not self.current_recipe:
+            return False
+        ingredient_names = [
+            str(item.get("name", "")).strip()
+            for item in self.current_recipe.get("ingredients", [])
+            if str(item.get("name", "")).strip()
+        ]
+        waiting_names = {name for name in ingredient_names if name in waiting_step}
+        candidate_names = {name for name in ingredient_names if name in candidate}
+        return bool(candidate_names & waiting_names)
 
     @staticmethod
     def _is_actionable_parallel_prep(instruction: str) -> bool:
@@ -894,26 +992,14 @@ class KitchenSession:
                     "水沸后说“准备好了”，当前腌制计时不会被打断。"
                 )
             return f"等待期间可以先按照你的时间规划准备下一步：{candidate_text}。只做不动火的准备，不要提前热油或开火；当前计时不会被打断。"
-        future_text = " ".join(
-            str(step.get("instruction", ""))
-            for step in self.current_recipe.get("steps", [])[self.step_index + 1:]
-        )
-        all_seasonings = [
-            item for item in self.current_recipe.get("ingredients", [])
-            if any(word in str(item.get("name", "")) for word in ("生抽", "老抽", "盐", "糖", "醋", "料酒", "蚝油", "胡椒"))
-        ]
-        seasonings = [item for item in all_seasonings if str(item.get("name", "")) in future_text] or all_seasonings
-        if seasonings:
-            measurements = "、".join(self._ingredient_display(item) for item in seasonings[:5])
-            return f"等待期间可以先取一个小碗，量好：{measurements}，放入碗中搅匀。只做不动火的准备，不要提前热油或开火；当前计时不会被打断。"
-        return "等待期间可以先把调料和工具准备到手边。只做不动火的准备，不要提前热油或开火；当前计时不会被打断。"
+        return FREE_WAIT_DURING_TIMER_HINT
 
     def _timer_is_running_for_current_step(self) -> bool:
         return self.timer is not None and self.timer.step_index == self.step_index
 
     @staticmethod
     def _contains_heat_action(instruction: str) -> bool:
-        return any(word in instruction for word in ("热油", "加油", "炒", "煎", "炸", "炖", "焖", "蒸", "烤", "烧", "煮", "焯", "加热", "收汁", "开火"))
+        return any(word in instruction for word in ("预热", "热油", "加油", "炒", "煎", "炸", "炖", "焖", "蒸", "烤", "烧", "煮", "焯", "加热", "收汁", "开火"))
 
     def _is_parallel_prep_ack(self, text: str) -> bool:
         if not self.current_recipe or not self._timer_is_running_for_current_step():
@@ -1028,7 +1114,7 @@ class KitchenSession:
 
     def _candidate_display(self) -> str:
         mode = self._provider_mode()
-        lines = ["我为你生成的菜谱" if mode == "ai_generated" else ("本地缓存菜谱" if mode == "local_cache" else "推荐菜谱（离线示例）")]
+        lines = ["我为你生成的菜谱" if mode == "ai_generated" else ("推荐菜谱" if mode == "local_cache" else "推荐菜谱（离线示例）")]
         for index, candidate in enumerate(self.recipe_candidates, start=1):
             if not self.request.available_ingredients:
                 supply = "食材见详情"
@@ -1076,6 +1162,7 @@ class KitchenSession:
         self.conversation_summary = []
         self.pending_step_confirmation = None
         self.pending_timer_skip_confirmation = False
+        self.pending_unstarted_timer_confirmation = False
         self.completed_parallel_step_indexes = set()
         self.offered_parallel_step_indexes = set()
         self.parallel_offer_by_timer_step = {}

@@ -38,6 +38,9 @@ class RecipeSearchRequest:
     steak_doneness: str | None = None
     steak_thickness_cm: float | None = None
     excluded_candidate_ids: list[str] = field(default_factory=list)
+    unavailable_equipment: list[str] = field(default_factory=list)
+    equipment_only: bool = False
+    bypass_cache: bool = False
 
     def as_cache_key(self) -> tuple[object, ...]:
         return (
@@ -45,7 +48,8 @@ class RecipeSearchRequest:
             tuple(sorted(self.taste_preferences)), tuple(sorted(self.dietary_restrictions)),
             self.max_cooking_minutes, tuple(sorted(self.available_equipment)),
             self.difficulty_preference, self.steak_doneness, self.steak_thickness_cm,
-            tuple(sorted(self.excluded_candidate_ids)),
+            tuple(sorted(self.excluded_candidate_ids)), tuple(sorted(self.unavailable_equipment)),
+            self.equipment_only, self.bypass_cache,
         )
 
 

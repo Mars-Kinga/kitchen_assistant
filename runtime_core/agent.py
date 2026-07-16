@@ -5,6 +5,7 @@ from typing import Any
 
 _COOKING_QUESTION_MARKERS = (
     "怎么做", "如何做", "做法", "教程", "怎么烧", "怎么煮", "怎么炒", "怎么炖", "怎么焖", "怎么煲",
+    "教我烧", "教我煮", "教我炖", "教我弄", "想弄",
 )
 _COOKING_FOOD_MARKERS = (
     "菜", "汤", "面", "饭", "粥", "排骨", "肉", "鸡", "鱼", "虾", "蛋", "豆腐", "牛排",
@@ -65,7 +66,11 @@ class SkillAgent:
     def _has_cooking_intent(user_text: str) -> bool:
         """Recognize food-specific how-to questions without capturing generic how-to chat."""
         compact = str(user_text or "").replace(" ", "")
+        pantry_markers = ("我有", "家里有", "冰箱里", "现有", "手边有", "手头有", "手上有", "只有", "只剩")
         return (
             any(marker in compact for marker in _COOKING_QUESTION_MARKERS)
+            and any(marker in compact for marker in _COOKING_FOOD_MARKERS)
+        ) or (
+            any(marker in compact for marker in pantry_markers)
             and any(marker in compact for marker in _COOKING_FOOD_MARKERS)
         )

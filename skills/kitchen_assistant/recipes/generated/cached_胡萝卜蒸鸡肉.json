@@ -1,0 +1,159 @@
+{
+  "cache_version": 5,
+  "recipes": [
+    {
+      "recipe_id": "cached_胡萝卜蒸鸡肉_0cdab1d4fa2d",
+      "name": "胡萝卜蒸鸡肉",
+      "source_name": "本地缓存菜谱",
+      "source_url": null,
+      "servings": 1,
+      "ingredients": [
+        {
+          "name": "鸡肉",
+          "amount": "150",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "胡萝卜",
+          "amount": "1",
+          "unit": "根",
+          "optional": false
+        },
+        {
+          "name": "盐",
+          "amount": "1",
+          "unit": "克",
+          "optional": false
+        },
+        {
+          "name": "生抽",
+          "amount": "10",
+          "unit": "毫升",
+          "optional": false
+        },
+        {
+          "name": "香油",
+          "amount": "5",
+          "unit": "毫升",
+          "optional": false
+        }
+      ],
+      "equipment": [
+        "蒸锅",
+        "陶瓷蒸碗",
+        "菜刀",
+        "砧板",
+        "硅胶勺"
+      ],
+      "estimated_time_minutes": 20,
+      "difficulty": "简单",
+      "notes": [
+        "处理生鸡肉后需彻底清洁双手，避免细菌污染",
+        "蒸制时蒸锅需放置平稳，打开锅盖时远离蒸汽出口，防止烫伤"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "将1根胡萝卜去皮洗净，切约0.3厘米厚的薄片，将150克鸡肉洗净，切2厘米见方的小块",
+          "display_text": "步骤 1/5：将1根胡萝卜去皮洗净，切约0.3厘米厚的薄片，将150克鸡肉洗净，切2厘米见方的小块",
+          "duration_seconds": null,
+          "heat_level": null,
+          "robot_action": "show_concern",
+          "led_effect": "blue_dynamic",
+          "expression": "focused",
+          "safety_note": null,
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 2,
+          "instruction": "把切好的150克鸡肉块放入干净碗中，加入1克盐、10毫升生抽，用手抓匀，腌制10分钟",
+          "display_text": "步骤 2/5：把切好的150克鸡肉块放入干净碗中，加入1克盐、10毫升生抽，用手抓匀，腌制10分钟",
+          "duration_seconds": 600,
+          "heat_level": null,
+          "robot_action": "show_concern",
+          "led_effect": "warm_white",
+          "expression": "focused",
+          "safety_note": "处理生鸡肉后需及时洗手",
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 3,
+          "instruction": "将腌制好的鸡肉块平铺在蒸碗底部，上面均匀摆上切好的1根胡萝卜片",
+          "display_text": "步骤 3/5：将腌制好的鸡肉块平铺在蒸碗底部，上面均匀摆上切好的1根胡萝卜片",
+          "duration_seconds": null,
+          "heat_level": null,
+          "robot_action": "show_concern",
+          "led_effect": "blue_dynamic",
+          "expression": "focused",
+          "safety_note": null,
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 4,
+          "instruction": "蒸锅中加入约500毫升清水，大火烧开后放入蒸碗，盖紧锅盖，转中火蒸10分钟",
+          "display_text": "步骤 4/5：蒸锅中加入约500毫升清水，大火烧开后放入蒸碗，盖紧锅盖，转中火蒸10分钟",
+          "duration_seconds": 600,
+          "heat_level": "中火",
+          "robot_action": "nod",
+          "led_effect": "yellow",
+          "expression": "warning",
+          "safety_note": "打开锅盖时需小心蒸汽烫伤",
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        },
+        {
+          "step_number": 5,
+          "instruction": "蒸好后取出蒸碗，淋入5毫升香油，轻轻拌匀即可食用",
+          "display_text": "步骤 5/5：蒸好后取出蒸碗，淋入5毫升香油，轻轻拌匀即可食用",
+          "duration_seconds": null,
+          "heat_level": null,
+          "robot_action": "nod",
+          "led_effect": "blue_dynamic",
+          "expression": "focused",
+          "safety_note": null,
+          "timer_label": null,
+          "timer_end_action": null,
+          "confirmation_markers": null,
+          "waiting_speech": null,
+          "waiting_display": null,
+          "timer_end_speech": null,
+          "timer_end_display": null
+        }
+      ],
+      "summary": "清淡不腻的蒸制菜肴，1人份正常口味，新手易上手",
+      "_cache_request": {
+        "cache_version": 5,
+        "requested_dish": "胡萝卜蒸鸡肉",
+        "servings": 1,
+        "taste_preferences": [
+          "正常口味"
+        ],
+        "dietary_restrictions": []
+      }
+    }
+  ]
+}

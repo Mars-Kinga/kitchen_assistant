@@ -10,7 +10,7 @@ from .feedback_mapping import enrich_step
 
 
 _HEAT_ACTIONS = (
-    "加热", "烧开", "沸腾", "煮", "炖", "焖", "煎", "烤", "蒸",
+    "预热", "加热", "烧开", "沸腾", "煮", "炖", "焖", "煎", "烤", "蒸",
     "炸", "熬", "焯", "炒", "收汁", "微波", "电饭煲",
 )
 _TIMED_PREP_ACTIONS = ("腌制", "浸泡", "泡发", "静置", "醒发")
@@ -61,12 +61,15 @@ class RecipeNormalizer:
             instruction = self._apply_quantity_replacements(instruction, quantity_replacements)
             if not instruction:
                 raise RecipeNormalizationError(f"第 {index} 步缺少说明")
+            if any(marker in instruction for marker in ("适量", "少量", "少许", "按口味")):
+                raise RecipeNormalizationError(f"第 {index} 步包含模糊用量")
             if self._is_vague_parallel_prep_placeholder(instruction):
                 # This is an AI-generated narration placeholder rather than
                 # an executable action.  A later quantified mixing step will
                 # be offered during the timer instead.
                 continue
             instruction = self._remove_thaw_clauses(instruction)
+            instruction = self._avoid_raw_meat_washing(instruction)
             if not instruction:
                 continue
             normalized_step = {**step, "instruction": instruction}
@@ -224,6 +227,12 @@ class RecipeNormalizer:
         return "，".join(kept).strip("，。； ")
 
     @staticmethod
+    def _avoid_raw_meat_washing(instruction: str) -> str:
+        """Do not instruct a beginner to rinse raw meat at the sink."""
+        meat = r"(?:排骨|牛肉片?|牛肉丁|鸡肉|鸡翅|鸡胸肉|猪肉)"
+        return re.sub(rf"(?P<meat>{meat})洗净后", r"\g<meat>用厨房纸擦干表面后", instruction)
+
+    @staticmethod
     def _is_vague_parallel_prep_placeholder(instruction: str) -> bool:
         """Discard non-actions such as “腌制期间准备调料碗”."""
         waiting = any(marker in instruction for marker in ("腌制期间", "等待期间"))
@@ -297,6 +306,45 @@ class RecipeNormalizer:
             instruction = str(step.get("instruction", "")).replace(" ", "").strip("，,；;。 ")
             previous = collapsed[-1] if collapsed else None
             previous_instruction = str(previous.get("instruction", "")) if previous else ""
+            if (
+                previous is not None
+                and "调味汁" in previous_instruction
+                and "调味汁" in instruction
+                and "腌制" in previous_instruction
+                and "腌制" in instruction
+            ):
+                previous_base = re.sub(
+                    r"[，,、]?(?:静置)?腌制(?:\d+(?:\.\d+)?|[一二两三四五六七八九十百]+)?(?:分钟|分|秒)?",
+                    "",
+                    previous_instruction,
+                ).strip("，,、；; ")
+                previous["instruction"] = f"{previous_base}，{instruction}" if previous_base else instruction
+                previous_duration = previous.get("duration_seconds")
+                current_duration = step.get("duration_seconds")
+                if isinstance(current_duration, (int, float)):
+                    previous["duration_seconds"] = max(previous_duration or 0, current_duration) or None
+                continue
+            if (
+                previous is not None
+                and "腌制" in previous_instruction
+                and "腌制好的" not in previous_instruction
+                and "腌制" in instruction
+                and "腌制好的" not in instruction
+                and "加入" in instruction
+                and not any(marker in f"{previous_instruction}{instruction}" for marker in ("调味汁", "酱汁"))
+            ):
+                previous_base = re.sub(
+                    r"[，,、]?(?:静置)?腌制(?:\d+(?:\.\d+)?|[一二两三四五六七八九十百]+)?(?:分钟|分|秒)?",
+                    "",
+                    previous_instruction,
+                ).strip("，,、；; ")
+                current_instruction = re.sub(r"腌制[，,、]\s*腌制", "腌制", instruction)
+                previous["instruction"] = f"{previous_base}，{current_instruction}" if previous_base else current_instruction
+                previous_duration = previous.get("duration_seconds")
+                current_duration = step.get("duration_seconds")
+                if isinstance(current_duration, (int, float)):
+                    previous["duration_seconds"] = max(previous_duration or 0, current_duration) or None
+                continue
             if (
                 previous is not None
                 and re.search(r"腌制(?!好)", previous_instruction)
