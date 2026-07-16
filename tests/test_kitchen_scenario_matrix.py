@@ -81,7 +81,7 @@ class _FreshSearchSpy:
             title="联网新菜谱",
             source_name="豆包 AI 生成",
             source_url=None,
-            summary="跳过本地缓存后的新候选",
+            summary="跳过已保存结果后的新候选",
             estimated_minutes=12,
             difficulty="简单",
             main_ingredients=["蘑菇", "牛肉"],

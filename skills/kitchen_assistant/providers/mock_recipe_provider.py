@@ -103,7 +103,7 @@ class MockRecipeSearchProvider:
         recipe_id = f"cached_{_safe_slug(name)}_{digest}"
         stored.update({
             "recipe_id": recipe_id,
-            "source_name": "本地缓存菜谱",
+            "source_name": "已保存菜谱",
             "source_url": None,
             "_cache_request": cache_request,
         })
@@ -155,7 +155,7 @@ class MockRecipeSearchProvider:
                         RecipeNormalizer().normalize(recipe)
                     except RecipeNormalizationError:
                         continue
-                    recipe["source_name"] = "本地缓存菜谱"
+                    recipe["source_name"] = "已保存菜谱"
                     recipe["source_url"] = None
                     self._recipes[recipe_id] = recipe
                     self._generated_recipe_ids.add(recipe_id)

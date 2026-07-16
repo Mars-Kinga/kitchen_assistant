@@ -192,7 +192,7 @@ def test_ai_provider_bypasses_persisted_cache_for_explicit_fresh_search(monkeypa
             return [RecipeCandidate(
                 candidate_id="cached-old",
                 title="旧缓存菜谱",
-                source_name="本地缓存菜谱",
+                source_name="已保存菜谱",
                 source_url=None,
                 summary="旧结果",
                 estimated_minutes=10,
@@ -244,7 +244,7 @@ def test_generated_recipe_is_persisted_and_reused_without_a_second_llm_call(
     cached = reloaded_provider.search_recipes(request)
     assert cached and reloaded_provider.mode == "local_cache"
     detail = reloaded_provider.get_recipe_detail(cached[0])
-    assert detail["source_name"] == "本地缓存菜谱"
+    assert detail["source_name"] == "已保存菜谱"
     assert second_client.completions.calls == []
 
     session = KitchenSession(recipe_provider=reloaded_provider)
@@ -252,9 +252,13 @@ def test_generated_recipe_is_persisted_and_reused_without_a_second_llm_call(
     session.handle("两个人")
     local_candidates = session.handle("少盐")
     assert local_candidates["provider_mode"] == "local_cache"
-    assert "本地菜谱缓存" in local_candidates["steps"][0]["display"]
-    session.handle("第一个")
-    assert session.handle("开始")["kitchen_state"] == COOKING
+    assert local_candidates["steps"][0]["display"] == "已找到菜谱"
+    assert "本地缓存" not in str(local_candidates)
+    selected = session.handle("第一个")
+    assert "本地缓存" not in str(selected)
+    started = session.handle("开始")
+    assert started["kitchen_state"] == COOKING
+    assert "本地缓存" not in str(started)
     assert session.current_recipe["ingredients"][0]["amount"] == "200"
     assert second_client.completions.calls == []
 

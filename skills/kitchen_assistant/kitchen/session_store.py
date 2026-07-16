@@ -304,7 +304,7 @@ class KitchenSession:
             )
         if not self.recipe_candidates:
             if self.request.bypass_cache:
-                speech = "联网生成服务暂时不可用，我没有退回本地缓存。请检查联网生成服务配置后再试。"
+                speech = "联网生成服务暂时不可用，我没有使用已保存结果。请检查联网生成服务配置后再试。"
             else:
                 speech = (
                     "没有找到与指定菜名匹配的离线菜谱，我不会用无关菜谱替代。请配置生成服务，或换个菜名。"
@@ -334,7 +334,7 @@ class KitchenSession:
                     PRESENTING_CANDIDATES,
                     True,
                     feedback(
-                        "当前没有配置可用的联网生成服务，我不会假装已经完成上网搜索，也不会改用本地缓存。",
+                        "当前没有配置可用的联网生成服务，我不会假装已经完成上网搜索，也不会改用已保存结果。",
                         "联网搜索不可用｜保留当前候选",
                         robot_action="show_concern", led_effect="yellow", expression="alert", question=True,
                     ),
@@ -378,7 +378,7 @@ class KitchenSession:
         missing = "、".join(candidate.missing_ingredients)
         generated = self._provider_mode() == "ai_generated"
         cached = self._provider_mode() == "local_cache"
-        source = "生成方式：根据你的需求生成" if generated else ("来源：本地已保存菜谱" if cached else f"来源：{candidate.source_name}")
+        source = "生成方式：根据你的需求生成" if generated else ("来源：已保存菜谱" if cached else f"来源：{candidate.source_name}")
         inventory = (
             f"缺少：{missing or '无'}"
             if self.request.available_ingredients
@@ -470,8 +470,8 @@ class KitchenSession:
             count = self._cache_candidate_count()
             suffix = f"（同一文件含 {count} 个候选）" if count > 1 else ""
             items.append(feedback(
-                f"这份完整菜谱已经保存到本地缓存{suffix}，下次相同需求会直接读取。",
-                f"菜谱已缓存：{cache_name}{suffix}",
+                f"这份完整菜谱已经保存{suffix}，下次相同需求可以直接使用。",
+                f"菜谱已保存：{cache_name}{suffix}",
                 robot_action="nod", led_effect="green_dynamic", expression="happy",
             ))
         items.extend((
@@ -1114,7 +1114,7 @@ class KitchenSession:
 
     def _candidate_display(self) -> str:
         mode = self._provider_mode()
-        lines = ["我为你生成的菜谱" if mode == "ai_generated" else ("本地缓存菜谱" if mode == "local_cache" else "推荐菜谱（离线示例）")]
+        lines = ["我为你生成的菜谱" if mode == "ai_generated" else ("推荐菜谱" if mode == "local_cache" else "推荐菜谱（离线示例）")]
         for index, candidate in enumerate(self.recipe_candidates, start=1):
             if not self.request.available_ingredients:
                 supply = "食材见详情"
