@@ -8,7 +8,7 @@
 
 ## 触发方式
 
-触发词定义在 `skill.json`，包括“厨房助手”“我想做”“菜谱”“不知道做什么”以及常见菜名和食材。`runtime_core.agent.SkillAgent` 还会识别包含食物词的烹饪问法和库存表达。
+触发词定义在 `skill.json`，包括“厨房助手”“我想做”“我想吃”“我要吃”“菜谱”“不知道做什么”以及常见菜名和食材。`runtime_core.agent.SkillAgent` 还会识别包含食物词的烹饪问法和库存表达。
 
 示例：
 
@@ -73,7 +73,7 @@ IDLE
        → COMPLETED / CANCELLED
 ```
 
-状态、步骤索引、计时器、并行准备记录和安全确认均由 `kitchen/session_store.py` 本地决定。Provider 或 LLM 不能直接推进状态、结束计时或调用机器人能力。
+`kitchen/session_store.py` 只保存会话数据并分发状态；需求收集、搜索展示、菜谱确认、烹饪步骤、计时交互分别位于 `recipe_collection.py`、`recipe_discovery.py`、`recipe_confirmation.py`、`cooking_flow.py`、`cooking_timer_flow.py`。`conversation_intents.py` 统一短确认词，`ingredient_vocabulary.py` 统一食材和忌口词汇。Provider 或 LLM 不能直接推进状态、结束计时或调用机器人能力。
 
 ## 菜谱来源
 
@@ -82,9 +82,9 @@ IDLE
 - `local_cache`：读取 `recipes/generated/` 中已通过校验的生成菜谱。
 - `web_search`：预留模式，当前未接通真实搜索。
 
-AI 生成最多三个候选，并把完整菜谱合并保存为按菜名命名的缓存文件。相同菜名、口味和忌口优先复用缓存；人数变化由 `RecipeNormalizer` 缩放食材和步骤用量。
+AI 在一次响应中同时生成候选及完整详情：用户指定菜名时只生成一个完整结果，按库存推荐时最多生成三个候选。单候选页面可直接说“好”“可以”或“开始吧”；多候选页面仍需先说第几个或菜名。只展示已经通过详情校验的候选，并把完整菜谱保存为按菜名命名的缓存文件。相同菜名、口味和忌口优先复用缓存；人数变化由 `RecipeNormalizer` 缩放食材和步骤用量。
 
-AI 生成不是网页搜索，不提供虚构 URL。Provider 调用失败时可回退本地 Mock；详情生成失败会保留候选并提示重试或更换，不让无关菜谱静默替换当前选择。
+AI 生成不是网页搜索，不提供虚构 URL。Provider 调用失败时可回退本地 Mock；缺少有效完整详情的 AI 候选不会显示，也不会在用户确认后再次调用模型。
 
 ## 计时规则
 
@@ -124,7 +124,7 @@ AI 生成不是网页搜索，不提供虚构 URL。Provider 调用失败时可�
 
 ## 食品安全与异常处理
 
-- 含生肉或海鲜的菜谱开始前进入 `WAITING_MEAT_THAW`。
+- 含生鲜肉类、鱼虾蟹贝的菜谱开始前进入 `WAITING_MEAT_THAW`，用户可确认它是新鲜食材或已经完全解冻；鸡蛋和奶制品不进入该状态。
 - 起火、燃气味、大量浓烟、烫伤和电器进水等风险优先由本地规则处理，并可暂停流程。
 - 肉类计时只是参考下限，必须检查完全变色、中心无粉红或使用合适温度计。
 - 助手不声称看见现场，不保证食物已熟。
@@ -148,9 +148,11 @@ AI 生成不是网页搜索，不提供虚构 URL。Provider 调用失败时可�
 
 - `ARK_API_KEY`
 - `DOUBAO_BASE_URL`（可选）
-- `DOUBAO_MODEL`（可选）
+- `DOUBAO_MODEL`（可选；必须是当前账号有权限且兼容 Chat Completions 的模型）
+- `DOUBAO_TIMEOUT_SECONDS`（可选；默认 `90` 秒）
+- `DOUBAO_MAX_RETRIES`（可选；默认 `0` 次）
 
-Key 只从环境变量读取。项目不会自动加载 `.env`，真实 Key 不得提交。
+Key 只从环境变量读取。项目不会自动加载 `.env`，真实 Key 不得提交。模型可由评审环境替换；模型名称无效、权限不足或请求超时时会快速进入既有降级流程。
 
 ## 测试
 

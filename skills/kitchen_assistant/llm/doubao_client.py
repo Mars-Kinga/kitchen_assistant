@@ -4,7 +4,7 @@ import json
 import re
 from typing import Any, Callable
 
-from .config import DEFAULT_BASE_URL, DEFAULT_MODEL, DoubaoConfig
+from .config import DoubaoConfig
 
 
 MAX_RESPONSE_CHARS = 30_000
@@ -27,15 +27,15 @@ class DoubaoLLMClient:
         client: Any | None = None,
         client_factory: Callable[..., Any] | None = None,
         config: DoubaoConfig | None = None,
-        timeout: float = 30.0,
-        max_retries: int = 2,
+        timeout: float | None = None,
+        max_retries: int | None = None,
     ) -> None:
         configured = config or DoubaoConfig.from_environment()
         self.api_key = configured.api_key
         self.base_url = configured.base_url
         self.model = configured.model
-        self.timeout = timeout if config is None else configured.timeout
-        self.max_retries = max_retries if config is None else configured.max_retries
+        self.timeout = configured.timeout if timeout is None else timeout
+        self.max_retries = configured.max_retries if max_retries is None else max_retries
         self._client = client
         self._client_factory = client_factory
 

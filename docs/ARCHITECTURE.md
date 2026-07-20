@@ -5,17 +5,17 @@
   -> SkillAgent / SkillManager（活动厨房会话优先）
   -> KitchenSession（确定性状态机）
      -> RequestParser -> RecipeSearchRequest
-     -> RecipeSearchProvider -> RecipeCandidate[最多 3]
-     -> 用户选择 + 明确确认
+     -> RecipeSearchProvider -> 指定菜名 1 个候选 / 库存推荐最多 3 个候选
+     -> 单候选直接确认 / 多候选先选择再确认
      -> RecipeNormalizer -> 内部 Recipe
      -> CookingQuestionService（安全规则优先）
   -> response_builder（五类反馈）
   -> RuntimeExecutor -> MockRobotSDK
 ```
 
-`KitchenSession` 保留状态、候选、已选菜谱、步骤、偏好、肉类解冻确认和计时器；Provider、Normalizer、问答服务通过依赖注入使用。Provider 只取得菜谱，Normalizer 只统一数据，LLM/Agent 不能改变步骤或直接调用硬件。含肉类的结构化菜谱在进入烹饪前先进入 `WAITING_MEAT_THAW`；牛排还会收集熟度，并由本地状态机控制“开始煎 → 正面计时 → 翻面确认 → 另一面计时 → 静置”。
+`KitchenSession` 只保留状态、候选、已选菜谱、步骤、计时器和依赖，并负责分发。需求收集与搜索展示由 `recipe_collection.py`、`recipe_discovery.py` 负责；菜谱确认与烹饪前检查在 `recipe_confirmation.py`；烹饪步骤和问答在 `cooking_flow.py`；计时状态与并行准备交互在 `cooking_timer_flow.py`；纯计时数据函数仍在 `timer_controller.py`。`conversation_intents.py` 统一“好/开始/换一个”等会话意图，`ingredient_vocabulary.py` 统一食材同义词、类别、忌口类别、调味料和动物蛋白判断。Provider、Normalizer、问答服务通过依赖注入使用，LLM/Agent 不能改变步骤或直接调用硬件。含生鲜肉类、鱼虾蟹贝的菜谱开始前会确认其为新鲜食材或已完全解冻；鸡蛋等无需解冻确认。牛排还会收集熟度，并由本地状态机控制“开始煎 → 正面计时 → 翻面确认 → 另一面计时 → 静置”。
 
-当 `ARK_API_KEY` 存在时，`DoubaoLLMClient` 通过普通 Chat Completions 调用 `DoubaoAIRecipeProvider`：先为请求生成 1 至 3 个候选，再为已选候选生成 RawRecipe。输出须经过 JSON 解析、一次有限修复、结构校验与 `RecipeNormalizer`；失败或未配置 Key 时切换到 `MockRecipeSearchProvider`。业务元数据会标注 `provider_mode=ai_generated` 或 `provider_mode=mock`。AI 来源仍在内部对象中保留用于诊断，但会话对外 JSON 会隐藏供应商 `source_name`，URL 保持 `null`。
+当 `ARK_API_KEY` 存在时，`DoubaoLLMClient` 通过普通 Chat Completions 调用 `DoubaoAIRecipeProvider`。一次响应同时返回候选及完整 RawRecipe：指定菜名只生成 1 个，按库存推荐时最多 3 个。单候选页面可直接用“好”“可以”“开始吧”确认，不必再说“第一个”；多候选下的“好”不会擅自替用户选菜。`recipe_contract.py` 同时提供 Prompt 硬约束和结构校验常量；输出再经过 JSON 解析、一次有限语法修复、语义校验与 `RecipeNormalizer`。语义失败不会自动再次调用模型。失败或未配置 Key 时切换到 `MockRecipeSearchProvider`。业务元数据会标注 `provider_mode=ai_generated` 或 `provider_mode=mock`。AI 来源仍在内部对象中保留用于诊断，但会话对外 JSON 会隐藏供应商 `source_name`，URL 保持 `null`。
 
 候选排序由 `recommendation_service.py` 完成：忌口冲突先过滤，然后综合指定菜名、已有食材命中与缺失、时间、简单偏好、辣/少盐偏好及厨具匹配排序。`MemoryRecipeCache` 是可关闭的进程内缓存，不存储密钥或无效结果。
 

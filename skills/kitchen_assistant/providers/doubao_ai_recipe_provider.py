@@ -2,17 +2,24 @@ from __future__ import annotations
 
 import re
 import threading
-from concurrent.futures import ThreadPoolExecutor
 from copy import deepcopy
 from pathlib import Path
 from typing import Any
 
 from kitchen.dietary_rules import ingredient_conflicts
 from kitchen.dish_profiles import matching_profiles
-from kitchen.models import RecipeCandidate, RecipeSearchRequest, split_main_foods_and_seasonings
+from kitchen.ingredient_vocabulary import ingredient_present, split_main_foods_and_seasonings
+from kitchen.models import RecipeCandidate, RecipeSearchRequest
+from kitchen.recipe_contract import (
+    candidate_limit,
+    string_list as _string_list,
+    validate_estimated_minutes,
+    validate_raw_recipe,
+    validate_text as _text,
+)
 from kitchen.recipe_normalizer import RecipeNormalizer
 from llm.doubao_client import DoubaoClientError, DoubaoLLMClient
-from llm.prompts import candidate_messages, recipe_messages
+from llm.prompts import recipe_bundle_messages
 
 
 class AIRecipeProviderError(RuntimeError):
@@ -27,7 +34,6 @@ class DoubaoAIRecipeProvider:
     def __init__(self, llm_client: DoubaoLLMClient, fallback: Any) -> None:
         self.llm_client = llm_client
         self.fallback = fallback
-        self._candidate_requests: dict[str, RecipeSearchRequest] = {}
         self._detail_cache: dict[str, dict[str, Any]] = {}
         self._local_candidate_ids: set[str] = set()
         self._mode = "ai_generated"
@@ -46,43 +52,43 @@ class DoubaoAIRecipeProvider:
         self.last_cache_paths = []
         self.last_cache_candidate_count = 0
         self._last_cached_candidate_ids = set()
+        request_payload = _request_payload(request)
+        limit = candidate_limit(request_payload)
         cached_search = getattr(self.fallback, "search_cached_recipes", None)
         if not request.bypass_cache and callable(cached_search):
             cached = cached_search(request)
             if cached:
                 self._mode = "local_cache"
-                self._local_candidate_ids.update(candidate.candidate_id for candidate in cached)
-                return cached[:3]
+                selected = cached[:limit]
+                self._local_candidate_ids.update(candidate.candidate_id for candidate in selected)
+                return selected
         self._mode = "ai_generated"
         if not self.llm_client.is_available():
             raise AIRecipeProviderError("豆包未配置")
         try:
-            payload = self.llm_client.generate_json(candidate_messages(_request_payload(request)))
+            payload = self.llm_client.generate_json(recipe_bundle_messages(request_payload))
             rows = payload.get("candidates")
             if not isinstance(rows, list) or not rows:
                 raise AIRecipeProviderError("候选菜谱为空")
-            candidates = [_candidate_from_row(row, index, request) for index, row in enumerate(rows[:3], start=1)]
+            prepared: list[tuple[RecipeCandidate, dict[str, Any]]] = []
+            for index, row in enumerate(rows[:limit], start=1):
+                try:
+                    candidate = _candidate_from_row(row, index, request)
+                    raw = _detail_from_bundled_row(row, candidate, request)
+                except (ValueError, TypeError):
+                    # Never expose a candidate whose full detail is missing or
+                    # invalid. Other valid rows from the same response remain
+                    # usable.
+                    continue
+                prepared.append((candidate, raw))
+            candidates = [candidate for candidate, _ in prepared]
             if not candidates:
-                raise AIRecipeProviderError("没有有效候选菜谱")
+                raise AIRecipeProviderError("没有同时包含有效详情的候选菜谱")
             if request.requested_dish and request.requested_dish not in candidates[0].title:
                 raise AIRecipeProviderError("第一个候选没有保留用户指定菜名")
-            for candidate in candidates:
-                self._candidate_requests[candidate.candidate_id] = deepcopy(request)
-            # Generate and persist all three details while the request is
-            # active. A later choice can then use memory or the JSON cache
-            # without another model call.
-            # Detail calls are independent. Keep all three candidates cached,
-            # but overlap network latency so a recommendation round waits for
-            # roughly one model response instead of three sequential ones.
-            with ThreadPoolExecutor(max_workers=min(3, len(candidates))) as pool:
-                futures = [pool.submit(self.get_recipe_detail, candidate) for candidate in candidates]
-                for future in futures:
-                    try:
-                        future.result()
-                    except Exception:
-                        # One malformed detail must not hide the other valid
-                        # candidates; the selected item can be retried later.
-                        continue
+            for candidate, raw in prepared:
+                self._detail_cache[candidate.candidate_id] = deepcopy(raw)
+                self._save_normalized_cache(raw, candidate, request)
             return candidates
         except (DoubaoClientError, ValueError, TypeError, AIRecipeProviderError) as exc:
             raise AIRecipeProviderError("豆包候选菜谱生成失败") from exc
@@ -96,27 +102,7 @@ class DoubaoAIRecipeProvider:
             self._mode = "ai_generated"
             return deepcopy(cached_detail)
         self._mode = "ai_generated"
-        request = self._candidate_requests.get(candidate.candidate_id)
-        if request is None:
-            raise AIRecipeProviderError("候选菜谱上下文已失效")
-        try:
-            raw = self.llm_client.generate_json(recipe_messages(candidate.as_dict(), _request_payload(request)))
-            _ensure_profile_ingredients(raw, request)
-            _ensure_inventory_ingredients(raw, request)
-            _ensure_equipment_constraints(raw, request)
-            _normalize_profile_timers(raw, request)
-            _validate_raw_recipe(raw)
-            raw["recipe_id"] = candidate.candidate_id
-            raw["name"] = str(raw.get("title") or candidate.title).strip()
-            raw.pop("title", None)
-            raw["source_name"] = "豆包 AI 生成"
-            raw["source_url"] = None
-            raw["notes"] = _string_list(raw.pop("safety_notes", []))
-            self._save_normalized_cache(raw, candidate, request)
-            self._detail_cache[candidate.candidate_id] = deepcopy(raw)
-            return raw
-        except Exception as exc:
-            raise AIRecipeProviderError("豆包完整菜谱生成失败") from exc
+        raise AIRecipeProviderError("完整详情未在候选生成阶段准备成功，请重新搜索")
 
     def fallback_recipe(self) -> dict[str, Any]:
         return self.fallback.fallback_recipe()
@@ -153,9 +139,10 @@ def _candidate_from_row(row: Any, index: int, request: RecipeSearchRequest) -> R
     difficulty = str(row.get("difficulty") or "简单").strip()
     if difficulty not in {"简单", "中等"}:
         difficulty = "简单"
-    minutes = row.get("estimated_minutes")
-    if not isinstance(minutes, int) or not 1 <= minutes <= 240:
-        raise ValueError("预计时间无效")
+    minutes = validate_estimated_minutes(
+        row.get("estimated_minutes"),
+        maximum=request.max_cooking_minutes,
+    )
     labels = _string_list(row.get("main_ingredients"))
     seasonings = _string_list(row.get("main_seasonings"))
     if not labels:
@@ -171,11 +158,13 @@ def _candidate_from_row(row: Any, index: int, request: RecipeSearchRequest) -> R
         raise ValueError("候选违反忌口")
     if request.requested_dish and index == 1 and request.requested_dish not in title:
         raise ValueError("候选没有保留指定菜名")
+    if _candidate_was_excluded(title, request.excluded_candidate_ids):
+        raise ValueError("候选与用户要求排除的菜谱重复")
     if not request.requested_dish and request.available_ingredients:
         labels_for_matching = [*ingredients, *inferred_seasonings]
         missing_inventory = [
             item for item in request.available_ingredients
-            if not _inventory_ingredient_present(item, labels_for_matching)
+            if not ingredient_present(item, labels_for_matching)
         ]
         if missing_inventory:
             raise ValueError(f"候选遗漏用户已有食材：{'、'.join(missing_inventory)}")
@@ -195,15 +184,36 @@ def _candidate_from_row(row: Any, index: int, request: RecipeSearchRequest) -> R
     )
 
 
-_INVENTORY_ALIASES = {
-    "蘑菇": ("蘑菇", "香菇", "口蘑", "平菇", "白玉菇"),
-    "牛肉": ("牛肉", "肥牛", "牛腩", "牛里脊"),
-}
-
-
-def _inventory_ingredient_present(required: str, labels: list[str]) -> bool:
-    aliases = _INVENTORY_ALIASES.get(required, (required,))
-    return any(alias in label or label in alias for alias in aliases for label in labels)
+def _detail_from_bundled_row(
+    row: Any,
+    candidate: RecipeCandidate,
+    request: RecipeSearchRequest,
+) -> dict[str, Any]:
+    if not isinstance(row, dict) or not isinstance(row.get("recipe"), dict):
+        raise ValueError("候选缺少完整recipe详情")
+    raw = deepcopy(row["recipe"])
+    if str(raw.get("title") or "").strip() != candidate.title:
+        raise ValueError("候选与完整菜谱名称不一致")
+    if request.servings is not None and raw.get("servings") != request.servings:
+        raise ValueError("完整菜谱人数与请求不一致")
+    _prepare_and_validate_recipe(raw, request)
+    recipe_names = [
+        str(item.get("name", ""))
+        for item in raw.get("ingredients", [])
+        if isinstance(item, dict)
+    ]
+    if any(
+        not ingredient_present(label, recipe_names)
+        for label in [*candidate.main_ingredients, *candidate.main_seasonings]
+    ):
+        raise ValueError("候选食材与完整菜谱不一致")
+    raw["recipe_id"] = candidate.candidate_id
+    raw["name"] = candidate.title
+    raw.pop("title", None)
+    raw["source_name"] = "豆包 AI 生成"
+    raw["source_url"] = None
+    raw["notes"] = _string_list(raw.pop("safety_notes", []))
+    return raw
 
 
 def _ensure_inventory_ingredients(raw: Any, request: RecipeSearchRequest) -> None:
@@ -214,7 +224,7 @@ def _ensure_inventory_ingredients(raw: Any, request: RecipeSearchRequest) -> Non
     if not isinstance(ingredient_rows, list):
         return
     labels = [str(item.get("name", "")) for item in ingredient_rows if isinstance(item, dict)]
-    missing = [item for item in request.available_ingredients if not _inventory_ingredient_present(item, labels)]
+    missing = [item for item in request.available_ingredients if not ingredient_present(item, labels)]
     if missing:
         raise ValueError(f"完整菜谱遗漏用户已有食材：{'、'.join(missing)}")
 
@@ -226,46 +236,23 @@ def _ensure_equipment_constraints(raw: Any, request: RecipeSearchRequest) -> Non
     if equipment & set(request.unavailable_equipment):
         raise ValueError("完整菜谱使用了用户没有的厨具")
     if request.equipment_only and request.available_equipment and equipment:
-        if not equipment & set(request.available_equipment):
+        if not equipment.issubset(set(request.available_equipment)):
             raise ValueError("完整菜谱超出用户现有厨具")
 
 
-def _validate_raw_recipe(raw: Any) -> None:
-    if not isinstance(raw, dict):
-        raise ValueError("菜谱必须是对象")
-    if not _text(raw.get("title"), "菜名"):
-        raise ValueError("菜名不能为空")
-    ingredients = raw.get("ingredients")
-    if not isinstance(ingredients, list) or not ingredients:
-        raise ValueError("菜谱必须包含食材")
-    for item in ingredients:
-        if not isinstance(item, dict) or not _text(item.get("name"), "食材"):
-            raise ValueError("食材无效")
-        amount = _text(item.get("amount"), "")
-        if not amount or any(marker in amount for marker in ("适量", "少量", "少许", "按口味")):
-            raise ValueError("食材必须给出明确用量")
-    steps = raw.get("steps")
-    if not isinstance(steps, list) or not steps:
-        raise ValueError("菜谱必须包含步骤")
-    for index, step in enumerate(steps, start=1):
-        if not isinstance(step, dict) or not _text(step.get("instruction"), "步骤"):
-            raise ValueError("步骤说明无效")
-        instruction = _text(step.get("instruction"), "步骤")
-        if any(marker in instruction for marker in ("适量", "少量", "少许", "按口味")):
-            raise ValueError("步骤用量必须明确")
-        if any(marker in instruction for marker in ("准备调料碗", "准备调料", "准备酱汁")):
-            concrete_seasonings = ("生抽", "老抽", "米醋", "醋", "白砂糖", "白糖", "盐", "料酒", "蚝油", "胡椒")
-            if not any(marker in instruction for marker in concrete_seasonings):
-                raise ValueError("调料准备步骤必须写明具体调料和用量")
-        # The provider owns a public data shape, but sequential numbering is
-        # enforced here before the normalizer maps multimodal fields.
-        step["step_number"] = index
-        if step.get("duration_seconds") is not None and not isinstance(step["duration_seconds"], (int, float)):
-            step["duration_seconds"] = None
-        if step.get("heat_level") is not None and not isinstance(step["heat_level"], str):
-            step["heat_level"] = None
-        if step.get("safety_note") is not None and not isinstance(step["safety_note"], str):
-            step["safety_note"] = None
+def _prepare_and_validate_recipe(raw: Any, request: RecipeSearchRequest) -> None:
+    _ensure_profile_ingredients(raw, request)
+    _ensure_inventory_ingredients(raw, request)
+    _ensure_equipment_constraints(raw, request)
+    _normalize_profile_timers(raw, request)
+    ingredient_names = [
+        str(item.get("name", ""))
+        for item in raw.get("ingredients", [])
+        if isinstance(item, dict)
+    ] if isinstance(raw, dict) else []
+    if ingredient_conflicts(ingredient_names, request.dietary_restrictions):
+        raise ValueError("完整菜谱违反忌口")
+    validate_raw_recipe(raw, request)
 
 
 def _request_payload(request: RecipeSearchRequest) -> dict[str, Any]:
@@ -282,6 +269,7 @@ def _request_payload(request: RecipeSearchRequest) -> dict[str, Any]:
         "difficulty_preference": request.difficulty_preference,
         "steak_doneness": request.steak_doneness,
         "steak_thickness_cm": request.steak_thickness_cm,
+        "excluded_candidate_ids": request.excluded_candidate_ids,
     }
 
 
@@ -344,19 +332,11 @@ def _append_missing(values: list[str], expected: list[str]) -> None:
             values.append(item)
 
 
-def _string_list(value: Any) -> list[str]:
-    if not isinstance(value, list):
-        return []
-    return [str(item).strip() for item in value if isinstance(item, str) and item.strip()][:12]
-
-
-def _text(value: Any, label: str) -> str:
-    text = str(value or "").strip()
-    if not text or len(text) > 120:
-        raise ValueError(f"{label}无效")
-    return text
-
-
 def _slug(text: str) -> str:
     value = re.sub(r"[^\w\u4e00-\u9fff]+", "_", text).strip("_")
     return value[:40] or "recipe"
+
+
+def _candidate_was_excluded(title: str, excluded_candidate_ids: list[str]) -> bool:
+    slug = _slug(title)
+    return any(candidate_id.startswith(f"ai_{slug}_") for candidate_id in excluded_candidate_ids)
