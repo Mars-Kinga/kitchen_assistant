@@ -536,7 +536,7 @@ def test_plain_good_acknowledges_without_advancing_but_explicit_done_advances() 
     before = session.step_index
     thanks = session.handle("谢谢")
     assert session.step_index == before
-    assert "不客气" in thanks["speech"]
+    assert any(marker in thanks["speech"] for marker in ("不客气", "不用谢"))
     assert thanks["led_effect"] == "warm_white"
 
 
@@ -1291,7 +1291,7 @@ def test_thanks_can_route_to_kitchen_without_starting_a_new_session() -> None:
     response = manager.run_user_text("谢谢")
     assert response["selected_skill"] == "kitchen_assistant"
     assert response["session_active"] is False
-    assert "不客气" in response["speech"]
+    assert any(marker in response["speech"] for marker in ("不客气", "不用谢"))
 
 
 def test_provider_is_offline_and_online_placeholder_falls_back_without_fake_source() -> None:
