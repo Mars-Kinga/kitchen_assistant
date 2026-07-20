@@ -16,6 +16,10 @@ if str(SKILL_ROOT) not in sys.path:
 
 from kitchen.cooking_question_service import RuleBasedCookingQuestionService  # noqa: E402
 from kitchen.dish_profiles import load_catalog  # noqa: E402
+from kitchen.ingredient_vocabulary import (  # noqa: E402
+    canonicalize_ingredient, extract_known_ingredients, ingredient_present,
+    is_animal_protein, is_seasoning, restriction_matches,
+)
 from kitchen.models import CookingAnswer, CookingContext, RecipeCandidate, RecipeSearchRequest  # noqa: E402
 from kitchen.recipe_normalizer import RecipeNormalizationError, RecipeNormalizer  # noqa: E402
 from kitchen.response_phrases import (  # noqa: E402
@@ -40,6 +44,28 @@ def assert_multimodal(response: dict) -> None:
         assert item.get("speech") or item.get("question")
         for key in ("display", "robot_action", "led_effect", "expression"):
             assert item.get(key), key
+
+
+def test_shared_ingredient_vocabulary_covers_daily_cooking_without_false_spicy_matches() -> None:
+    assert ingredient_present("蘑菇", ["杏鲍菇"])
+    assert ingredient_present("牛肉", ["牛排"])
+    assert ingredient_present("豆腐", ["嫩豆腐"])
+    assert ingredient_present("面条", ["挂面"])
+    assert ingredient_present("食用油", ["菜籽油"])
+    assert ingredient_present("玉米", ["玉米粒"])
+    assert restriction_matches("海鲜", "虾仁")
+    assert restriction_matches("辣", "小米辣")
+    assert not restriction_matches("辣", "青椒")
+    assert restriction_matches("乳制品", "芝士")
+    assert restriction_matches("花生", "花生油")
+    assert restriction_matches("麸质", "面条")
+    assert is_seasoning("菜籽油")
+    assert is_seasoning("蒸鱼豉油")
+    assert is_animal_protein("鸡腿肉")
+    assert not is_animal_protein("鸡精")
+    assert not is_animal_protein("鸡蛋")
+    assert canonicalize_ingredient("洋芋") == "土豆"
+    assert extract_known_ingredients("家里有洋芋、花菜和鸡腿肉") == ["土豆", "菜花", "鸡腿肉"]
 
 
 def make_session(*, clock=lambda: 100.0, provider=None) -> KitchenSession:
@@ -148,10 +174,62 @@ def test_unknown_agent_question_emits_thinking_progress() -> None:
 
 def test_free_form_requested_dish_keeps_full_name_and_generic_cooking_phrase_stays_generic() -> None:
     assert parse_updates("我要做番茄肥牛").requested_dish == "番茄肥牛"
+    assert parse_updates("我想吃油焖鸡").requested_dish == "油焖鸡"
+    assert parse_updates("我要吃油焖鸡").requested_dish == "油焖鸡"
     assert parse_updates("我想好要做什么了，要做番茄肥牛").requested_dish == "番茄肥牛"
     assert parse_updates("红烧排骨怎么做").requested_dish == "红烧排骨"
     assert parse_updates("香菇滑鸡怎么做").requested_dish == "香菇滑鸡"
     assert parse_updates("我要做饭了").requested_dish is None
+    assert parse_updates("我想吃点什么").requested_dish is None
+
+
+@pytest.mark.parametrize("text", ["我想吃油焖鸡", "我要吃油焖鸡"])
+def test_natural_want_to_eat_phrases_route_to_kitchen(text: str) -> None:
+    manager = SkillManager()
+    manager.load_skills()
+
+    response = manager.run_user_text(text)
+
+    assert response["selected_skill"] == "kitchen_assistant"
+    assert response["kitchen_state"] == COLLECTING_PREFERENCES
+    assert response["_route"]["matched_evidence"]
+
+
+def test_explicit_dish_request_retries_an_empty_candidate_search() -> None:
+    class EmptyThenCandidateProvider:
+        mode = "mock"
+
+        def __init__(self) -> None:
+            self.requests: list[str | None] = []
+
+        def search_recipes(self, request):
+            self.requests.append(request.requested_dish)
+            if len(self.requests) == 1:
+                return []
+            return [RecipeCandidate(
+                candidate_id="oil_braised_chicken",
+                title="油焖鸡",
+                source_name="测试菜谱",
+                source_url=None,
+                summary="家常油焖鸡。",
+                estimated_minutes=30,
+                difficulty="简单",
+                main_ingredients=["鸡肉"],
+                missing_ingredients=[],
+                match_reason="指定菜名。",
+            )]
+
+    provider = EmptyThenCandidateProvider()
+    session = make_session(provider=provider)
+    session.handle("我要做油焖鸡")
+    session.handle("一个人")
+    empty = session.handle("正常")
+    assert empty["recipe_candidates"] == []
+
+    retried = session.handle("我想吃油焖鸡")
+
+    assert provider.requests == ["油焖鸡", "油焖鸡"]
+    assert retried["recipe_candidates"][0]["title"] == "油焖鸡"
 
 
 def test_food_how_to_questions_route_to_kitchen_without_capturing_generic_how_to() -> None:
@@ -211,13 +289,72 @@ def test_known_dish_requires_explicit_confirmation_before_cooking() -> None:
     assert_multimodal(cooking)
 
 
-def test_natural_affirmation_confirms_recipe_without_redundant_prompt() -> None:
+@pytest.mark.parametrize("confirmation", ["好", "好的"])
+def test_natural_affirmation_confirms_recipe_without_redundant_prompt(confirmation: str) -> None:
     session = make_session()
     start_known_dish(session, "番茄炒蛋")
     session.handle("第一个")
-    response = session.handle("好的")
+    response = session.handle(confirmation)
     assert response["kitchen_state"] == COOKING
     assert "请明确说" not in str(response)
+
+
+@pytest.mark.parametrize("confirmation", ["好", "好的", "好呀", "可以", "开始吧"])
+def test_single_candidate_accepts_natural_confirmation_without_ordinal(
+    confirmation: str,
+) -> None:
+    session = make_session()
+    candidates = start_known_dish(session, "番茄炒蛋")
+    assert len(candidates["recipe_candidates"]) == 1
+    candidate_prompt = str(candidates)
+    assert "第一个" not in candidate_prompt
+    assert "第二个" not in candidate_prompt
+    assert "好" in candidate_prompt or "开始吧" in candidate_prompt
+
+    response = session.handle(confirmation)
+
+    assert response["kitchen_state"] == COOKING
+    assert session.selected_candidate == session.recipe_candidates[0]
+    rendered = "\n".join(
+        str(step.get(key, ""))
+        for step in response.get("steps", [])
+        for key in ("speech", "question", "display")
+    )
+    assert "第一个" not in rendered
+    assert "第二个" not in rendered
+
+
+def test_multiple_candidates_do_not_guess_which_recipe_good_refers_to() -> None:
+    class TwoCandidateProvider:
+        mode = "mock"
+
+        def search_recipes(self, request):
+            return [
+                RecipeCandidate(
+                    candidate_id=f"candidate-{index}",
+                    title=f"测试菜{index}",
+                    source_name="测试",
+                    source_url=None,
+                    summary="测试候选",
+                    estimated_minutes=10,
+                    difficulty="简单",
+                    main_ingredients=["番茄"],
+                    missing_ingredients=[],
+                    match_reason="测试",
+                )
+                for index in (1, 2)
+            ]
+
+    session = make_session(provider=TwoCandidateProvider())
+    session.handle("我想做测试菜")
+    session.handle("一个人")
+    candidates = session.handle("正常")
+    assert len(candidates["recipe_candidates"]) == 2
+
+    response = session.handle("好")
+
+    assert response["kitchen_state"] == PRESENTING_CANDIDATES
+    assert session.selected_candidate is None
 
 
 def test_plain_start_confirms_recipe() -> None:
@@ -399,7 +536,7 @@ def test_plain_good_acknowledges_without_advancing_but_explicit_done_advances() 
     before = session.step_index
     thanks = session.handle("谢谢")
     assert session.step_index == before
-    assert "不客气" in thanks["speech"]
+    assert any(marker in thanks["speech"] for marker in ("不客气", "不用谢"))
     assert thanks["led_effect"] == "warm_white"
 
 
@@ -1154,7 +1291,7 @@ def test_thanks_can_route_to_kitchen_without_starting_a_new_session() -> None:
     response = manager.run_user_text("谢谢")
     assert response["selected_skill"] == "kitchen_assistant"
     assert response["session_active"] is False
-    assert "不客气" in response["speech"]
+    assert any(marker in response["speech"] for marker in ("不客气", "不用谢"))
 
 
 def test_provider_is_offline_and_online_placeholder_falls_back_without_fake_source() -> None:

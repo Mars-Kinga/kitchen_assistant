@@ -2,6 +2,8 @@ from __future__ import annotations
 
 from typing import Iterable
 
+from .ingredient_vocabulary import restriction_matches
+
 
 def ingredient_conflicts(ingredients: Iterable[str], restrictions: Iterable[str]) -> list[str]:
     """Return user restrictions that conflict with a recipe ingredient.
@@ -22,13 +24,4 @@ def ingredient_conflicts(ingredients: Iterable[str], restrictions: Iterable[str]
 
 
 def _matches(restriction: str, ingredient: str) -> bool:
-    if restriction in ingredient or ingredient in restriction:
-        return True
-    aliases = {
-        "牛肉": ("肥牛", "牛排", "牛肉卷"),
-        "猪肉": ("排骨", "五花肉", "猪排"),
-        "鸡肉": ("鸡翅", "鸡腿", "鸡胸"),
-        "海鲜": ("鱼", "虾", "蟹", "贝"),
-        "辣": ("辣椒", "辣酱", "豆瓣酱"),
-    }
-    return ingredient in aliases.get(restriction, ())
+    return restriction_matches(restriction, ingredient)

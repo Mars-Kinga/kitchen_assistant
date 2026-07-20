@@ -18,3 +18,6 @@ venv/
 
 runtime_logs/
 *.log
+
+skills/kitchen_assistant/recipes/generated/*.json
+!skills/kitchen_assistant/recipes/generated/.gitkeep

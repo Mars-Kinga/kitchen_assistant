@@ -7,6 +7,11 @@ from typing import Any
 
 from .dish_profiles import matching_profiles
 from .feedback_mapping import enrich_step
+from .ingredient_vocabulary import (
+    CONCRETE_SEASONING_TERMS,
+    STIR_FRY_MEAT_TERMS,
+    STIR_FRY_VEGETABLE_TERMS,
+)
 
 
 _HEAT_ACTIONS = (
@@ -15,10 +20,6 @@ _HEAT_ACTIONS = (
 )
 _TIMED_PREP_ACTIONS = ("腌制", "浸泡", "泡发", "静置", "醒发")
 _TIMED_ACTIONS = _HEAT_ACTIONS + _TIMED_PREP_ACTIONS
-_STIR_FRY_MEAT_WORDS = ("猪肉", "猪里脊", "肉丝", "鸡肉", "牛肉丝")
-_STIR_FRY_VEGETABLE_WORDS = (
-    "蔬菜", "木耳", "胡萝卜", "青椒", "笋", "土豆", "茄子", "西兰花", "青菜", "洋葱",
-)
 
 
 class RecipeNormalizationError(ValueError):
@@ -237,8 +238,7 @@ class RecipeNormalizer:
         """Discard non-actions such as “腌制期间准备调料碗”."""
         waiting = any(marker in instruction for marker in ("腌制期间", "等待期间"))
         generic_bowl = any(marker in instruction for marker in ("准备调料碗", "准备调料", "准备酱汁"))
-        concrete_seasonings = ("生抽", "老抽", "米醋", "醋", "白砂糖", "白糖", "盐", "料酒", "蚝油", "胡椒")
-        return waiting and generic_bowl and not any(item in instruction for item in concrete_seasonings)
+        return waiting and generic_bowl and not any(item in instruction for item in CONCRETE_SEASONING_TERMS)
 
     @staticmethod
     def _split_preparation_step(step: dict[str, Any]) -> list[dict[str, Any]]:
@@ -370,7 +370,7 @@ class RecipeNormalizer:
         note = str(safety_note or "").strip() or None
         if "炒" not in instruction:
             return instruction, duration, note
-        if any(word in instruction for word in _STIR_FRY_MEAT_WORDS):
+        if any(word in instruction for word in STIR_FRY_MEAT_TERMS):
             # AI responses occasionally omit duration_seconds entirely. A
             # missing timer on a raw-meat stir-fry is unsafe, so provide a
             # conservative lower-bound reference instead of leaving it null.
@@ -380,7 +380,7 @@ class RecipeNormalizer:
             reminder = "计时只是下限参考，应以肉类完全变色、中心无粉红为准。"
             note = (note or "").replace("肉丝完全变色", "肉类完全变色") or None
             note = f"{note} {reminder}".strip() if note else reminder
-        elif any(word in instruction for word in _STIR_FRY_VEGETABLE_WORDS):
+        elif any(word in instruction for word in STIR_FRY_VEGETABLE_TERMS):
             minimum = 180 if "变软" in instruction else 120
             duration = max(duration or minimum, minimum)
             reminder = "火力和切配粗细会影响时间，以蔬菜实际断生或达到所需软度为准。"

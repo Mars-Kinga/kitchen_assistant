@@ -3,6 +3,11 @@ from __future__ import annotations
 import re
 from dataclasses import dataclass, field
 
+from .ingredient_vocabulary import (
+    KNOWN_INGREDIENTS,
+    canonicalize_ingredient,
+    extract_known_ingredients,
+)
 from .intent_parser import extract_flavor, extract_servings
 from .models import RecipeSearchRequest
 
@@ -13,12 +18,6 @@ KNOWN_DISHES = (
     "青菜鸡蛋面", "简单汤面", "番茄炒蛋", "蛋炒饭", "炒饭", "炒面", "牛肉面", "意面",
     "蒜蓉西兰花", "炒青菜", "鸡蛋羹", "土豆丝", "可乐鸡翅", "咖喱饭", "牛排",
 )
-KNOWN_INGREDIENTS = (
-    "鸡蛋", "番茄", "面条", "青菜", "土豆", "胡萝卜", "米饭", "鸡翅", "排骨", "五花肉", "猪肉", "鸡肉", "牛腩", "鱼", "虾",
-    "可乐", "咖喱", "牛肉", "肥牛", "牛排", "豆腐", "茄子", "西兰花", "蘑菇", "香菇", "洋葱",
-    "葱", "姜", "蒜", "香菜", "八角", "冰糖", "白糖", "辣椒", "花生", "生抽", "老抽", "料酒", "蚝油",
-    "橄榄油", "食用油", "黄油", "黑胡椒", "海盐", "盐", "迷迭香",
-)
 _DISH_ALIASES = {
     "西红柿炒蛋": "番茄炒蛋",
     "番茄炒鸡蛋": "番茄炒蛋",
@@ -26,20 +25,12 @@ _DISH_ALIASES = {
     "西红柿鸡蛋面": "番茄鸡蛋面",
     "可乐翅": "可乐鸡翅",
 }
-# Common speech-to-text near-misses belong here so every caller shares the
-# same canonical pantry vocabulary. Keep this list conservative: broad fuzzy
-# matching can invent ingredients the user never said they had.
-_INGREDIENT_ALIASES = {
-    "胡萝": "胡萝卜",
-    "胡罗卜": "胡萝卜",
-    "胡萝贝": "胡萝卜",
-}
 _FRESH_SEARCH_MARKERS = (
     "不要本地", "不用本地", "别用本地", "不要缓存", "不用缓存", "别用缓存",
     "上网搜索", "联网搜索", "在线搜索", "重新联网", "重新搜索", "换新菜谱",
 )
 _DISH_REQUEST = re.compile(
-    r"(?:我想做|我要做|想做|要做(?!什么)|帮我做|教我做|教我烧|教我煮|教我炖|我想弄个|想弄个|弄个|做一道|做一份|做个|来一份|来个)\s*([^，,。！？；;]+)"
+    r"(?:我想做|我要做|想做|要做(?!点?什么)|我想吃(?!点?什么)|我要吃(?!点?什么)|想吃(?!点?什么)|要吃(?!点?什么)|帮我做|教我做|教我烧|教我煮|教我炖|我想弄个|想弄个|弄个|做一道|做一份|做个|来一份|来个)\s*([^，,。！？；;]+)"
 )
 _DISH_QUESTION = re.compile(
     r"(?:^|[，,。！？；;])\s*(?:请问|想问|我想知道|想知道|教我|帮我|能教我|可以教我)?\s*([^，,。！？；;]{2,30}?)(?:怎么做|如何做|做法|教程|怎么烧|怎么煮|怎么炒|怎么炖|怎么焖|怎么煲)"
@@ -101,8 +92,10 @@ def parse_updates(text: str) -> RequestUpdates:
         if any(phrase in text for phrase in (
             f"不吃{ingredient}", f"不要{ingredient}", f"不放{ingredient}",
             f"对{ingredient}过敏", f"{ingredient}过敏",
-        )) and ingredient not in updates.restrictions:
-            updates.restrictions.append(ingredient)
+        )):
+            canonical = canonicalize_ingredient(ingredient)
+            if canonical not in updates.restrictions:
+                updates.restrictions.append(canonical)
     match = re.search(r"(\d+|[一二两三四五六七八九十]+)\s*分钟(?:以内|内)?", text)
     if match:
         value = _parse_number(match.group(1))
@@ -191,11 +184,7 @@ def extract_ingredients(text: str, *, allow_bare: bool = False) -> list[str]:
         start = max((inventory_text.rfind(signal) for signal in signals), default=-1)
         if start >= 0:
             inventory_text = re.split(r"[，,。！？；;]", inventory_text[start:], maxsplit=1)[0]
-    return [
-        item for item in KNOWN_INGREDIENTS
-        if item in inventory_text
-        or any(alias in inventory_text and canonical == item for alias, canonical in _INGREDIENT_ALIASES.items())
-    ]
+    return extract_known_ingredients(inventory_text)
 
 
 def apply_updates(request: RecipeSearchRequest, updates: RequestUpdates) -> RecipeSearchRequest:

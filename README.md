@@ -67,6 +67,16 @@ python -m pip install -r requirements-dev.txt
 export ARK_API_KEY='你的API Key'
 export DOUBAO_BASE_URL='https://ark.cn-beijing.volces.com/api/v3'   # 仅为例子，根据情况可选
 export DOUBAO_MODEL='doubao-seed-2-0-mini-260428'                   # 仅为例子，根据情况可选
+export DOUBAO_TIMEOUT_SECONDS='90'                                 # 可选，交互请求超时秒数
+export DOUBAO_MAX_RETRIES='0'                                     # 可选，超时后的 SDK 重试次数
+```
+
+模型名称不写死在业务代码中。评审或部署时可以通过 `DOUBAO_MODEL` 切换为当前账号有权限、且兼容 Chat Completions 的模型。默认交互超时为 90 秒且不自动重试，为响应较慢的模型保留生成时间，同时避免 SDK 自动重试进一步延长等待。
+
+需要显式验证真实豆包连接时，运行一次生产客户端检查；它不属于 pytest，也不会在默认测试中联网：
+
+```bash
+python scripts/check_doubao_connection.py
 ```
 
 ## 启动入口
@@ -162,7 +172,7 @@ robot_main.handle_input
 我不知道做什么，我有胡萝卜和鸡肉
 ```
 
-厨房助手会收集必要的人数、口味、忌口、时间、难度和厨具约束，展示最多三个候选。必须选择候选并明确确认后才进入烹饪。
+厨房助手会收集必要的人数、口味、忌口、时间、难度和厨具约束。指定菜名时生成一个完整候选，此时直接说“好”“可以”或“开始吧”即可确认，不必再说“第一个”；按现有食材推荐时展示最多三个候选，必须先选第几个或菜名，再明确确认。“好”在多候选页面不会擅自替用户选择。
 
 ### Provider 与缓存边界
 
@@ -171,7 +181,7 @@ robot_main.handle_input
 - `local_cache`：复用此前已通过校验的 AI 菜谱，并按人数缩放用量。
 - `web_search`：仅预留，当前不发起真实搜索请求。
 
-AI 生成候选和完整菜谱会保存到 `skills/kitchen_assistant/recipes/generated/`。这些是运行产生的数据；演示前应确认是否保留在提交中。
+AI 会在一次响应中同时生成候选和完整菜谱，只展示详情校验通过的候选，并保存到 `skills/kitchen_assistant/recipes/generated/`。Prompt 与本地校验共享 `recipe_contract.py` 中的字段和硬约束；语义失败不会自动再次调用模型。生成 JSON 是运行数据，默认被 Git 忽略。
 
 ### 计时与并行准备安全规则
 
@@ -187,7 +197,7 @@ AI Prompt 与本地筛选使用相同规则；即使模型生成了不合规的�
 
 ### 食品安全
 
-含生肉或海鲜的菜谱在开始前会确认是否完全解冻。起火、燃气味、大量浓烟、烫伤、电器进水等风险优先由本地规则处理，输出停止动作和警示反馈，并可暂停烹饪。助手不声称看见现场，也不以计时替代温度或熟度检查。
+含生鲜肉类、鱼虾蟹贝的菜谱在开始前会确认它是新鲜食材，或在来自冷冻时已经完全解冻；鸡蛋、奶制品等不会触发这项检查。起火、燃气味、大量浓烟、烫伤、电器进水等风险优先由本地规则处理，输出停止动作和警示反馈，并可暂停烹饪。助手不声称看见现场，也不以计时替代温度或熟度检查。
 
 ## 演示流程
 

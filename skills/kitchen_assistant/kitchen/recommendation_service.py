@@ -3,13 +3,8 @@ from __future__ import annotations
 from typing import Any
 
 from .dietary_rules import ingredient_conflicts
-from .models import RecipeCandidate, RecipeSearchRequest, split_main_foods_and_seasonings
-
-
-_INGREDIENT_ALIASES = {
-    "蘑菇": ("蘑菇", "香菇", "口蘑", "平菇", "白玉菇"),
-    "牛肉": ("牛肉", "肥牛", "牛腩", "牛里脊"),
-}
+from .ingredient_vocabulary import ingredient_present, split_main_foods_and_seasonings
+from .models import RecipeCandidate, RecipeSearchRequest
 
 
 def rank_recipes(recipes: list[dict[str, Any]], request: RecipeSearchRequest) -> list[RecipeCandidate]:
@@ -27,7 +22,7 @@ def rank_recipes(recipes: list[dict[str, Any]], request: RecipeSearchRequest) ->
         # Return no offline candidate instead, so the configured AI provider
         # can compose an appropriate dish from the stated ingredients.
         if not request.requested_dish and request.available_ingredients:
-            if any(not _ingredient_is_present(item, ingredients) for item in request.available_ingredients):
+            if any(not ingredient_present(item, ingredients) for item in request.available_ingredients):
                 continue
         recipe_id = str(raw["recipe_id"])
         if recipe_id in request.excluded_candidate_ids:
@@ -84,12 +79,6 @@ def _reason(present: list[str], missing: list[str], request: RecipeSearchRequest
     if present:
         return f"可利用现有的{'、'.join(present)}，只缺少少量主要食材。"
     return "符合当前的离线示例筛选条件。"
-
-
-def _ingredient_is_present(required: str, ingredients: list[str]) -> bool:
-    aliases = _INGREDIENT_ALIASES.get(required, (required,))
-    return any(alias in ingredient or ingredient in alias for alias in aliases for ingredient in ingredients)
-
 
 def _equipment_is_unavailable(raw: dict[str, Any], request: RecipeSearchRequest) -> bool:
     equipment = [str(item) for item in raw.get("equipment", [])]

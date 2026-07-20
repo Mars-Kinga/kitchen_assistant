@@ -4,20 +4,12 @@ import json
 from typing import Any, Iterable
 
 from kitchen.dish_profiles import profile_prompt_rules
-
-
-_REQUEST_FIELDS = (
-    "requested_dish",
-    "available_ingredients",
-    "servings",
-    "taste_preferences",
-    "dietary_restrictions",
-    "max_cooking_minutes",
-    "available_equipment",
-    "difficulty_preference",
-    "steak_doneness",
-    "steak_thickness_cm",
+from kitchen.recipe_contract import (
+    RECIPE_SCHEMA_TEXT,
+    REQUEST_FIELDS,
+    bundle_prompt_rules,
 )
+
 
 _CANDIDATE_FIELDS = (
     "title",
@@ -33,15 +25,6 @@ _CANDIDATE_SCHEMA = (
     '"difficulty":"简单"|"中等","main_ingredients":[string],"main_seasonings":[string],'
     '"missing_ingredients":[string],"match_reason":string}]}'
 )
-
-_RECIPE_SCHEMA = (
-    '{"title":string,"servings":number,"estimated_minutes":number,'
-    '"difficulty":"简单"|"中等","ingredients":[{"name":string,"amount":number|string,'
-    '"unit":string,"optional":boolean}],"equipment":[string],"safety_notes":[string],'
-    '"steps":[{"step_number":number,"instruction":string,"duration_seconds":number|null,'
-    '"heat_level":string|null,"safety_note":string|null}]}'
-)
-
 
 def candidate_messages(request: dict[str, Any]) -> list[dict[str, str]]:
     rules = [
@@ -59,7 +42,15 @@ def candidate_messages(request: dict[str, Any]) -> list[dict[str, str]]:
         )
     rules.extend(profile_prompt_rules(request, stage="candidate"))
     rules.append(f"输出结构：{_CANDIDATE_SCHEMA}")
-    return _messages("\n".join(rules), _select(request, _REQUEST_FIELDS))
+    return _messages("\n".join(rules), _select(request, REQUEST_FIELDS))
+
+
+def recipe_bundle_messages(request: dict[str, Any]) -> list[dict[str, str]]:
+    """Generate candidate summaries and their complete details in one round."""
+    rules = bundle_prompt_rules(request)
+    rules.extend(profile_prompt_rules(request, stage="candidate"))
+    rules.extend(profile_prompt_rules(request, stage="recipe"))
+    return _messages("\n".join(rules), _select(request, REQUEST_FIELDS))
 
 
 def recipe_messages(candidate: dict[str, Any], request: dict[str, Any]) -> list[dict[str, str]]:
@@ -93,11 +84,11 @@ def recipe_messages(candidate: dict[str, Any], request: dict[str, Any]) -> list[
     if _contains(dish_context, ("米饭", "盖饭", "炒饭")):
         rules.append("普通电饭煲从生米开始不得写十分钟煮熟；快手盖饭/炒饭应明确使用已煮熟米饭。")
     rules.extend(profile_prompt_rules(candidate, request, stage="recipe"))
-    rules.append(f"输出结构：{_RECIPE_SCHEMA}")
+    rules.append(f"输出结构：{RECIPE_SCHEMA_TEXT}")
 
     payload = {
         "candidate": _select(candidate, _CANDIDATE_FIELDS),
-        "request": _select(request, _REQUEST_FIELDS),
+        "request": _select(request, REQUEST_FIELDS),
     }
     return _messages("\n".join(rules), payload)
 
