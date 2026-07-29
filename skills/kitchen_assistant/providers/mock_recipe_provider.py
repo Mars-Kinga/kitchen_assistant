@@ -130,7 +130,7 @@ class MockRecipeSearchProvider:
     def get_recipe_detail(self, candidate: RecipeCandidate) -> dict[str, Any]:
         detail = self._recipes.get(candidate.candidate_id)
         if detail is None:
-            raise KeyError(f"离线示例菜谱不存在：{candidate.candidate_id}")
+            raise KeyError(f"本地菜谱不存在：{candidate.candidate_id}")
         return dict(detail)
 
     def fallback_recipe(self) -> dict[str, Any]:

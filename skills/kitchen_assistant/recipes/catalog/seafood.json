@@ -1,0 +1,1244 @@
+{
+  "catalog_version": 1,
+  "recipes": [
+    {
+      "recipe_id": "htc_steamed_sea_bass",
+      "name": "清蒸鲈鱼",
+      "default_servings": 2,
+      "estimated_time_minutes": 22,
+      "difficulty": "中等",
+      "equipment": [
+        "蒸锅"
+      ],
+      "summary": "突出鱼肉鲜嫩口感的基础清蒸鲈鱼。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/aquatic/清蒸鲈鱼/清蒸鲈鱼.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/aquatic/清蒸鲈鱼/清蒸鲈鱼.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "鲈鱼",
+          "amount": "500 克"
+        },
+        {
+          "name": "姜",
+          "amount": "15 克"
+        },
+        {
+          "name": "葱",
+          "amount": "25 克"
+        },
+        {
+          "name": "料酒",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "蒸鱼豉油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "12 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "清水",
+          "amount": "1500 毫升"
+        }
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "请摊主处理好鲈鱼；回家后用厨房纸擦干表面，在鱼身两侧各划两刀，抹 2 克盐和 10 毫升料酒，姜切片，葱切丝。",
+          "safety_note": "处理生鱼后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "鱼盘铺一半姜片和葱丝，放上鲈鱼，再把剩余姜片放在鱼身上。"
+        },
+        {
+          "step_number": 3,
+          "instruction": "蒸锅加入 1500 毫升清水烧开，放入鱼盘，大火蒸 9 分钟。",
+          "duration_seconds": 540,
+          "heat_level": "大火",
+          "safety_note": "开盖时让蒸汽远离脸和手。"
+        },
+        {
+          "step_number": 4,
+          "instruction": "关火后焖 2 分钟，确认鱼肉完全不透明且能用筷子轻松拨开；未熟时继续蒸 2 分钟。",
+          "duration_seconds": 120,
+          "safety_note": "鱼肉未熟透时不要试吃。"
+        },
+        {
+          "step_number": 5,
+          "instruction": "倒掉盘中多余汁水，淋 15 毫升蒸鱼豉油并放葱丝；另锅把 12 毫升食用油加热 40 秒后淋在葱丝上。",
+          "duration_seconds": 40,
+          "heat_level": "中火",
+          "safety_note": "淋热油时保持手和脸远离鱼盘。"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_blanch_shrimp",
+      "name": "白灼虾",
+      "default_servings": 2,
+      "estimated_time_minutes": 15,
+      "difficulty": "简单",
+      "equipment": [
+        "汤锅"
+      ],
+      "summary": "火候短、保留虾肉清甜的白灼做法。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/aquatic/白灼虾/白灼虾.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/aquatic/白灼虾/白灼虾.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "鲜虾",
+          "amount": "350 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "10 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "2 瓣"
+        },
+        {
+          "name": "料酒",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "香醋",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "香油",
+          "amount": "3 毫升"
+        },
+        {
+          "name": "清水",
+          "amount": "1000 毫升"
+        }
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "剪去鲜虾长须并去虾线，用厨房纸吸去表面水分；姜切片，葱切段，蒜切末。",
+          "safety_note": "处理生虾后清洗双手、剪刀、砧板和台面。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "将蒜末、15 毫升生抽、10 毫升香醋和 3 毫升香油调成蘸汁。"
+        },
+        {
+          "step_number": 3,
+          "instruction": "汤锅加入 1000 毫升清水、姜、葱和 10 毫升料酒，大火烧开。",
+          "heat_level": "大火"
+        },
+        {
+          "step_number": 4,
+          "instruction": "放入鲜虾，大火煮 3 分钟，直到虾身弯曲、外壳变红且虾肉完全不透明。",
+          "duration_seconds": 180,
+          "heat_level": "大火",
+          "safety_note": "虾肉仍透明时继续加热，不要试吃。"
+        },
+        {
+          "step_number": 5,
+          "instruction": "用漏勺捞出鲜虾并沥水，配蘸汁食用。",
+          "safety_note": "捞取时防止沸水烫伤。"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_braised_prawns",
+      "name": "油焖大虾",
+      "default_servings": 2,
+      "estimated_time_minutes": 22,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "酱汁红亮、虾肉鲜甜的家常油焖大虾。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/aquatic/油焖大虾/油焖大虾.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/aquatic/油焖大虾/油焖大虾.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "鲜虾",
+          "amount": "400 克"
+        },
+        {
+          "name": "葱",
+          "amount": "20 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "20 毫升"
+        },
+        {
+          "name": "料酒",
+          "amount": "20 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "白糖",
+          "amount": "8 克"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "清水",
+          "amount": "80 毫升"
+        }
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "剪去鲜虾长须并去虾线，用厨房纸吸干表面水分；葱切段，姜切丝。",
+          "safety_note": "处理生虾后清洗双手、剪刀、砧板和台面。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "炒锅加入 20 毫升食用油，中火放入鲜虾，两面共煎 4 分钟至虾壳变红。",
+          "duration_seconds": 240,
+          "heat_level": "中火",
+          "safety_note": "虾表面必须吸干，避免热油飞溅。"
+        },
+        {
+          "step_number": 3,
+          "instruction": "加入葱和姜翻炒 30 秒，再加入 20 毫升料酒、10 毫升生抽、8 克白糖、2 克盐和 80 毫升清水。",
+          "duration_seconds": 30,
+          "heat_level": "中火"
+        },
+        {
+          "step_number": 4,
+          "instruction": "盖锅盖小火焖 4 分钟，直到虾身弯曲且虾肉完全不透明。",
+          "duration_seconds": 240,
+          "heat_level": "小火",
+          "safety_note": "虾肉仍透明时继续加热。"
+        },
+        {
+          "step_number": 5,
+          "instruction": "开盖转中火收汁 2 分钟，汤汁浓稠后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_red_braised_fish",
+      "name": "红烧鱼",
+      "default_servings": 3,
+      "estimated_time_minutes": 35,
+      "difficulty": "中等",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "咸鲜微甜、汤汁下饭的家常红烧鱼。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/aquatic/红烧鱼.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/aquatic/红烧鱼.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "鲜鱼",
+          "amount": "600 克"
+        },
+        {
+          "name": "姜",
+          "amount": "15 克"
+        },
+        {
+          "name": "葱",
+          "amount": "20 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "3 瓣"
+        },
+        {
+          "name": "食用油",
+          "amount": "25 毫升"
+        },
+        {
+          "name": "料酒",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "老抽",
+          "amount": "5 毫升"
+        },
+        {
+          "name": "香醋",
+          "amount": "5 毫升"
+        },
+        {
+          "name": "白糖",
+          "amount": "6 克"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "清水",
+          "amount": "400 毫升"
+        }
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "请摊主处理好鲜鱼；回家后用厨房纸擦干表面，在鱼身两侧各划两刀，姜切片，葱切段，蒜拍裂。",
+          "safety_note": "处理生鱼后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "炒锅加入 25 毫升食用油，中火把鱼两面各煎 3 分钟。",
+          "duration_seconds": 360,
+          "heat_level": "中火",
+          "safety_note": "鱼表面必须擦干；翻鱼时用锅铲托稳，防止热油飞溅。"
+        },
+        {
+          "step_number": 3,
+          "instruction": "加入姜、葱和蒜炒 30 秒，再沿锅边加入 15 毫升料酒。",
+          "duration_seconds": 30,
+          "heat_level": "中火"
+        },
+        {
+          "step_number": 4,
+          "instruction": "加入 15 毫升生抽、5 毫升老抽、5 毫升香醋、6 克白糖、2 克盐和 400 毫升清水，烧开后盖盖小火焖 12 分钟。",
+          "duration_seconds": 720,
+          "heat_level": "小火"
+        },
+        {
+          "step_number": 5,
+          "instruction": "开盖中火收汁 3 分钟，确认鱼肉完全不透明且能轻松拨开后关火。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "鱼肉未熟透时继续加热，不要试吃。"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_eebace3a0c5f",
+      "name": "红烧鲤鱼",
+      "default_servings": 3,
+      "estimated_time_minutes": 40,
+      "difficulty": "中等",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的红烧鲤鱼。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/aquatic/红烧鲤鱼.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/aquatic/红烧鲤鱼.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "鲤鱼",
+          "amount": "700 克"
+        },
+        {
+          "name": "姜",
+          "amount": "15 克"
+        },
+        {
+          "name": "葱",
+          "amount": "20 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "料酒",
+          "amount": "12 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "老抽",
+          "amount": "5 毫升"
+        },
+        {
+          "name": "白糖",
+          "amount": "5 克"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "清水",
+          "amount": "500 毫升"
+        },
+        {
+          "name": "香醋",
+          "amount": "8 毫升"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好鲤鱼、姜、葱、蒜；肉类或水产用厨房纸擦干，处理后清洗双手、刀具和砧板。",
+          "safety_note": "生肉和水产不要在水槽中冲洗，处理后清洁接触面。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "炒锅加入 15 毫升食用油，中火放入姜、葱、蒜、鲤鱼翻炒 5 分钟，直到表面全部变色。",
+          "duration_seconds": 300,
+          "heat_level": "中火"
+        },
+        {
+          "step_number": 3,
+          "instruction": "加入料酒、生抽、老抽、白糖、盐、香醋和 500 毫升清水，烧开后盖盖小火焖 20 分钟。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "step_number": 4,
+          "instruction": "开盖中火收汁 3 分钟，检查主料熟透后关火。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_51b421c7dd58",
+      "name": "清蒸生蚝",
+      "default_servings": 2,
+      "estimated_time_minutes": 20,
+      "difficulty": "简单",
+      "equipment": [
+        "蒸锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的清蒸生蚝。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/aquatic/清蒸生蚝.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/aquatic/清蒸生蚝.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "生蚝",
+          "amount": "600 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "5 瓣"
+        },
+        {
+          "name": "葱",
+          "amount": "10 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "5 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "清水",
+          "amount": "1500 毫升"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好生蚝、蒜、葱；肉类或水产用厨房纸擦干，处理后清洗双手、刀具和砧板。",
+          "safety_note": "生肉和水产不要在水槽中冲洗，处理后清洁接触面。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "将生蚝、蒜、葱放入耐热盘，加入生抽、盐。"
+        },
+        {
+          "step_number": 3,
+          "instruction": "蒸锅加入 1500 毫升清水烧开，放入菜盘，大火蒸 12 分钟。",
+          "duration_seconds": 720,
+          "heat_level": "大火",
+          "safety_note": "开盖时让蒸汽远离脸和手。"
+        },
+        {
+          "step_number": 4,
+          "instruction": "关火后检查主料熟透，再小心取出菜盘。",
+          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+        },
+        {
+          "step_number": 5,
+          "instruction": "炒锅加热 5 毫升食用油 30 秒，将热油淋在蒸好的菜上。",
+          "duration_seconds": 30,
+          "heat_level": "中火",
+          "safety_note": "淋热油时保持脸和手远离菜盘。"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_5f4ef14a3e9e",
+      "name": "鳊鱼炖豆腐",
+      "default_servings": 3,
+      "estimated_time_minutes": 45,
+      "difficulty": "中等",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的鳊鱼炖豆腐。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/aquatic/鳊鱼炖豆腐/鳊鱼炖豆腐.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/aquatic/鳊鱼炖豆腐/鳊鱼炖豆腐.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "鳊鱼",
+          "amount": "700 克"
+        },
+        {
+          "name": "豆腐",
+          "amount": "400 克"
+        },
+        {
+          "name": "姜",
+          "amount": "15 克"
+        },
+        {
+          "name": "葱",
+          "amount": "20 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "料酒",
+          "amount": "12 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "老抽",
+          "amount": "5 毫升"
+        },
+        {
+          "name": "白糖",
+          "amount": "5 克"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "清水",
+          "amount": "500 毫升"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好鳊鱼、豆腐、姜、葱；肉类或水产用厨房纸擦干，处理后清洗双手、刀具和砧板。",
+          "safety_note": "生肉和水产不要在水槽中冲洗，处理后清洁接触面。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "炒锅加入 15 毫升食用油，中火放入姜、葱、鳊鱼翻炒 5 分钟，直到表面全部变色。",
+          "duration_seconds": 300,
+          "heat_level": "中火"
+        },
+        {
+          "step_number": 3,
+          "instruction": "加入料酒、生抽、老抽、白糖、盐和 500 毫升清水，烧开后盖盖小火焖 25 分钟。",
+          "duration_seconds": 1500,
+          "heat_level": "小火"
+        },
+        {
+          "step_number": 4,
+          "instruction": "加入豆腐，继续小火焖 12 分钟。",
+          "duration_seconds": 720,
+          "heat_level": "小火"
+        },
+        {
+          "step_number": 5,
+          "instruction": "开盖中火收汁 3 分钟，检查主料熟透后关火。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_8e6f9fac4821",
+      "name": "蒜香黄油虾",
+      "default_servings": 2,
+      "estimated_time_minutes": 22,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的蒜香黄油虾。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/aquatic/蒜香黄油虾/蒜香黄油虾.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/aquatic/蒜香黄油虾/蒜香黄油虾.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "鲜虾",
+          "amount": "450 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "6 瓣"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "黄油",
+          "amount": "25 克"
+        },
+        {
+          "name": "黑胡椒粉",
+          "amount": "3 克"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好鲜虾、蒜；肉类或水产用厨房纸擦干，处理后清洗双手、刀具和砧板。",
+          "safety_note": "生肉和水产不要在水槽中冲洗，处理后清洁接触面。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "炒锅加入清单中的食用油，中火放入蒜、鲜虾翻炒 5 分钟，直到肉类或水产完全变色。",
+          "duration_seconds": 300,
+          "heat_level": "中火",
+          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+        },
+        {
+          "step_number": 3,
+          "instruction": "加入生抽、盐、黄油、黑胡椒粉，翻炒 1 分钟；检查主料达到熟度要求后关火。",
+          "duration_seconds": 60,
+          "heat_level": "中火",
+          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_d78e304b4af9",
+      "name": "葱油桂鱼",
+      "default_servings": 3,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "蒸锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的葱油桂鱼。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/aquatic/葱油桂鱼/葱油桂鱼.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/aquatic/葱油桂鱼/葱油桂鱼.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "桂鱼",
+          "amount": "700 克"
+        },
+        {
+          "name": "葱",
+          "amount": "40 克"
+        },
+        {
+          "name": "姜",
+          "amount": "15 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "5 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "清水",
+          "amount": "1500 毫升"
+        },
+        {
+          "name": "蒸鱼豉油",
+          "amount": "20 毫升"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好桂鱼、葱、姜；肉类或水产用厨房纸擦干，处理后清洗双手、刀具和砧板。",
+          "safety_note": "生肉和水产不要在水槽中冲洗，处理后清洁接触面。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "将桂鱼、葱、姜放入耐热盘，加入生抽、盐、蒸鱼豉油。"
+        },
+        {
+          "step_number": 3,
+          "instruction": "蒸锅加入 1500 毫升清水烧开，放入菜盘，大火蒸 12 分钟。",
+          "duration_seconds": 720,
+          "heat_level": "大火",
+          "safety_note": "开盖时让蒸汽远离脸和手。"
+        },
+        {
+          "step_number": 4,
+          "instruction": "关火后检查主料熟透，再小心取出菜盘。",
+          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+        },
+        {
+          "step_number": 5,
+          "instruction": "炒锅加热 5 毫升食用油 30 秒，将热油淋在蒸好的菜上。",
+          "duration_seconds": 30,
+          "heat_level": "中火",
+          "safety_note": "淋热油时保持脸和手远离菜盘。"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_2100ef8721d3",
+      "name": "蒜蓉虾",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "蒸锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的蒜蓉虾。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/aquatic/蒜蓉虾/蒜蓉虾.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/aquatic/蒜蓉虾/蒜蓉虾.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "鲜虾",
+          "amount": "450 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "8 瓣"
+        },
+        {
+          "name": "粉丝",
+          "amount": "100 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "5 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "清水",
+          "amount": "1500 毫升"
+        },
+        {
+          "name": "蒸鱼豉油",
+          "amount": "15 毫升"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好鲜虾、蒜、粉丝；肉类或水产用厨房纸擦干，处理后清洗双手、刀具和砧板。",
+          "safety_note": "生肉和水产不要在水槽中冲洗，处理后清洁接触面。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "将鲜虾、蒜、粉丝放入耐热盘，加入生抽、盐、蒸鱼豉油。"
+        },
+        {
+          "step_number": 3,
+          "instruction": "蒸锅加入 1500 毫升清水烧开，放入菜盘，大火蒸 12 分钟。",
+          "duration_seconds": 720,
+          "heat_level": "大火",
+          "safety_note": "开盖时让蒸汽远离脸和手。"
+        },
+        {
+          "step_number": 4,
+          "instruction": "关火后检查主料熟透，再小心取出菜盘。",
+          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+        },
+        {
+          "step_number": 5,
+          "instruction": "炒锅加热 5 毫升食用油 30 秒，将热油淋在蒸好的菜上。",
+          "duration_seconds": 30,
+          "heat_level": "中火",
+          "safety_note": "淋热油时保持脸和手远离菜盘。"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_4a8c017b54b2",
+      "name": "水煮鱼",
+      "default_servings": 4,
+      "estimated_time_minutes": 45,
+      "difficulty": "中等",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的水煮鱼。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/aquatic/水煮鱼.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/aquatic/水煮鱼.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "鱼片",
+          "amount": "700 克"
+        },
+        {
+          "name": "豆芽",
+          "amount": "300 克"
+        },
+        {
+          "name": "青菜",
+          "amount": "200 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "8 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "3 克"
+        },
+        {
+          "name": "清水",
+          "amount": "1200 毫升"
+        },
+        {
+          "name": "豆瓣酱",
+          "amount": "30 克"
+        },
+        {
+          "name": "干辣椒",
+          "amount": "15 克"
+        },
+        {
+          "name": "花椒",
+          "amount": "8 克"
+        },
+        {
+          "name": "淀粉",
+          "amount": "15 克"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好鱼片、豆芽、青菜；肉类或水产用厨房纸擦干，处理后清洗双手、刀具和砧板。",
+          "safety_note": "生肉和水产不要在水槽中冲洗，处理后清洁接触面。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "鱼片加入 15 克淀粉抓匀，腌制 10 分钟。",
+          "duration_seconds": 600
+        },
+        {
+          "step_number": 3,
+          "instruction": "汤锅加入一半食用油和豆瓣酱，小火炒 1 分钟；加入清水烧开。",
+          "duration_seconds": 60,
+          "heat_level": "小火"
+        },
+        {
+          "step_number": 4,
+          "instruction": "先放入豆芽和青菜煮 3 分钟并捞入碗底。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "step_number": 5,
+          "instruction": "逐片放入鱼片，中火煮 4 分钟至鱼肉完全不透明。",
+          "duration_seconds": 240,
+          "heat_level": "中火",
+          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+        },
+        {
+          "step_number": 6,
+          "instruction": "把鱼片和汤倒入碗中，撒干辣椒和花椒；另锅烧热剩余食用油后淋在香料上。",
+          "safety_note": "淋热油时保持脸和手远离碗口。"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_87dd9561e5cb",
+      "name": "烤鱼",
+      "default_servings": 4,
+      "estimated_time_minutes": 55,
+      "difficulty": "中等",
+      "equipment": [
+        "烤箱"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的烤鱼。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/aquatic/混合烤鱼/烤鱼.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/aquatic/混合烤鱼/烤鱼.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "鲜鱼",
+          "amount": "1000 克"
+        },
+        {
+          "name": "土豆",
+          "amount": "300 克"
+        },
+        {
+          "name": "洋葱",
+          "amount": "200 克"
+        },
+        {
+          "name": "青椒",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "20 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "料酒",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "3 克"
+        },
+        {
+          "name": "豆瓣酱",
+          "amount": "30 克"
+        },
+        {
+          "name": "孜然粉",
+          "amount": "8 克"
+        },
+        {
+          "name": "辣椒粉",
+          "amount": "6 克"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好鲜鱼、土豆、洋葱、青椒；肉类或水产用厨房纸擦干，处理后清洗双手、刀具和砧板。",
+          "safety_note": "生肉和水产不要在水槽中冲洗，处理后清洁接触面。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "将鲜鱼、土豆、洋葱、青椒与生抽、料酒、盐、豆瓣酱、孜然粉、辣椒粉拌匀，平铺在烤盘中。"
+        },
+        {
+          "step_number": 3,
+          "instruction": "烤箱预热至 200 摄氏度，放入烤盘烤 35 分钟。",
+          "duration_seconds": 2100,
+          "heat_level": "200摄氏度",
+          "safety_note": "使用隔热手套取放烤盘。"
+        },
+        {
+          "step_number": 4,
+          "instruction": "确认鱼肉完全不透明且能轻松拨开后取出；未熟时继续烤 5 分钟。",
+          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_c8ee5c3f5d0f",
+      "name": "鲤鱼炖白菜",
+      "default_servings": 3,
+      "estimated_time_minutes": 50,
+      "difficulty": "中等",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的鲤鱼炖白菜。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/aquatic/鲤鱼炖白菜/鲤鱼炖白菜.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/aquatic/鲤鱼炖白菜/鲤鱼炖白菜.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "鲤鱼",
+          "amount": "700 克"
+        },
+        {
+          "name": "大白菜",
+          "amount": "500 克"
+        },
+        {
+          "name": "姜",
+          "amount": "15 克"
+        },
+        {
+          "name": "葱",
+          "amount": "20 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "料酒",
+          "amount": "12 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "老抽",
+          "amount": "5 毫升"
+        },
+        {
+          "name": "白糖",
+          "amount": "5 克"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "清水",
+          "amount": "500 毫升"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好鲤鱼、大白菜、姜、葱；肉类或水产用厨房纸擦干，处理后清洗双手、刀具和砧板。",
+          "safety_note": "生肉和水产不要在水槽中冲洗，处理后清洁接触面。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "炒锅加入 15 毫升食用油，中火放入姜、葱、鲤鱼翻炒 5 分钟，直到表面全部变色。",
+          "duration_seconds": 300,
+          "heat_level": "中火"
+        },
+        {
+          "step_number": 3,
+          "instruction": "加入料酒、生抽、老抽、白糖、盐和 500 毫升清水，烧开后盖盖小火焖 30 分钟。",
+          "duration_seconds": 1800,
+          "heat_level": "小火"
+        },
+        {
+          "step_number": 4,
+          "instruction": "加入大白菜，继续小火焖 12 分钟。",
+          "duration_seconds": 720,
+          "heat_level": "小火"
+        },
+        {
+          "step_number": 5,
+          "instruction": "开盖中火收汁 3 分钟，检查主料熟透后关火。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_270bae9a3e69",
+      "name": "糖醋鲤鱼",
+      "default_servings": 4,
+      "estimated_time_minutes": 50,
+      "difficulty": "中等",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的糖醋鲤鱼。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/aquatic/糖醋鲤鱼/糖醋鲤鱼.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/aquatic/糖醋鲤鱼/糖醋鲤鱼.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "鲤鱼",
+          "amount": "900 克"
+        },
+        {
+          "name": "葱",
+          "amount": "20 克"
+        },
+        {
+          "name": "姜",
+          "amount": "15 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "60 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "3 克"
+        },
+        {
+          "name": "清水",
+          "amount": "80 毫升"
+        },
+        {
+          "name": "番茄酱",
+          "amount": "50 克"
+        },
+        {
+          "name": "香醋",
+          "amount": "30 毫升"
+        },
+        {
+          "name": "白糖",
+          "amount": "35 克"
+        },
+        {
+          "name": "淀粉",
+          "amount": "50 克"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好鲤鱼、葱、姜；肉类或水产用厨房纸擦干，处理后清洗双手、刀具和砧板。",
+          "safety_note": "生肉和水产不要在水槽中冲洗，处理后清洁接触面。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "鲤鱼两侧各划数刀，抹 3 克盐后均匀拍上 50 克淀粉。",
+          "safety_note": "处理生鱼后清洗双手、刀具和砧板。"
+        },
+        {
+          "step_number": 3,
+          "instruction": "炒锅加入 60 毫升食用油，中火把鱼两面各煎 6 分钟，至鱼肉完全不透明后盛出。",
+          "duration_seconds": 720,
+          "heat_level": "中火",
+          "safety_note": "鱼身必须擦干，翻面时用锅铲托稳。"
+        },
+        {
+          "step_number": 4,
+          "instruction": "锅中留 5 毫升油，加入葱、姜、番茄酱、香醋、白糖、生抽和 80 毫升清水，小火煮 2 分钟。",
+          "duration_seconds": 120,
+          "heat_level": "小火"
+        },
+        {
+          "step_number": 5,
+          "instruction": "将糖醋汁均匀淋在煎熟的鲤鱼上。",
+          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+        }
+      ]
+    }
+  ]
+}

@@ -8,7 +8,12 @@ from .models import RecipeCandidate
 def ingredient_display(item: dict[str, Any]) -> str:
     amount = str(item.get("amount") or "适量")
     unit = str(item.get("unit") or "")
-    return f"{item.get('name', '食材')} {amount}{unit}"
+    optional = "（可选）" if item.get("optional") else ""
+    return f"{item.get('name', '食材')} {amount}{unit}{optional}"
+
+
+def recipe_ingredients_text(recipe: dict[str, Any]) -> str:
+    return "、".join(ingredient_display(item) for item in recipe.get("ingredients", []))
 
 
 def candidate_display(
@@ -16,16 +21,20 @@ def candidate_display(
     *,
     provider_mode: str,
     inventory_known: bool,
+    ingredient_lists: dict[str, str] | None = None,
 ) -> str:
     heading = (
         "我为你生成的菜谱"
         if provider_mode == "ai_generated"
-        else ("推荐菜谱" if provider_mode == "local_cache" else "推荐菜谱（离线示例）")
+        else ("推荐菜谱" if provider_mode == "local_cache" else "推荐菜谱（本地）")
     )
     lines = [heading]
     single_candidate = len(candidates) == 1
     for index, candidate in enumerate(candidates, start=1):
-        if not inventory_known:
+        ingredients = (ingredient_lists or {}).get(candidate.candidate_id)
+        if ingredients:
+            supply = "完整食材如下"
+        elif not inventory_known:
             supply = "食材见详情"
         else:
             supply = (
@@ -38,6 +47,8 @@ def candidate_display(
             f"{prefix}{candidate.title}｜{candidate.estimated_minutes or '?'} 分钟｜"
             f"{candidate.difficulty}｜{supply}"
         )
+        if ingredients:
+            lines.append(f"食材：{ingredients}")
     return "\n".join(lines)
 
 
@@ -58,7 +69,7 @@ def public_metadata(value: Any) -> Any:
         return [public_metadata(item) for item in value]
     if isinstance(value, dict):
         cleaned = {key: public_metadata(item) for key, item in value.items()}
-        if cleaned.get("source_name") == "豆包 AI 生成":
+        if cleaned.get("source_name") == "千问 AI 生成":
             cleaned.pop("source_name", None)
         return cleaned
     return value

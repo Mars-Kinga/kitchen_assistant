@@ -21,7 +21,10 @@ REQUEST_FIELDS = (
 )
 
 ALLOWED_DIFFICULTIES = {"简单", "中等"}
-VAGUE_QUANTITY_MARKERS = ("适量", "少量", "少许", "按口味")
+# “少许”是厨房中可执行的微量表达，例如“少许油润锅”或“撒少许葱花”。
+# 仍拒绝无法判断总量的“适量 / 少量 / 按口味”。
+VAGUE_QUANTITY_MARKERS = ("适量", "少量", "按口味")
+VAGUE_INGREDIENT_AMOUNT_MARKERS = (*VAGUE_QUANTITY_MARKERS, "少许")
 MAX_TEXT_LENGTH = 120
 MAX_LIST_ITEMS = 12
 MIN_ESTIMATED_MINUTES = 1
@@ -45,17 +48,13 @@ RECIPE_BUNDLE_SCHEMA_TEXT = (
 
 
 def candidate_limit(request: dict[str, Any]) -> int:
-    """A named dish needs one answer; pantry discovery may offer choices."""
-    return 1 if request.get("requested_dish") else 3
+    """Cloud generation returns one complete recipe to keep latency bounded."""
+    return 1
 
 
 def bundle_prompt_rules(request: dict[str, Any]) -> list[str]:
     limit = candidate_limit(request)
-    count_rule = (
-        "用户指定了菜名，只生成1个完整候选，不生成同菜变体。"
-        if limit == 1
-        else "用户未指定菜名，生成1至3个不同候选。"
-    )
+    count_rule = "只生成1个完整候选，不生成同菜变体或额外候选。"
     rules = [
         "一次生成候选及完整recipe。只输出合法JSON；不要Markdown、解释、URL、来源或设备控制。",
         count_rule,
@@ -65,8 +64,8 @@ def bundle_prompt_rules(request: dict[str, Any]) -> list[str]:
         "食材调料不得命中dietary_restrictions；equipment不得命中unavailable_equipment；equipment_only=true时只用available_equipment。",
         "available_ingredients为空=库存未知且missing_ingredients=[]；库存明确且未指定菜名时必须用完全部库存食材。",
         "main_ingredients列核心食材，盐糖油酱醋料酒胡椒列main_seasonings；两者都须出现在recipe.ingredients。",
-        "每项ingredient须有name、明确amount、非空unit和boolean optional，禁用适量/少量/少许/按口味；首次加入时instruction重复用量。",
-        "recipe以6至10步为目标；step_number从1连续；每步一个阶段。空泛的准备调料步骤禁止，调味汁须列出全部用量。",
+        "每项ingredient须有name、明确amount、非空unit和boolean optional，amount不得出现适量/少量/少许/按口味。instruction允许用“少许”描述微量润锅油或点缀香料，仍禁止适量/少量/按口味；分批操作只写“分批下锅”。首次加入主要食材和调料时优先照抄ingredients中的准确用量。",
+        "recipe保持完整的6至10步；step_number从1连续；每步一个阶段且instruction不超过80字。summary和match_reason各不超过30字，safety_note不超过40字。空泛的准备调料步骤禁止，调味汁须列出全部用量。",
         "duration_seconds仅用于加热或等待，洗切拌调味装盘填null；时间合理并写可观察状态。steps不含解冻，不保证已熟。",
         "输出前自检人数、时间、忌口、厨具、库存、用量、标题和JSON；不合格候选不要输出。",
         f"输出结构：{RECIPE_BUNDLE_SCHEMA_TEXT}",
@@ -116,7 +115,7 @@ def validate_raw_recipe(raw: Any, request: Any) -> None:
             raise ValueError("食材无效")
         validate_text(item.get("name"), "食材")
         amount = validate_text(item.get("amount"), "食材用量")
-        if any(marker in amount for marker in VAGUE_QUANTITY_MARKERS):
+        if any(marker in amount for marker in VAGUE_INGREDIENT_AMOUNT_MARKERS):
             raise ValueError("食材必须给出明确用量")
         validate_text(item.get("unit"), "食材单位")
         if not isinstance(item.get("optional"), bool):
@@ -129,8 +128,15 @@ def validate_raw_recipe(raw: Any, request: Any) -> None:
         if not isinstance(step, dict):
             raise ValueError("步骤说明无效")
         instruction = validate_text(step.get("instruction"), "步骤")
-        if any(marker in instruction for marker in VAGUE_QUANTITY_MARKERS):
-            raise ValueError("步骤用量必须明确")
+        vague_marker = next(
+            (marker for marker in VAGUE_QUANTITY_MARKERS if marker in instruction),
+            None,
+        )
+        if vague_marker:
+            preview = instruction[:50]
+            raise ValueError(
+                f"步骤用量必须明确（第{index}步含“{vague_marker}”：{preview}）"
+            )
         if any(marker in instruction for marker in ("准备调料碗", "准备调料", "准备酱汁")):
             from .ingredient_vocabulary import CONCRETE_SEASONING_TERMS
 

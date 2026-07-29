@@ -1,0 +1,1873 @@
+{
+  "catalog_version": 1,
+  "recipes": [
+    {
+      "recipe_id": "htc_hand_torn_cabbage",
+      "name": "手撕包菜",
+      "default_servings": 2,
+      "estimated_time_minutes": 18,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "包菜脆嫩、带五花肉香气的家常快炒。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/vegetable_dish/手撕包菜/手撕包菜.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/vegetable_dish/手撕包菜/手撕包菜.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "包菜",
+          "amount": "350 克"
+        },
+        {
+          "name": "五花肉",
+          "amount": "120 克"
+        },
+        {
+          "name": "小米辣",
+          "amount": "2 个",
+          "optional": true
+        },
+        {
+          "name": "姜",
+          "amount": "6 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "2 瓣"
+        },
+        {
+          "name": "食用油",
+          "amount": "20 毫升"
+        },
+        {
+          "name": "料酒",
+          "amount": "5 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "香醋",
+          "amount": "5 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "3 克"
+        }
+      ],
+      "notes": [
+        "原菜谱油量已按家常快炒场景下调。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "包菜撕成约 5 厘米的片后沥干，五花肉用厨房纸擦干表面并切薄片，姜、蒜和小米辣切好。",
+          "safety_note": "切配时保持手指与刀刃距离。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "炒锅加入 10 毫升食用油，中火加热 30 秒，放入五花肉煸炒 3 分钟，直到肉片变色并微微卷起。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "生猪肉必须炒到完全变色，热油飞溅时后退半步。"
+        },
+        {
+          "step_number": 3,
+          "instruction": "加入姜、蒜和小米辣翻炒 30 秒，再倒入 5 毫升料酒。",
+          "duration_seconds": 30,
+          "heat_level": "中火"
+        },
+        {
+          "step_number": 4,
+          "instruction": "转大火，加入包菜和剩余 10 毫升食用油，快速翻炒 2 分钟。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "step_number": 5,
+          "instruction": "加入 10 毫升生抽、5 毫升香醋和 3 克盐，翻炒 1 分钟至包菜断生后关火。",
+          "duration_seconds": 60,
+          "heat_level": "大火"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_braised_eggplant",
+      "name": "家常红烧茄子",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "用少油煎软代替油炸的家常红烧茄子。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/vegetable_dish/红烧茄子.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/vegetable_dish/红烧茄子.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "茄子",
+          "amount": "400 克"
+        },
+        {
+          "name": "青椒",
+          "amount": "80 克"
+        },
+        {
+          "name": "番茄",
+          "amount": "150 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "3 瓣"
+        },
+        {
+          "name": "食用油",
+          "amount": "25 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "白糖",
+          "amount": "5 克"
+        },
+        {
+          "name": "淀粉",
+          "amount": "5 克"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "清水",
+          "amount": "100 毫升"
+        }
+      ],
+      "notes": [
+        "用少油煎软代替原做法中的大量油炸。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "茄子切滚刀块，青椒和番茄切块，蒜切末；将 15 毫升生抽、5 克白糖、5 克淀粉、2 克盐和 100 毫升清水调成料汁。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "炒锅加入 20 毫升食用油，中火放入茄子煎炒 6 分钟，翻动至各面变软。",
+          "duration_seconds": 360,
+          "heat_level": "中火",
+          "safety_note": "茄子下锅前擦干表面水分，避免热油飞溅。"
+        },
+        {
+          "step_number": 3,
+          "instruction": "加入剩余 5 毫升食用油、蒜末和番茄，中火翻炒 2 分钟至番茄出汁。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "step_number": 4,
+          "instruction": "加入青椒和调好的料汁，小火焖 3 分钟。",
+          "duration_seconds": 180,
+          "heat_level": "小火"
+        },
+        {
+          "step_number": 5,
+          "instruction": "转中火翻炒 1 分钟，待汤汁裹住茄子后关火。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_di_san_xian",
+      "name": "地三鲜",
+      "default_servings": 2,
+      "estimated_time_minutes": 28,
+      "difficulty": "中等",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "土豆、茄子和青椒组成的少油家常地三鲜。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/vegetable_dish/地三鲜/地三鲜.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/vegetable_dish/地三鲜/地三鲜.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "茄子",
+          "amount": "200 克"
+        },
+        {
+          "name": "土豆",
+          "amount": "150 克"
+        },
+        {
+          "name": "青椒",
+          "amount": "120 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "3 瓣"
+        },
+        {
+          "name": "姜",
+          "amount": "5 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "30 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "豆瓣酱",
+          "amount": "15 克"
+        },
+        {
+          "name": "白糖",
+          "amount": "6 克"
+        },
+        {
+          "name": "淀粉",
+          "amount": "8 克"
+        },
+        {
+          "name": "清水",
+          "amount": "100 毫升"
+        }
+      ],
+      "notes": [
+        "用分次煎制代替传统过油。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "茄子、土豆和青椒切块，蒜和姜切末；将 10 毫升生抽、6 克白糖、8 克淀粉和 100 毫升清水调匀。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "炒锅加入 15 毫升食用油，中火把土豆煎 7 分钟，翻面至表面金黄且筷子可以扎入后盛出。",
+          "duration_seconds": 420,
+          "heat_level": "中火"
+        },
+        {
+          "step_number": 3,
+          "instruction": "锅中加入 10 毫升食用油，中火把茄子煎炒 5 分钟至变软后盛出。",
+          "duration_seconds": 300,
+          "heat_level": "中火"
+        },
+        {
+          "step_number": 4,
+          "instruction": "加入剩余 5 毫升食用油，放入姜蒜和 15 克豆瓣酱，小火炒 30 秒。",
+          "duration_seconds": 30,
+          "heat_level": "小火"
+        },
+        {
+          "step_number": 5,
+          "instruction": "倒回土豆和茄子，加入青椒及料汁，中火翻炒 2 分钟至汤汁浓稠后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_garlic_broccoli",
+      "name": "蒜蓉西兰花",
+      "default_servings": 2,
+      "estimated_time_minutes": 15,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅",
+        "汤锅"
+      ],
+      "summary": "颜色翠绿、口感清脆的蒜香西兰花。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/vegetable_dish/蒜蓉西兰花.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/vegetable_dish/蒜蓉西兰花.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "西兰花",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "食用油",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "蚝油",
+          "amount": "5 毫升"
+        },
+        {
+          "name": "白糖",
+          "amount": "2 克"
+        },
+        {
+          "name": "清水",
+          "amount": "1030 毫升"
+        }
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "西兰花切成小朵并清洗，蒜切末；另取 30 毫升清水与 10 毫升生抽、5 毫升蚝油和 2 克白糖调匀。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "汤锅加入 1000 毫升清水烧开，放入西兰花焯 90 秒后沥干。",
+          "duration_seconds": 90,
+          "heat_level": "大火",
+          "safety_note": "捞取时防止沸水烫伤。"
+        },
+        {
+          "step_number": 3,
+          "instruction": "炒锅加入 10 毫升食用油，小火放入蒜末炒 30 秒。",
+          "duration_seconds": 30,
+          "heat_level": "小火"
+        },
+        {
+          "step_number": 4,
+          "instruction": "加入西兰花和调好的料汁，中火翻炒 1 分钟后关火。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_oyster_lettuce",
+      "name": "蚝油生菜",
+      "default_servings": 2,
+      "estimated_time_minutes": 12,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "十分钟左右完成的清脆蚝油生菜。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/vegetable_dish/蚝油生菜.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/vegetable_dish/蚝油生菜.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "生菜",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "食用油",
+          "amount": "8 毫升"
+        },
+        {
+          "name": "蚝油",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "8 毫升"
+        },
+        {
+          "name": "白糖",
+          "amount": "1 克"
+        },
+        {
+          "name": "盐",
+          "amount": "1 克"
+        },
+        {
+          "name": "清水",
+          "amount": "30 毫升"
+        }
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "生菜逐片洗净并沥干，蒜切末；将 10 毫升蚝油、8 毫升生抽、1 克白糖和 30 毫升清水调匀。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "炒锅加入 4 毫升食用油，大火放入生菜和 1 克盐，快速翻炒 45 秒后盛出。",
+          "duration_seconds": 45,
+          "heat_level": "大火"
+        },
+        {
+          "step_number": 3,
+          "instruction": "锅中加入剩余 4 毫升食用油，小火炒蒜末 20 秒。",
+          "duration_seconds": 20,
+          "heat_level": "小火"
+        },
+        {
+          "step_number": 4,
+          "instruction": "倒入料汁煮 30 秒，关火后淋在生菜上。",
+          "duration_seconds": 30,
+          "heat_level": "中火"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_chive_eggs",
+      "name": "韭菜炒蛋",
+      "default_servings": 2,
+      "estimated_time_minutes": 12,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "韭香浓郁、鸡蛋嫩滑的快手家常菜。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/vegetable_dish/韭菜炒蛋/韭菜炒蛋.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/vegetable_dish/韭菜炒蛋/韭菜炒蛋.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "韭菜",
+          "amount": "180 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "3 个"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "韭菜洗净沥干后切成 4 厘米段，3 个鸡蛋加 1 克盐打散。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "炒锅加入 10 毫升食用油，中火加热 30 秒，倒入蛋液炒 60 秒至刚凝固后盛出。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "step_number": 3,
+          "instruction": "锅中加入剩余 5 毫升食用油，大火放入韭菜和剩余 1 克盐翻炒 45 秒。",
+          "duration_seconds": 45,
+          "heat_level": "大火"
+        },
+        {
+          "step_number": 4,
+          "instruction": "倒回鸡蛋，大火翻炒 20 秒后立即关火。",
+          "duration_seconds": 20,
+          "heat_level": "大火"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_a5c463be5bbc",
+      "name": "皮蛋豆腐",
+      "default_servings": 2,
+      "estimated_time_minutes": 10,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的皮蛋豆腐。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/vegetable_dish/皮蛋豆腐.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/vegetable_dish/皮蛋豆腐.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "嫩豆腐",
+          "amount": "300 克"
+        },
+        {
+          "name": "皮蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "葱",
+          "amount": "10 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "12 毫升"
+        },
+        {
+          "name": "香醋",
+          "amount": "12 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "1 克"
+        },
+        {
+          "name": "白糖",
+          "amount": "3 克"
+        },
+        {
+          "name": "香油",
+          "amount": "5 毫升"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好嫩豆腐、皮蛋、葱；蔬菜清洗后沥干，按菜品需要切配。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "将嫩豆腐、皮蛋、葱放入干净大碗，加入生抽、香醋、盐、白糖、香油。"
+        },
+        {
+          "step_number": 3,
+          "instruction": "充分拌匀后静置 10 分钟，使味道均匀。",
+          "duration_seconds": 600
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_db8cfa5a6530",
+      "name": "葱煎豆腐",
+      "default_servings": 2,
+      "estimated_time_minutes": 18,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的葱煎豆腐。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/vegetable_dish/葱煎豆腐.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/vegetable_dish/葱煎豆腐.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "老豆腐",
+          "amount": "350 克"
+        },
+        {
+          "name": "葱",
+          "amount": "25 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好老豆腐、葱；蔬菜清洗后沥干，按菜品需要切配。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "炒锅加入清单中的食用油，中火放入老豆腐，大火翻炒 3 分钟至蔬菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "大火"
+        },
+        {
+          "step_number": 3,
+          "instruction": "加入生抽、盐，翻炒 1 分钟；检查主料达到熟度要求后关火。",
+          "duration_seconds": 60,
+          "heat_level": "中火",
+          "safety_note": null
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_dfe5a882445f",
+      "name": "松仁玉米",
+      "default_servings": 2,
+      "estimated_time_minutes": 15,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的松仁玉米。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/vegetable_dish/松仁玉米.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/vegetable_dish/松仁玉米.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "玉米粒",
+          "amount": "250 克"
+        },
+        {
+          "name": "松子",
+          "amount": "40 克"
+        },
+        {
+          "name": "胡萝卜",
+          "amount": "50 克"
+        },
+        {
+          "name": "豌豆",
+          "amount": "50 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "白糖",
+          "amount": "4 克"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好玉米粒、松子、胡萝卜、豌豆；蔬菜清洗后沥干，按菜品需要切配。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "炒锅加入清单中的食用油，中火放入玉米粒、松子、胡萝卜、豌豆，大火翻炒 3 分钟至蔬菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "大火"
+        },
+        {
+          "step_number": 3,
+          "instruction": "加入生抽、盐、白糖，翻炒 1 分钟；检查主料达到熟度要求后关火。",
+          "duration_seconds": 60,
+          "heat_level": "中火",
+          "safety_note": null
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_19715afd5528",
+      "name": "西葫芦炒鸡蛋",
+      "default_servings": 2,
+      "estimated_time_minutes": 15,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的西葫芦炒鸡蛋。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/vegetable_dish/西葫芦炒鸡蛋/西葫芦炒鸡蛋.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/vegetable_dish/西葫芦炒鸡蛋/西葫芦炒鸡蛋.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "西葫芦",
+          "amount": "300 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "3 个"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好西葫芦、鸡蛋；蔬菜清洗后沥干，按菜品需要切配。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "鸡蛋打散；炒锅加入清单中一半食用油，中火炒 1 分钟至刚凝固，盛出备用。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "step_number": 3,
+          "instruction": "加入西葫芦，大火翻炒 3 分钟至蔬菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "大火"
+        },
+        {
+          "step_number": 4,
+          "instruction": "把炒好的鸡蛋倒回锅中，翻炒 30 秒。",
+          "duration_seconds": 30,
+          "heat_level": "中火"
+        },
+        {
+          "step_number": 5,
+          "instruction": "加入生抽、盐，翻炒 1 分钟；检查主料达到熟度要求后关火。",
+          "duration_seconds": 60,
+          "heat_level": "中火",
+          "safety_note": null
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_5e98a61bbf97",
+      "name": "清蒸南瓜",
+      "default_servings": 2,
+      "estimated_time_minutes": 22,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的清蒸南瓜。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/vegetable_dish/清蒸南瓜.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/vegetable_dish/清蒸南瓜.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "南瓜",
+          "amount": "500 克"
+        },
+        {
+          "name": "清水",
+          "amount": "1500 毫升"
+        },
+        {
+          "name": "白糖",
+          "amount": "8 克"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好南瓜；蔬菜清洗后沥干，按菜品需要切配。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "南瓜去瓤后切成约 3 厘米块，整齐放入耐热盘并撒 8 克白糖。"
+        },
+        {
+          "step_number": 3,
+          "instruction": "蒸锅加入 1500 毫升清水烧开，放入南瓜，大火蒸 15 分钟。",
+          "duration_seconds": 900,
+          "heat_level": "大火",
+          "safety_note": "开盖时让蒸汽远离脸和手。"
+        },
+        {
+          "step_number": 4,
+          "instruction": "用筷子确认南瓜可以轻松扎透后关火并取出。"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_824d32829edb",
+      "name": "凉拌木耳",
+      "default_servings": 2,
+      "estimated_time_minutes": 20,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的凉拌木耳。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/vegetable_dish/凉拌木耳/凉拌木耳.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/vegetable_dish/凉拌木耳/凉拌木耳.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "干木耳",
+          "amount": "20 克"
+        },
+        {
+          "name": "胡萝卜",
+          "amount": "50 克"
+        },
+        {
+          "name": "香菜",
+          "amount": "10 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "12 毫升"
+        },
+        {
+          "name": "香醋",
+          "amount": "12 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "1 克"
+        },
+        {
+          "name": "白糖",
+          "amount": "3 克"
+        },
+        {
+          "name": "小米辣",
+          "amount": "1 个"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好干木耳、胡萝卜、香菜；蔬菜清洗后沥干，按菜品需要切配。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "汤锅加入 1000 毫升清水烧开，放入泡发木耳煮 3 分钟，捞出沥干并放凉。",
+          "duration_seconds": 180,
+          "heat_level": "大火",
+          "safety_note": "捞取时防止沸水烫伤。"
+        },
+        {
+          "step_number": 3,
+          "instruction": "将干木耳、胡萝卜、香菜放入干净大碗，加入生抽、香醋、盐、白糖、小米辣。"
+        },
+        {
+          "step_number": 4,
+          "instruction": "充分拌匀后静置 10 分钟，使味道均匀。",
+          "duration_seconds": 600
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_a524ac2cd293",
+      "name": "干锅花菜",
+      "default_servings": 2,
+      "estimated_time_minutes": 22,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的干锅花菜。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/vegetable_dish/干锅花菜/干锅花菜.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/vegetable_dish/干锅花菜/干锅花菜.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "菜花",
+          "amount": "400 克"
+        },
+        {
+          "name": "五花肉",
+          "amount": "120 克"
+        },
+        {
+          "name": "青椒",
+          "amount": "80 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "豆瓣酱",
+          "amount": "12 克"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好菜花、五花肉、青椒；肉类或水产用厨房纸擦干，处理后清洗双手、刀具和砧板。",
+          "safety_note": "生肉和水产不要在水槽中冲洗，处理后清洁接触面。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "炒锅加入清单中的食用油，中火放入五花肉翻炒 5 分钟，直到肉类或水产完全变色。",
+          "duration_seconds": 300,
+          "heat_level": "中火",
+          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+        },
+        {
+          "step_number": 3,
+          "instruction": "加入菜花、青椒，大火翻炒 3 分钟至蔬菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "大火"
+        },
+        {
+          "step_number": 4,
+          "instruction": "加入生抽、盐、豆瓣酱，翻炒 1 分钟；检查主料达到熟度要求后关火。",
+          "duration_seconds": 60,
+          "heat_level": "中火",
+          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_40552b54f402",
+      "name": "蒜蓉炒芹菜",
+      "default_servings": 2,
+      "estimated_time_minutes": 12,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的蒜蓉炒芹菜。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/vegetable_dish/蒜蓉炒芹菜/蒜蓉炒芹菜.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/vegetable_dish/蒜蓉炒芹菜/蒜蓉炒芹菜.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "芹菜",
+          "amount": "350 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好芹菜、蒜；蔬菜清洗后沥干，按菜品需要切配。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "炒锅加入清单中的食用油，中火放入芹菜，大火翻炒 3 分钟至蔬菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "大火"
+        },
+        {
+          "step_number": 3,
+          "instruction": "加入生抽、盐，翻炒 1 分钟；检查主料达到熟度要求后关火。",
+          "duration_seconds": 60,
+          "heat_level": "中火",
+          "safety_note": null
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_9c0a468f715e",
+      "name": "鸡蛋火腿炒黄瓜",
+      "default_servings": 2,
+      "estimated_time_minutes": 15,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的鸡蛋火腿炒黄瓜。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/vegetable_dish/鸡蛋火腿炒黄瓜.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/vegetable_dish/鸡蛋火腿炒黄瓜.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "黄瓜",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "火腿",
+          "amount": "80 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好黄瓜、鸡蛋、火腿；蔬菜清洗后沥干，按菜品需要切配。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "鸡蛋打散；炒锅加入清单中一半食用油，中火炒 1 分钟至刚凝固，盛出备用。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "step_number": 3,
+          "instruction": "加入黄瓜、火腿，大火翻炒 3 分钟至蔬菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "大火"
+        },
+        {
+          "step_number": 4,
+          "instruction": "把炒好的鸡蛋倒回锅中，翻炒 30 秒。",
+          "duration_seconds": 30,
+          "heat_level": "中火"
+        },
+        {
+          "step_number": 5,
+          "instruction": "加入生抽、盐，翻炒 1 分钟；检查主料达到熟度要求后关火。",
+          "duration_seconds": 60,
+          "heat_level": "中火",
+          "safety_note": null
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_a6ca987f0c7d",
+      "name": "清炒花菜",
+      "default_servings": 2,
+      "estimated_time_minutes": 15,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的清炒花菜。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/vegetable_dish/清炒花菜.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/vegetable_dish/清炒花菜.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "菜花",
+          "amount": "400 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "3 瓣"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好菜花、蒜；蔬菜清洗后沥干，按菜品需要切配。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "炒锅加入清单中的食用油，中火放入菜花，大火翻炒 3 分钟至蔬菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "大火"
+        },
+        {
+          "step_number": 3,
+          "instruction": "加入生抽、盐，翻炒 1 分钟；检查主料达到熟度要求后关火。",
+          "duration_seconds": 60,
+          "heat_level": "中火",
+          "safety_note": null
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_6b2f7287871f",
+      "name": "红烧冬瓜",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "中等",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的红烧冬瓜。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/vegetable_dish/红烧冬瓜/红烧冬瓜.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/vegetable_dish/红烧冬瓜/红烧冬瓜.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "冬瓜",
+          "amount": "500 克"
+        },
+        {
+          "name": "葱",
+          "amount": "10 克"
+        },
+        {
+          "name": "姜",
+          "amount": "5 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "料酒",
+          "amount": "12 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "老抽",
+          "amount": "5 毫升"
+        },
+        {
+          "name": "白糖",
+          "amount": "5 克"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "清水",
+          "amount": "500 毫升"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好冬瓜、葱、姜；蔬菜清洗后沥干，按菜品需要切配。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "炒锅加入 15 毫升食用油，中火放入冬瓜、葱、姜翻炒 3 分钟。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "step_number": 3,
+          "instruction": "加入料酒、生抽、老抽、白糖、盐和 500 毫升清水，盖盖小火焖 15 分钟。",
+          "duration_seconds": 900,
+          "heat_level": "小火"
+        },
+        {
+          "step_number": 4,
+          "instruction": "开盖中火收汁 3 分钟，检查主料熟透后关火。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": null
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_89bc7cef1ba8",
+      "name": "炒青菜",
+      "default_servings": 2,
+      "estimated_time_minutes": 10,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的炒青菜。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/vegetable_dish/炒青菜.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/vegetable_dish/炒青菜.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "青菜",
+          "amount": "400 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "3 瓣"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好青菜、蒜；蔬菜清洗后沥干，按菜品需要切配。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "炒锅加入清单中的食用油，中火放入青菜，大火翻炒 3 分钟至蔬菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "大火"
+        },
+        {
+          "step_number": 3,
+          "instruction": "加入生抽、盐，翻炒 1 分钟；检查主料达到熟度要求后关火。",
+          "duration_seconds": 60,
+          "heat_level": "中火",
+          "safety_note": null
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_2f5d30a0810b",
+      "name": "酸辣土豆丝",
+      "default_servings": 2,
+      "estimated_time_minutes": 18,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的酸辣土豆丝。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/vegetable_dish/酸辣土豆丝.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/vegetable_dish/酸辣土豆丝.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "土豆",
+          "amount": "400 克"
+        },
+        {
+          "name": "干辣椒",
+          "amount": "5 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "3 瓣"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "香醋",
+          "amount": "15 毫升"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好土豆、干辣椒、蒜；蔬菜清洗后沥干，按菜品需要切配。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "炒锅加入清单中的食用油，中火放入土豆、干辣椒，大火翻炒 3 分钟至蔬菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "大火"
+        },
+        {
+          "step_number": 3,
+          "instruction": "加入生抽、盐、香醋，翻炒 1 分钟；检查主料达到熟度要求后关火。",
+          "duration_seconds": 60,
+          "heat_level": "中火",
+          "safety_note": null
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_97ed025a03b5",
+      "name": "蒜蓉空心菜",
+      "default_servings": 2,
+      "estimated_time_minutes": 12,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的蒜蓉空心菜。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/vegetable_dish/蒜蓉空心菜/蒜蓉空心菜.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/vegetable_dish/蒜蓉空心菜/蒜蓉空心菜.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "空心菜",
+          "amount": "400 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "5 瓣"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好空心菜、蒜；蔬菜清洗后沥干，按菜品需要切配。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "炒锅加入清单中的食用油，中火放入空心菜，大火翻炒 3 分钟至蔬菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "大火"
+        },
+        {
+          "step_number": 3,
+          "instruction": "加入生抽、盐，翻炒 1 分钟；检查主料达到熟度要求后关火。",
+          "duration_seconds": 60,
+          "heat_level": "中火",
+          "safety_note": null
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_6c3c664e4159",
+      "name": "上汤娃娃菜",
+      "default_servings": 2,
+      "estimated_time_minutes": 22,
+      "difficulty": "简单",
+      "equipment": [
+        "汤锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的上汤娃娃菜。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/vegetable_dish/上汤娃娃菜/上汤娃娃菜.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/vegetable_dish/上汤娃娃菜/上汤娃娃菜.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "娃娃菜",
+          "amount": "400 克"
+        },
+        {
+          "name": "皮蛋",
+          "amount": "1 个"
+        },
+        {
+          "name": "火腿",
+          "amount": "60 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "3 瓣"
+        },
+        {
+          "name": "食用油",
+          "amount": "8 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "3 克"
+        },
+        {
+          "name": "清水",
+          "amount": "1200 毫升"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好娃娃菜、皮蛋、火腿、蒜；蔬菜清洗后沥干，按菜品需要切配。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "汤锅加入清单中的清水并烧开。",
+          "heat_level": "大火"
+        },
+        {
+          "step_number": 3,
+          "instruction": "放入娃娃菜、皮蛋、火腿、蒜，转小火煮 12 分钟，期间每 10 分钟搅动一次。",
+          "duration_seconds": 720,
+          "heat_level": "小火"
+        },
+        {
+          "step_number": 4,
+          "instruction": "加入盐，搅匀并确认主料熟透后关火。",
+          "safety_note": null
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_5b19343eb230",
+      "name": "凉拌黄瓜",
+      "default_servings": 2,
+      "estimated_time_minutes": 20,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的凉拌黄瓜。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/vegetable_dish/凉拌黄瓜.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/vegetable_dish/凉拌黄瓜.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "黄瓜",
+          "amount": "400 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "5 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "12 毫升"
+        },
+        {
+          "name": "香醋",
+          "amount": "12 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "1 克"
+        },
+        {
+          "name": "白糖",
+          "amount": "3 克"
+        },
+        {
+          "name": "香油",
+          "amount": "6 毫升"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好黄瓜、蒜；蔬菜清洗后沥干，按菜品需要切配。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "将黄瓜、蒜放入干净大碗，加入生抽、香醋、盐、白糖、香油。"
+        },
+        {
+          "step_number": 3,
+          "instruction": "充分拌匀后静置 10 分钟，使味道均匀。",
+          "duration_seconds": 600
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_9492795d23a2",
+      "name": "鸡蛋羹",
+      "default_servings": 2,
+      "estimated_time_minutes": 20,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的鸡蛋羹。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/vegetable_dish/鸡蛋羹/鸡蛋羹.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/vegetable_dish/鸡蛋羹/鸡蛋羹.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "鸡蛋",
+          "amount": "3 个"
+        },
+        {
+          "name": "温水",
+          "amount": "300 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "8 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "清水",
+          "amount": "1200 毫升"
+        },
+        {
+          "name": "香油",
+          "amount": "3 毫升"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好鸡蛋、温水；蔬菜清洗后沥干，按菜品需要切配。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "将 3 个鸡蛋打散，加入 300 毫升温水和 2 克盐搅匀，过滤到耐热碗并盖上耐热盘。"
+        },
+        {
+          "step_number": 3,
+          "instruction": "蒸锅加入 1200 毫升清水烧开，放入蛋液碗，中火蒸 10 分钟。",
+          "duration_seconds": 600,
+          "heat_level": "中火",
+          "safety_note": "开盖时让蒸汽远离脸和手。"
+        },
+        {
+          "step_number": 4,
+          "instruction": "关火焖 2 分钟，确认蛋液完全凝固后取出，淋生抽和香油。",
+          "duration_seconds": 120
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_c6d120c60078",
+      "name": "虎皮青椒",
+      "default_servings": 2,
+      "estimated_time_minutes": 20,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的虎皮青椒。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/vegetable_dish/虎皮青椒/虎皮青椒.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/vegetable_dish/虎皮青椒/虎皮青椒.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "青椒",
+          "amount": "350 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "3 瓣"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "香醋",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "白糖",
+          "amount": "5 克"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好青椒、蒜；蔬菜清洗后沥干，按菜品需要切配。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "炒锅加入清单中的食用油，中火放入青椒，大火翻炒 3 分钟至蔬菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "大火"
+        },
+        {
+          "step_number": 3,
+          "instruction": "加入生抽、盐、香醋、白糖，翻炒 1 分钟；检查主料达到熟度要求后关火。",
+          "duration_seconds": 60,
+          "heat_level": "中火",
+          "safety_note": null
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_17ef9ac3e39d",
+      "name": "菠菜炒鸡蛋",
+      "default_servings": 2,
+      "estimated_time_minutes": 15,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的菠菜炒鸡蛋。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/vegetable_dish/菠菜炒鸡蛋/菠菜炒鸡蛋.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/vegetable_dish/菠菜炒鸡蛋/菠菜炒鸡蛋.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "菠菜",
+          "amount": "300 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "3 个"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好菠菜、鸡蛋；蔬菜清洗后沥干，按菜品需要切配。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "鸡蛋打散；炒锅加入清单中一半食用油，中火炒 1 分钟至刚凝固，盛出备用。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "step_number": 3,
+          "instruction": "加入菠菜，大火翻炒 3 分钟至蔬菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "大火"
+        },
+        {
+          "step_number": 4,
+          "instruction": "把炒好的鸡蛋倒回锅中，翻炒 30 秒。",
+          "duration_seconds": 30,
+          "heat_level": "中火"
+        },
+        {
+          "step_number": 5,
+          "instruction": "加入生抽、盐，翻炒 1 分钟；检查主料达到熟度要求后关火。",
+          "duration_seconds": 60,
+          "heat_level": "中火",
+          "safety_note": null
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_8fbb82d41231",
+      "name": "白灼菜心",
+      "default_servings": 2,
+      "estimated_time_minutes": 12,
+      "difficulty": "简单",
+      "equipment": [
+        "汤锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的白灼菜心。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/vegetable_dish/白灼菜心/白灼菜心.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/vegetable_dish/白灼菜心/白灼菜心.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "菜心",
+          "amount": "350 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "3 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "清水",
+          "amount": "1500 毫升"
+        },
+        {
+          "name": "蚝油",
+          "amount": "8 毫升"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好菜心、蒜；蔬菜清洗后沥干，按菜品需要切配。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "汤锅加入 1500 毫升清水，大火烧开。",
+          "heat_level": "大火"
+        },
+        {
+          "step_number": 3,
+          "instruction": "放入菜心、蒜，转中火煮 3 分钟。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": null
+        },
+        {
+          "step_number": 4,
+          "instruction": "加入生抽、盐、蚝油，确认主料熟透后关火。",
+          "safety_note": null
+        }
+      ]
+    }
+  ]
+}

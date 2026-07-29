@@ -4,15 +4,21 @@ from typing import Any
 
 from .conversation_intents import is_recipe_confirmation
 from .cooking_preconditions import animal_protein_names, recipe_respects_restrictions
+from .ingredient_answers import answer_ingredient_list
 from .recipe_discovery import present_candidates, search_recipes
 from .request_parser import apply_updates, parse_updates
 from .response_builder import feedback
-from .session_presenter import ingredient_display, recipe_metadata
+from .session_presenter import recipe_ingredients_text, recipe_metadata
 from .states import COOKING, PRESENTING_CANDIDATES, WAITING_MEAT_THAW, WAITING_RECIPE_CONFIRMATION
 
 
 def confirm_recipe(session: Any, text: str) -> dict[str, Any]:
     """确认已选菜谱；生成详情必须已在候选搜索阶段准备完成。"""
+    ingredient_answer = answer_ingredient_list(
+        session, text, state=WAITING_RECIPE_CONFIRMATION
+    )
+    if ingredient_answer:
+        return ingredient_answer
     if session._has(text, "更简单", "简单一点", "更快", "快一点"):
         apply_updates(session.request, parse_updates(text))
         session.request.excluded_candidate_ids = []
@@ -84,6 +90,7 @@ def confirm_recipe(session: Any, text: str) -> dict[str, Any]:
     if meats:
         session.state = WAITING_MEAT_THAW
         meat_text = "、".join(meats)
+        ingredients = recipe_ingredients_text(session.current_recipe)
         cache_name = session._new_cache_filename()
         cache_prefix = "好的，我准备好菜谱了。" if cache_name else ""
         cache_line = "\n已准备好菜谱。" if cache_name else ""
@@ -93,9 +100,11 @@ def confirm_recipe(session: Any, text: str) -> dict[str, Any]:
             WAITING_MEAT_THAW,
             True,
             feedback(
-                f"{cache_prefix}这道菜要用到{meat_text}。如果它来自冷冻，请确认已经完全解冻；"
+                f"{cache_prefix}完整食材是：{ingredients}。这道菜要用到{meat_text}。"
+                "如果它来自冷冻，请确认已经完全解冻；"
                 "如果是新鲜食材，可以直接告诉我。",
-                f"确认动物性食材状态：{meat_text}\n已解冻 / 新鲜食材 / 还没解冻{cache_line}",
+                f"完整食材：{ingredients}\n确认动物性食材状态：{meat_text}"
+                f"\n已解冻 / 新鲜食材 / 还没解冻{cache_line}",
                 robot_action="show_concern",
                 led_effect="yellow",
                 expression="alert",
@@ -108,6 +117,11 @@ def confirm_recipe(session: Any, text: str) -> dict[str, Any]:
 
 
 def confirm_meat_precondition(session: Any, text: str) -> dict[str, Any]:
+    ingredient_answer = answer_ingredient_list(
+        session, text, state=WAITING_MEAT_THAW
+    )
+    if ingredient_answer:
+        return ingredient_answer
     compact = text.replace(" ", "")
     if any(word in compact for word in ("还没", "没有", "未解冻", "冻着")):
         return session._result(
@@ -148,9 +162,7 @@ def confirm_meat_precondition(session: Any, text: str) -> dict[str, Any]:
 def begin_cooking(session: Any) -> dict[str, Any]:
     assert session.current_recipe is not None
     session.state, session.step_index = COOKING, 0
-    ingredients = "、".join(
-        ingredient_display(item) for item in session.current_recipe["ingredients"]
-    )
+    ingredients = recipe_ingredients_text(session.current_recipe)
     items = [
         feedback(
             f"好的，现在开始做{session.current_recipe['name']}。我们一步一步来。",

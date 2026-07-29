@@ -1,0 +1,2731 @@
+{
+  "catalog_version": 1,
+  "recipes": [
+    {
+      "recipe_id": "htc_braised_chicken",
+      "name": "黄焖鸡",
+      "default_servings": 2,
+      "estimated_time_minutes": 40,
+      "difficulty": "中等",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "鸡腿肉软嫩、土豆和香菇入味的家常黄焖鸡。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/meat_dish/黄焖鸡.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/meat_dish/黄焖鸡.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "鸡腿肉",
+          "amount": "400 克"
+        },
+        {
+          "name": "土豆",
+          "amount": "200 克"
+        },
+        {
+          "name": "鲜香菇",
+          "amount": "100 克"
+        },
+        {
+          "name": "青椒",
+          "amount": "100 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "料酒",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "老抽",
+          "amount": "5 毫升"
+        },
+        {
+          "name": "白糖",
+          "amount": "5 克"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "清水",
+          "amount": "400 毫升"
+        }
+      ],
+      "notes": [
+        "省略炒糖色，降低新手被热糖浆烫伤的风险。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "鸡腿肉用厨房纸擦干表面后切块，土豆切块，鲜香菇切半，青椒切片，姜切片。",
+          "safety_note": "处理生鸡肉后清洗双手、刀具和砧板。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "炒锅加入 15 毫升食用油，中火放入姜片和鸡腿肉翻炒 5 分钟，直到鸡肉表面全部变色。",
+          "duration_seconds": 300,
+          "heat_level": "中火",
+          "safety_note": "热油可能飞溅，鸡肉必须炒到表面无粉红色。"
+        },
+        {
+          "step_number": 3,
+          "instruction": "加入 10 毫升料酒、15 毫升生抽、5 毫升老抽和 5 克白糖，翻炒 1 分钟。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "step_number": 4,
+          "instruction": "加入土豆、香菇和 400 毫升清水，烧开后盖锅盖小火焖 20 分钟。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "step_number": 5,
+          "instruction": "加入青椒和 2 克盐，中火煮 3 分钟；确认鸡肉中心完全熟透、汁液清澈后关火。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "鸡肉中心不得带粉红色。"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_red_braised_wings",
+      "name": "红烧鸡翅",
+      "default_servings": 3,
+      "estimated_time_minutes": 42,
+      "difficulty": "中等",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "咸甜适中、色泽红亮的家常红烧鸡翅。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/meat_dish/红烧鸡翅.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/meat_dish/红烧鸡翅.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "鸡翅中",
+          "amount": "500 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "20 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "3 瓣"
+        },
+        {
+          "name": "八角",
+          "amount": "1 个"
+        },
+        {
+          "name": "香叶",
+          "amount": "1 片"
+        },
+        {
+          "name": "食用油",
+          "amount": "12 毫升"
+        },
+        {
+          "name": "料酒",
+          "amount": "25 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "老抽",
+          "amount": "5 毫升"
+        },
+        {
+          "name": "冰糖",
+          "amount": "12 克"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "清水",
+          "amount": "500 毫升"
+        }
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "鸡翅中用厨房纸擦干表面并在厚处划一刀，姜切片，葱切段，蒜拍裂。",
+          "safety_note": "处理生鸡肉后清洗双手、刀具和砧板。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "炒锅加入 12 毫升食用油，中火把鸡翅两面各煎 2 分钟。",
+          "duration_seconds": 240,
+          "heat_level": "中火",
+          "safety_note": "鸡翅表面必须擦干，避免热油飞溅。"
+        },
+        {
+          "step_number": 3,
+          "instruction": "加入姜、葱、蒜、1 个八角和 1 片香叶炒 30 秒，再加入 25 毫升料酒。",
+          "duration_seconds": 30,
+          "heat_level": "中火"
+        },
+        {
+          "step_number": 4,
+          "instruction": "加入 15 毫升生抽、5 毫升老抽、12 克冰糖和 500 毫升清水，烧开后小火盖盖焖 20 分钟。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "step_number": 5,
+          "instruction": "加入 2 克盐，中火收汁 5 分钟；确认鸡翅最厚处无粉红色、汁液清澈后关火。",
+          "duration_seconds": 300,
+          "heat_level": "中火",
+          "safety_note": "鸡肉未熟透时继续加热，不要试吃。"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_twice_cooked_pork",
+      "name": "回锅肉",
+      "default_servings": 2,
+      "estimated_time_minutes": 38,
+      "difficulty": "中等",
+      "equipment": [
+        "汤锅",
+        "炒锅"
+      ],
+      "summary": "蒜苗清香、肉片微卷的经典家常回锅肉。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/meat_dish/回锅肉/回锅肉.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/meat_dish/回锅肉/回锅肉.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "五花肉",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜苗",
+          "amount": "150 克"
+        },
+        {
+          "name": "青椒",
+          "amount": "80 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "10 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "料酒",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "豆瓣酱",
+          "amount": "20 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "清水",
+          "amount": "1000 毫升"
+        }
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "汤锅加入 1000 毫升清水、五花肉、姜和葱，烧开后转小火煮 20 分钟。",
+          "duration_seconds": 1200,
+          "heat_level": "小火",
+          "safety_note": "生猪肉不要在水槽中冲洗；煮肉时防止沸水烫伤。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "将五花肉捞出放凉 5 分钟后切薄片，蒜苗切段，青椒切片。",
+          "duration_seconds": 300,
+          "safety_note": "肉块内部仍热，切片前确认可以安全拿取。"
+        },
+        {
+          "step_number": 3,
+          "instruction": "炒锅加入 10 毫升食用油，中火放入肉片煸炒 4 分钟至边缘微卷。",
+          "duration_seconds": 240,
+          "heat_level": "中火"
+        },
+        {
+          "step_number": 4,
+          "instruction": "加入 20 克豆瓣酱和 10 毫升料酒，小火翻炒 1 分钟。",
+          "duration_seconds": 60,
+          "heat_level": "小火"
+        },
+        {
+          "step_number": 5,
+          "instruction": "加入青椒、蒜苗和 10 毫升生抽，大火翻炒 2 分钟至蒜苗断生后关火。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_fish_fragrant_pork",
+      "name": "鱼香肉丝",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "中等",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "酸甜咸辣均衡、配菜丰富的鱼香肉丝。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/meat_dish/鱼香肉丝.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/meat_dish/鱼香肉丝.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "猪里脊",
+          "amount": "250 克"
+        },
+        {
+          "name": "干木耳",
+          "amount": "10 克"
+        },
+        {
+          "name": "胡萝卜",
+          "amount": "80 克"
+        },
+        {
+          "name": "青椒",
+          "amount": "80 克"
+        },
+        {
+          "name": "葱",
+          "amount": "10 克"
+        },
+        {
+          "name": "姜",
+          "amount": "5 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "3 瓣"
+        },
+        {
+          "name": "豆瓣酱",
+          "amount": "15 克"
+        },
+        {
+          "name": "蛋清",
+          "amount": "1 个"
+        },
+        {
+          "name": "淀粉",
+          "amount": "10 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "料酒",
+          "amount": "5 毫升"
+        },
+        {
+          "name": "香醋",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "白糖",
+          "amount": "10 克"
+        },
+        {
+          "name": "盐",
+          "amount": "1 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "20 毫升"
+        },
+        {
+          "name": "清水",
+          "amount": "240 毫升"
+        }
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "干木耳用 200 毫升清水泡发 15 分钟；猪里脊用厨房纸擦干后切丝，胡萝卜、青椒和木耳切丝，葱姜蒜切末。",
+          "duration_seconds": 900,
+          "safety_note": "处理生猪肉后清洗双手、刀具和砧板。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "肉丝加入 1 个蛋清、5 克淀粉、5 毫升料酒和 1 克盐，抓匀后腌制 10 分钟。",
+          "duration_seconds": 600
+        },
+        {
+          "step_number": 3,
+          "instruction": "将 10 毫升生抽、15 毫升香醋、10 克白糖、剩余 5 克淀粉和 40 毫升清水调成鱼香汁。"
+        },
+        {
+          "step_number": 4,
+          "instruction": "炒锅加入 15 毫升食用油，中火放入肉丝翻炒 3 分钟，直到全部变色后盛出。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "肉丝必须完全变色，不得带粉红色。"
+        },
+        {
+          "step_number": 5,
+          "instruction": "锅中加入剩余 5 毫升食用油，小火炒香葱姜蒜和 15 克豆瓣酱 30 秒。",
+          "duration_seconds": 30,
+          "heat_level": "小火"
+        },
+        {
+          "step_number": 6,
+          "instruction": "加入胡萝卜、青椒和木耳，大火翻炒 2 分钟，再倒回肉丝和鱼香汁翻炒 1 分钟至汤汁浓稠。",
+          "duration_seconds": 180,
+          "heat_level": "大火"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_chili_pork",
+      "name": "辣椒炒肉",
+      "default_servings": 2,
+      "estimated_time_minutes": 20,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "辣椒爽脆、肉片焦香的快手下饭菜。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/meat_dish/辣椒炒肉.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/meat_dish/辣椒炒肉.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "猪肉",
+          "amount": "250 克"
+        },
+        {
+          "name": "青椒",
+          "amount": "220 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "3 瓣"
+        },
+        {
+          "name": "姜",
+          "amount": "5 克"
+        },
+        {
+          "name": "豆豉",
+          "amount": "5 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "12 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "8 毫升"
+        },
+        {
+          "name": "老抽",
+          "amount": "2 毫升"
+        },
+        {
+          "name": "蚝油",
+          "amount": "5 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "猪肉用厨房纸擦干表面后切薄片，青椒切片，蒜和姜切末。",
+          "safety_note": "处理生猪肉后清洗双手、刀具和砧板。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "炒锅不放油，中火把青椒干煸 2 分钟至表面微皱后盛出。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "step_number": 3,
+          "instruction": "锅中加入 12 毫升食用油，中火放入肉片翻炒 4 分钟，直到肉片完全变色且边缘微焦。",
+          "duration_seconds": 240,
+          "heat_level": "中火",
+          "safety_note": "猪肉不得带粉红色。"
+        },
+        {
+          "step_number": 4,
+          "instruction": "加入姜、蒜和 5 克豆豉，小火翻炒 30 秒。",
+          "duration_seconds": 30,
+          "heat_level": "小火"
+        },
+        {
+          "step_number": 5,
+          "instruction": "倒回青椒，加入 8 毫升生抽、2 毫升老抽、5 毫升蚝油和 2 克盐，大火翻炒 1 分钟后关火。",
+          "duration_seconds": 60,
+          "heat_level": "大火"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_sweet_sour_pork",
+      "name": "糖醋里脊",
+      "default_servings": 3,
+      "estimated_time_minutes": 38,
+      "difficulty": "中等",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "外层酥香、酸甜开胃的少油版糖醋里脊。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/meat_dish/糖醋里脊.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/meat_dish/糖醋里脊.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "猪里脊",
+          "amount": "400 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "1 个"
+        },
+        {
+          "name": "淀粉",
+          "amount": "45 克"
+        },
+        {
+          "name": "料酒",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "8 毫升"
+        },
+        {
+          "name": "番茄酱",
+          "amount": "35 克"
+        },
+        {
+          "name": "香醋",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "白糖",
+          "amount": "25 克"
+        },
+        {
+          "name": "盐",
+          "amount": "3 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "60 毫升"
+        },
+        {
+          "name": "清水",
+          "amount": "50 毫升"
+        }
+      ],
+      "notes": [
+        "采用分批浅炸，减少家庭烹饪用油。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "猪里脊用厨房纸擦干表面后切成 1 厘米粗条。",
+          "safety_note": "处理生猪肉后清洗双手、刀具和砧板。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "里脊条加入 1 个鸡蛋、15 毫升料酒、8 毫升生抽、2 克盐和 35 克淀粉，抓匀后腌制 10 分钟。",
+          "duration_seconds": 600
+        },
+        {
+          "step_number": 3,
+          "instruction": "将 35 克番茄酱、15 毫升香醋、25 克白糖、剩余 10 克淀粉、1 克盐和 50 毫升清水调匀。"
+        },
+        {
+          "step_number": 4,
+          "instruction": "炒锅加入 60 毫升食用油，中火加热 2 分钟；把里脊分两批放入，每批煎炸 4 分钟并翻面，至表面金黄且内部完全变色后捞出。",
+          "duration_seconds": 600,
+          "heat_level": "中火",
+          "safety_note": "肉条分批下锅，不要把带水食材投入热油。"
+        },
+        {
+          "step_number": 5,
+          "instruction": "倒出锅中余油并保留约 5 毫升，小火倒入糖醋汁煮 1 分钟至冒泡。",
+          "duration_seconds": 60,
+          "heat_level": "小火",
+          "safety_note": "热油需冷却后再处理。"
+        },
+        {
+          "step_number": 6,
+          "instruction": "倒回里脊，中火快速翻炒 45 秒，使糖醋汁均匀裹住肉条后关火。",
+          "duration_seconds": 45,
+          "heat_level": "中火"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_mushroom_chicken",
+      "name": "香菇滑鸡",
+      "default_servings": 2,
+      "estimated_time_minutes": 38,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "香菇吸汁、鸡腿肉嫩滑的家常焖鸡。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/meat_dish/香菇滑鸡/香菇滑鸡.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/meat_dish/香菇滑鸡/香菇滑鸡.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "鸡腿肉",
+          "amount": "400 克"
+        },
+        {
+          "name": "干香菇",
+          "amount": "20 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "10 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "3 瓣"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "料酒",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "20 毫升"
+        },
+        {
+          "name": "老抽",
+          "amount": "5 毫升"
+        },
+        {
+          "name": "白糖",
+          "amount": "6 克"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "香油",
+          "amount": "5 毫升"
+        },
+        {
+          "name": "清水",
+          "amount": "350 毫升"
+        }
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "干香菇用 200 毫升清水泡发 20 分钟后切半；鸡腿肉用厨房纸擦干后切块，姜切片，葱切段，蒜拍裂。",
+          "duration_seconds": 1200,
+          "safety_note": "处理生鸡肉后清洗双手、刀具和砧板。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "炒锅加入 15 毫升食用油，中火放入姜、葱和蒜炒 30 秒，再加入鸡腿肉翻炒 5 分钟至表面全部变色。",
+          "duration_seconds": 330,
+          "heat_level": "中火"
+        },
+        {
+          "step_number": 3,
+          "instruction": "加入 15 毫升料酒、20 毫升生抽、5 毫升老抽和 6 克白糖，翻炒 1 分钟。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "step_number": 4,
+          "instruction": "加入香菇和 150 毫升清水，烧开后盖锅盖小火焖 15 分钟。",
+          "duration_seconds": 900,
+          "heat_level": "小火"
+        },
+        {
+          "step_number": 5,
+          "instruction": "加入 2 克盐和 5 毫升香油，中火收汁 2 分钟；确认鸡肉中心完全熟透后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火",
+          "safety_note": "鸡肉中心不得带粉红色，汁液应清澈。"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_potato_ribs",
+      "name": "土豆炖排骨",
+      "default_servings": 3,
+      "estimated_time_minutes": 65,
+      "difficulty": "中等",
+      "equipment": [
+        "汤锅",
+        "炒锅"
+      ],
+      "summary": "排骨软烂、土豆绵密的家常炖菜。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/meat_dish/土豆炖排骨/土豆炖排骨.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/meat_dish/土豆炖排骨/土豆炖排骨.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "排骨",
+          "amount": "750 克"
+        },
+        {
+          "name": "土豆",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "25 克"
+        },
+        {
+          "name": "葱",
+          "amount": "20 克"
+        },
+        {
+          "name": "八角",
+          "amount": "1 个"
+        },
+        {
+          "name": "香叶",
+          "amount": "1 片"
+        },
+        {
+          "name": "食用油",
+          "amount": "20 毫升"
+        },
+        {
+          "name": "料酒",
+          "amount": "25 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "老抽",
+          "amount": "5 毫升"
+        },
+        {
+          "name": "蚝油",
+          "amount": "5 毫升"
+        },
+        {
+          "name": "黄豆酱",
+          "amount": "8 克"
+        },
+        {
+          "name": "白糖",
+          "amount": "8 克"
+        },
+        {
+          "name": "盐",
+          "amount": "3 克"
+        },
+        {
+          "name": "清水",
+          "amount": "2200 毫升"
+        }
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "排骨直接放入汤锅，加入 1500 毫升清水和 10 克姜，大火烧开后焯 3 分钟，捞出沥干；土豆切块，剩余姜切片，葱切段。",
+          "duration_seconds": 180,
+          "heat_level": "大火",
+          "safety_note": "生排骨不要在水槽中冲洗，捞取时防止沸水烫伤。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "炒锅加入 20 毫升食用油，中火放入排骨翻炒 4 分钟至表面微黄。",
+          "duration_seconds": 240,
+          "heat_level": "中火"
+        },
+        {
+          "step_number": 3,
+          "instruction": "加入葱、姜、1 个八角、1 片香叶、25 毫升料酒、15 毫升生抽、5 毫升老抽、5 毫升蚝油、8 克黄豆酱和 8 克白糖，翻炒 1 分钟。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "step_number": 4,
+          "instruction": "加入 700 毫升热水，烧开后盖锅盖小火炖 30 分钟。",
+          "duration_seconds": 1800,
+          "heat_level": "小火"
+        },
+        {
+          "step_number": 5,
+          "instruction": "加入土豆和 3 克盐，继续小火炖 15 分钟，直到排骨熟透、土豆可被筷子轻松扎入。",
+          "duration_seconds": 900,
+          "heat_level": "小火",
+          "safety_note": "排骨贴骨处不得有血色。"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_a8e9b9bbf287",
+      "name": "西红柿土豆炖牛肉",
+      "default_servings": 3,
+      "estimated_time_minutes": 70,
+      "difficulty": "中等",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的西红柿土豆炖牛肉。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/meat_dish/西红柿土豆炖牛肉/西红柿土豆炖牛肉.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/meat_dish/西红柿土豆炖牛肉/西红柿土豆炖牛肉.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "牛腩",
+          "amount": "600 克"
+        },
+        {
+          "name": "番茄",
+          "amount": "400 克"
+        },
+        {
+          "name": "土豆",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "料酒",
+          "amount": "12 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "老抽",
+          "amount": "5 毫升"
+        },
+        {
+          "name": "白糖",
+          "amount": "5 克"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "清水",
+          "amount": "500 毫升"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好牛腩、番茄、土豆、姜；肉类或水产用厨房纸擦干，处理后清洗双手、刀具和砧板。",
+          "safety_note": "生肉和水产不要在水槽中冲洗，处理后清洁接触面。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "炒锅加入 15 毫升食用油，中火放入姜、牛腩翻炒 5 分钟，直到表面全部变色。",
+          "duration_seconds": 300,
+          "heat_level": "中火"
+        },
+        {
+          "step_number": 3,
+          "instruction": "加入料酒、生抽、老抽、白糖、盐和 500 毫升清水，烧开后盖盖小火焖 50 分钟。",
+          "duration_seconds": 3000,
+          "heat_level": "小火"
+        },
+        {
+          "step_number": 4,
+          "instruction": "加入番茄、土豆，继续小火焖 12 分钟。",
+          "duration_seconds": 720,
+          "heat_level": "小火"
+        },
+        {
+          "step_number": 5,
+          "instruction": "开盖中火收汁 3 分钟，检查主料熟透后关火。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_aeccfcca1da2",
+      "name": "红烧肉",
+      "default_servings": 3,
+      "estimated_time_minutes": 65,
+      "difficulty": "中等",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的红烧肉。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/meat_dish/红烧肉/简易红烧肉.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/meat_dish/红烧肉/简易红烧肉.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "五花肉",
+          "amount": "600 克"
+        },
+        {
+          "name": "姜",
+          "amount": "15 克"
+        },
+        {
+          "name": "葱",
+          "amount": "20 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "料酒",
+          "amount": "12 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "老抽",
+          "amount": "5 毫升"
+        },
+        {
+          "name": "白糖",
+          "amount": "5 克"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "清水",
+          "amount": "500 毫升"
+        },
+        {
+          "name": "冰糖",
+          "amount": "18 克"
+        },
+        {
+          "name": "八角",
+          "amount": "1 个"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好五花肉、姜、葱；肉类或水产用厨房纸擦干，处理后清洗双手、刀具和砧板。",
+          "safety_note": "生肉和水产不要在水槽中冲洗，处理后清洁接触面。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "炒锅加入 15 毫升食用油，中火放入姜、葱、五花肉翻炒 5 分钟，直到表面全部变色。",
+          "duration_seconds": 300,
+          "heat_level": "中火"
+        },
+        {
+          "step_number": 3,
+          "instruction": "加入料酒、生抽、老抽、白糖、盐、冰糖、八角和 500 毫升清水，烧开后盖盖小火焖 45 分钟。",
+          "duration_seconds": 2700,
+          "heat_level": "小火"
+        },
+        {
+          "step_number": 4,
+          "instruction": "开盖中火收汁 3 分钟，检查主料熟透后关火。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_6278e4f4c804",
+      "name": "糖醋排骨",
+      "default_servings": 3,
+      "estimated_time_minutes": 55,
+      "difficulty": "中等",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的糖醋排骨。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/meat_dish/糖醋排骨/糖醋排骨.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/meat_dish/糖醋排骨/糖醋排骨.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "排骨",
+          "amount": "700 克"
+        },
+        {
+          "name": "姜",
+          "amount": "15 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "料酒",
+          "amount": "12 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "老抽",
+          "amount": "5 毫升"
+        },
+        {
+          "name": "白糖",
+          "amount": "5 克"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "清水",
+          "amount": "500 毫升"
+        },
+        {
+          "name": "香醋",
+          "amount": "30 毫升"
+        },
+        {
+          "name": "冰糖",
+          "amount": "25 克"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好排骨、姜、葱；肉类或水产用厨房纸擦干，处理后清洗双手、刀具和砧板。",
+          "safety_note": "生肉和水产不要在水槽中冲洗，处理后清洁接触面。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "炒锅加入 15 毫升食用油，中火放入姜、葱、排骨翻炒 5 分钟，直到表面全部变色。",
+          "duration_seconds": 300,
+          "heat_level": "中火"
+        },
+        {
+          "step_number": 3,
+          "instruction": "加入料酒、生抽、老抽、白糖、盐、香醋、冰糖和 500 毫升清水，烧开后盖盖小火焖 35 分钟。",
+          "duration_seconds": 2100,
+          "heat_level": "小火"
+        },
+        {
+          "step_number": 4,
+          "instruction": "开盖中火收汁 3 分钟，检查主料熟透后关火。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_b941fe95fd16",
+      "name": "黑椒牛柳",
+      "default_servings": 2,
+      "estimated_time_minutes": 28,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的黑椒牛柳。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/meat_dish/黑椒牛柳/黑椒牛柳.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/meat_dish/黑椒牛柳/黑椒牛柳.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "牛里脊",
+          "amount": "350 克"
+        },
+        {
+          "name": "洋葱",
+          "amount": "150 克"
+        },
+        {
+          "name": "青椒",
+          "amount": "100 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "黑胡椒粉",
+          "amount": "5 克"
+        },
+        {
+          "name": "蚝油",
+          "amount": "10 毫升"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好牛里脊、洋葱、青椒；肉类或水产用厨房纸擦干，处理后清洗双手、刀具和砧板。",
+          "safety_note": "生肉和水产不要在水槽中冲洗，处理后清洁接触面。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "炒锅加入清单中的食用油，中火放入牛里脊翻炒 5 分钟，直到肉类或水产完全变色。",
+          "duration_seconds": 300,
+          "heat_level": "中火",
+          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+        },
+        {
+          "step_number": 3,
+          "instruction": "加入洋葱、青椒，大火翻炒 3 分钟至蔬菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "大火"
+        },
+        {
+          "step_number": 4,
+          "instruction": "加入生抽、盐、黑胡椒粉、蚝油，翻炒 1 分钟；检查主料达到熟度要求后关火。",
+          "duration_seconds": 60,
+          "heat_level": "中火",
+          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_14b71ecfefbd",
+      "name": "宫保鸡丁",
+      "default_servings": 3,
+      "estimated_time_minutes": 35,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的宫保鸡丁。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/meat_dish/宫保鸡丁/宫保鸡丁.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/meat_dish/宫保鸡丁/宫保鸡丁.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "鸡腿肉",
+          "amount": "450 克"
+        },
+        {
+          "name": "熟花生",
+          "amount": "100 克"
+        },
+        {
+          "name": "葱",
+          "amount": "80 克"
+        },
+        {
+          "name": "干辣椒",
+          "amount": "8 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "香醋",
+          "amount": "12 毫升"
+        },
+        {
+          "name": "白糖",
+          "amount": "8 克"
+        },
+        {
+          "name": "淀粉",
+          "amount": "12 克"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好鸡腿肉、熟花生、葱、干辣椒；肉类或水产用厨房纸擦干，处理后清洗双手、刀具和砧板。",
+          "safety_note": "生肉和水产不要在水槽中冲洗，处理后清洁接触面。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "鸡腿肉切成 2 厘米丁，加入淀粉、5 毫升生抽和 1 克盐抓匀，腌制 10 分钟。",
+          "duration_seconds": 600
+        },
+        {
+          "step_number": 3,
+          "instruction": "将剩余生抽、香醋、白糖和剩余盐调成碗汁。"
+        },
+        {
+          "step_number": 4,
+          "instruction": "炒锅加入 15 毫升食用油，中火炒鸡丁 5 分钟至完全变色。",
+          "duration_seconds": 300,
+          "heat_level": "中火",
+          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+        },
+        {
+          "step_number": 5,
+          "instruction": "加入葱和干辣椒炒 1 分钟，倒入碗汁和熟花生，大火翻炒 1 分钟后关火。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_2ee6b4355ed5",
+      "name": "麻婆豆腐",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "中等",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的麻婆豆腐。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/meat_dish/麻婆豆腐/麻婆豆腐.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/meat_dish/麻婆豆腐/麻婆豆腐.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "嫩豆腐",
+          "amount": "400 克"
+        },
+        {
+          "name": "猪肉末",
+          "amount": "120 克"
+        },
+        {
+          "name": "葱",
+          "amount": "10 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "料酒",
+          "amount": "12 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "老抽",
+          "amount": "5 毫升"
+        },
+        {
+          "name": "白糖",
+          "amount": "5 克"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "清水",
+          "amount": "500 毫升"
+        },
+        {
+          "name": "豆瓣酱",
+          "amount": "18 克"
+        },
+        {
+          "name": "花椒粉",
+          "amount": "2 克"
+        },
+        {
+          "name": "淀粉",
+          "amount": "8 克"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好嫩豆腐、猪肉末、葱；肉类或水产用厨房纸擦干，处理后清洗双手、刀具和砧板。",
+          "safety_note": "生肉和水产不要在水槽中冲洗，处理后清洁接触面。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "炒锅加入 15 毫升食用油，中火放入葱、猪肉末翻炒 5 分钟，直到表面全部变色。",
+          "duration_seconds": 300,
+          "heat_level": "中火"
+        },
+        {
+          "step_number": 3,
+          "instruction": "加入料酒、生抽、老抽、白糖、盐、豆瓣酱、花椒粉和 500 毫升清水，烧开后盖盖小火焖 8 分钟。",
+          "duration_seconds": 480,
+          "heat_level": "小火"
+        },
+        {
+          "step_number": 4,
+          "instruction": "加入嫩豆腐，继续小火焖 5 分钟。",
+          "duration_seconds": 300,
+          "heat_level": "小火"
+        },
+        {
+          "step_number": 5,
+          "instruction": "开盖中火收汁 3 分钟，检查主料熟透后关火。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_5ae4f200f4ec",
+      "name": "水煮肉片",
+      "default_servings": 3,
+      "estimated_time_minutes": 40,
+      "difficulty": "中等",
+      "equipment": [
+        "汤锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的水煮肉片。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/meat_dish/水煮肉片.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/meat_dish/水煮肉片.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "猪里脊",
+          "amount": "400 克"
+        },
+        {
+          "name": "豆芽",
+          "amount": "250 克"
+        },
+        {
+          "name": "青菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "8 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "3 克"
+        },
+        {
+          "name": "清水",
+          "amount": "1200 毫升"
+        },
+        {
+          "name": "豆瓣酱",
+          "amount": "25 克"
+        },
+        {
+          "name": "干辣椒",
+          "amount": "10 克"
+        },
+        {
+          "name": "花椒",
+          "amount": "5 克"
+        },
+        {
+          "name": "淀粉",
+          "amount": "12 克"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好猪里脊、豆芽、青菜；肉类或水产用厨房纸擦干，处理后清洗双手、刀具和砧板。",
+          "safety_note": "生肉和水产不要在水槽中冲洗，处理后清洁接触面。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "汤锅加入清单中的清水并烧开。",
+          "heat_level": "大火"
+        },
+        {
+          "step_number": 3,
+          "instruction": "放入猪里脊，转小火煮 20 分钟。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "step_number": 4,
+          "instruction": "加入豆芽、青菜，继续煮 10 分钟。",
+          "duration_seconds": 600,
+          "heat_level": "小火"
+        },
+        {
+          "step_number": 5,
+          "instruction": "加入盐、豆瓣酱、干辣椒、花椒，搅匀并确认主料熟透后关火。",
+          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_9043d01603b6",
+      "name": "孜然牛肉",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的孜然牛肉。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/meat_dish/孜然牛肉.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/meat_dish/孜然牛肉.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "牛肉",
+          "amount": "350 克"
+        },
+        {
+          "name": "洋葱",
+          "amount": "120 克"
+        },
+        {
+          "name": "香菜",
+          "amount": "20 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "孜然粉",
+          "amount": "8 克"
+        },
+        {
+          "name": "辣椒粉",
+          "amount": "4 克"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好牛肉、洋葱、香菜；肉类或水产用厨房纸擦干，处理后清洗双手、刀具和砧板。",
+          "safety_note": "生肉和水产不要在水槽中冲洗，处理后清洁接触面。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "炒锅加入清单中的食用油，中火放入牛肉翻炒 5 分钟，直到肉类或水产完全变色。",
+          "duration_seconds": 300,
+          "heat_level": "中火",
+          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+        },
+        {
+          "step_number": 3,
+          "instruction": "加入洋葱、香菜，大火翻炒 3 分钟至蔬菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "大火"
+        },
+        {
+          "step_number": 4,
+          "instruction": "加入生抽、盐、孜然粉、辣椒粉，翻炒 1 分钟；检查主料达到熟度要求后关火。",
+          "duration_seconds": 60,
+          "heat_level": "中火",
+          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_883b48e24f2a",
+      "name": "葱烧鸡腿",
+      "default_servings": 2,
+      "estimated_time_minutes": 38,
+      "difficulty": "中等",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的葱烧鸡腿。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/meat_dish/葱烧鸡腿.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/meat_dish/葱烧鸡腿.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "鸡腿肉",
+          "amount": "500 克"
+        },
+        {
+          "name": "葱",
+          "amount": "100 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "料酒",
+          "amount": "12 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "老抽",
+          "amount": "5 毫升"
+        },
+        {
+          "name": "白糖",
+          "amount": "5 克"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "清水",
+          "amount": "500 毫升"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好鸡腿肉、葱、姜；肉类或水产用厨房纸擦干，处理后清洗双手、刀具和砧板。",
+          "safety_note": "生肉和水产不要在水槽中冲洗，处理后清洁接触面。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "炒锅加入 15 毫升食用油，中火放入葱、姜、鸡腿肉翻炒 5 分钟，直到表面全部变色。",
+          "duration_seconds": 300,
+          "heat_level": "中火"
+        },
+        {
+          "step_number": 3,
+          "instruction": "加入料酒、生抽、老抽、白糖、盐和 500 毫升清水，烧开后盖盖小火焖 20 分钟。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "step_number": 4,
+          "instruction": "开盖中火收汁 3 分钟，检查主料熟透后关火。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_f6b56b2237ec",
+      "name": "咖喱肥牛",
+      "default_servings": 2,
+      "estimated_time_minutes": 28,
+      "difficulty": "中等",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的咖喱肥牛。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/meat_dish/咖喱肥牛/咖喱肥牛.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/meat_dish/咖喱肥牛/咖喱肥牛.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "肥牛",
+          "amount": "350 克"
+        },
+        {
+          "name": "土豆",
+          "amount": "250 克"
+        },
+        {
+          "name": "洋葱",
+          "amount": "150 克"
+        },
+        {
+          "name": "胡萝卜",
+          "amount": "100 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "料酒",
+          "amount": "12 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "老抽",
+          "amount": "5 毫升"
+        },
+        {
+          "name": "白糖",
+          "amount": "5 克"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "清水",
+          "amount": "500 毫升"
+        },
+        {
+          "name": "咖喱块",
+          "amount": "40 克"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好肥牛、土豆、洋葱、胡萝卜；肉类或水产用厨房纸擦干，处理后清洗双手、刀具和砧板。",
+          "safety_note": "生肉和水产不要在水槽中冲洗，处理后清洁接触面。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "炒锅加入 15 毫升食用油，中火放入肥牛翻炒 5 分钟，直到表面全部变色。",
+          "duration_seconds": 300,
+          "heat_level": "中火"
+        },
+        {
+          "step_number": 3,
+          "instruction": "加入料酒、生抽、老抽、白糖、盐、咖喱块和 500 毫升清水，烧开后盖盖小火焖 8 分钟。",
+          "duration_seconds": 480,
+          "heat_level": "小火"
+        },
+        {
+          "step_number": 4,
+          "instruction": "加入土豆、洋葱、胡萝卜，继续小火焖 12 分钟。",
+          "duration_seconds": 720,
+          "heat_level": "小火"
+        },
+        {
+          "step_number": 5,
+          "instruction": "开盖中火收汁 3 分钟，检查主料熟透后关火。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_d76d98c2db72",
+      "name": "啤酒鸭",
+      "default_servings": 3,
+      "estimated_time_minutes": 65,
+      "difficulty": "中等",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的啤酒鸭。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/meat_dish/啤酒鸭/啤酒鸭.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/meat_dish/啤酒鸭/啤酒鸭.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "鸭肉",
+          "amount": "700 克"
+        },
+        {
+          "name": "青椒",
+          "amount": "120 克"
+        },
+        {
+          "name": "姜",
+          "amount": "15 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "料酒",
+          "amount": "12 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "老抽",
+          "amount": "5 毫升"
+        },
+        {
+          "name": "白糖",
+          "amount": "5 克"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "清水",
+          "amount": "500 毫升"
+        },
+        {
+          "name": "啤酒",
+          "amount": "500 毫升"
+        },
+        {
+          "name": "八角",
+          "amount": "1 个"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好鸭肉、青椒、姜；肉类或水产用厨房纸擦干，处理后清洗双手、刀具和砧板。",
+          "safety_note": "生肉和水产不要在水槽中冲洗，处理后清洁接触面。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "炒锅加入 15 毫升食用油，中火放入姜、鸭肉翻炒 5 分钟，直到表面全部变色。",
+          "duration_seconds": 300,
+          "heat_level": "中火"
+        },
+        {
+          "step_number": 3,
+          "instruction": "加入料酒、生抽、老抽、白糖、盐、啤酒、八角和 500 毫升清水，烧开后盖盖小火焖 45 分钟。",
+          "duration_seconds": 2700,
+          "heat_level": "小火"
+        },
+        {
+          "step_number": 4,
+          "instruction": "加入青椒，继续小火焖 12 分钟。",
+          "duration_seconds": 720,
+          "heat_level": "小火"
+        },
+        {
+          "step_number": 5,
+          "instruction": "开盖中火收汁 3 分钟，检查主料熟透后关火。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_753710e84ebf",
+      "name": "白菜猪肉炖粉条",
+      "default_servings": 3,
+      "estimated_time_minutes": 45,
+      "difficulty": "中等",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的白菜猪肉炖粉条。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/meat_dish/白菜猪肉炖粉条.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/meat_dish/白菜猪肉炖粉条.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "大白菜",
+          "amount": "500 克"
+        },
+        {
+          "name": "五花肉",
+          "amount": "300 克"
+        },
+        {
+          "name": "粉条",
+          "amount": "150 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "料酒",
+          "amount": "12 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "老抽",
+          "amount": "5 毫升"
+        },
+        {
+          "name": "白糖",
+          "amount": "5 克"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "清水",
+          "amount": "500 毫升"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好大白菜、五花肉、粉条、姜；肉类或水产用厨房纸擦干，处理后清洗双手、刀具和砧板。",
+          "safety_note": "生肉和水产不要在水槽中冲洗，处理后清洁接触面。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "炒锅加入 15 毫升食用油，中火放入姜、五花肉翻炒 5 分钟，直到表面全部变色。",
+          "duration_seconds": 300,
+          "heat_level": "中火"
+        },
+        {
+          "step_number": 3,
+          "instruction": "加入料酒、生抽、老抽、白糖、盐和 500 毫升清水，烧开后盖盖小火焖 25 分钟。",
+          "duration_seconds": 1500,
+          "heat_level": "小火"
+        },
+        {
+          "step_number": 4,
+          "instruction": "加入大白菜、粉条，继续小火焖 12 分钟。",
+          "duration_seconds": 720,
+          "heat_level": "小火"
+        },
+        {
+          "step_number": 5,
+          "instruction": "开盖中火收汁 3 分钟，检查主料熟透后关火。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_d1ec1ae99e15",
+      "name": "小炒黄牛肉",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的小炒黄牛肉。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/meat_dish/小炒黄牛肉/小炒黄牛肉.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/meat_dish/小炒黄牛肉/小炒黄牛肉.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "牛肉",
+          "amount": "350 克"
+        },
+        {
+          "name": "芹菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "小米辣",
+          "amount": "5 个"
+        },
+        {
+          "name": "香菜",
+          "amount": "20 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "淀粉",
+          "amount": "8 克"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好牛肉、芹菜、小米辣、香菜；肉类或水产用厨房纸擦干，处理后清洗双手、刀具和砧板。",
+          "safety_note": "生肉和水产不要在水槽中冲洗，处理后清洁接触面。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "将牛肉与 8 克 淀粉抓匀，腌制 10 分钟。",
+          "duration_seconds": 600
+        },
+        {
+          "step_number": 3,
+          "instruction": "炒锅加入清单中的食用油，中火放入牛肉翻炒 5 分钟，直到肉类或水产完全变色。",
+          "duration_seconds": 300,
+          "heat_level": "中火",
+          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+        },
+        {
+          "step_number": 4,
+          "instruction": "加入芹菜、小米辣、香菜，大火翻炒 3 分钟至蔬菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "大火"
+        },
+        {
+          "step_number": 5,
+          "instruction": "加入生抽、盐，翻炒 1 分钟；检查主料达到熟度要求后关火。",
+          "duration_seconds": 60,
+          "heat_level": "中火",
+          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_799fb76c158a",
+      "name": "咕噜肉",
+      "default_servings": 3,
+      "estimated_time_minutes": 38,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的咕噜肉。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/meat_dish/咕噜肉.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/meat_dish/咕噜肉.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "猪里脊",
+          "amount": "450 克"
+        },
+        {
+          "name": "菠萝",
+          "amount": "250 克"
+        },
+        {
+          "name": "青椒",
+          "amount": "100 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "50 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "番茄酱",
+          "amount": "40 克"
+        },
+        {
+          "name": "香醋",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "白糖",
+          "amount": "20 克"
+        },
+        {
+          "name": "淀粉",
+          "amount": "40 克"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好猪里脊、菠萝、青椒；肉类或水产用厨房纸擦干，处理后清洗双手、刀具和砧板。",
+          "safety_note": "生肉和水产不要在水槽中冲洗，处理后清洁接触面。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "猪里脊切成 2 厘米块，加入淀粉、生抽和盐抓匀，腌制 10 分钟。",
+          "duration_seconds": 600
+        },
+        {
+          "step_number": 3,
+          "instruction": "炒锅加入 50 毫升食用油，中火分两批把里脊煎炸共 8 分钟，至表面金黄且内部完全变色后捞出。",
+          "duration_seconds": 480,
+          "heat_level": "中火",
+          "safety_note": "食材表面需擦干，防止热油飞溅。"
+        },
+        {
+          "step_number": 4,
+          "instruction": "锅中留 5 毫升油，加入番茄酱、香醋和白糖，小火煮 1 分钟。",
+          "duration_seconds": 60,
+          "heat_level": "小火"
+        },
+        {
+          "step_number": 5,
+          "instruction": "加入菠萝、青椒和炸好的里脊，大火翻炒 2 分钟至均匀裹汁。",
+          "duration_seconds": 120,
+          "heat_level": "大火",
+          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_1b6baddf3f82",
+      "name": "香干肉丝",
+      "default_servings": 2,
+      "estimated_time_minutes": 22,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的香干肉丝。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/meat_dish/香干肉丝.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/meat_dish/香干肉丝.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "猪里脊",
+          "amount": "250 克"
+        },
+        {
+          "name": "香干",
+          "amount": "250 克"
+        },
+        {
+          "name": "青椒",
+          "amount": "100 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好猪里脊、香干、青椒；肉类或水产用厨房纸擦干，处理后清洗双手、刀具和砧板。",
+          "safety_note": "生肉和水产不要在水槽中冲洗，处理后清洁接触面。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "炒锅加入清单中的食用油，中火放入猪里脊翻炒 5 分钟，直到肉类或水产完全变色。",
+          "duration_seconds": 300,
+          "heat_level": "中火",
+          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+        },
+        {
+          "step_number": 3,
+          "instruction": "加入香干、青椒，大火翻炒 3 分钟至蔬菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "大火"
+        },
+        {
+          "step_number": 4,
+          "instruction": "加入生抽、盐，翻炒 1 分钟；检查主料达到熟度要求后关火。",
+          "duration_seconds": 60,
+          "heat_level": "中火",
+          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_31c7da6a6027",
+      "name": "酱牛肉",
+      "default_servings": 4,
+      "estimated_time_minutes": 100,
+      "difficulty": "中等",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的酱牛肉。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/meat_dish/酱牛肉/酱牛肉.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/meat_dish/酱牛肉/酱牛肉.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "牛腱",
+          "amount": "1000 克"
+        },
+        {
+          "name": "姜",
+          "amount": "20 克"
+        },
+        {
+          "name": "葱",
+          "amount": "30 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "料酒",
+          "amount": "12 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "老抽",
+          "amount": "5 毫升"
+        },
+        {
+          "name": "白糖",
+          "amount": "5 克"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "清水",
+          "amount": "500 毫升"
+        },
+        {
+          "name": "黄豆酱",
+          "amount": "40 克"
+        },
+        {
+          "name": "八角",
+          "amount": "2 个"
+        },
+        {
+          "name": "桂皮",
+          "amount": "5 克"
+        },
+        {
+          "name": "香叶",
+          "amount": "2 片"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好牛腱、姜、葱；肉类或水产用厨房纸擦干，处理后清洗双手、刀具和砧板。",
+          "safety_note": "生肉和水产不要在水槽中冲洗，处理后清洁接触面。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "炒锅加入 15 毫升食用油，中火放入姜、葱、牛腱翻炒 5 分钟，直到表面全部变色。",
+          "duration_seconds": 300,
+          "heat_level": "中火"
+        },
+        {
+          "step_number": 3,
+          "instruction": "加入料酒、生抽、老抽、白糖、盐、黄豆酱、八角、桂皮、香叶和 500 毫升清水，烧开后盖盖小火焖 75 分钟。",
+          "duration_seconds": 4500,
+          "heat_level": "小火"
+        },
+        {
+          "step_number": 4,
+          "instruction": "开盖中火收汁 3 分钟，检查主料熟透后关火。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_9adf3a818eb5",
+      "name": "红烧猪蹄",
+      "default_servings": 4,
+      "estimated_time_minutes": 110,
+      "difficulty": "中等",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的红烧猪蹄。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/meat_dish/红烧猪蹄/红烧猪蹄.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/meat_dish/红烧猪蹄/红烧猪蹄.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "猪蹄",
+          "amount": "1000 克"
+        },
+        {
+          "name": "姜",
+          "amount": "20 克"
+        },
+        {
+          "name": "葱",
+          "amount": "30 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "料酒",
+          "amount": "12 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "老抽",
+          "amount": "5 毫升"
+        },
+        {
+          "name": "白糖",
+          "amount": "5 克"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "清水",
+          "amount": "500 毫升"
+        },
+        {
+          "name": "冰糖",
+          "amount": "25 克"
+        },
+        {
+          "name": "八角",
+          "amount": "2 个"
+        },
+        {
+          "name": "香叶",
+          "amount": "2 片"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好猪蹄、姜、葱；肉类或水产用厨房纸擦干，处理后清洗双手、刀具和砧板。",
+          "safety_note": "生肉和水产不要在水槽中冲洗，处理后清洁接触面。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "炒锅加入 15 毫升食用油，中火放入姜、葱、猪蹄翻炒 5 分钟，直到表面全部变色。",
+          "duration_seconds": 300,
+          "heat_level": "中火"
+        },
+        {
+          "step_number": 3,
+          "instruction": "加入料酒、生抽、老抽、白糖、盐、冰糖、八角、香叶和 500 毫升清水，烧开后盖盖小火焖 75 分钟。",
+          "duration_seconds": 4500,
+          "heat_level": "小火"
+        },
+        {
+          "step_number": 4,
+          "instruction": "开盖中火收汁 3 分钟，检查主料熟透后关火。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_52b51631256e",
+      "name": "新疆大盘鸡",
+      "default_servings": 4,
+      "estimated_time_minutes": 70,
+      "difficulty": "中等",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的新疆大盘鸡。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/meat_dish/新疆大盘鸡/新疆大盘鸡.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/meat_dish/新疆大盘鸡/新疆大盘鸡.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "鸡肉",
+          "amount": "1000 克"
+        },
+        {
+          "name": "土豆",
+          "amount": "500 克"
+        },
+        {
+          "name": "青椒",
+          "amount": "200 克"
+        },
+        {
+          "name": "洋葱",
+          "amount": "200 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "料酒",
+          "amount": "12 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "老抽",
+          "amount": "5 毫升"
+        },
+        {
+          "name": "白糖",
+          "amount": "5 克"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "清水",
+          "amount": "500 毫升"
+        },
+        {
+          "name": "豆瓣酱",
+          "amount": "25 克"
+        },
+        {
+          "name": "干辣椒",
+          "amount": "12 克"
+        },
+        {
+          "name": "八角",
+          "amount": "2 个"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好鸡肉、土豆、青椒、洋葱；肉类或水产用厨房纸擦干，处理后清洗双手、刀具和砧板。",
+          "safety_note": "生肉和水产不要在水槽中冲洗，处理后清洁接触面。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "炒锅加入 15 毫升食用油，中火放入鸡肉翻炒 5 分钟，直到表面全部变色。",
+          "duration_seconds": 300,
+          "heat_level": "中火"
+        },
+        {
+          "step_number": 3,
+          "instruction": "加入料酒、生抽、老抽、白糖、盐、豆瓣酱、干辣椒、八角和 500 毫升清水，烧开后盖盖小火焖 50 分钟。",
+          "duration_seconds": 3000,
+          "heat_level": "小火"
+        },
+        {
+          "step_number": 4,
+          "instruction": "加入土豆、青椒、洋葱，继续小火焖 12 分钟。",
+          "duration_seconds": 720,
+          "heat_level": "小火"
+        },
+        {
+          "step_number": 5,
+          "instruction": "开盖中火收汁 3 分钟，检查主料熟透后关火。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_a21c80058c2d",
+      "name": "口水鸡",
+      "default_servings": 3,
+      "estimated_time_minutes": 45,
+      "difficulty": "中等",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的口水鸡。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/meat_dish/口水鸡/口水鸡.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/meat_dish/口水鸡/口水鸡.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "鸡腿",
+          "amount": "700 克"
+        },
+        {
+          "name": "黄瓜",
+          "amount": "200 克"
+        },
+        {
+          "name": "葱",
+          "amount": "20 克"
+        },
+        {
+          "name": "姜",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "清水",
+          "amount": "1500 毫升"
+        },
+        {
+          "name": "辣椒油",
+          "amount": "30 毫升"
+        },
+        {
+          "name": "花椒粉",
+          "amount": "3 克"
+        },
+        {
+          "name": "香醋",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "香油",
+          "amount": "5 毫升"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好鸡腿、黄瓜、葱、姜；肉类或水产用厨房纸擦干，处理后清洗双手、刀具和砧板。",
+          "safety_note": "生肉和水产不要在水槽中冲洗，处理后清洁接触面。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "汤锅加入 1500 毫升清水、葱和姜，大火烧开后放入鸡腿，转小火煮 25 分钟。",
+          "duration_seconds": 1500,
+          "heat_level": "小火"
+        },
+        {
+          "step_number": 3,
+          "instruction": "关火焖 5 分钟；切开鸡腿最厚处，确认没有粉红色且汁液清澈后捞出放凉。",
+          "duration_seconds": 300,
+          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+        },
+        {
+          "step_number": 4,
+          "instruction": "黄瓜切片铺盘，鸡腿肉切块放在黄瓜上。"
+        },
+        {
+          "step_number": 5,
+          "instruction": "将生抽、盐、辣椒油、花椒粉、香醋和香油调匀，淋在鸡肉上。"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_dde6ab027b97",
+      "name": "蚂蚁上树",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "中等",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的蚂蚁上树。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/meat_dish/蚂蚁上树.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/meat_dish/蚂蚁上树.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "粉丝",
+          "amount": "180 克"
+        },
+        {
+          "name": "猪肉末",
+          "amount": "150 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "姜",
+          "amount": "5 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "料酒",
+          "amount": "12 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "老抽",
+          "amount": "5 毫升"
+        },
+        {
+          "name": "白糖",
+          "amount": "5 克"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "清水",
+          "amount": "500 毫升"
+        },
+        {
+          "name": "豆瓣酱",
+          "amount": "15 克"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好粉丝、猪肉末、葱、姜；肉类或水产用厨房纸擦干，处理后清洗双手、刀具和砧板。",
+          "safety_note": "生肉和水产不要在水槽中冲洗，处理后清洁接触面。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "炒锅加入 15 毫升食用油，中火放入葱、姜、猪肉末翻炒 5 分钟，直到表面全部变色。",
+          "duration_seconds": 300,
+          "heat_level": "中火"
+        },
+        {
+          "step_number": 3,
+          "instruction": "加入料酒、生抽、老抽、白糖、盐、豆瓣酱和 500 毫升清水，烧开后盖盖小火焖 8 分钟。",
+          "duration_seconds": 480,
+          "heat_level": "小火"
+        },
+        {
+          "step_number": 4,
+          "instruction": "加入粉丝，继续小火焖 5 分钟。",
+          "duration_seconds": 300,
+          "heat_level": "小火"
+        },
+        {
+          "step_number": 5,
+          "instruction": "开盖中火收汁 3 分钟，检查主料熟透后关火。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+        }
+      ]
+    }
+  ]
+}

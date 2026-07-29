@@ -3,6 +3,10 @@ from __future__ import annotations
 from typing import Any
 
 from .conversation_intents import is_recipe_confirmation
+from .ingredient_answers import (
+    answer_ingredient_list,
+    candidate_ingredient_lists,
+)
 from .request_parser import apply_updates, parse_updates, select_candidate
 from .response_builder import feedback
 from .session_presenter import candidate_display
@@ -17,8 +21,10 @@ def search_recipes(session: Any) -> dict[str, Any]:
         bool(getattr(session.provider, "supports_ai", False))
         or session._provider_mode() == "ai_generated"
     )
+    local_probe = getattr(session.provider, "has_local_match", None)
+    local_available = bool(callable(local_probe) and local_probe(session.request))
     progress_emitted = False
-    if configured_ai:
+    if configured_ai and not local_available:
         progress_emitted = session._emit_progress(feedback(
             "请稍后，正在为你查找菜谱。",
             "请稍后，正在为你查找菜谱",
@@ -26,7 +32,12 @@ def search_recipes(session: Any) -> dict[str, Any]:
         ))
     try:
         session.recipe_candidates = session._active_provider.search_recipes(session.request)
-    except Exception:
+    except Exception as exc:
+        # Keep secrets and provider response bodies out of logs, but expose
+        # the safe exception chain so timeout, invalid JSON and validation
+        # failures no longer all look like an unconfigured AI service.
+        safe_error = session._safe_detail_error(exc)
+        print(f"[厨房助手-菜谱生成失败] {safe_error}")
         if session.request.bypass_cache:
             session.recipe_candidates = []
         else:
@@ -46,7 +57,14 @@ def search_recipes(session: Any) -> dict[str, Any]:
 
     session.state = PRESENTING_CANDIDATES
     actual_mode = session._provider_mode()
-    if actual_mode == "local_cache":
+    used_local_first = bool(getattr(session.provider, "used_local_first", False))
+    if used_local_first:
+        searching = feedback(
+            "本地有匹配菜谱，我会优先使用本地版本。",
+            "已优先使用本地菜谱",
+            robot_action="nod", led_effect="green_dynamic", expression="happy",
+        )
+    elif actual_mode == "local_cache":
         searching = feedback(
             "我找到了几个菜谱。", "已找到菜谱",
             robot_action="nod", led_effect="green_dynamic", expression="happy",
@@ -84,21 +102,35 @@ def search_recipes(session: Any) -> dict[str, Any]:
             provider_mode=actual_mode,
         )
 
+    ingredient_lists = candidate_ingredient_lists(session)
     count = len(session.recipe_candidates)
     if count == 1:
+        ingredients = ingredient_lists.get(session.recipe_candidates[0].candidate_id)
         generated_speech = (
-            "嘿嘿，我生成了一份完整菜谱，直接说“好”或“开始吧”就可以。"
+            "嘿嘿，我找到了一份完整菜谱。"
             if actual_mode == "ai_generated"
-            else "我找到了一份菜谱，直接说“好”或“开始吧”就可以。"
+            else "我找到了一份菜谱。"
         )
+        if ingredients:
+            generated_speech += f"需要准备：{ingredients}。"
+        generated_speech += "直接说“好”或“开始吧”就可以。"
     else:
-        generated_speech = "我列出了几个建议，有想吃的吗？你可以说第一个、第二个或者直接说菜名。"
+        spoken_lists = [
+            f"第{index}个{candidate.title}需要：{ingredient_lists[candidate.candidate_id]}"
+            for index, candidate in enumerate(session.recipe_candidates, start=1)
+            if candidate.candidate_id in ingredient_lists
+        ]
+        generated_speech = "我列出了几个建议。"
+        if spoken_lists:
+            generated_speech += "；".join(spoken_lists) + "。"
+        generated_speech += "你可以说第一个、第二个或者直接说菜名。"
     candidate_feedback = feedback(
         generated_speech,
         candidate_display(
             session.recipe_candidates,
             provider_mode=actual_mode,
             inventory_known=bool(session.request.available_ingredients),
+            ingredient_lists=ingredient_lists,
         ),
         robot_action="nod", led_effect="green_dynamic", expression="happy",
     )
@@ -124,6 +156,11 @@ def search_recipes(session: Any) -> dict[str, Any]:
 
 
 def present_candidates(session: Any, text: str) -> dict[str, Any]:
+    ingredient_answer = answer_ingredient_list(
+        session, text, state=PRESENTING_CANDIDATES
+    )
+    if ingredient_answer:
+        return ingredient_answer
     updates = parse_updates(text)
     if updates.bypass_cache:
         if not getattr(session.provider, "supports_ai", False):
@@ -230,10 +267,13 @@ def selected_summary(session: Any) -> dict[str, Any]:
         else "食材库存：未提供，确认后给你完整用量清单"
     )
     seasonings = "、".join(candidate.main_seasonings) or "未单列"
+    ingredient_lists = candidate_ingredient_lists(session)
+    all_ingredients = ingredient_lists.get(candidate.candidate_id)
+    ingredient_line = f"\n完整食材：{all_ingredients}" if all_ingredients else ""
     display = (
         f"{candidate.title}\n{source}\n{candidate.estimated_minutes or '未知'} 分钟｜{candidate.difficulty}"
         f"\n主要食材：{'、'.join(candidate.main_ingredients)}"
-        f"\n主要调味料：{seasonings}\n{inventory}"
+        f"\n主要调味料：{seasonings}{ingredient_line}\n{inventory}"
     )
     question = (
         "这是我根据你的需求生成的菜谱，要按照这个开始吗？"
@@ -243,6 +283,8 @@ def selected_summary(session: Any) -> dict[str, Any]:
             f"{candidate.estimated_minutes or '未知'}分钟，难度{candidate.difficulty}。要按照这个菜谱开始吗？"
         )
     )
+    if all_ingredients:
+        question = f"完整食材是：{all_ingredients}。{question}"
     return session._result(
         WAITING_RECIPE_CONFIRMATION,
         True,

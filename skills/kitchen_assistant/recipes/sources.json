@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "sources": {
+    "howtocook": {
+      "name": "HowToCook",
+      "repository": "https://github.com/Anduin2017/HowToCook",
+      "revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "license": "Unlicense",
+      "license_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/LICENSE",
+      "imported_on": "2026-07-27",
+      "method": "从固定提交中人工选择并校订，不在运行时抓取网络数据。",
+      "transformations": [
+        "把所有模糊用量改为可缩放的克、毫升或明确个数。",
+        "按家常烹饪场景下调部分原菜谱的盐、糖和油量。",
+        "移除清洗生肉的指令，改为厨房纸擦干或直接焯水。",
+        "补充火力、时间、熟度判断和热油刀具安全提示。",
+        "不逐字复制原文，步骤均按本项目数据结构重新表述。"
+      ]
+    }
+  }
+}

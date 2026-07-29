@@ -375,7 +375,7 @@ class KitchenSession:
         """保留错误类型链，但不输出请求、密钥或服务端响应正文。"""
         safe_names = {
             "AIRecipeProviderError",
-            "DoubaoClientError",
+            "QwenClientError",
             "RecipeNormalizationError",
             "ValueError",
             "TypeError",

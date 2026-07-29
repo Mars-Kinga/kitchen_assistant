@@ -9,27 +9,18 @@
 
 未提供前，`OnlineRecipeSearchProvider` 不会联网，默认使用 `MockRecipeSearchProvider`。
 
-## 已确认的豆包 Chat Completions
+## 已确认的千问 Chat Completions
 
-本项目已按确认信息接入普通 Chat Completions：Python SDK 为 `openai`，Base URL 为 `https://ark.cn-beijing.volces.com/api/v3`，默认模型为 `doubao-seed-2-0-mini-260428`，Key 只从 `ARK_API_KEY` 环境变量读取。可选覆盖变量是 `DOUBAO_BASE_URL` 与 `DOUBAO_MODEL`。
+本项目通过 `openai` Python SDK 接入用户提供的阿里云百炼工作空间地址。Key 只从 `DASHSCOPE_API_KEY` 读取，文字默认使用 `qwen3-omni-flash`，视觉默认使用 `qwen3-vl-flash`。两个模型均关闭深度思考；文字模型按 Omni 契约使用流式输出。
 
-这项能力只用于 AI 生成候选菜谱、结构化菜谱和规则未覆盖的普通问答；它不是网页搜索，也不自动拥有联网、浏览、Managed Agent 或工具调用能力。Key 不得提交或发送到聊天；项目不会自动读取 `.env` 文件。
+这项能力用于 AI 候选菜谱、结构化菜谱、规则未覆盖的普通问答和 Mac 摄像头食材识别。它不是网页搜索。Key 不得提交或发送到聊天；项目不会自动读取 `.env` 文件。
 
-## 豆包联网搜索的已知入口与仍缺资料
+## 千问联网搜索仍缺资料
 
-火山方舟官方文档目录已列出 Responses API、Web Search、Function Calling 和 Managed Agents。因此更合适的后续路线是：保留当前 Chat Completions 生成能力，并在 `OnlineRecipeSearchProvider` 内新增独立的 Responses Web Search 适配器，而不是让状态机抓网页。
+真正实施联网菜谱搜索前仍需确认：
 
-官方入口：
-
-- [火山方舟文档目录](https://www.volcengine.com/docs/82379/?lang=zh)
-- [Web Search](https://docs.volcengine.com/docs/82379/1756990?lang=zh)
-- [Responses API 工具调用](https://docs.volcengine.com/docs/82379/1958524?lang=zh)
-
-真正实施前仍需在用户自己的火山方舟控制台确认并提供：
-
-- 当前账号/地域是否已开通 Web Search 组件，以及是否需要单独计费或授权
-- `doubao-seed-2-0-mini-260428` 是否支持 Responses API 的 Web Search；若不支持，允许使用的模型或 Endpoint ID
-- 控制台官方示例的一份脱敏请求与响应，尤其是工具名称、引用 URL、标题和摘要字段
+- 当前百炼工作空间是否开通搜索组件，以及是否需要单独计费或授权
+- 所选文字模型是否支持搜索工具及其真实请求/响应结构
 - 搜索条数、超时、限流、内容过滤、来源展示和缓存期限要求
 - 是否接受把“AI 生成”和“真实搜索”作为两个可切换模式；建议默认仍为当前 `ai_generated`/`mock`
 

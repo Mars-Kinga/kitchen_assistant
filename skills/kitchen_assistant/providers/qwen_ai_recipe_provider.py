@@ -2,13 +2,19 @@ from __future__ import annotations
 
 import re
 import threading
+import time
 from copy import deepcopy
 from pathlib import Path
 from typing import Any
 
 from kitchen.dietary_rules import ingredient_conflicts
 from kitchen.dish_profiles import matching_profiles
-from kitchen.ingredient_vocabulary import ingredient_present, split_main_foods_and_seasonings
+from kitchen.ingredient_vocabulary import (
+    INGREDIENT_GROUPS,
+    ingredient_matches,
+    ingredient_present,
+    split_main_foods_and_seasonings,
+)
 from kitchen.models import RecipeCandidate, RecipeSearchRequest
 from kitchen.recipe_contract import (
     candidate_limit,
@@ -18,30 +24,46 @@ from kitchen.recipe_contract import (
     validate_text as _text,
 )
 from kitchen.recipe_normalizer import RecipeNormalizer
-from llm.doubao_client import DoubaoClientError, DoubaoLLMClient
-from llm.prompts import recipe_bundle_messages
+from llm.qwen_client import QwenClientError, QwenJSONOutputError, QwenLLMClient
+from llm.prompts import recipe_bundle_messages, recipe_correction_messages
 
 
 class AIRecipeProviderError(RuntimeError):
     pass
 
 
-class DoubaoAIRecipeProvider:
-    """Generate recipes with Doubao Chat Completions, never web search."""
+# Keep enough headroom for one complete 6–10 step JSON recipe. The prompt asks
+# for concise fields, so this is a ceiling rather than a target; lowering it to
+# 2600 caused some valid long recipes to be cut off mid-JSON.
+RECIPE_BUNDLE_MAX_TOKENS = 3600
+MAX_CORRECTION_TIMEOUT_SECONDS = 8.0
+MIN_CORRECTION_BUDGET_SECONDS = 2.0
+
+
+class QwenAIRecipeProvider:
+    """Generate recipes with Qwen Chat Completions, never web search."""
 
     supports_ai = True
 
-    def __init__(self, llm_client: DoubaoLLMClient, fallback: Any) -> None:
+    def __init__(
+        self,
+        llm_client: QwenLLMClient,
+        fallback: Any,
+        *,
+        clock: Any = time.monotonic,
+    ) -> None:
         self.llm_client = llm_client
         self.fallback = fallback
         self._detail_cache: dict[str, dict[str, Any]] = {}
         self._local_candidate_ids: set[str] = set()
         self._mode = "ai_generated"
+        self.used_local_first = False
         self.last_cache_path: Path | None = None
         self.last_cache_paths: list[Path] = []
         self.last_cache_candidate_count = 0
         self._last_cached_candidate_ids: set[str] = set()
         self._cache_lock = threading.Lock()
+        self._clock = clock
 
     @property
     def mode(self) -> str:
@@ -52,50 +74,104 @@ class DoubaoAIRecipeProvider:
         self.last_cache_paths = []
         self.last_cache_candidate_count = 0
         self._last_cached_candidate_ids = set()
+        self.used_local_first = False
         request_payload = _request_payload(request)
         limit = candidate_limit(request_payload)
-        cached_search = getattr(self.fallback, "search_cached_recipes", None)
-        if not request.bypass_cache and callable(cached_search):
-            cached = cached_search(request)
-            if cached:
-                self._mode = "local_cache"
-                selected = cached[:limit]
-                self._local_candidate_ids.update(candidate.candidate_id for candidate in selected)
-                return selected
+        local_search = getattr(self.fallback, "search_recipes", None)
+        if callable(local_search):
+            local = local_search(request)
+            if local:
+                # The fixed catalog and validated generated cache are both
+                # authoritative local sources. Never spend a cloud request
+                # merely to replace or pad an existing local result.
+                self._mode = (
+                    "local_cache"
+                    if all(candidate.source_name == "已保存菜谱" for candidate in local)
+                    else "mock"
+                )
+                self.used_local_first = True
+                self._local_candidate_ids.update(candidate.candidate_id for candidate in local)
+                return local
         self._mode = "ai_generated"
         if not self.llm_client.is_available():
-            raise AIRecipeProviderError("豆包未配置")
+            raise AIRecipeProviderError("千问未配置")
+        started_at = self._clock()
         try:
-            payload = self.llm_client.generate_json(recipe_bundle_messages(request_payload))
-            rows = payload.get("candidates")
-            if not isinstance(rows, list) or not rows:
-                raise AIRecipeProviderError("候选菜谱为空")
-            prepared: list[tuple[RecipeCandidate, dict[str, Any]]] = []
-            for index, row in enumerate(rows[:limit], start=1):
-                try:
-                    candidate = _candidate_from_row(row, index, request)
-                    raw = _detail_from_bundled_row(row, candidate, request)
-                except (ValueError, TypeError):
-                    # Never expose a candidate whose full detail is missing or
-                    # invalid. Other valid rows from the same response remain
-                    # usable.
-                    continue
-                prepared.append((candidate, raw))
+            payload: dict[str, Any] | None = None
+            try:
+                payload = self.llm_client.generate_json(
+                    recipe_bundle_messages(request_payload),
+                    max_tokens=RECIPE_BUNDLE_MAX_TOKENS,
+                    timeout=self._total_budget_seconds(),
+                )
+                prepared = _prepare_bundle_payload(payload, request, limit)
+            except QwenJSONOutputError as exc:
+                prepared = self._correct_bundle_once(
+                    request_payload,
+                    request,
+                    limit,
+                    invalid_output=exc.raw_content,
+                    original_error=exc,
+                    started_at=started_at,
+                )
+            except (ValueError, TypeError, AIRecipeProviderError) as exc:
+                if not _is_correctable_recipe_error(exc):
+                    raise
+                prepared = self._correct_bundle_once(
+                    request_payload,
+                    request,
+                    limit,
+                    invalid_output=payload or {},
+                    original_error=exc,
+                    started_at=started_at,
+                )
             candidates = [candidate for candidate, _ in prepared]
-            if not candidates:
-                raise AIRecipeProviderError("没有同时包含有效详情的候选菜谱")
-            if request.requested_dish and request.requested_dish not in candidates[0].title:
-                raise AIRecipeProviderError("第一个候选没有保留用户指定菜名")
             for candidate, raw in prepared:
                 self._detail_cache[candidate.candidate_id] = deepcopy(raw)
                 self._save_normalized_cache(raw, candidate, request)
             return candidates
-        except (DoubaoClientError, ValueError, TypeError, AIRecipeProviderError) as exc:
-            raise AIRecipeProviderError("豆包候选菜谱生成失败") from exc
+        except (QwenClientError, ValueError, TypeError, AIRecipeProviderError) as exc:
+            raise AIRecipeProviderError("千问候选菜谱生成失败") from exc
+
+    def _correct_bundle_once(
+        self,
+        request_payload: dict[str, Any],
+        request: RecipeSearchRequest,
+        limit: int,
+        *,
+        invalid_output: Any,
+        original_error: Exception,
+        started_at: float,
+    ) -> list[tuple[RecipeCandidate, dict[str, Any]]]:
+        remaining = self._total_budget_seconds() - (self._clock() - started_at)
+        if remaining < MIN_CORRECTION_BUDGET_SECONDS:
+            raise original_error
+        timeout = min(MAX_CORRECTION_TIMEOUT_SECONDS, remaining)
+        issue = _validation_issue(original_error)
+        print(f"[厨房助手-菜谱纠错] 首次结果未通过：{issue['code']}，尝试定向修正一次")
+        try:
+            corrected = self.llm_client.generate_json(
+                recipe_correction_messages(request_payload, invalid_output, issue),
+                max_tokens=RECIPE_BUNDLE_MAX_TOKENS,
+                timeout=timeout,
+            )
+            prepared = _prepare_bundle_payload(corrected, request, limit)
+        except (QwenClientError, ValueError, TypeError, AIRecipeProviderError) as exc:
+            print(f"[厨房助手-菜谱纠错] 修正失败：{_validation_issue(exc)['code']}")
+            raise AIRecipeProviderError("千问菜谱定向纠错失败") from exc
+        print("[厨房助手-菜谱纠错] 修正结果校验通过")
+        return prepared
+
+    def _total_budget_seconds(self) -> float:
+        return max(float(getattr(self.llm_client, "timeout", 25.0)), 0.1)
+
+    def has_local_match(self, request: RecipeSearchRequest) -> bool:
+        """Allow the session to avoid showing cloud-generation progress."""
+        local_search = getattr(self.fallback, "search_recipes", None)
+        return bool(callable(local_search) and local_search(request))
 
     def get_recipe_detail(self, candidate: RecipeCandidate) -> dict[str, Any]:
         if candidate.candidate_id in self._local_candidate_ids:
-            self._mode = "local_cache"
             return self.fallback.get_recipe_detail(candidate)
         cached_detail = self._detail_cache.get(candidate.candidate_id)
         if cached_detail is not None:
@@ -131,6 +207,107 @@ class DoubaoAIRecipeProvider:
             return
 
 
+def _prepare_bundle_payload(
+    payload: dict[str, Any],
+    request: RecipeSearchRequest,
+    limit: int,
+) -> list[tuple[RecipeCandidate, dict[str, Any]]]:
+    rows = payload.get("candidates")
+    if not isinstance(rows, list) or not rows:
+        raise AIRecipeProviderError("候选菜谱为空")
+    prepared: list[tuple[RecipeCandidate, dict[str, Any]]] = []
+    row_errors: list[Exception] = []
+    for index, row in enumerate(rows[:limit], start=1):
+        try:
+            candidate = _candidate_from_row(row, index, request)
+            raw = _detail_from_bundled_row(row, candidate, request)
+        except (ValueError, TypeError) as exc:
+            row_errors.append(exc)
+            continue
+        prepared.append((candidate, raw))
+    if len(prepared) != limit:
+        reason = str(row_errors[-1]) if row_errors else "候选数量不足"
+        error = AIRecipeProviderError(
+            f"需要{limit}个同时包含有效详情的候选菜谱：{reason}"
+        )
+        if row_errors:
+            raise error from row_errors[-1]
+        raise error
+    candidates = [candidate for candidate, _ in prepared]
+    if request.requested_dish and any(
+        request.requested_dish not in candidate.title for candidate in candidates
+    ):
+        raise AIRecipeProviderError("候选没有全部保留用户指定菜名")
+    return prepared
+
+
+def _exception_chain_text(exc: BaseException) -> str:
+    parts: list[str] = []
+    current: BaseException | None = exc
+    seen: set[int] = set()
+    while current is not None and id(current) not in seen:
+        seen.add(id(current))
+        message = str(current).strip()
+        if message:
+            parts.append(message)
+        current = current.__cause__
+    return " <- ".join(parts)
+
+
+def _is_correctable_recipe_error(exc: BaseException) -> bool:
+    """Retry only malformed structure/details, not transport or hard safety constraints."""
+    text = _exception_chain_text(exc)
+    correctable_markers = (
+        "候选菜谱为空",
+        "候选必须是对象",
+        "候选缺少完整recipe详情",
+        "候选与完整菜谱名称不一致",
+        "完整菜谱人数与请求不一致",
+        "候选食材与完整菜谱不一致",
+        "菜谱必须包含",
+        "食材无效",
+        "食材用量",
+        "食材必须给出明确用量",
+        "食材单位",
+        "optional",
+        "步骤说明无效",
+        "步骤用量必须明确",
+        "调料准备步骤",
+        "候选数量不足",
+    )
+    return any(marker in text for marker in correctable_markers)
+
+
+def _validation_issue(exc: BaseException) -> dict[str, str]:
+    text = _exception_chain_text(exc)
+    if isinstance(exc, QwenJSONOutputError):
+        return {
+            "code": "invalid_json",
+            "path": "$",
+            "message": "输出不是完整合法JSON，请重新生成完整对象",
+        }
+    code = "invalid_recipe"
+    path = "candidates[0].recipe"
+    if "步骤用量必须明确" in text:
+        code = "vague_step_quantity"
+        match = re.search(r"第(\d+)步", text)
+        if match:
+            path = f"candidates[0].recipe.steps[{int(match.group(1)) - 1}].instruction"
+    elif "食材必须给出明确用量" in text or "食材用量" in text:
+        code = "invalid_ingredient_amount"
+        path = "candidates[0].recipe.ingredients"
+    elif "optional" in text:
+        code = "missing_ingredient_optional"
+        path = "candidates[0].recipe.ingredients"
+    elif "候选缺少完整recipe详情" in text:
+        code = "missing_recipe"
+        path = "candidates[0].recipe"
+    elif "人数" in text:
+        code = "invalid_servings"
+        path = "candidates[0].recipe.servings"
+    return {"code": code, "path": path, "message": text[:300]}
+
+
 def _candidate_from_row(row: Any, index: int, request: RecipeSearchRequest) -> RecipeCandidate:
     if not isinstance(row, dict):
         raise ValueError("候选必须是对象")
@@ -156,7 +333,7 @@ def _candidate_from_row(row: Any, index: int, request: RecipeSearchRequest) -> R
     missing = _string_list(row.get("missing_ingredients")) if request.available_ingredients else []
     if ingredient_conflicts([*ingredients, *inferred_seasonings], request.dietary_restrictions):
         raise ValueError("候选违反忌口")
-    if request.requested_dish and index == 1 and request.requested_dish not in title:
+    if request.requested_dish and request.requested_dish not in title:
         raise ValueError("候选没有保留指定菜名")
     if _candidate_was_excluded(title, request.excluded_candidate_ids):
         raise ValueError("候选与用户要求排除的菜谱重复")
@@ -172,7 +349,7 @@ def _candidate_from_row(row: Any, index: int, request: RecipeSearchRequest) -> R
     return RecipeCandidate(
         candidate_id=candidate_id,
         title=title,
-        source_name="豆包 AI 生成",
+        source_name="千问 AI 生成",
         source_url=None,
         summary=summary,
         estimated_minutes=minutes,
@@ -192,6 +369,7 @@ def _detail_from_bundled_row(
     if not isinstance(row, dict) or not isinstance(row.get("recipe"), dict):
         raise ValueError("候选缺少完整recipe详情")
     raw = deepcopy(row["recipe"])
+    _normalize_safe_model_variations(raw, candidate, request)
     if str(raw.get("title") or "").strip() != candidate.title:
         raise ValueError("候选与完整菜谱名称不一致")
     if request.servings is not None and raw.get("servings") != request.servings:
@@ -210,10 +388,126 @@ def _detail_from_bundled_row(
     raw["recipe_id"] = candidate.candidate_id
     raw["name"] = candidate.title
     raw.pop("title", None)
-    raw["source_name"] = "豆包 AI 生成"
+    raw["source_name"] = "千问 AI 生成"
     raw["source_url"] = None
     raw["notes"] = _string_list(raw.pop("safety_notes", []))
     return raw
+
+
+def _normalize_safe_model_variations(
+    raw: dict[str, Any],
+    candidate: RecipeCandidate,
+    request: RecipeSearchRequest,
+) -> None:
+    """Repair harmless omissions without inventing cooking instructions."""
+    if not str(raw.get("title") or "").strip():
+        raw["title"] = candidate.title
+    if raw.get("servings") is None and request.servings is not None:
+        raw["servings"] = request.servings
+    elif isinstance(raw.get("servings"), str) and raw["servings"].strip().isdigit():
+        raw["servings"] = int(raw["servings"].strip())
+    if raw.get("estimated_minutes") is None:
+        raw["estimated_minutes"] = candidate.estimated_minutes
+    elif isinstance(raw.get("estimated_minutes"), float) and raw["estimated_minutes"].is_integer():
+        raw["estimated_minutes"] = int(raw["estimated_minutes"])
+    if raw.get("difficulty") is None:
+        raw["difficulty"] = candidate.difficulty
+    if raw.get("equipment") is None:
+        raw["equipment"] = []
+    if raw.get("safety_notes") is None:
+        raw["safety_notes"] = []
+    ingredients = raw.get("ingredients")
+    if isinstance(ingredients, list):
+        for item in ingredients:
+            if isinstance(item, dict) and "optional" not in item:
+                item["optional"] = False
+        _fill_step_quantities_from_ingredients(raw, ingredients)
+
+
+def _fill_step_quantities_from_ingredients(
+    raw: dict[str, Any],
+    ingredients: list[Any],
+) -> None:
+    """Replace vague step quantities with the recipe's declared quantities."""
+    aliases: dict[str, tuple[str, str]] = {}
+    ambiguous: set[str] = set()
+    for item in ingredients:
+        if not isinstance(item, dict):
+            continue
+        name = str(item.get("name") or "").strip()
+        amount = str(item.get("amount") or "").strip()
+        unit = str(item.get("unit") or "").strip()
+        if not name or not amount or not unit:
+            continue
+        labels = {name}
+        for prefix in ("食用", "白砂", "细砂"):
+            if name.startswith(prefix) and len(name) > len(prefix):
+                labels.add(name[len(prefix):])
+        for group in INGREDIENT_GROUPS:
+            if ingredient_matches(name, group):
+                labels.add(group)
+        if name == "清水":
+            labels.add("水")
+        if name.endswith("油") and len(name) > 1:
+            labels.add("油")
+        if name.endswith("粉") and name in {"椒盐粉", "白胡椒粉", "黑胡椒粉"}:
+            labels.add(name[:-1])
+        for label in labels:
+            value = (name, f"{amount}{unit}")
+            if label in aliases and aliases[label] != value:
+                ambiguous.add(label)
+            else:
+                aliases[label] = value
+    for label in ambiguous:
+        aliases.pop(label, None)
+
+    steps = raw.get("steps")
+    if not isinstance(steps, list):
+        return
+    vague = r"(?:适量|少量|少许)"
+    vague_action = (
+        r"(?:加入|添加|放入|撒入|撒上|倒入|淋入|刷上|涂上|裹上|使用|用)"
+    )
+    for step in steps:
+        if not isinstance(step, dict):
+            continue
+        instruction = str(step.get("instruction") or "")
+        # “少量多次/少许分次”描述的是分批操作，不是总用量。
+        instruction = re.sub(
+            r"(?:少量|少许)(?:地)?(?:多次|分次)",
+            "分批",
+            instruction,
+        )
+        for label in sorted(aliases, key=len, reverse=True):
+            canonical, quantity = aliases[label]
+            escaped = re.escape(label)
+            replacement = f"{quantity}{canonical}"
+            instruction = re.sub(
+                rf"{vague}(?:的)?(?P<action>{vague_action}){escaped}",
+                lambda match: f"{match.group('action')}{replacement}",
+                instruction,
+            )
+            instruction = re.sub(
+                rf"{vague}(?:的)?{escaped}",
+                replacement,
+                instruction,
+            )
+            instruction = re.sub(
+                rf"{escaped}(?:的)?(?:用量)?(?:为)?{vague}",
+                replacement,
+                instruction,
+            )
+            instruction = re.sub(
+                rf"按口味(?:调整|{vague_action})?{escaped}",
+                f"加入{replacement}",
+                instruction,
+            )
+            instruction = re.sub(
+                rf"{escaped}按口味(?:调整|增减|添加)?",
+                replacement,
+                instruction,
+            )
+        step["instruction"] = instruction
 
 
 def _ensure_inventory_ingredients(raw: Any, request: RecipeSearchRequest) -> None:

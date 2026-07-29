@@ -1,0 +1,8 @@
+-r requirements.txt
+
+# Optional voice input and TTS dependencies. Text-mode demos do not need these.
+numpy>=1.24,<3
+scipy>=1.10,<2
+sounddevice>=0.4.6,<1
+edge-tts>=6.1,<8
+pyttsx3>=2.90,<3

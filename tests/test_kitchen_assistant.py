@@ -23,7 +23,11 @@ from kitchen.ingredient_vocabulary import (  # noqa: E402
 from kitchen.models import CookingAnswer, CookingContext, RecipeCandidate, RecipeSearchRequest  # noqa: E402
 from kitchen.recipe_normalizer import RecipeNormalizationError, RecipeNormalizer  # noqa: E402
 from kitchen.response_phrases import (  # noqa: E402
-    FINISHED_RESPONSES, SINGLE_DINER_COMPANIONS, STEP_ENCOURAGEMENTS,
+    FINISHED_RESPONSES,
+    GRATITUDE_RESPONSES,
+    SINGLE_DINER_COMPANIONS,
+    STEP_ENCOURAGEMENTS,
+    WAITING_ACKNOWLEDGMENTS,
 )
 from kitchen.request_parser import parse_updates  # noqa: E402
 from kitchen.session_store import KitchenSession  # noqa: E402
@@ -270,7 +274,10 @@ def test_single_serving_gets_companion_feedback() -> None:
     session = make_session()
     session.handle("我想做番茄鸡蛋面")
     response = session.handle("1个人")
-    assert "一个人吃饭" in response["question"]
+    assert any(
+        response["question"].startswith(phrase)
+        for phrase in SINGLE_DINER_COMPANIONS
+    )
     assert response["led_effect"] == "warm_white"
     assert response["robot_action"] == "encourage_gesture"
 
@@ -289,7 +296,10 @@ def test_known_dish_requires_explicit_confirmation_before_cooking() -> None:
     assert_multimodal(cooking)
 
 
-@pytest.mark.parametrize("confirmation", ["好", "好的"])
+@pytest.mark.parametrize(
+    "confirmation",
+    ["好", "好的", "好的好的", "行行行", "可以呀可以呀", "那就开始吧"],
+)
 def test_natural_affirmation_confirms_recipe_without_redundant_prompt(confirmation: str) -> None:
     session = make_session()
     start_known_dish(session, "番茄炒蛋")
@@ -299,7 +309,10 @@ def test_natural_affirmation_confirms_recipe_without_redundant_prompt(confirmati
     assert "请明确说" not in str(response)
 
 
-@pytest.mark.parametrize("confirmation", ["好", "好的", "好呀", "可以", "开始吧"])
+@pytest.mark.parametrize(
+    "confirmation",
+    ["好", "好的", "好呀", "好的好的", "行行行", "可以", "开始吧"],
+)
 def test_single_candidate_accepts_natural_confirmation_without_ordinal(
     confirmation: str,
 ) -> None:
@@ -372,7 +385,7 @@ def test_bare_candidate_number_selects_the_requested_item() -> None:
     session.handle("我有鸡蛋、番茄和面条")
     response = session.handle("一个人，少盐")
     assert response["kitchen_state"] == PRESENTING_CANDIDATES
-    assert len(session.recipe_candidates) == 1
+    assert session.recipe_candidates
     response = session.handle("1")
     assert response["kitchen_state"] == WAITING_RECIPE_CONFIRMATION
     assert session.selected_candidate == session.recipe_candidates[0]
@@ -392,7 +405,7 @@ def test_offline_requested_dish_matches_exactly_or_returns_no_candidates() -> No
     assert [item["title"] for item in candidates["recipe_candidates"]] == ["红烧排骨"]
 
     session = make_session()
-    response = start_known_dish(session, "鱼香肉丝")
+    response = start_known_dish(session, "松鼠鳜鱼")
     assert response["recipe_candidates"] == []
     assert "不会用无关菜谱替代" in response["steps"][-1]["speech"]
 
@@ -536,7 +549,7 @@ def test_plain_good_acknowledges_without_advancing_but_explicit_done_advances() 
     before = session.step_index
     thanks = session.handle("谢谢")
     assert session.step_index == before
-    assert any(marker in thanks["speech"] for marker in ("不客气", "不用谢"))
+    assert thanks["speech"] in GRATITUDE_RESPONSES
     assert thanks["led_effect"] == "warm_white"
 
 
@@ -592,6 +605,33 @@ def test_heat_step_announces_timer_and_starts_when_food_hits_pan() -> None:
     started = session.handle("鸡肉丁下锅了")
     assert "开始计时 2 分钟" in started["speech"]
     assert session.timer is not None
+
+
+def test_dry_fry_step_accepts_short_timer_request_and_blocks_early_next_step() -> None:
+    session = make_session(clock=lambda: 100.0)
+    session.current_recipe = RecipeNormalizer().normalize({
+        "name": "辣椒炒肉",
+        "ingredients": [{"name": "青椒", "amount": 110, "unit": "克"}],
+        "steps": [
+            {
+                "instruction": "炒锅不放油，中火把青椒干煸 2 分钟至表面微皱后盛出",
+                "duration_seconds": 120,
+            },
+            {"instruction": "关火装盘"},
+        ],
+    })
+    session.state = COOKING
+
+    prompt = session.handle("再说一遍")
+    assert "准备计时 2 分钟" in prompt["speech"]
+
+    started = session.handle("计时吧")
+    assert "开始计时 2 分钟" in started["speech"]
+    assert session.timer is not None
+
+    blocked = session.handle("下一步")
+    assert "确定要结束计时并前往下一步吗" in blocked["speech"]
+    assert session.step_index == 0
 
 
 def test_timed_step_cannot_be_skipped_before_timer_starts() -> None:
@@ -723,6 +763,81 @@ def test_selected_candidate_displays_main_seasonings() -> None:
     selected = session.handle("第一个")
     assert "主要食材：番茄、鸡蛋、面条" in selected["display"]
     assert "主要调味料：盐" in selected["display"]
+    assert "完整食材：" in selected["display"]
+    assert "番茄 1 个" in selected["display"]
+
+
+def test_recipe_offer_lists_every_ingredient_with_amounts() -> None:
+    session = make_session()
+    candidates = start_known_dish(session)
+
+    combined_display = "\n".join(item["display"] for item in items(candidates))
+    assert "食材：" in combined_display
+    assert "番茄 1 个" in combined_display
+    assert "鸡蛋 1 个" in combined_display
+    assert "面条 1 把" in combined_display
+    assert "盐" in combined_display
+
+
+def test_ingredient_question_interrupts_thaw_prompt_and_keeps_state() -> None:
+    now = [100.0]
+    fallback = MockRecipeSearchProvider(SKILL_ROOT / "recipes")
+
+    class MeatProvider:
+        mode = "mock"
+
+        def __init__(self) -> None:
+            self.fallback = fallback
+
+        def search_recipes(self, request: RecipeSearchRequest):
+            return [RecipeCandidate(
+                candidate_id="ingredient-list-meat",
+                title="葱香鸡",
+                source_name="本地测试",
+                source_url=None,
+                summary="测试菜谱",
+                estimated_minutes=15,
+                difficulty="简单",
+                main_ingredients=["鸡腿肉", "葱"],
+                main_seasonings=["盐"],
+                missing_ingredients=[],
+                match_reason="测试",
+            )]
+
+        def get_recipe_detail(self, candidate: RecipeCandidate):
+            return {
+                "recipe_id": candidate.candidate_id,
+                "name": "葱香鸡",
+                "servings": 1,
+                "ingredients": [
+                    {"name": "鸡腿肉", "amount": 200, "unit": "克"},
+                    {"name": "葱", "amount": 2, "unit": "根"},
+                    {"name": "盐", "amount": 2, "unit": "克"},
+                ],
+                "steps": [{"instruction": "鸡腿肉炒熟后加入葱和盐。"}],
+            }
+
+    session = make_session(clock=lambda: now[0], provider=MeatProvider())
+    session.handle("我要做葱香鸡")
+    session.handle("1人")
+    session.handle("正常")
+    thaw = session.handle("好")
+    assert thaw["kitchen_state"] == WAITING_MEAT_THAW
+
+    ingredients = session.handle("一共需要什么食材")
+    assert ingredients["kitchen_state"] == WAITING_MEAT_THAW
+    assert "鸡腿肉 200克" in ingredients["display"]
+    assert "葱 2根" in ingredients["display"]
+    assert "盐 2克" in ingredients["display"]
+
+    cooking = session.handle("新鲜食材")
+    assert cooking["kitchen_state"] == COOKING
+    current_step = session.step_index
+    repeated = session.handle("需要准备哪些材料")
+    assert repeated["kitchen_state"] == COOKING
+    assert repeated["current_step"] == current_step + 1
+    assert session.step_index == current_step
+    assert "鸡腿肉 200克" in repeated["speech"]
 
 
 def test_parallel_prep_is_confirmed_instead_of_repeated_later() -> None:
@@ -744,6 +859,52 @@ def test_parallel_prep_is_confirmed_instead_of_repeated_later() -> None:
     skipped = session.handle("对")
     assert skipped["current_step"] == 3
     assert "热锅后倒油" in "".join(item.get("speech", "") for item in items(skipped))
+
+
+def test_remaining_seasoning_is_prepared_during_marinade_timer() -> None:
+    session = make_session(clock=lambda: 100.0)
+    session.current_recipe = RecipeNormalizer().normalize({
+        "name": "胡萝卜炒鸡肉",
+        "ingredients": [
+            {"name": "鸡肉", "amount": 100, "unit": "克"},
+            {"name": "盐", "amount": 2, "unit": "克"},
+            {"name": "生抽", "amount": 15, "unit": "毫升"},
+        ],
+        "steps": [
+            {"instruction": "鸡肉加入1克盐抓匀后腌制10分钟", "duration_seconds": 600},
+            {"instruction": "取另一个小碗，倒入15毫升生抽和剩余1克盐，搅拌均匀"},
+            {"instruction": "热锅倒油，放入腌制好的鸡肉翻炒至完全变色"},
+        ],
+    })
+    session.state = COOKING
+
+    started = session.handle("开始计时")
+    speech = "".join(item.get("speech", "") for item in items(started))
+
+    assert "剩余1克盐" in speech
+    assert "等待期间可以先" in speech
+    assert session.parallel_offer_by_timer_step == {0: 1}
+
+
+def test_plating_only_step_never_inherits_timer_from_stir_fry_dish_name() -> None:
+    recipe = RecipeNormalizer().normalize({
+        "name": "胡萝卜炒鸡肉",
+        "ingredients": [{"name": "鸡肉", "amount": 100, "unit": "克"}],
+        "steps": [
+            {"instruction": "鸡肉下锅翻炒至完全变色", "duration_seconds": 120},
+            {
+                "instruction": "将炒好的胡萝卜炒鸡肉盛出装盘",
+                "duration_seconds": 120,
+                "heat_level": "中火",
+            },
+        ],
+    })
+
+    final_step = recipe["steps"][-1]
+    assert final_step["instruction"] == "将炒好的胡萝卜炒鸡肉盛出装盘"
+    assert final_step["duration_seconds"] is None
+    assert final_step["heat_level"] is None
+    assert final_step["safety_note"] is None
 
 
 def test_parallel_hint_skips_vague_bowl_placeholder_and_names_measured_seasonings() -> None:
@@ -1114,9 +1275,15 @@ def test_invalid_detail_never_substitutes_an_unrelated_fallback_recipe() -> None
 
 
 def test_user_language_catalogs_are_kept_out_of_session_logic() -> None:
-    assert len(SINGLE_DINER_COMPANIONS) == 6
-    assert len(STEP_ENCOURAGEMENTS) >= 27
-    assert len(FINISHED_RESPONSES) == 20
+    phrase_groups = (
+        SINGLE_DINER_COMPANIONS,
+        GRATITUDE_RESPONSES,
+        WAITING_ACKNOWLEDGMENTS,
+        STEP_ENCOURAGEMENTS,
+        FINISHED_RESPONSES,
+    )
+    assert all(len(group) == 30 for group in phrase_groups)
+    assert all(len(set(group)) == len(group) for group in phrase_groups)
     assert "哇！好香啊！{dish}大功告成！" in FINISHED_RESPONSES
     assert "今天这顿饭必须给自己点个赞！{dish}完成啦！" in FINISHED_RESPONSES
 
@@ -1291,7 +1458,7 @@ def test_thanks_can_route_to_kitchen_without_starting_a_new_session() -> None:
     response = manager.run_user_text("谢谢")
     assert response["selected_skill"] == "kitchen_assistant"
     assert response["session_active"] is False
-    assert any(marker in response["speech"] for marker in ("不客气", "不用谢"))
+    assert response["speech"] in GRATITUDE_RESPONSES
 
 
 def test_provider_is_offline_and_online_placeholder_falls_back_without_fake_source() -> None:
