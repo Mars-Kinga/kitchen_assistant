@@ -9,11 +9,11 @@ SKILL_ROOT = Path(__file__).resolve().parents[1]
 if str(SKILL_ROOT) not in sys.path:
     sys.path.insert(0, str(SKILL_ROOT))
 
-from kitchen.cooking_question_service import DoubaoCookingQuestionService, RuleBasedCookingQuestionService  # noqa: E402
+from kitchen.cooking_question_service import QwenCookingQuestionService, RuleBasedCookingQuestionService  # noqa: E402
 from kitchen.session_store import KitchenSession  # noqa: E402
-from llm.doubao_client import DoubaoLLMClient  # noqa: E402
-from providers.doubao_ai_recipe_provider import DoubaoAIRecipeProvider  # noqa: E402
+from llm.qwen_client import QwenLLMClient  # noqa: E402
 from providers.mock_recipe_provider import MockRecipeSearchProvider  # noqa: E402
+from providers.qwen_ai_recipe_provider import QwenAIRecipeProvider  # noqa: E402
 
 
 def _create_session() -> KitchenSession:
@@ -22,10 +22,10 @@ def _create_session() -> KitchenSession:
         SKILL_ROOT / "recipes",
         generated_dir=SKILL_ROOT / "recipes" / "generated",
     )
-    llm_client = DoubaoLLMClient()
+    llm_client = QwenLLMClient()
     if llm_client.is_available():
-        provider = DoubaoAIRecipeProvider(llm_client, fallback)
-        question_service = DoubaoCookingQuestionService(llm_client)
+        provider = QwenAIRecipeProvider(llm_client, fallback)
+        question_service = QwenCookingQuestionService(llm_client)
     else:
         provider = fallback
         question_service = RuleBasedCookingQuestionService()

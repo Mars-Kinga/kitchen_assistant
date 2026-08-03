@@ -109,8 +109,8 @@ class LLMCookingQuestionService:
         return self.fallback.answer(question, context)
 
 
-class DoubaoCookingQuestionService:
-    """Rules first; Doubao only answers ordinary questions that rules miss."""
+class QwenCookingQuestionService:
+    """Rules first; Qwen only answers ordinary questions that rules miss."""
 
     def __init__(self, llm_client: object, fallback: CookingQuestionService | None = None) -> None:
         self.llm_client = llm_client
@@ -125,16 +125,19 @@ class DoubaoCookingQuestionService:
         try:
             from llm.prompts import cooking_question_messages
 
-            content = self.llm_client.chat(cooking_question_messages(question, {
-                "recipe": context.recipe.get("name"),
-                "current_step": context.current_step,
-                "servings": context.servings,
-                "taste_preferences": context.taste_preferences,
-                "dietary_restrictions": context.dietary_restrictions,
-                "available_ingredients": context.available_ingredients,
-                "available_equipment": context.available_equipment,
-                "timer_remaining_seconds": context.timer_remaining_seconds,
-            }))
+            content = self.llm_client.chat(
+                cooking_question_messages(question, {
+                    "recipe": context.recipe.get("name"),
+                    "current_step": context.current_step,
+                    "servings": context.servings,
+                    "taste_preferences": context.taste_preferences,
+                    "dietary_restrictions": context.dietary_restrictions,
+                    "available_ingredients": context.available_ingredients,
+                    "available_equipment": context.available_equipment,
+                    "timer_remaining_seconds": context.timer_remaining_seconds,
+                }),
+                max_tokens=384,
+            )
             answer = str(content).strip()
             if not answer or len(answer) > 800:
                 raise ValueError("回复为空或过长")

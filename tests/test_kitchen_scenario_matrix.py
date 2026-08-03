@@ -79,7 +79,7 @@ class _FreshSearchSpy:
         return [RecipeCandidate(
             candidate_id=f"fresh-{len(self.requests)}",
             title="联网新菜谱",
-            source_name="豆包 AI 生成",
+            source_name="千问 AI 生成",
             source_url=None,
             summary="跳过已保存结果后的新候选",
             estimated_minutes=12,
@@ -226,7 +226,7 @@ def test_equipment_limits_are_parsed_as_available_choices() -> None:
 
 def test_ai_recipe_validation_keeps_equipment_constraints() -> None:
     from kitchen.models import RecipeSearchRequest
-    from providers.doubao_ai_recipe_provider import _ensure_equipment_constraints
+    from providers.qwen_ai_recipe_provider import _ensure_equipment_constraints
 
     request = RecipeSearchRequest(unavailable_equipment=["炒锅"], equipment_only=True, available_equipment=["电饭煲"])
     with pytest.raises(ValueError, match="厨具"):

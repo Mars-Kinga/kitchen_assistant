@@ -56,7 +56,17 @@ def reuses_waiting_step_ingredients(
     names = [str(name).strip() for name in ingredient_names if str(name).strip()]
     waiting_names = {name for name in names if name in waiting_step}
     candidate_names = {name for name in names if name in candidate}
-    return bool(candidate_names & waiting_names)
+    overlaps = candidate_names & waiting_names
+    if not overlaps:
+        return False
+    # “剩余1克盐” is a separately measured remainder, not a request to
+    # reuse seasoning that is already touching raw meat. It is safe to mix
+    # this during marination and avoids repeating the next preparation step.
+    explicitly_remaining = {
+        name for name in overlaps
+        if re.search(rf"(?:剩余|剩下|余下)[^，,。；;]{{0,12}}{re.escape(name)}", candidate)
+    }
+    return bool(overlaps - explicitly_remaining)
 
 
 def find_parallel_prep_candidate(

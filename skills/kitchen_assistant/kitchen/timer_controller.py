@@ -35,7 +35,10 @@ def step_timer_hint(step: dict) -> str | None:
     duration = format_seconds(int(seconds))
     if is_waiting_prep_instruction(instruction):
         return f"准备计时 {duration}；开始腌制/浸泡后说“开始了”或“给我计时”，我就开始计时。"
-    heat_actions = ("预热", "煮", "炖", "焖", "煎", "烤", "蒸", "炸", "焯", "炒", "收汁", "加热")
+    heat_actions = (
+        "预热", "煮", "炖", "焖", "煎", "烤", "蒸", "炸", "焯", "炒",
+        "煸", "收汁", "加热",
+    )
     if not any(word in instruction for word in heat_actions):
         return None
     return f"准备计时 {duration}；食材下锅后说“下锅了”或“开始”，我就开始计时。"

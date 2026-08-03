@@ -13,16 +13,35 @@ SKILL_ROOT = ROOT / "skills" / "kitchen_assistant"
 if str(SKILL_ROOT) not in sys.path:
     sys.path.insert(0, str(SKILL_ROOT))
 
-from kitchen.cooking_question_service import DoubaoCookingQuestionService  # noqa: E402
+from kitchen.cooking_question_service import QwenCookingQuestionService  # noqa: E402
 from kitchen.models import CookingContext, RecipeCandidate, RecipeSearchRequest  # noqa: E402
 from kitchen.session_store import KitchenSession  # noqa: E402
 from kitchen.states import COOKING, PRESENTING_CANDIDATES, WAITING_RECIPE_CONFIRMATION  # noqa: E402
-from llm.doubao_client import DoubaoClientError, DoubaoLLMClient, parse_json_response  # noqa: E402
-from llm.config import DEFAULT_MAX_RETRIES, DEFAULT_TIMEOUT_SECONDS, DoubaoConfig  # noqa: E402
+from llm.qwen_client import QwenClientError, QwenLLMClient, parse_json_response  # noqa: E402
+from llm.config import (
+    DEFAULT_MAX_RETRIES,
+    DEFAULT_TIMEOUT_SECONDS,
+    DEFAULT_VISION_TIMEOUT_SECONDS,
+    QwenConfig,
+)  # noqa: E402
 from llm.prompts import candidate_messages, recipe_bundle_messages, recipe_messages  # noqa: E402
-from providers.doubao_ai_recipe_provider import AIRecipeProviderError, DoubaoAIRecipeProvider  # noqa: E402
+from providers.qwen_ai_recipe_provider import AIRecipeProviderError, QwenAIRecipeProvider  # noqa: E402
 from providers.mock_recipe_provider import MockRecipeSearchProvider  # noqa: E402
 from runtime_core.executor import RuntimeExecutor  # noqa: E402
+
+
+class CloudOnlyMockRecipeSearchProvider(MockRecipeSearchProvider):
+    """Test fallback whose fixed catalog intentionally has no match."""
+
+    def search_recipes(self, request):
+        return []
+
+
+class GeneratedOnlyMockRecipeSearchProvider(MockRecipeSearchProvider):
+    """Test fallback that exposes only validated generated cache entries."""
+
+    def search_recipes(self, request):
+        return self.search_cached_recipes(request)
 
 
 class FakeCompletions:
@@ -35,6 +54,15 @@ class FakeCompletions:
         response = self.responses.pop(0)
         if isinstance(response, Exception):
             raise response
+        if kwargs.get("stream"):
+            if response == "empty_choices":
+                return iter([SimpleNamespace(choices=[])])
+            content = "" if response == "empty_content" else response
+            return iter([
+                SimpleNamespace(choices=[
+                    SimpleNamespace(delta=SimpleNamespace(content=content))
+                ])
+            ])
         if response == "empty_choices":
             return SimpleNamespace(choices=[])
         if response == "empty_content":
@@ -48,12 +76,13 @@ class FakeClient:
         self.chat = SimpleNamespace(completions=self.completions)
 
 
-def llm_with(monkeypatch: pytest.MonkeyPatch, responses: list[object]) -> tuple[DoubaoLLMClient, FakeClient]:
-    monkeypatch.setenv("ARK_API_KEY", "test-key-never-logged")
-    monkeypatch.setenv("DOUBAO_BASE_URL", "https://example.invalid/api/v3")
-    monkeypatch.setenv("DOUBAO_MODEL", "test-model")
+def llm_with(monkeypatch: pytest.MonkeyPatch, responses: list[object]) -> tuple[QwenLLMClient, FakeClient]:
+    monkeypatch.setenv("DASHSCOPE_API_KEY", "test-key-never-logged")
+    monkeypatch.setenv("QWEN_BASE_URL", "https://example.invalid/api/v3")
+    monkeypatch.setenv("QWEN_TEXT_MODEL", "test-text-model")
+    monkeypatch.setenv("QWEN_VISION_MODEL", "test-vision-model")
     fake = FakeClient(responses)
-    return DoubaoLLMClient(client=fake), fake
+    return QwenLLMClient(client=fake), fake
 
 
 def recipe_data(title: str = "AI 番茄鸡蛋面") -> dict:
@@ -67,13 +96,7 @@ def recipe_data(title: str = "AI 番茄鸡蛋面") -> dict:
 
 
 def candidate_payload() -> str:
-    return json.dumps({"candidates": [{
-        "title": "AI 番茄鸡蛋面", "summary": "利用番茄鸡蛋和面条的快手面。",
-        "estimated_minutes": 15, "difficulty": "简单",
-        "main_ingredients": ["番茄", "鸡蛋", "面条"], "missing_ingredients": [],
-        "match_reason": "能利用现有食材。",
-        "recipe": recipe_data(),
-    }]}, ensure_ascii=False)
+    return three_candidate_payload()
 
 
 def three_candidate_payload() -> str:
@@ -87,61 +110,100 @@ def three_candidate_payload() -> str:
     return json.dumps({"candidates": candidates}, ensure_ascii=False)
 
 
+def repeated_candidate_payload(candidate: dict, titles: tuple[str, str, str]) -> str:
+    rows = []
+    for title in titles:
+        row = json.loads(json.dumps(candidate, ensure_ascii=False))
+        row["title"] = title
+        row["recipe"]["title"] = title
+        rows.append(row)
+    return json.dumps({"candidates": rows}, ensure_ascii=False)
+
+
 def test_client_reads_only_environment_config_and_handles_text(monkeypatch: pytest.MonkeyPatch) -> None:
     llm, fake = llm_with(monkeypatch, ["普通回复"])
     assert llm.is_available()
     assert llm.base_url == "https://example.invalid/api/v3"
-    assert llm.model == "test-model"
+    assert llm.text_model == "test-text-model"
+    assert llm.vision_model == "test-vision-model"
     assert llm.chat([{"role": "user", "content": "你好"}]) == "普通回复"
-    assert fake.completions.calls[0]["model"] == "test-model"
+    call = fake.completions.calls[0]
+    assert call["model"] == "test-text-model"
+    assert call["stream"] is True
+    assert call["modalities"] == ["text"]
+    assert call["extra_body"] == {"enable_thinking": False}
     assert "test-key-never-logged" not in repr(llm.chat)
 
 
 def test_client_uses_short_interactive_timeout_and_allows_environment_override(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
-    monkeypatch.setenv("ARK_API_KEY", "test-key-never-logged")
-    monkeypatch.delenv("DOUBAO_TIMEOUT_SECONDS", raising=False)
-    monkeypatch.delenv("DOUBAO_MAX_RETRIES", raising=False)
-    default_client = DoubaoLLMClient(client=FakeClient(["ok"]))
-    assert default_client.timeout == DEFAULT_TIMEOUT_SECONDS == 90.0
+    monkeypatch.setenv("DASHSCOPE_API_KEY", "test-key-never-logged")
+    monkeypatch.delenv("QWEN_TIMEOUT_SECONDS", raising=False)
+    monkeypatch.delenv("QWEN_MAX_RETRIES", raising=False)
+    default_client = QwenLLMClient(client=FakeClient(["ok"]))
+    assert default_client.timeout == DEFAULT_TIMEOUT_SECONDS == 25.0
+    assert default_client.vision_timeout == DEFAULT_VISION_TIMEOUT_SECONDS == 20.0
     assert default_client.max_retries == DEFAULT_MAX_RETRIES == 0
 
-    monkeypatch.setenv("DOUBAO_TIMEOUT_SECONDS", "7.5")
-    monkeypatch.setenv("DOUBAO_MAX_RETRIES", "1")
-    overridden = DoubaoLLMClient(client=FakeClient(["ok"]))
+    monkeypatch.setenv("QWEN_TIMEOUT_SECONDS", "7.5")
+    monkeypatch.setenv("QWEN_MAX_RETRIES", "1")
+    overridden = QwenLLMClient(client=FakeClient(["ok"]))
     assert overridden.timeout == 7.5
     assert overridden.max_retries == 1
 
-    monkeypatch.setenv("DOUBAO_TIMEOUT_SECONDS", "invalid")
-    monkeypatch.setenv("DOUBAO_MAX_RETRIES", "-1")
-    fallback = DoubaoConfig.from_environment()
+    monkeypatch.setenv("QWEN_TIMEOUT_SECONDS", "invalid")
+    monkeypatch.setenv("QWEN_MAX_RETRIES", "-1")
+    fallback = QwenConfig.from_environment()
     assert fallback.timeout == DEFAULT_TIMEOUT_SECONDS
     assert fallback.max_retries == DEFAULT_MAX_RETRIES
 
 
 def test_client_unavailable_and_failures_are_safe(monkeypatch: pytest.MonkeyPatch) -> None:
-    monkeypatch.delenv("ARK_API_KEY", raising=False)
-    assert not DoubaoLLMClient(client=FakeClient([])).is_available()
-    with pytest.raises(DoubaoClientError):
-        DoubaoLLMClient(client=FakeClient([])).chat([{"role": "user", "content": "x"}])
+    monkeypatch.delenv("DASHSCOPE_API_KEY", raising=False)
+    assert not QwenLLMClient(client=FakeClient([])).is_available()
+    with pytest.raises(QwenClientError):
+        QwenLLMClient(client=FakeClient([])).chat([{"role": "user", "content": "x"}])
     llm, _ = llm_with(monkeypatch, [TimeoutError("timeout")])
-    with pytest.raises(DoubaoClientError):
+    with pytest.raises(QwenClientError):
         llm.chat([{"role": "user", "content": "x"}])
     for response in ("empty_choices", "empty_content"):
         llm, _ = llm_with(monkeypatch, [response])
-        with pytest.raises(DoubaoClientError):
+        with pytest.raises(QwenClientError):
             llm.chat([{"role": "user", "content": "x"}])
 
 
-def test_json_parser_accepts_code_fence_and_repairs_once(monkeypatch: pytest.MonkeyPatch) -> None:
+def test_json_parser_accepts_code_fence_and_fails_fast(monkeypatch: pytest.MonkeyPatch) -> None:
     assert parse_json_response("```json\n{\"ok\": true}\n```") == {"ok": True}
-    llm, fake = llm_with(monkeypatch, ["not json", "{\"fixed\": true}"])
-    assert llm.generate_json([{"role": "user", "content": "x"}]) == {"fixed": True}
-    assert len(fake.completions.calls) == 2
-    llm, _ = llm_with(monkeypatch, ["not json", "still not json"])
-    with pytest.raises(DoubaoClientError):
+    assert parse_json_response("结果如下：{\"ok\":true}\n谢谢") == {"ok": True}
+    llm, fake = llm_with(monkeypatch, ["not json"])
+    with pytest.raises(QwenClientError):
         llm.generate_json([{"role": "user", "content": "x"}])
+    assert len(fake.completions.calls) == 1
+    call = fake.completions.calls[0]
+    assert call["response_format"] == {"type": "json_object"}
+    assert call["extra_body"] == {"enable_thinking": False}
+
+
+def test_vision_request_disables_thinking_and_limits_output(monkeypatch: pytest.MonkeyPatch) -> None:
+    payload = json.dumps({
+        "answer": "更像小葱",
+        "candidates": ["小葱", "大葱"],
+        "confidence_level": "中",
+        "visual_evidence": ["叶片较细"],
+        "needs_retake": False,
+        "retake_instruction": None,
+    }, ensure_ascii=False)
+    llm, fake = llm_with(monkeypatch, [payload])
+
+    result = llm.vision_json("data:image/jpeg;base64,AA==", "识别食材")
+
+    assert result["answer"] == "更像小葱"
+    call = fake.completions.calls[0]
+    assert call["model"] == "test-vision-model"
+    assert call["stream"] is False
+    assert call["max_tokens"] == 384
+    assert call["extra_body"] == {"enable_thinking": False}
 
 
 def test_recipe_prompt_requires_serving_quantities_and_detailed_cooking_order() -> None:
@@ -155,11 +217,13 @@ def test_recipe_prompt_requires_serving_quantities_and_detailed_cooking_order() 
     assert "一次生成" in bundle_prompt
     assert "每个candidate都必须有recipe" in bundle_prompt
     assert "只生成1个完整候选" in bundle_prompt
+    assert "不生成同菜变体或额外候选" in bundle_prompt
+    assert "6至10步" in bundle_prompt
     assert "适量" in bundle_prompt
-    assert len(bundle_prompt) < 1450
+    assert len(bundle_prompt) < 1550
 
     pantry_prompt = recipe_bundle_messages({"available_ingredients": ["番茄", "鸡蛋"]})[0]["content"]
-    assert "生成1至3个不同候选" in pantry_prompt
+    assert "只生成1个完整候选" in pantry_prompt
 
 
 def test_prompts_compact_payload_and_only_add_relevant_dish_rules() -> None:
@@ -224,14 +288,139 @@ def test_steak_prompt_requires_complete_ingredients_and_avoids_generic_two_minut
 
 def test_ai_provider_generates_candidates_and_normalized_recipe(monkeypatch: pytest.MonkeyPatch) -> None:
     llm, fake = llm_with(monkeypatch, [candidate_payload()])
-    fallback = MockRecipeSearchProvider(SKILL_ROOT / "recipes")
-    provider = DoubaoAIRecipeProvider(llm, fallback)
+    fallback = CloudOnlyMockRecipeSearchProvider(SKILL_ROOT / "recipes")
+    provider = QwenAIRecipeProvider(llm, fallback)
     request = RecipeSearchRequest(available_ingredients=["番茄", "鸡蛋", "面条"], servings=1, taste_preferences=["少盐"])
     candidates = provider.search_recipes(request)
     assert len(candidates) == 1
-    assert candidates[0].source_name == "豆包 AI 生成"
-    assert provider.get_recipe_detail(candidates[0])["name"] == "AI 番茄鸡蛋面"
+    assert candidates[0].source_name == "千问 AI 生成"
+    assert provider.get_recipe_detail(candidates[0])["name"] == "番茄鸡蛋面"
     assert len(fake.completions.calls) == 1
+    call = fake.completions.calls[0]
+    assert call["max_completion_tokens"] == 3600
+    assert "max_tokens" not in call
+    assert call["response_format"] == {"type": "json_object"}
+
+
+def test_ai_provider_repairs_safe_recipe_field_omissions(monkeypatch: pytest.MonkeyPatch) -> None:
+    payload = json.loads(candidate_payload())
+    recipe = payload["candidates"][0]["recipe"]
+    recipe["servings"] = "1"
+    recipe.pop("equipment")
+    recipe.pop("safety_notes")
+    for ingredient in recipe["ingredients"]:
+        ingredient.pop("optional")
+    llm, _ = llm_with(monkeypatch, [json.dumps(payload, ensure_ascii=False)])
+    provider = QwenAIRecipeProvider(
+        llm,
+        CloudOnlyMockRecipeSearchProvider(SKILL_ROOT / "recipes"),
+    )
+
+    candidates = provider.search_recipes(RecipeSearchRequest(
+        requested_dish="番茄鸡蛋面",
+        servings=1,
+    ))
+    detail = provider.get_recipe_detail(candidates[0])
+
+    assert candidates
+    assert all(item["optional"] is False for item in detail["ingredients"])
+
+
+def test_ai_provider_fills_vague_step_quantity_from_exact_ingredient(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    payload = json.loads(candidate_payload())
+    recipe = payload["candidates"][0]["recipe"]
+    recipe["ingredients"].append({
+        "name": "食用盐",
+        "amount": 1,
+        "unit": "克",
+        "optional": False,
+    })
+    recipe["steps"][1]["instruction"] = "加入适量盐，继续煮至番茄变软。"
+    llm, _ = llm_with(monkeypatch, [json.dumps(payload, ensure_ascii=False)])
+    provider = QwenAIRecipeProvider(
+        llm,
+        CloudOnlyMockRecipeSearchProvider(SKILL_ROOT / "recipes"),
+    )
+
+    candidates = provider.search_recipes(RecipeSearchRequest(
+        requested_dish="番茄鸡蛋面",
+        servings=1,
+    ))
+    detail = provider.get_recipe_detail(candidates[0])
+
+    assert "加入1克食用盐" in detail["steps"][1]["instruction"]
+    assert "适量" not in detail["steps"][1]["instruction"]
+
+
+def test_ai_provider_repairs_common_vague_quantity_phrases_without_retry(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    payload = json.loads(candidate_payload())
+    recipe = payload["candidates"][0]["recipe"]
+    recipe["ingredients"].extend([
+        {"name": "食用油", "amount": 500, "unit": "毫升", "optional": False},
+        {"name": "椒盐粉", "amount": 2, "unit": "克", "optional": False},
+    ])
+    recipe["steps"] = [
+        {
+            "step_number": 1,
+            "instruction": "锅中适量倒入油并加热。",
+            "duration_seconds": None,
+            "heat_level": "中火",
+            "safety_note": None,
+        },
+        {
+            "step_number": 2,
+            "instruction": "鸡块少量多次下锅，炸至金黄后撒上少许椒盐。",
+            "duration_seconds": 360,
+            "heat_level": "中火",
+            "safety_note": "注意热油。",
+        },
+    ]
+    llm, fake = llm_with(monkeypatch, [json.dumps(payload, ensure_ascii=False)])
+    provider = QwenAIRecipeProvider(
+        llm,
+        CloudOnlyMockRecipeSearchProvider(SKILL_ROOT / "recipes"),
+    )
+
+    candidates = provider.search_recipes(RecipeSearchRequest(
+        requested_dish="番茄鸡蛋面",
+        servings=1,
+    ))
+    detail = provider.get_recipe_detail(candidates[0])
+
+    assert len(fake.completions.calls) == 1
+    assert detail["steps"][0]["instruction"] == "锅中倒入500毫升食用油并加热。"
+    assert "分批下锅" in detail["steps"][1]["instruction"]
+    assert "2克椒盐粉" in detail["steps"][1]["instruction"]
+    assert not any(
+        marker in step["instruction"]
+        for step in detail["steps"]
+        for marker in ("适量", "少量", "少许", "按口味")
+    )
+
+
+def test_ai_provider_allows_culinary_shao_xu_in_steps(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    payload = json.loads(candidate_payload())
+    recipe = payload["candidates"][0]["recipe"]
+    recipe["steps"][1]["instruction"] = "热锅加少许油，中火炒香番茄块至表面微焦。"
+    llm, _ = llm_with(monkeypatch, [json.dumps(payload, ensure_ascii=False)])
+    provider = QwenAIRecipeProvider(
+        llm,
+        CloudOnlyMockRecipeSearchProvider(SKILL_ROOT / "recipes"),
+    )
+
+    candidates = provider.search_recipes(RecipeSearchRequest(
+        requested_dish="番茄鸡蛋面",
+        servings=1,
+    ))
+    detail = provider.get_recipe_detail(candidates[0])
+
+    assert detail["steps"][1]["instruction"] == "热锅加少许油，中火炒香番茄块至表面微焦。"
 
 
 def test_ai_provider_bypasses_persisted_cache_for_explicit_fresh_search(monkeypatch: pytest.MonkeyPatch) -> None:
@@ -258,7 +447,7 @@ def test_ai_provider_bypasses_persisted_cache_for_explicit_fresh_search(monkeypa
             )]
 
     fallback = CachedFallback()
-    provider = DoubaoAIRecipeProvider(llm, fallback)
+    provider = QwenAIRecipeProvider(llm, fallback)
     request = RecipeSearchRequest(
         available_ingredients=["番茄", "鸡蛋", "面条"],
         servings=1,
@@ -268,11 +457,11 @@ def test_ai_provider_bypasses_persisted_cache_for_explicit_fresh_search(monkeypa
     candidates = provider.search_recipes(request)
 
     assert fallback.calls == 0
-    assert candidates[0].source_name == "豆包 AI 生成"
+    assert candidates[0].source_name == "千问 AI 生成"
     assert len(fake.completions.calls) == 1
     assert candidates[0].source_url is None
     raw = provider.get_recipe_detail(candidates[0])
-    assert raw["source_name"] == "豆包 AI 生成" and raw["source_url"] is None
+    assert raw["source_name"] == "千问 AI 生成" and raw["source_url"] is None
     assert [step["step_number"] for step in raw["steps"]] == [1, 2]
 
 
@@ -281,8 +470,8 @@ def test_generated_recipe_is_persisted_and_reused_without_a_second_llm_call(
 ) -> None:
     generated_dir = tmp_path / "generated"
     llm, first_client = llm_with(monkeypatch, [candidate_payload()])
-    fallback = MockRecipeSearchProvider(SKILL_ROOT / "recipes", generated_dir=generated_dir)
-    provider = DoubaoAIRecipeProvider(llm, fallback)
+    fallback = CloudOnlyMockRecipeSearchProvider(SKILL_ROOT / "recipes", generated_dir=generated_dir)
+    provider = QwenAIRecipeProvider(llm, fallback)
     request = RecipeSearchRequest(
         requested_dish="番茄鸡蛋面", servings=1, taste_preferences=["少盐"],
     )
@@ -293,8 +482,8 @@ def test_generated_recipe_is_persisted_and_reused_without_a_second_llm_call(
     assert len(list(generated_dir.glob("cached_*.json"))) == 1
 
     second_llm, second_client = llm_with(monkeypatch, [])
-    reloaded_fallback = MockRecipeSearchProvider(SKILL_ROOT / "recipes", generated_dir=generated_dir)
-    reloaded_provider = DoubaoAIRecipeProvider(second_llm, reloaded_fallback)
+    reloaded_fallback = GeneratedOnlyMockRecipeSearchProvider(SKILL_ROOT / "recipes", generated_dir=generated_dir)
+    reloaded_provider = QwenAIRecipeProvider(second_llm, reloaded_fallback)
     cached = reloaded_provider.search_recipes(request)
     assert cached and reloaded_provider.mode == "local_cache"
     detail = reloaded_provider.get_recipe_detail(cached[0])
@@ -306,7 +495,7 @@ def test_generated_recipe_is_persisted_and_reused_without_a_second_llm_call(
     session.handle("两个人")
     local_candidates = session.handle("少盐")
     assert local_candidates["provider_mode"] == "local_cache"
-    assert local_candidates["steps"][0]["display"] == "已找到菜谱"
+    assert local_candidates["steps"][0]["display"] == "已优先使用本地菜谱"
     assert "本地缓存" not in str(local_candidates)
     selected = session.handle("第一个")
     assert "本地缓存" not in str(selected)
@@ -322,19 +511,107 @@ def test_semantically_invalid_bundled_recipe_is_not_exposed(
 ) -> None:
     invalid_payload = json.loads(candidate_payload())
     invalid_payload["candidates"][0]["recipe"]["ingredients"][0]["amount"] = "适量"
-    llm, fake = llm_with(monkeypatch, [json.dumps(invalid_payload, ensure_ascii=False)])
-    provider = DoubaoAIRecipeProvider(
+    invalid_text = json.dumps(invalid_payload, ensure_ascii=False)
+    llm, fake = llm_with(monkeypatch, [invalid_text, invalid_text])
+    provider = QwenAIRecipeProvider(
         llm,
-        MockRecipeSearchProvider(SKILL_ROOT / "recipes", generated_dir=tmp_path / "generated"),
+        CloudOnlyMockRecipeSearchProvider(SKILL_ROOT / "recipes", generated_dir=tmp_path / "generated"),
     )
 
-    with pytest.raises(AIRecipeProviderError):
+    with pytest.raises(AIRecipeProviderError) as captured:
         provider.search_recipes(RecipeSearchRequest(
             requested_dish="番茄鸡蛋面", servings=1, taste_preferences=["正常"],
         ))
 
-    assert len(fake.completions.calls) == 1
+    assert "定向纠错失败" in str(captured.value.__cause__)
+    assert len(fake.completions.calls) == 2
     assert not list((tmp_path / "generated").glob("cached_*.json"))
+
+
+def test_ai_provider_corrects_invalid_recipe_once_with_remaining_budget(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    invalid_payload = json.loads(candidate_payload())
+    invalid_payload["candidates"][0]["recipe"]["ingredients"][0]["amount"] = "适量"
+    llm, fake = llm_with(monkeypatch, [
+        json.dumps(invalid_payload, ensure_ascii=False),
+        candidate_payload(),
+    ])
+    provider = QwenAIRecipeProvider(
+        llm,
+        CloudOnlyMockRecipeSearchProvider(SKILL_ROOT / "recipes"),
+    )
+
+    candidates = provider.search_recipes(RecipeSearchRequest(
+        requested_dish="番茄鸡蛋面",
+        servings=1,
+    ))
+
+    assert candidates
+    assert len(fake.completions.calls) == 2
+    correction = fake.completions.calls[1]
+    assert correction["timeout"] <= 8
+    assert "完整替换JSON" in correction["messages"][0]["content"]
+    correction_payload = json.loads(correction["messages"][1]["content"])
+    assert correction_payload["validation_error"]["code"] == "invalid_ingredient_amount"
+    assert "适量" in correction_payload["invalid_output"]
+
+
+def test_ai_provider_corrects_malformed_json_once(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    llm, fake = llm_with(monkeypatch, [
+        '{"candidates":[{"title":"截断',
+        candidate_payload(),
+    ])
+    provider = QwenAIRecipeProvider(
+        llm,
+        CloudOnlyMockRecipeSearchProvider(SKILL_ROOT / "recipes"),
+    )
+
+    candidates = provider.search_recipes(RecipeSearchRequest(
+        requested_dish="番茄鸡蛋面",
+        servings=1,
+    ))
+
+    assert candidates and len(fake.completions.calls) == 2
+    correction_payload = json.loads(fake.completions.calls[1]["messages"][1]["content"])
+    assert correction_payload["validation_error"]["code"] == "invalid_json"
+
+
+def test_ai_provider_does_not_correct_transport_failure_or_exhausted_budget(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    llm, transport_fake = llm_with(monkeypatch, [TimeoutError("timeout")])
+    provider = QwenAIRecipeProvider(
+        llm,
+        CloudOnlyMockRecipeSearchProvider(SKILL_ROOT / "recipes"),
+    )
+    with pytest.raises(AIRecipeProviderError):
+        provider.search_recipes(RecipeSearchRequest(
+            requested_dish="番茄鸡蛋面",
+            servings=1,
+        ))
+    assert len(transport_fake.completions.calls) == 1
+
+    invalid_payload = json.loads(candidate_payload())
+    invalid_payload["candidates"][0]["recipe"]["ingredients"][0]["amount"] = "适量"
+    llm, budget_fake = llm_with(
+        monkeypatch,
+        [json.dumps(invalid_payload, ensure_ascii=False)],
+    )
+    clock_values = iter((0.0, 24.0))
+    provider = QwenAIRecipeProvider(
+        llm,
+        CloudOnlyMockRecipeSearchProvider(SKILL_ROOT / "recipes"),
+        clock=lambda: next(clock_values),
+    )
+    with pytest.raises(AIRecipeProviderError):
+        provider.search_recipes(RecipeSearchRequest(
+            requested_dish="番茄鸡蛋面",
+            servings=1,
+        ))
+    assert len(budget_fake.completions.calls) == 1
 
 
 def test_complete_recipe_rechecks_dietary_restrictions_before_cache(
@@ -349,9 +626,9 @@ def test_complete_recipe_rechecks_dietary_restrictions_before_cache(
         "optional": False,
     })
     llm, fake = llm_with(monkeypatch, [json.dumps(unsafe_payload, ensure_ascii=False)])
-    provider = DoubaoAIRecipeProvider(
+    provider = QwenAIRecipeProvider(
         llm,
-        MockRecipeSearchProvider(SKILL_ROOT / "recipes", generated_dir=tmp_path / "generated"),
+        CloudOnlyMockRecipeSearchProvider(SKILL_ROOT / "recipes", generated_dir=tmp_path / "generated"),
     )
 
     with pytest.raises(AIRecipeProviderError):
@@ -369,7 +646,7 @@ def test_candidate_time_limit_and_excluded_titles_are_hard_constraints(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     llm, _ = llm_with(monkeypatch, [candidate_payload()])
-    provider = DoubaoAIRecipeProvider(llm, MockRecipeSearchProvider(SKILL_ROOT / "recipes"))
+    provider = QwenAIRecipeProvider(llm, CloudOnlyMockRecipeSearchProvider(SKILL_ROOT / "recipes"))
     with pytest.raises(AIRecipeProviderError):
         provider.search_recipes(RecipeSearchRequest(
             requested_dish="番茄鸡蛋面",
@@ -378,12 +655,12 @@ def test_candidate_time_limit_and_excluded_titles_are_hard_constraints(
         ))
 
     llm, _ = llm_with(monkeypatch, [candidate_payload()])
-    provider = DoubaoAIRecipeProvider(llm, MockRecipeSearchProvider(SKILL_ROOT / "recipes"))
+    provider = QwenAIRecipeProvider(llm, CloudOnlyMockRecipeSearchProvider(SKILL_ROOT / "recipes"))
     with pytest.raises(AIRecipeProviderError):
         provider.search_recipes(RecipeSearchRequest(
             requested_dish="番茄鸡蛋面",
             servings=1,
-            excluded_candidate_ids=["ai_AI_番茄鸡蛋面_1"],
+            excluded_candidate_ids=["ai_番茄鸡蛋面_1"],
         ))
 
 def test_selected_recipe_uses_preloaded_detail_then_scales_persisted_detail(
@@ -391,9 +668,9 @@ def test_selected_recipe_uses_preloaded_detail_then_scales_persisted_detail(
 ) -> None:
     generated_dir = tmp_path / "generated"
     llm, first_client = llm_with(monkeypatch, [candidate_payload()])
-    provider = DoubaoAIRecipeProvider(
+    provider = QwenAIRecipeProvider(
         llm,
-        MockRecipeSearchProvider(SKILL_ROOT / "recipes", generated_dir=generated_dir),
+        CloudOnlyMockRecipeSearchProvider(SKILL_ROOT / "recipes", generated_dir=generated_dir),
     )
     session = KitchenSession(recipe_provider=provider)
 
@@ -411,9 +688,9 @@ def test_selected_recipe_uses_preloaded_detail_then_scales_persisted_detail(
     assert len(first_client.completions.calls) == 1
 
     second_llm, second_client = llm_with(monkeypatch, [])
-    second_provider = DoubaoAIRecipeProvider(
+    second_provider = QwenAIRecipeProvider(
         second_llm,
-        MockRecipeSearchProvider(SKILL_ROOT / "recipes", generated_dir=generated_dir),
+        GeneratedOnlyMockRecipeSearchProvider(SKILL_ROOT / "recipes", generated_dir=generated_dir),
     )
     second_session = KitchenSession(recipe_provider=second_provider)
     second_session.handle("我想做番茄鸡蛋面")
@@ -436,14 +713,14 @@ def test_generated_pantry_recommendations_are_reused_by_ingredient_keywords(
         available_ingredients=["番茄", "鸡蛋", "面条"], servings=1, taste_preferences=["少盐"],
     )
     first_llm, _ = llm_with(monkeypatch, [candidate_payload()])
-    first_provider = DoubaoAIRecipeProvider(
-        first_llm, MockRecipeSearchProvider(SKILL_ROOT / "recipes", generated_dir=generated_dir),
+    first_provider = QwenAIRecipeProvider(
+        first_llm, CloudOnlyMockRecipeSearchProvider(SKILL_ROOT / "recipes", generated_dir=generated_dir),
     )
     assert first_provider.search_recipes(request)
 
     second_llm, second_client = llm_with(monkeypatch, [])
-    second_provider = DoubaoAIRecipeProvider(
-        second_llm, MockRecipeSearchProvider(SKILL_ROOT / "recipes", generated_dir=generated_dir),
+    second_provider = QwenAIRecipeProvider(
+        second_llm, GeneratedOnlyMockRecipeSearchProvider(SKILL_ROOT / "recipes", generated_dir=generated_dir),
     )
     cached = second_provider.search_recipes(request)
 
@@ -477,8 +754,8 @@ def test_outdated_generated_caches_are_removed_on_provider_startup(tmp_path: Pat
 def test_named_dish_returns_one_complete_recipe_in_one_call(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
     generated_dir = tmp_path / "generated"
     llm, fake = llm_with(monkeypatch, [three_candidate_payload()])
-    fallback = MockRecipeSearchProvider(SKILL_ROOT / "recipes", generated_dir=generated_dir)
-    provider = DoubaoAIRecipeProvider(llm, fallback)
+    fallback = CloudOnlyMockRecipeSearchProvider(SKILL_ROOT / "recipes", generated_dir=generated_dir)
+    provider = QwenAIRecipeProvider(llm, fallback)
     candidates = provider.search_recipes(RecipeSearchRequest(
         requested_dish="番茄鸡蛋面", servings=1, taste_preferences=["少盐"],
     ))
@@ -494,22 +771,22 @@ def test_named_dish_returns_one_complete_recipe_in_one_call(monkeypatch: pytest.
     assert provider.get_recipe_detail(candidates[0])["name"] == "番茄鸡蛋面"
     assert len(fake.completions.calls) == before
 
-    reloaded = MockRecipeSearchProvider(SKILL_ROOT / "recipes", generated_dir=generated_dir)
+    reloaded = GeneratedOnlyMockRecipeSearchProvider(SKILL_ROOT / "recipes", generated_dir=generated_dir)
     cached = reloaded.search_cached_recipes(RecipeSearchRequest(
         requested_dish="番茄鸡蛋面", servings=1, taste_preferences=["少盐"],
     ))
     assert len(cached) == 1
 
 
-def test_pantry_request_can_return_three_preloaded_details_in_one_call(
+def test_pantry_request_returns_one_preloaded_detail_in_one_call(
     monkeypatch: pytest.MonkeyPatch,
     tmp_path: Path,
 ) -> None:
     generated_dir = tmp_path / "generated"
     llm, fake = llm_with(monkeypatch, [three_candidate_payload()])
-    provider = DoubaoAIRecipeProvider(
+    provider = QwenAIRecipeProvider(
         llm,
-        MockRecipeSearchProvider(SKILL_ROOT / "recipes", generated_dir=generated_dir),
+        CloudOnlyMockRecipeSearchProvider(SKILL_ROOT / "recipes", generated_dir=generated_dir),
     )
 
     candidates = provider.search_recipes(RecipeSearchRequest(
@@ -518,16 +795,16 @@ def test_pantry_request_can_return_three_preloaded_details_in_one_call(
         taste_preferences=["少盐"],
     ))
 
-    assert len(candidates) == 3
+    assert len(candidates) == 1
     assert len(fake.completions.calls) == 1
-    assert len(list(generated_dir.glob("cached_*.json"))) == 3
-    assert provider.get_recipe_detail(candidates[2])["name"] == "快手番茄鸡蛋面"
+    assert len(list(generated_dir.glob("cached_*.json"))) == 1
+    assert provider.get_recipe_detail(candidates[0])["name"] == "番茄鸡蛋面"
 
 
 def test_session_uses_ai_then_waits_for_confirmation(monkeypatch: pytest.MonkeyPatch) -> None:
     llm, fake = llm_with(monkeypatch, [candidate_payload()])
-    fallback = MockRecipeSearchProvider(SKILL_ROOT / "recipes")
-    session = KitchenSession(recipe_provider=DoubaoAIRecipeProvider(llm, fallback))
+    fallback = CloudOnlyMockRecipeSearchProvider(SKILL_ROOT / "recipes")
+    session = KitchenSession(recipe_provider=QwenAIRecipeProvider(llm, fallback))
     session.handle("我想做番茄鸡蛋面")
     session.handle("一个人")
     candidates = session.handle("少盐")
@@ -539,37 +816,37 @@ def test_session_uses_ai_then_waits_for_confirmation(monkeypatch: pytest.MonkeyP
     cooking = session.handle("开始吧")
     assert cooking["kitchen_state"] == COOKING
     assert cooking["provider_mode"] == "ai_generated"
-    assert session.current_recipe["source_name"] == "豆包 AI 生成"
+    assert session.current_recipe["source_name"] == "千问 AI 生成"
     assert session.current_recipe["source_url"] is None
     assert all(step["robot_action"] for step in session.current_recipe["steps"])
-    assert "豆包 AI 生成" not in str(candidates)
-    assert "豆包 AI 生成" not in str(selected)
-    assert "豆包 AI 生成" not in str(cooking)
+    assert "千问 AI 生成" not in str(candidates)
+    assert "千问 AI 生成" not in str(selected)
+    assert "千问 AI 生成" not in str(cooking)
     assert len(fake.completions.calls) == 1
 
 
 def test_ai_display_uses_user_facing_generation_copy_without_provider_brand(monkeypatch: pytest.MonkeyPatch) -> None:
     llm, _ = llm_with(monkeypatch, [candidate_payload()])
-    session = KitchenSession(recipe_provider=DoubaoAIRecipeProvider(llm, MockRecipeSearchProvider(SKILL_ROOT / "recipes")))
+    session = KitchenSession(recipe_provider=QwenAIRecipeProvider(llm, CloudOnlyMockRecipeSearchProvider(SKILL_ROOT / "recipes")))
     session.handle("我想做番茄鸡蛋面")
     session.handle("一个人")
     candidates = session.handle("少盐")
     displays = "\n".join(step["display"] for step in candidates["steps"])
     assert "我正在为你生成菜谱建议" in displays
     assert "我为你生成的菜谱" in displays
-    assert "豆包 AI" not in displays
+    assert "千问 AI" not in displays
     selected = session.handle("第一个")
     assert "生成方式：根据你的需求生成" in selected["display"]
-    assert "豆包 AI" not in selected["display"]
+    assert "千问 AI" not in selected["display"]
 
 
 def test_ai_provider_rejects_candidates_that_replace_requested_dish(monkeypatch: pytest.MonkeyPatch) -> None:
     llm, _ = llm_with(monkeypatch, [candidate_payload()])
-    provider = DoubaoAIRecipeProvider(llm, MockRecipeSearchProvider(SKILL_ROOT / "recipes"))
+    provider = QwenAIRecipeProvider(llm, CloudOnlyMockRecipeSearchProvider(SKILL_ROOT / "recipes"))
     with pytest.raises(AIRecipeProviderError):
         provider.search_recipes(RecipeSearchRequest(requested_dish="番茄肥牛", servings=1, taste_preferences=["正常口味"]))
 
-    matching = json.dumps({"candidates": [{
+    matching_candidate = {
         "title": "番茄肥牛", "summary": "酸甜开胃的快手肥牛做法。", "estimated_minutes": 15,
         "difficulty": "简单", "main_ingredients": ["番茄", "肥牛"], "missing_ingredients": ["肥牛"],
         "match_reason": "保留你指定的番茄肥牛，并列出缺少的肥牛。",
@@ -582,9 +859,13 @@ def test_ai_provider_rejects_candidates_that_replace_requested_dish(monkeypatch:
             "equipment": ["炒锅"], "safety_notes": [],
             "steps": [{"instruction": "放入150克肥牛和1个番茄煮熟。", "duration_seconds": 180}],
         },
-    }]}, ensure_ascii=False)
+    }
+    matching = repeated_candidate_payload(
+        matching_candidate,
+        ("番茄肥牛", "家常番茄肥牛", "快手番茄肥牛"),
+    )
     llm, _ = llm_with(monkeypatch, [matching])
-    candidates = DoubaoAIRecipeProvider(llm, MockRecipeSearchProvider(SKILL_ROOT / "recipes")).search_recipes(
+    candidates = QwenAIRecipeProvider(llm, CloudOnlyMockRecipeSearchProvider(SKILL_ROOT / "recipes")).search_recipes(
         RecipeSearchRequest(requested_dish="番茄肥牛", servings=1, taste_preferences=["正常口味"])
     )
     assert candidates[0].title == "番茄肥牛"
@@ -605,9 +886,12 @@ def test_ai_provider_bounds_standard_steak_sear_time_and_keeps_it_as_a_reference
         ],
     }
     candidate_data["recipe"] = recipe
-    bundled = json.dumps({"candidates": [candidate_data]}, ensure_ascii=False)
+    bundled = repeated_candidate_payload(
+        candidate_data,
+        ("煎牛排", "家常煎牛排", "黄油煎牛排"),
+    )
     llm, _ = llm_with(monkeypatch, [bundled])
-    provider = DoubaoAIRecipeProvider(llm, MockRecipeSearchProvider(SKILL_ROOT / "recipes"))
+    provider = QwenAIRecipeProvider(llm, CloudOnlyMockRecipeSearchProvider(SKILL_ROOT / "recipes"))
     request = RecipeSearchRequest(requested_dish="煎牛排", servings=1, taste_preferences=["正常"], steak_doneness="五分熟", steak_thickness_cm=2.0)
     selected = provider.search_recipes(request)[0]
     raw = provider.get_recipe_detail(selected)
@@ -620,7 +904,7 @@ def test_ai_provider_bounds_standard_steak_sear_time_and_keeps_it_as_a_reference
 
 def test_invalid_ai_dish_candidates_are_not_replaced_with_unrelated_mock_dishes(monkeypatch: pytest.MonkeyPatch) -> None:
     llm, _ = llm_with(monkeypatch, [candidate_payload()])
-    session = KitchenSession(recipe_provider=DoubaoAIRecipeProvider(llm, MockRecipeSearchProvider(SKILL_ROOT / "recipes")))
+    session = KitchenSession(recipe_provider=QwenAIRecipeProvider(llm, CloudOnlyMockRecipeSearchProvider(SKILL_ROOT / "recipes")))
     session.handle("我要做番茄肥牛")
     session.handle("一个人")
     response = session.handle("正常")
@@ -631,7 +915,7 @@ def test_invalid_ai_dish_candidates_are_not_replaced_with_unrelated_mock_dishes(
 
 def test_ai_generated_feedback_reaches_all_mock_channels(monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str]) -> None:
     llm, _ = llm_with(monkeypatch, [candidate_payload()])
-    session = KitchenSession(recipe_provider=DoubaoAIRecipeProvider(llm, MockRecipeSearchProvider(SKILL_ROOT / "recipes")))
+    session = KitchenSession(recipe_provider=QwenAIRecipeProvider(llm, CloudOnlyMockRecipeSearchProvider(SKILL_ROOT / "recipes")))
     session.handle("我想做番茄鸡蛋面")
     session.handle("一个人")
     candidates = session.handle("少盐")
@@ -648,15 +932,18 @@ def test_ai_generated_feedback_reaches_all_mock_channels(monkeypatch: pytest.Mon
     assert "步骤 1" in capsys.readouterr().out
 
 
-def test_ai_provider_bad_json_or_timeout_falls_back_to_mock(monkeypatch: pytest.MonkeyPatch) -> None:
-    llm, _ = llm_with(monkeypatch, ["bad", "still bad"])
+def test_local_catalog_is_used_before_cloud(monkeypatch: pytest.MonkeyPatch) -> None:
+    llm, fake = llm_with(monkeypatch, ["must remain unused"])
     fallback = MockRecipeSearchProvider(SKILL_ROOT / "recipes")
-    session = KitchenSession(recipe_provider=DoubaoAIRecipeProvider(llm, fallback))
-    session.handle("我想做番茄鸡蛋面")
-    session.handle("一个人")
-    response = session.handle("少盐")
+    provider = QwenAIRecipeProvider(llm, fallback)
+    session = KitchenSession(recipe_provider=provider)
+    session.handle("我想做辣椒炒肉")
+    response = session.handle("一个人")
     assert response["provider_mode"] == "mock"
-    assert any("离线" in item.get("display", "") for item in response["steps"])
+    assert response["recipe_candidates"][0]["title"] == "辣椒炒肉"
+    assert response["steps"][0]["display"] == "已优先使用本地菜谱"
+    assert provider.used_local_first is True
+    assert fake.completions.calls == []
 
 
 def test_invalid_ai_recipe_detail_keeps_selected_dish_and_offers_retry() -> None:
@@ -694,8 +981,8 @@ def test_confirmation_never_calls_model_after_bundled_generation(monkeypatch: py
         candidate_payload(),
         TimeoutError("must remain unused"),
     ])
-    fallback = MockRecipeSearchProvider(SKILL_ROOT / "recipes")
-    session = KitchenSession(recipe_provider=DoubaoAIRecipeProvider(llm, fallback))
+    fallback = CloudOnlyMockRecipeSearchProvider(SKILL_ROOT / "recipes")
+    session = KitchenSession(recipe_provider=QwenAIRecipeProvider(llm, fallback))
     session.handle("我想做番茄鸡蛋面")
     session.handle("一个人")
     session.handle("少盐")
@@ -707,14 +994,14 @@ def test_confirmation_never_calls_model_after_bundled_generation(monkeypatch: py
     assert len(fake.completions.calls) == 1
 
 
-def test_single_ai_candidate_accepts_good_without_selection_or_second_call(
+def test_single_ai_candidate_can_be_confirmed_without_second_model_call(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     llm, fake = llm_with(monkeypatch, [candidate_payload()])
     session = KitchenSession(
-        recipe_provider=DoubaoAIRecipeProvider(
+        recipe_provider=QwenAIRecipeProvider(
             llm,
-            MockRecipeSearchProvider(SKILL_ROOT / "recipes"),
+            CloudOnlyMockRecipeSearchProvider(SKILL_ROOT / "recipes"),
         )
     )
     session.handle("我想做番茄鸡蛋面")
@@ -724,7 +1011,6 @@ def test_single_ai_candidate_accepts_good_without_selection_or_second_call(
     assert candidates["kitchen_state"] == PRESENTING_CANDIDATES
 
     result = session.handle("好")
-
     assert result["kitchen_state"] == COOKING
     assert session.selected_candidate == session.recipe_candidates[0]
     assert session.current_recipe is not None
@@ -732,11 +1018,12 @@ def test_single_ai_candidate_accepts_good_without_selection_or_second_call(
 
 
 def test_question_service_uses_local_safety_before_ai(monkeypatch: pytest.MonkeyPatch) -> None:
-    llm, fake = llm_with(monkeypatch, ["普通问题的豆包回答。"])
-    service = DoubaoCookingQuestionService(llm)
+    llm, fake = llm_with(monkeypatch, ["普通问题的千问回答。"])
+    service = QwenCookingQuestionService(llm)
     context = CookingContext({"name": "测试菜"}, {"instruction": "加热", "heat_level": "中火"}, 1, [], [], [], [], None, [])
     safety = service.answer("锅里起火了", context)
     assert safety.should_pause_cooking and not fake.completions.calls
     ordinary = service.answer("汤怎样更浓一些？", context)
-    assert ordinary.answer == "普通问题的豆包回答。"
+    assert ordinary.answer == "普通问题的千问回答。"
     assert len(fake.completions.calls) == 1
+    assert fake.completions.calls[0]["max_completion_tokens"] == 384

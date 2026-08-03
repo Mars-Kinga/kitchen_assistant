@@ -59,7 +59,7 @@ def rank_recipes(recipes: list[dict[str, Any]], request: RecipeSearchRequest) ->
             title=str(raw["name"]),
             source_name=str(raw.get("source_name") or "本地示例菜谱"),
             source_url=raw.get("source_url"),
-            summary=str(raw.get("summary") or "离线示例菜谱。"),
+            summary=str(raw.get("summary") or "本地菜谱。"),
             estimated_minutes=minutes if isinstance(minutes, int) else None,
             difficulty=str(raw.get("difficulty") or "简单"),
             main_ingredients=main_ingredients,
@@ -78,7 +78,7 @@ def _reason(present: list[str], missing: list[str], request: RecipeSearchRequest
         return "能够使用你现有的全部主要食材。"
     if present:
         return f"可利用现有的{'、'.join(present)}，只缺少少量主要食材。"
-    return "符合当前的离线示例筛选条件。"
+    return "符合当前的本地菜谱筛选条件。"
 
 def _equipment_is_unavailable(raw: dict[str, Any], request: RecipeSearchRequest) -> bool:
     equipment = [str(item) for item in raw.get("equipment", [])]

@@ -5,6 +5,7 @@ import base64
 import json
 import mimetypes
 import os
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -12,8 +13,6 @@ import time
 from collections import deque
 from pathlib import Path
 from typing import Any
-
-import numpy as np
 
 
 API_KEY = os.getenv("MIMO_API_KEY") or os.getenv("TOKEN_PLAN_API_KEY", "")
@@ -25,7 +24,9 @@ _last_spoken_time = 0.0
 SUPPRESS_DUPLICATE_SECONDS = 1.0
 
 
-def rms_level(block: np.ndarray) -> float:
+def rms_level(block: Any) -> float:
+    import numpy as np
+
     data = block.astype(np.float32)
     if data.size == 0:
         return 0.0
@@ -38,6 +39,7 @@ def calibrate_noise(
     device: str | int | None,
     seconds: float,
 ) -> float:
+    import numpy as np
     import sounddevice as sd
 
     block_frames = int(samplerate * block_ms / 1000)
@@ -72,6 +74,7 @@ def record_wav_vad(
     max_record_seconds: float = 20,
     calibration_seconds: float = 0.8,
 ) -> Path:
+    import numpy as np
     import sounddevice as sd
     from scipy.io import wavfile
 
@@ -305,6 +308,15 @@ class VoiceOutput:
             except Exception:
                 pass
 
+        # macOS already ships an MP3-capable player. Prefer it over pygame so
+        # the text/TTS demo never requires local SDL headers or a C build.
+        if sys.platform == "darwin" and shutil.which("afplay"):
+            try:
+                subprocess.run(["afplay", str(path)], check=True)
+                return
+            except (OSError, subprocess.CalledProcessError) as exc:
+                raise RuntimeError(f"系统 afplay 播放失败：{exc}") from exc
+
         if path.suffix.lower() == ".mp3":
             try:
                 import pygame
@@ -317,7 +329,9 @@ class VoiceOutput:
                 pygame.mixer.music.unload()
                 return
             except Exception as exc:
-                raise RuntimeError("缺少 pygame 或音频播放失败，无法播放 mp3") from exc
+                raise RuntimeError(
+                    "当前系统缺少可用的 MP3 播放器；可使用 --no-play 跳过播放"
+                ) from exc
 
         subprocess.run(
             [

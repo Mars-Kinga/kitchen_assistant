@@ -77,12 +77,14 @@ IDLE
 
 ## 菜谱来源
 
-- `mock`：`recipes/recipes.json` 中的本地示例。
-- `ai_generated`：配置 `ARK_API_KEY` 后由豆包 Chat Completions 生成。
+- `mock`：读取 `recipes/recipes.json` 和按文件名排序的 `recipes/catalog/**/*.json`；目录加载时拒绝重复 `recipe_id` 或菜名。
+- `ai_generated`：配置 `DASHSCOPE_API_KEY` 后由千问 Chat Completions 生成。
 - `local_cache`：读取 `recipes/generated/` 中已通过校验的生成菜谱。
 - `web_search`：预留模式，当前未接通真实搜索。
 
-AI 在一次响应中同时生成候选及完整详情：用户指定菜名时只生成一个完整结果，按库存推荐时最多生成三个候选。单候选页面可直接说“好”“可以”或“开始吧”；多候选页面仍需先说第几个或菜名。只展示已经通过详情校验的候选，并把完整菜谱保存为按菜名命名的缓存文件。相同菜名、口味和忌口优先复用缓存；人数变化由 `RecipeNormalizer` 缩放食材和步骤用量。
+本地固定目录当前恰好包含 100 道菜，其中 `recipes/catalog/` 有 90 道参考 HowToCook 固定提交 `c05758fa661ac4efa0361a987b700a351a22159b` 的校订菜谱。每道菜都记录 `source_key`、`source_revision`、固定链接和许可证；`recipes/sources.json` 统一记录上游仓库、Unlicense 和本项目做过的安全/用量转换。运行时不访问上游。目录变更后运行 `python scripts/validate_recipe_catalog.py`，检查总数、来源、重复项、具体用量和 1/2/3 人份标准化。`python scripts/prune_generated_recipe_duplicates.py --apply` 可删除核心菜名已被固定目录覆盖的生成缓存。
+
+Provider 始终先查询本地固定目录和已验证生成缓存；只要存在符合菜名、忌口、厨具和库存约束的本地结果，就直接使用且不调用千问。本地完全没有匹配结果时，AI 在一次响应中生成一个候选及其完整 6–10 步详情。单候选可直接确认。完整菜谱保存为按菜名命名的缓存文件，后续优先复用；人数变化由 `RecipeNormalizer` 缩放食材和步骤用量。
 
 AI 生成不是网页搜索，不提供虚构 URL。Provider 调用失败时可回退本地 Mock；缺少有效完整详情的 AI 候选不会显示，也不会在用户确认后再次调用模型。
 
@@ -135,7 +137,8 @@ AI 生成不是网页搜索，不提供虚构 URL。Provider 调用失败时可�
 
 运行依赖由项目根目录 `requirements.txt` 管理，测试依赖由 `requirements-dev.txt` 管理。主要外部包包括：
 
-- `openai`：可选豆包 Chat Completions；
+- `openai`：千问 OpenAI 兼容 Chat Completions；
+- `opencv-python`：Mac 摄像头单帧拍摄与 JPEG 压缩；
 - `jsonschema`：Manifest 引用的输入/输出契约校验；
 - `numpy`、`scipy`、`sounddevice`：语音采集链路；
 - `edge-tts`、`pyttsx3`、`pygame`：语音播放链路。
@@ -144,15 +147,17 @@ AI 生成不是网页搜索，不提供虚构 URL。Provider 调用失败时可�
 
 ## 配置
 
-豆包：
+千问：
 
-- `ARK_API_KEY`
-- `DOUBAO_BASE_URL`（可选）
-- `DOUBAO_MODEL`（可选；必须是当前账号有权限且兼容 Chat Completions 的模型）
-- `DOUBAO_TIMEOUT_SECONDS`（可选；默认 `90` 秒）
-- `DOUBAO_MAX_RETRIES`（可选；默认 `0` 次）
+- `DASHSCOPE_API_KEY`
+- `QWEN_BASE_URL`
+- `QWEN_TEXT_MODEL`（默认 `qwen3-omni-flash`）
+- `QWEN_VISION_MODEL`（默认 `qwen3-vl-flash`）
+- `QWEN_TIMEOUT_SECONDS`（默认 `25` 秒）
+- `QWEN_VISION_TIMEOUT_SECONDS`（默认 `20` 秒）
+- `QWEN_MAX_RETRIES`（默认 `0` 次）
 
-Key 只从环境变量读取。项目不会自动加载 `.env`，真实 Key 不得提交。模型可由评审环境替换；模型名称无效、权限不足或请求超时时会快速进入既有降级流程。
+Key 只从环境变量读取。项目不会自动加载 `.env`，真实 Key 不得提交。文字和视觉请求都关闭深度思考；文字使用流式接口并在客户端内聚合，普通问答限制输出长度。模型名称无效、权限不足或请求超时时会快速进入既有降级流程。
 
 ## 测试
 
@@ -160,6 +165,7 @@ Key 只从环境变量读取。项目不会自动加载 `.env`，真实 Key 不�
 python -m pytest -q
 python -m pytest -q tests/test_kitchen_assistant.py
 python -m pytest -q tests/test_kitchen_scenario_matrix.py
+python -m pytest -q tests/test_qwen_integration.py tests/test_ingredient_vision.py
 python -m pytest -q tests/test_skill_manager.py
 ```
 
@@ -169,7 +175,7 @@ python -m pytest -q tests/test_skill_manager.py
 
 - 会话只保存在当前 Python 进程，没有 `session_id` 和跨进程恢复。
 - 只连接 Mock SDK，不含真实机器人能力 ID。
-- 无视觉能力，不能观察食材状态。
+- 视觉能力仅使用 Mac 默认摄像头识别食材，不判断成熟度、过敏原或食品安全。
 - `web_search` 未接通，AI 生成不等于联网搜索。
 - 未开启语音功能，只有文字输入。
 - 缓存目前按可读菜名组织，尚无过期时间和显式清理命令。

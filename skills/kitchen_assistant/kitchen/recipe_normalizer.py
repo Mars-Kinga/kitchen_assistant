@@ -16,7 +16,7 @@ from .ingredient_vocabulary import (
 
 _HEAT_ACTIONS = (
     "预热", "加热", "烧开", "沸腾", "煮", "炖", "焖", "煎", "烤", "蒸",
-    "炸", "熬", "焯", "炒", "收汁", "微波", "电饭煲",
+    "炸", "熬", "焯", "炒", "煸", "收汁", "微波", "电饭煲",
 )
 _TIMED_PREP_ACTIONS = ("腌制", "浸泡", "泡发", "静置", "醒发")
 _TIMED_ACTIONS = _HEAT_ACTIONS + _TIMED_PREP_ACTIONS
@@ -62,7 +62,7 @@ class RecipeNormalizer:
             instruction = self._apply_quantity_replacements(instruction, quantity_replacements)
             if not instruction:
                 raise RecipeNormalizationError(f"第 {index} 步缺少说明")
-            if any(marker in instruction for marker in ("适量", "少量", "少许", "按口味")):
+            if any(marker in instruction for marker in ("适量", "少量", "按口味")):
                 raise RecipeNormalizationError(f"第 {index} 步包含模糊用量")
             if self._is_vague_parallel_prep_placeholder(instruction):
                 # This is an AI-generated narration placeholder rather than
@@ -76,16 +76,23 @@ class RecipeNormalizer:
             normalized_step = {**step, "instruction": instruction}
             for expanded_step in self._split_preparation_step(normalized_step):
                 expanded_instruction = str(expanded_step["instruction"])
-                duration = self._timer_duration(expanded_step, expanded_instruction)
-                expanded_instruction, duration = self._enforce_marinade_timer(
-                    expanded_instruction,
-                    duration,
-                )
-                expanded_instruction, duration, safety_note = self._enforce_realistic_timing(
-                    expanded_instruction,
-                    duration,
-                    expanded_step.get("safety_note"),
-                )
+                if self._is_plating_only_step(expanded_instruction):
+                    # Dish names such as “胡萝卜炒鸡肉” contain the character
+                    # 炒, but “将炒好的…盛出装盘” is not another cooking step.
+                    duration = None
+                    safety_note = expanded_step.get("safety_note")
+                    expanded_step["heat_level"] = None
+                else:
+                    duration = self._timer_duration(expanded_step, expanded_instruction)
+                    expanded_instruction, duration = self._enforce_marinade_timer(
+                        expanded_instruction,
+                        duration,
+                    )
+                    expanded_instruction, duration, safety_note = self._enforce_realistic_timing(
+                        expanded_instruction,
+                        duration,
+                        expanded_step.get("safety_note"),
+                    )
                 expanded_step["instruction"] = expanded_instruction
                 expanded_step["duration_seconds"] = duration
                 expanded_step["safety_note"] = safety_note
@@ -241,6 +248,17 @@ class RecipeNormalizer:
         return waiting and generic_bowl and not any(item in instruction for item in CONCRETE_SEASONING_TERMS)
 
     @staticmethod
+    def _is_plating_only_step(instruction: str) -> bool:
+        """Recognize pure serving steps even when the dish name contains 炒/煎."""
+        if not any(marker in instruction for marker in ("盛出", "盛入盘", "装盘", "出锅")):
+            return False
+        active_actions = (
+            "翻炒", "继续炒", "干煸", "煸炒", "煸至", "收汁", "开火", "加热", "烧开", "煮沸",
+            "倒入", "加入", "放入", "下入", "煎至", "炸至", "烤至", "蒸至", "炖至", "焖至",
+        )
+        return not any(action in instruction for action in active_actions)
+
+    @staticmethod
     def _split_preparation_step(step: dict[str, Any]) -> list[dict[str, Any]]:
         """Split dense preparation prose into a few memorable user steps."""
         instruction = str(step.get("instruction", "")).strip()
@@ -379,12 +397,14 @@ class RecipeNormalizer:
                 instruction = f"{instruction}，炒到肉类完全变色、中心无粉红"
             reminder = "计时只是下限参考，应以肉类完全变色、中心无粉红为准。"
             note = (note or "").replace("肉丝完全变色", "肉类完全变色") or None
-            note = f"{note} {reminder}".strip() if note else reminder
+            if not note or reminder not in note:
+                note = f"{note} {reminder}".strip() if note else reminder
         elif any(word in instruction for word in STIR_FRY_VEGETABLE_TERMS):
             minimum = 180 if "变软" in instruction else 120
             duration = max(duration or minimum, minimum)
             reminder = "火力和切配粗细会影响时间，以蔬菜实际断生或达到所需软度为准。"
-            note = f"{note} {reminder}".strip() if note else reminder
+            if not note or reminder not in note:
+                note = f"{note} {reminder}".strip() if note else reminder
         return instruction, duration, note
 
     @staticmethod

@@ -5,6 +5,7 @@ from typing import Any, Iterable
 
 from kitchen.dish_profiles import profile_prompt_rules
 from kitchen.recipe_contract import (
+    RECIPE_BUNDLE_SCHEMA_TEXT,
     RECIPE_SCHEMA_TEXT,
     REQUEST_FIELDS,
     bundle_prompt_rules,
@@ -28,7 +29,7 @@ _CANDIDATE_SCHEMA = (
 
 def candidate_messages(request: dict[str, Any]) -> list[dict[str, str]]:
     rules = [
-        "任务：生成最多3个适合新手的菜谱候选。只输出合法JSON；不要Markdown、解释、URL、来源或联网声明。",
+        "任务：只生成1个适合新手的菜谱候选。只输出合法JSON；不要Markdown、解释、URL、来源或联网声明。",
         "遵守忌口和设备/时间限制，优先使用已有食材。",
         "若requested_dish存在：首个title必须包含该菜名；其余只能是合理变体，不得换成无关菜。缺食材也保留原菜。",
         "available_ingredients缺失或为空=库存未知，此时missing_ingredients必须为[]；仅在库存明确时列出确实缺少的食材。",
@@ -53,10 +54,41 @@ def recipe_bundle_messages(request: dict[str, Any]) -> list[dict[str, str]]:
     return _messages("\n".join(rules), _select(request, REQUEST_FIELDS))
 
 
+def recipe_correction_messages(
+    request: dict[str, Any],
+    invalid_output: Any,
+    validation_error: dict[str, str],
+) -> list[dict[str, str]]:
+    """Compact one-shot correction prompt; always requests a full replacement."""
+    if isinstance(invalid_output, str):
+        invalid_text = invalid_output
+    else:
+        invalid_text = json.dumps(
+            invalid_output,
+            ensure_ascii=False,
+            separators=(",", ":"),
+        )
+    # Keep the retry prompt bounded. The beginning contains candidate metadata
+    # and recipe fields; the validation issue tells the model what to repair.
+    invalid_text = invalid_text[:14_000]
+    system = (
+        "修正一份未通过校验的菜谱JSON。只输出完整替换JSON，不要解释、Markdown或局部补丁。"
+        "严格修复validation_error，同时保持用户菜名、人数、忌口、厨具和时间限制。"
+        "所有candidate必须包含完整recipe，并符合结构："
+        f"{RECIPE_BUNDLE_SCHEMA_TEXT}"
+    )
+    payload = {
+        "request": _select(request, REQUEST_FIELDS),
+        "validation_error": validation_error,
+        "invalid_output": invalid_text,
+    }
+    return _messages(system, payload)
+
+
 def recipe_messages(candidate: dict[str, Any], request: dict[str, Any]) -> list[dict[str, str]]:
     rules = [
         "任务：生成面向新手的完整结构化菜谱。只输出合法JSON；不要Markdown、解释、URL、来源、机器人动作或设备控制。",
-        "严格遵守servings、忌口、设备和口味；每种食材/调料给明确amount与unit，禁止“适量”“少许”“按口味”。肉类和蔬菜写克数，鸡蛋/土豆等写个数，液体调料写毫升或汤匙/茶匙；可选食材也给用量并标optional=true。",
+        "严格遵守servings、忌口、设备和口味；每种食材/调料给明确amount与unit，ingredient.amount禁止“适量”“少量”“少许”“按口味”。步骤允许用“少许”描述微量润锅油或点缀香料，仍禁止“适量”“少量”“按口味”。肉类和蔬菜写克数，鸡蛋/土豆等写个数，液体调料写毫升或汤匙/茶匙；可选食材也给用量并标optional=true。",
         "步骤中第一次加入主食材、肉类、蔬菜或调味料时，重复写出对应的明确用量，例如“倒入10毫升生抽、5毫升老抽和1克盐”；不得只写“加调味料”或“加少量盐”。",
         "中式调味只按菜品需要选用盐、油、生抽、老抽、料酒、葱姜蒜等，不要机械堆料。",
         "炒制写清热锅→用油量→下料状态→火力→熟度判断；需要补油时说明。不要声称看见现场或保证已熟。",

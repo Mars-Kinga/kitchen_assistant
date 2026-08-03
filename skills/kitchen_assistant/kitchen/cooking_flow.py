@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from typing import Any
 
+from .ingredient_answers import answer_ingredient_list
 from .intent_parser import is_likely_next_step, is_likely_step_completion, is_likely_timer_start
 from .models import CookingContext
 from .parallel_prep import is_waiting_prep_instruction
@@ -17,6 +18,9 @@ from .timer_controller import signals_step_timer_start
 
 
 def handle_cooking_turn(session: Any, text: str) -> dict[str, Any]:
+    ingredient_answer = answer_ingredient_list(session, text, state=COOKING)
+    if ingredient_answer:
+        return ingredient_answer
     if session.pending_parallel_timer_check_index is not None:
         return session._handle_parallel_timer_check(text)
     if session.pending_timer_skip_confirmation:
@@ -194,6 +198,9 @@ def handle_cooking_turn(session: Any, text: str) -> dict[str, Any]:
 
 
 def handle_paused_turn(session: Any, text: str) -> dict[str, Any]:
+    ingredient_answer = answer_ingredient_list(session, text, state=PAUSED)
+    if ingredient_answer:
+        return ingredient_answer
     if session._has(text, "继续", "恢复", "继续做"):
         session.state = COOKING
         if session.timer is not None and session.timer.paused_remaining_seconds is not None:

@@ -1,0 +1,1763 @@
+{
+  "catalog_version": 1,
+  "recipes": [
+    {
+      "recipe_id": "htc_yangzhou_fried_rice",
+      "name": "扬州炒饭",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "中等",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "米粒分明、鸡蛋鲜虾和蔬菜丰富的扬州炒饭。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/staple/扬州炒饭/扬州炒饭.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/staple/扬州炒饭/扬州炒饭.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "熟米饭",
+          "amount": "350 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "鲜虾仁",
+          "amount": "100 克"
+        },
+        {
+          "name": "火腿",
+          "amount": "80 克"
+        },
+        {
+          "name": "豌豆",
+          "amount": "50 克"
+        },
+        {
+          "name": "胡萝卜",
+          "amount": "50 克"
+        },
+        {
+          "name": "玉米粒",
+          "amount": "50 克"
+        },
+        {
+          "name": "葱",
+          "amount": "10 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "20 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "3 克"
+        },
+        {
+          "name": "清水",
+          "amount": "800 毫升"
+        }
+      ],
+      "notes": [
+        "熟米饭应冷藏不超过一天并彻底复热。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "火腿和胡萝卜切丁，葱切末，2 个鸡蛋打散；鲜虾仁用厨房纸吸干表面水分。",
+          "safety_note": "处理生虾后清洗双手、刀具和砧板。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "小锅加入 800 毫升清水烧开，放入豌豆、胡萝卜和玉米粒焯 2 分钟后沥干。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "step_number": 3,
+          "instruction": "炒锅加入 8 毫升食用油，中火把虾仁炒 3 分钟，直到虾肉完全不透明后盛出。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "虾仁未熟透时不要试吃。"
+        },
+        {
+          "step_number": 4,
+          "instruction": "锅中加入 6 毫升食用油，中火倒入蛋液炒 1 分钟至凝固后盛出。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "step_number": 5,
+          "instruction": "锅中加入剩余 6 毫升食用油，放入熟米饭，大火翻炒 3 分钟至米饭整体滚烫。",
+          "duration_seconds": 180,
+          "heat_level": "大火",
+          "safety_note": "隔夜米饭必须彻底加热至整体冒热气。"
+        },
+        {
+          "step_number": 6,
+          "instruction": "加入虾仁、鸡蛋、火腿、蔬菜、葱末和 3 克盐，大火翻炒 2 分钟后关火。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_scallion_oil_noodles",
+      "name": "葱油拌面",
+      "default_servings": 2,
+      "estimated_time_minutes": 22,
+      "difficulty": "简单",
+      "equipment": [
+        "汤锅",
+        "炒锅"
+      ],
+      "summary": "葱香浓郁、酱汁咸甜平衡的快手拌面。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/staple/葱油拌面.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/staple/葱油拌面.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "面条",
+          "amount": "200 克"
+        },
+        {
+          "name": "小葱",
+          "amount": "60 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "40 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "25 毫升"
+        },
+        {
+          "name": "老抽",
+          "amount": "5 毫升"
+        },
+        {
+          "name": "白糖",
+          "amount": "6 克"
+        },
+        {
+          "name": "清水",
+          "amount": "1550 毫升"
+        }
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "小葱洗净并彻底擦干，切成 5 厘米段；将 25 毫升生抽、5 毫升老抽、6 克白糖和 50 毫升清水调匀。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "炒锅加入 40 毫升食用油和葱段，小火煎 8 分钟，直到葱段呈深绿色但没有焦黑。",
+          "duration_seconds": 480,
+          "heat_level": "小火",
+          "safety_note": "葱段必须擦干，防止热油飞溅。"
+        },
+        {
+          "step_number": 3,
+          "instruction": "关火静置 30 秒，倒入调好的酱汁，再开小火煮 1 分钟后关火。",
+          "duration_seconds": 90,
+          "heat_level": "小火",
+          "safety_note": "酱汁含水，倒入热油前必须先关火。"
+        },
+        {
+          "step_number": 4,
+          "instruction": "汤锅加入 1500 毫升清水烧开，放入 200 克面条，按包装建议时间煮熟后沥干。",
+          "heat_level": "大火"
+        },
+        {
+          "step_number": 5,
+          "instruction": "把面条分入两碗，每碗加入一半葱油酱汁并拌匀。"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_tomato_egg_soup",
+      "name": "西红柿鸡蛋汤",
+      "default_servings": 2,
+      "estimated_time_minutes": 15,
+      "difficulty": "简单",
+      "equipment": [
+        "汤锅"
+      ],
+      "summary": "酸甜清爽、蛋花柔嫩的基础家常汤。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/soup/西红柿鸡蛋汤.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/soup/西红柿鸡蛋汤.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "番茄",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "葱",
+          "amount": "5 克"
+        },
+        {
+          "name": "姜",
+          "amount": "3 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "5 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "3 克"
+        },
+        {
+          "name": "香油",
+          "amount": "2 毫升"
+        },
+        {
+          "name": "清水",
+          "amount": "800 毫升"
+        }
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "番茄洗净切块，葱切末，姜切丝，2 个鸡蛋打散。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "汤锅加入 5 毫升食用油，中火炒姜丝和番茄 2 分钟至番茄出汁。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "step_number": 3,
+          "instruction": "加入 800 毫升清水，大火烧开后转中火煮 3 分钟。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "step_number": 4,
+          "instruction": "保持汤微沸，沿锅边缓慢淋入蛋液，等待 20 秒后轻轻推动形成蛋花。",
+          "duration_seconds": 20,
+          "heat_level": "中火"
+        },
+        {
+          "step_number": 5,
+          "instruction": "加入 3 克盐和 2 毫升香油，搅匀后关火并撒葱末。"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_seaweed_egg_soup",
+      "name": "紫菜蛋花汤",
+      "default_servings": 2,
+      "estimated_time_minutes": 10,
+      "difficulty": "简单",
+      "equipment": [
+        "汤锅"
+      ],
+      "summary": "十分钟完成的清淡紫菜蛋花汤。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/soup/紫菜蛋花汤.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/soup/紫菜蛋花汤.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "干紫菜",
+          "amount": "8 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "葱",
+          "amount": "5 克"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "香油",
+          "amount": "2 毫升"
+        },
+        {
+          "name": "清水",
+          "amount": "800 毫升"
+        }
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "干紫菜撕成小片，葱切末，2 个鸡蛋打散。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "汤锅加入 800 毫升清水，大火烧开后放入紫菜，中火煮 1 分钟。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "step_number": 3,
+          "instruction": "保持汤微沸，沿锅边缓慢淋入蛋液，等待 20 秒后轻轻推动。",
+          "duration_seconds": 20,
+          "heat_level": "中火"
+        },
+        {
+          "step_number": 4,
+          "instruction": "加入 2 克盐和 2 毫升香油，搅匀后关火并撒葱末。"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_preserved_egg_congee",
+      "name": "皮蛋瘦肉粥",
+      "default_servings": 3,
+      "estimated_time_minutes": 55,
+      "difficulty": "简单",
+      "equipment": [
+        "汤锅"
+      ],
+      "summary": "米粒绵软、皮蛋和瘦肉鲜香的家常粥。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/soup/皮蛋瘦肉粥.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/soup/皮蛋瘦肉粥.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "大米",
+          "amount": "150 克"
+        },
+        {
+          "name": "猪里脊",
+          "amount": "150 克"
+        },
+        {
+          "name": "皮蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "10 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "5 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "5 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "3 克"
+        },
+        {
+          "name": "淀粉",
+          "amount": "5 克"
+        },
+        {
+          "name": "清水",
+          "amount": "1500 毫升"
+        }
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "大米淘洗后沥干；猪里脊用厨房纸擦干表面并切细丝，皮蛋切丁，姜切丝，葱切末。",
+          "safety_note": "处理生猪肉后清洗双手、刀具和砧板。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "肉丝加入 5 毫升生抽和 5 克淀粉，抓匀后腌制 10 分钟。",
+          "duration_seconds": 600
+        },
+        {
+          "step_number": 3,
+          "instruction": "汤锅加入 1500 毫升清水和大米，大火烧开后转小火，锅盖留缝熬 30 分钟并每 10 分钟搅动一次。",
+          "duration_seconds": 1800,
+          "heat_level": "小火",
+          "safety_note": "粥容易溢锅，锅盖必须留缝。"
+        },
+        {
+          "step_number": 4,
+          "instruction": "加入肉丝和姜丝，中火煮 6 分钟并把肉丝拨散，直到肉丝完全变色。",
+          "duration_seconds": 360,
+          "heat_level": "中火",
+          "safety_note": "猪肉不得带粉红色。"
+        },
+        {
+          "step_number": 5,
+          "instruction": "加入皮蛋、5 毫升食用油和 3 克盐，小火煮 3 分钟后关火并撒葱末。",
+          "duration_seconds": 180,
+          "heat_level": "小火"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_zhajiang_noodles",
+      "name": "炸酱面",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "中等",
+      "equipment": [
+        "汤锅",
+        "炒锅"
+      ],
+      "summary": "肉酱浓郁、配菜爽脆的家常炸酱面。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/staple/炸酱面.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/staple/炸酱面.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "面条",
+          "amount": "300 克"
+        },
+        {
+          "name": "猪肉末",
+          "amount": "200 克"
+        },
+        {
+          "name": "黄瓜",
+          "amount": "100 克"
+        },
+        {
+          "name": "胡萝卜",
+          "amount": "50 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "甜面酱",
+          "amount": "30 克"
+        },
+        {
+          "name": "黄豆酱",
+          "amount": "30 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "白糖",
+          "amount": "5 克"
+        },
+        {
+          "name": "清水",
+          "amount": "1550 毫升"
+        }
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "黄瓜和胡萝卜切细丝，葱切末；将 30 克甜面酱、30 克黄豆酱、5 克白糖和 50 毫升清水调匀。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "炒锅加入 15 毫升食用油，中火放入猪肉末翻炒 5 分钟，边炒边拨散，直到肉末完全变色并略微焦香。",
+          "duration_seconds": 300,
+          "heat_level": "中火",
+          "safety_note": "猪肉末不得带粉红色，处理生肉后清洗双手和器具。"
+        },
+        {
+          "step_number": 3,
+          "instruction": "加入一半葱末和调好的酱汁，小火炒 4 分钟至肉酱浓稠。",
+          "duration_seconds": 240,
+          "heat_level": "小火"
+        },
+        {
+          "step_number": 4,
+          "instruction": "汤锅加入 1500 毫升清水烧开，放入 300 克面条，按包装建议时间煮熟后沥干。",
+          "heat_level": "大火"
+        },
+        {
+          "step_number": 5,
+          "instruction": "面条分入两碗，分别放上一半肉酱、黄瓜丝、胡萝卜丝和剩余葱末。"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_555a8172f87b",
+      "name": "蛋包饭",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的蛋包饭。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/staple/蛋包饭.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/staple/蛋包饭.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "熟米饭",
+          "amount": "350 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "4 个"
+        },
+        {
+          "name": "火腿",
+          "amount": "80 克"
+        },
+        {
+          "name": "豌豆",
+          "amount": "50 克"
+        },
+        {
+          "name": "胡萝卜",
+          "amount": "50 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "番茄酱",
+          "amount": "25 克"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好熟米饭、鸡蛋、火腿、豌豆、胡萝卜；蔬菜清洗后沥干，按菜品需要切配。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "炒锅加入 8 毫升食用油，中火炒火腿、豌豆和胡萝卜 2 分钟；加入熟米饭、生抽和 1 克盐，大火炒 3 分钟后盛出。",
+          "duration_seconds": 300,
+          "heat_level": "大火"
+        },
+        {
+          "step_number": 3,
+          "instruction": "4 个鸡蛋加剩余 1 克盐打散；锅中加入剩余 7 毫升食用油，分两次摊成蛋皮，每张中小火煎 1 分钟。",
+          "duration_seconds": 120,
+          "heat_level": "中小火"
+        },
+        {
+          "step_number": 4,
+          "instruction": "每张蛋皮放入一半炒饭，对折包好后装盘，淋上 25 克番茄酱。"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_e8b21dabd24d",
+      "name": "炒河粉",
+      "default_servings": 2,
+      "estimated_time_minutes": 22,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的炒河粉。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/staple/炒河粉.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/staple/炒河粉.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "河粉",
+          "amount": "400 克"
+        },
+        {
+          "name": "牛肉",
+          "amount": "200 克"
+        },
+        {
+          "name": "豆芽",
+          "amount": "150 克"
+        },
+        {
+          "name": "韭菜",
+          "amount": "80 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "蚝油",
+          "amount": "10 毫升"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好河粉、牛肉、豆芽、韭菜；肉类或水产用厨房纸擦干，处理后清洗双手、刀具和砧板。",
+          "safety_note": "生肉和水产不要在水槽中冲洗，处理后清洁接触面。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "炒锅加入清单中的食用油，中火放入牛肉翻炒 5 分钟，直到肉类或水产完全变色。",
+          "duration_seconds": 300,
+          "heat_level": "中火",
+          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+        },
+        {
+          "step_number": 3,
+          "instruction": "加入河粉、豆芽、韭菜，大火翻炒 3 分钟至蔬菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "大火"
+        },
+        {
+          "step_number": 4,
+          "instruction": "加入生抽、盐、蚝油，翻炒 1 分钟；检查主料达到熟度要求后关火。",
+          "duration_seconds": 60,
+          "heat_level": "中火",
+          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_9510e2e472b8",
+      "name": "汤面",
+      "default_servings": 2,
+      "estimated_time_minutes": 15,
+      "difficulty": "简单",
+      "equipment": [
+        "汤锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的汤面。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/staple/汤面.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/staple/汤面.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "面条",
+          "amount": "200 克"
+        },
+        {
+          "name": "青菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "食用油",
+          "amount": "8 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "12 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "清水",
+          "amount": "1500 毫升"
+        },
+        {
+          "name": "香油",
+          "amount": "3 毫升"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好面条、青菜、鸡蛋；蔬菜清洗后沥干，按菜品需要切配。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "汤锅加入 1500 毫升清水烧开，放入面条煮至包装标示的成熟时间。",
+          "heat_level": "大火"
+        },
+        {
+          "step_number": 3,
+          "instruction": "加入青菜、鸡蛋，中火继续煮 4 分钟。",
+          "duration_seconds": 240,
+          "heat_level": "中火",
+          "safety_note": null
+        },
+        {
+          "step_number": 4,
+          "instruction": "加入生抽、盐、香油，搅匀并确认主料熟透后关火。",
+          "safety_note": null
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_626a1fba7c34",
+      "name": "热干面",
+      "default_servings": 2,
+      "estimated_time_minutes": 20,
+      "difficulty": "简单",
+      "equipment": [
+        "汤锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的热干面。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/staple/热干面.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/staple/热干面.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "碱水面",
+          "amount": "300 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "酸豆角",
+          "amount": "60 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "8 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "12 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "清水",
+          "amount": "1500 毫升"
+        },
+        {
+          "name": "芝麻酱",
+          "amount": "50 克"
+        },
+        {
+          "name": "香醋",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "香油",
+          "amount": "8 毫升"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好碱水面、葱、酸豆角；蔬菜清洗后沥干，按菜品需要切配。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "汤锅加入 1500 毫升清水烧开，放入碱水面煮至包装标示的成熟时间。",
+          "heat_level": "大火"
+        },
+        {
+          "step_number": 3,
+          "instruction": "加入葱、酸豆角，中火继续煮 4 分钟。",
+          "duration_seconds": 240,
+          "heat_level": "中火",
+          "safety_note": null
+        },
+        {
+          "step_number": 4,
+          "instruction": "加入生抽、盐、芝麻酱、香醋、香油，搅匀并确认主料熟透后关火。",
+          "safety_note": null
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_ae950af59248",
+      "name": "炒方便面",
+      "default_servings": 2,
+      "estimated_time_minutes": 15,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的炒方便面。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/staple/炒方便面/炒方便面.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/staple/炒方便面/炒方便面.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "方便面",
+          "amount": "2 包"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "青菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "火腿",
+          "amount": "80 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好方便面、鸡蛋、青菜、火腿；蔬菜清洗后沥干，按菜品需要切配。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "鸡蛋打散；炒锅加入清单中一半食用油，中火炒 1 分钟至刚凝固，盛出备用。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "step_number": 3,
+          "instruction": "加入方便面、青菜、火腿，大火翻炒 3 分钟至蔬菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "大火"
+        },
+        {
+          "step_number": 4,
+          "instruction": "把炒好的鸡蛋倒回锅中，翻炒 30 秒。",
+          "duration_seconds": 30,
+          "heat_level": "中火"
+        },
+        {
+          "step_number": 5,
+          "instruction": "加入生抽、盐，翻炒 1 分钟；检查主料达到熟度要求后关火。",
+          "duration_seconds": 60,
+          "heat_level": "中火",
+          "safety_note": null
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_14be5894a4b5",
+      "name": "煮泡面加蛋",
+      "default_servings": 1,
+      "estimated_time_minutes": 10,
+      "difficulty": "简单",
+      "equipment": [
+        "汤锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的煮泡面加蛋。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/staple/煮泡面加蛋.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/staple/煮泡面加蛋.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "方便面",
+          "amount": "1 包"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "1 个"
+        },
+        {
+          "name": "青菜",
+          "amount": "80 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "8 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "12 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "清水",
+          "amount": "1500 毫升"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好方便面、鸡蛋、青菜；蔬菜清洗后沥干，按菜品需要切配。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "汤锅加入 1500 毫升清水烧开，放入方便面煮至包装标示的成熟时间。",
+          "heat_level": "大火"
+        },
+        {
+          "step_number": 3,
+          "instruction": "加入鸡蛋、青菜，中火继续煮 4 分钟。",
+          "duration_seconds": 240,
+          "heat_level": "中火",
+          "safety_note": null
+        },
+        {
+          "step_number": 4,
+          "instruction": "加入生抽、盐，搅匀并确认主料熟透后关火。",
+          "safety_note": null
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_1716ced43a3e",
+      "name": "豆角焖面",
+      "default_servings": 3,
+      "estimated_time_minutes": 40,
+      "difficulty": "中等",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的豆角焖面。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/staple/豆角焖面/豆角焖面.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/staple/豆角焖面/豆角焖面.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "面条",
+          "amount": "450 克"
+        },
+        {
+          "name": "豆角",
+          "amount": "400 克"
+        },
+        {
+          "name": "五花肉",
+          "amount": "250 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "料酒",
+          "amount": "12 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "老抽",
+          "amount": "5 毫升"
+        },
+        {
+          "name": "白糖",
+          "amount": "5 克"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "清水",
+          "amount": "500 毫升"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好面条、豆角、五花肉、蒜；肉类或水产用厨房纸擦干，处理后清洗双手、刀具和砧板。",
+          "safety_note": "生肉和水产不要在水槽中冲洗，处理后清洁接触面。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "炒锅加入 15 毫升食用油，中火把五花肉和蒜炒 5 分钟至肉片完全变色。",
+          "duration_seconds": 300,
+          "heat_level": "中火",
+          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+        },
+        {
+          "step_number": 3,
+          "instruction": "加入豆角、料酒、生抽、老抽、白糖和盐翻炒 2 分钟，再加入 500 毫升清水烧开。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "step_number": 4,
+          "instruction": "把面条均匀铺在豆角上，不要压入锅底；盖盖小火焖 12 分钟。",
+          "duration_seconds": 720,
+          "heat_level": "小火"
+        },
+        {
+          "step_number": 5,
+          "instruction": "开盖将面条和菜拌匀，中火收汁 2 分钟，确认猪肉熟透和豆角无生味后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火",
+          "safety_note": "豆角必须彻底熟透。"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_db7edb23b3e2",
+      "name": "西红柿鸡蛋挂面",
+      "default_servings": 2,
+      "estimated_time_minutes": 20,
+      "difficulty": "简单",
+      "equipment": [
+        "汤锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的西红柿鸡蛋挂面。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/staple/西红柿鸡蛋挂面/西红柿鸡蛋挂面.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/staple/西红柿鸡蛋挂面/西红柿鸡蛋挂面.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "挂面",
+          "amount": "200 克"
+        },
+        {
+          "name": "番茄",
+          "amount": "300 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "青菜",
+          "amount": "100 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "8 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "12 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "清水",
+          "amount": "1500 毫升"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好挂面、番茄、鸡蛋、青菜；蔬菜清洗后沥干，按菜品需要切配。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "汤锅加入 1500 毫升清水烧开，放入挂面煮至包装标示的成熟时间。",
+          "heat_level": "大火"
+        },
+        {
+          "step_number": 3,
+          "instruction": "加入番茄、鸡蛋、青菜，中火继续煮 4 分钟。",
+          "duration_seconds": 240,
+          "heat_level": "中火",
+          "safety_note": null
+        },
+        {
+          "step_number": 4,
+          "instruction": "加入生抽、盐，搅匀并确认主料熟透后关火。",
+          "safety_note": null
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_35be5e9f9d16",
+      "name": "陕西油泼面",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "汤锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的陕西油泼面。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/staple/陕西油泼面/陕西油泼面.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/staple/陕西油泼面/陕西油泼面.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "面条",
+          "amount": "300 克"
+        },
+        {
+          "name": "青菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "葱",
+          "amount": "20 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "食用油",
+          "amount": "8 毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "12 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "清水",
+          "amount": "1500 毫升"
+        },
+        {
+          "name": "辣椒粉",
+          "amount": "10 克"
+        },
+        {
+          "name": "香醋",
+          "amount": "15 毫升"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好面条、青菜、葱、蒜；蔬菜清洗后沥干，按菜品需要切配。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "汤锅加入 1500 毫升清水烧开，放入面条煮至包装标示的成熟时间。",
+          "heat_level": "大火"
+        },
+        {
+          "step_number": 3,
+          "instruction": "加入青菜、葱、蒜，中火继续煮 4 分钟。",
+          "duration_seconds": 240,
+          "heat_level": "中火",
+          "safety_note": null
+        },
+        {
+          "step_number": 4,
+          "instruction": "加入生抽、盐、辣椒粉、香醋，搅匀并确认主料熟透后关火。",
+          "safety_note": null
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_4147b9b6ee16",
+      "name": "手工水饺",
+      "default_servings": 4,
+      "estimated_time_minutes": 80,
+      "difficulty": "中等",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的手工水饺。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/staple/手工水饺.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/staple/手工水饺.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "饺子皮",
+          "amount": "500 克"
+        },
+        {
+          "name": "猪肉馅",
+          "amount": "400 克"
+        },
+        {
+          "name": "大白菜",
+          "amount": "400 克"
+        },
+        {
+          "name": "葱",
+          "amount": "20 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "清水",
+          "amount": "1500 毫升"
+        },
+        {
+          "name": "香油",
+          "amount": "8 毫升"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好饺子皮、猪肉馅、大白菜、葱、姜；肉类或水产用厨房纸擦干，处理后清洗双手、刀具和砧板。",
+          "safety_note": "生肉和水产不要在水槽中冲洗，处理后清洁接触面。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "大白菜切碎后挤去部分水分，与 400 克猪肉馅、葱、姜、生抽、盐和香油顺一个方向搅拌 3 分钟。",
+          "duration_seconds": 180
+        },
+        {
+          "step_number": 3,
+          "instruction": "每张饺子皮中央放约 15 克馅，对折并捏紧边缘，依次包完。",
+          "safety_note": "生肉馅接触过的碗和工具不要再接触熟食。"
+        },
+        {
+          "step_number": 4,
+          "instruction": "汤锅加入 1500 毫升清水烧开，分批放入饺子并轻推防粘；水再次沸腾后中火煮 8 分钟。",
+          "duration_seconds": 480,
+          "heat_level": "中火"
+        },
+        {
+          "step_number": 5,
+          "instruction": "捞出一个饺子切开，确认肉馅完全变色且汁液清澈后再全部捞出。",
+          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_f78261890dfa",
+      "name": "小米粥",
+      "default_servings": 3,
+      "estimated_time_minutes": 45,
+      "difficulty": "中等",
+      "equipment": [
+        "汤锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的小米粥。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/soup/小米粥.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/soup/小米粥.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "小米",
+          "amount": "180 克"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "清水",
+          "amount": "1800 毫升"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好小米；蔬菜清洗后沥干，按菜品需要切配。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "汤锅加入清单中的清水并烧开。",
+          "heat_level": "大火"
+        },
+        {
+          "step_number": 3,
+          "instruction": "放入小米，转小火煮 45 分钟，期间每 10 分钟搅动一次。",
+          "duration_seconds": 2700,
+          "heat_level": "小火"
+        },
+        {
+          "step_number": 4,
+          "instruction": "加入盐，搅匀并确认主料熟透后关火。",
+          "safety_note": null
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_b8ed1c11a8f4",
+      "name": "玉米排骨汤",
+      "default_servings": 4,
+      "estimated_time_minutes": 80,
+      "difficulty": "中等",
+      "equipment": [
+        "汤锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的玉米排骨汤。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/soup/玉米排骨汤/玉米排骨汤.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/soup/玉米排骨汤/玉米排骨汤.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "排骨",
+          "amount": "700 克"
+        },
+        {
+          "name": "玉米",
+          "amount": "2 根"
+        },
+        {
+          "name": "胡萝卜",
+          "amount": "200 克"
+        },
+        {
+          "name": "姜",
+          "amount": "15 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "8 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "3 克"
+        },
+        {
+          "name": "清水",
+          "amount": "1200 毫升"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好排骨、玉米、胡萝卜、姜；肉类或水产用厨房纸擦干，处理后清洗双手、刀具和砧板。",
+          "safety_note": "生肉和水产不要在水槽中冲洗，处理后清洁接触面。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "汤锅加入清单中的清水并烧开。",
+          "heat_level": "大火"
+        },
+        {
+          "step_number": 3,
+          "instruction": "放入排骨，转小火煮 55 分钟。",
+          "duration_seconds": 3300,
+          "heat_level": "小火"
+        },
+        {
+          "step_number": 4,
+          "instruction": "加入玉米、胡萝卜、姜，继续煮 10 分钟。",
+          "duration_seconds": 600,
+          "heat_level": "小火"
+        },
+        {
+          "step_number": 5,
+          "instruction": "加入盐，搅匀并确认主料熟透后关火。",
+          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_068013fee702",
+      "name": "银耳莲子粥",
+      "default_servings": 4,
+      "estimated_time_minutes": 70,
+      "difficulty": "中等",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的银耳莲子粥。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/soup/银耳莲子粥/银耳莲子粥.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/soup/银耳莲子粥/银耳莲子粥.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "干银耳",
+          "amount": "20 克"
+        },
+        {
+          "name": "莲子",
+          "amount": "80 克"
+        },
+        {
+          "name": "大米",
+          "amount": "150 克"
+        },
+        {
+          "name": "红枣",
+          "amount": "40 克"
+        },
+        {
+          "name": "清水",
+          "amount": "1800 毫升"
+        },
+        {
+          "name": "冰糖",
+          "amount": "30 克"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好干银耳、莲子、大米、红枣；蔬菜清洗后沥干，按菜品需要切配。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "汤锅加入清单中的清水并烧开。",
+          "heat_level": "大火"
+        },
+        {
+          "step_number": 3,
+          "instruction": "放入干银耳、莲子、大米、红枣，转小火煮 50 分钟，期间每 10 分钟搅动一次。",
+          "duration_seconds": 3000,
+          "heat_level": "小火"
+        },
+        {
+          "step_number": 4,
+          "instruction": "加入冰糖，搅匀并确认主料熟透后关火。",
+          "safety_note": null
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_e6820939d983",
+      "name": "黄瓜皮蛋汤",
+      "default_servings": 2,
+      "estimated_time_minutes": 18,
+      "difficulty": "简单",
+      "equipment": [
+        "汤锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的黄瓜皮蛋汤。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/soup/黄瓜皮蛋汤.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/soup/黄瓜皮蛋汤.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "黄瓜",
+          "amount": "250 克"
+        },
+        {
+          "name": "皮蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "姜",
+          "amount": "5 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "8 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "3 克"
+        },
+        {
+          "name": "清水",
+          "amount": "1200 毫升"
+        },
+        {
+          "name": "香油",
+          "amount": "3 毫升"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好黄瓜、皮蛋、姜；蔬菜清洗后沥干，按菜品需要切配。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "汤锅加入清单中的清水并烧开。",
+          "heat_level": "大火"
+        },
+        {
+          "step_number": 3,
+          "instruction": "放入黄瓜、皮蛋、姜，转小火煮 12 分钟，期间每 10 分钟搅动一次。",
+          "duration_seconds": 720,
+          "heat_level": "小火"
+        },
+        {
+          "step_number": 4,
+          "instruction": "加入盐、香油，搅匀并确认主料熟透后关火。",
+          "safety_note": null
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_d627574ba69b",
+      "name": "茶叶蛋",
+      "default_servings": 4,
+      "estimated_time_minutes": 50,
+      "difficulty": "中等",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的茶叶蛋。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/breakfast/茶叶蛋.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/breakfast/茶叶蛋.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "鸡蛋",
+          "amount": "8 个"
+        },
+        {
+          "name": "红茶",
+          "amount": "10 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "清水",
+          "amount": "1500 毫升"
+        },
+        {
+          "name": "八角",
+          "amount": "2 个"
+        },
+        {
+          "name": "桂皮",
+          "amount": "5 克"
+        },
+        {
+          "name": "香叶",
+          "amount": "2 片"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好鸡蛋、红茶；蔬菜清洗后沥干，按菜品需要切配。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "汤锅加入 1500 毫升清水和 8 个鸡蛋，大火烧开后转中火煮 8 分钟。",
+          "duration_seconds": 480,
+          "heat_level": "中火"
+        },
+        {
+          "step_number": 3,
+          "instruction": "关火后将鸡蛋逐个轻敲出均匀裂纹，再放回锅中。",
+          "safety_note": "鸡蛋和锅水都很烫，使用漏勺取放。"
+        },
+        {
+          "step_number": 4,
+          "instruction": "加入红茶、生抽、盐、八角、桂皮和香叶，小火煮 25 分钟。",
+          "duration_seconds": 1500,
+          "heat_level": "小火"
+        },
+        {
+          "step_number": 5,
+          "instruction": "关火后在卤汁中浸泡 30 分钟再食用。",
+          "duration_seconds": 1800
+        }
+      ]
+    },
+    {
+      "recipe_id": "htc_curated_32182e4ccf9a",
+      "name": "蒸水蛋",
+      "default_servings": 2,
+      "estimated_time_minutes": 18,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "参考固定上游版本并按家庭厨房场景校订的蒸水蛋。",
+      "source_key": "howtocook",
+      "source_name": "HowToCook（人工校订）",
+      "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
+      "source_path": "dishes/breakfast/蒸水蛋.md",
+      "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/breakfast/蒸水蛋.md",
+      "license": "Unlicense",
+      "ingredients": [
+        {
+          "name": "鸡蛋",
+          "amount": "3 个"
+        },
+        {
+          "name": "温水",
+          "amount": "300 毫升"
+        },
+        {
+          "name": "葱",
+          "amount": "5 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "8 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "清水",
+          "amount": "1200 毫升"
+        },
+        {
+          "name": "香油",
+          "amount": "3 毫升"
+        }
+      ],
+      "notes": [
+        "用量、油盐、火力和食品安全说明已按本项目规范重新校订。"
+      ],
+      "steps": [
+        {
+          "step_number": 1,
+          "instruction": "按食材清单备好鸡蛋、温水、葱；蔬菜清洗后沥干，按菜品需要切配。"
+        },
+        {
+          "step_number": 2,
+          "instruction": "将 3 个鸡蛋打散，加入 300 毫升温水和 2 克盐搅匀，过滤到耐热碗并盖上耐热盘。"
+        },
+        {
+          "step_number": 3,
+          "instruction": "蒸锅加入 1200 毫升清水烧开，放入蛋液碗，中火蒸 10 分钟。",
+          "duration_seconds": 600,
+          "heat_level": "中火",
+          "safety_note": "开盖时让蒸汽远离脸和手。"
+        },
+        {
+          "step_number": 4,
+          "instruction": "关火焖 2 分钟，确认蛋液完全凝固后取出，淋生抽和香油。",
+          "duration_seconds": 120
+        }
+      ]
+    }
+  ]
+}
