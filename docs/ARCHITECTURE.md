@@ -8,7 +8,7 @@
      -> RecipeSearchProvider -> 本地优先；未命中时生成 1 个带完整详情的候选
      -> 单候选直接确认
      -> RecipeNormalizer -> 内部 Recipe
-     -> CookingQuestionService（安全规则优先）
+     -> CookingQuestionService（普通烹饪问答；事故处置硬边界）
   -> response_builder（五类反馈）
   -> RuntimeExecutor -> MockRobotSDK
 ```
@@ -19,9 +19,15 @@
 
 候选排序由 `recommendation_service.py` 完成：忌口冲突先过滤，然后综合指定菜名、已有食材命中与缺失、时间、简单偏好、辣/少盐偏好及厨具匹配排序。`MemoryRecipeCache` 是可关闭的进程内缓存，不存储密钥或无效结果。
 
-`OnlineRecipeSearchProvider` 是 `web_search` 占位，当前不发 HTTP 请求，也不会抓取随机网页。后续搜索能力应继续在这个边界内实现。`RuleBasedCookingQuestionService` 先处理起火、燃气味、大量浓烟、烫伤和电器进水等安全情况，再处理常见新手问题；仅在它们未命中时才由 `QwenCookingQuestionService` 调用千问。普通问答限制输出长度，千问失败时返回本地安全 fallback，且不会改变步骤或状态。
+`OnlineRecipeSearchProvider` 是 `web_search` 占位，当前不发 HTTP 请求，也不会抓取随机网页。后续搜索能力应继续在这个边界内实现。`RuleBasedCookingQuestionService` 处理常见做菜问题；起火、燃气、触电或受伤等事故类输入统一返回能力边界声明、暂停指导，不生成具体处置步骤。仅在本地规则未命中普通问题时才由 `QwenCookingQuestionService` 调用千问，且模型提示同样禁止事故判断与处置建议。
 
-视觉识别在 `robot_main.handle_input` 的 Skill 路由之前执行，只拦截包含明确指示词的食材视觉请求。`MacCamera` 通过 OpenCV 从默认摄像头读取并预热少量帧，在内存中压缩为约 720p JPEG；`IngredientVisionService` 将 Base64 Data URL 交给 Qwen VL，并校验精简 JSON 后转换为五通道反馈。原始图片不落盘、不写日志，请求结束立即释放摄像头。视觉结果只用于回答当前问题，不自动修改厨房会话，也不用于确认成熟度、过敏原或食品安全。
+视觉识别在 `robot_main.handle_input` 的 Skill 路由之前执行，只拦截包含明确指示词的食材视觉请求。`MacCamera` 通过 OpenCV 从默认摄像头读取并预热少量帧，在内存中压缩为约 720p JPEG；`IngredientVisionService` 同时服务对话识别和控制台食材盘点，维护摄像头读取状态，并校验 Qwen VL 的精简 JSON。原始图片不落盘、不写日志，请求结束立即释放摄像头。控制台盘点结果必须由用户确认后才写入厨房会话，不用于确认成熟度、过敏原或食品安全。
+
+`KitchenConsoleServer` 使用标准库 `ThreadingHTTPServer` 提供静态页面和小型 JSON API。`/api/status` 聚合 `KitchenSession.status_snapshot()`、`RuntimeExecutor.status_snapshot()` 与摄像头状态；图片上传使用 JSON Data URL，限制 8 MB；所有 POST 执行同源校验。`recommend_from_ingredients` 是厨房 Skill 的受信任主机 Hook，它会使用确认食材重置并进入候选展示状态。控制台没有高风险设备控制接口。
+
+视频导入由独立的 `VideoImportService` 后台任务处理，不在厨房会话锁内执行下载或模型请求。平台适配器读取公开小红书移动分享页，或使用显式配置的第三方 API；获取失败后用户可上传 MP4/MOV。媒体层检查公开地址与重定向、100 MB 大小及 180 秒时长，使用 FFmpeg 校验和转码。模型先提取视频事实，再整理教学草稿；草稿保留原视频事实、AI 建议、用户修改和本地标准化调整的来源标记。
+
+用户确认前，草稿独立于活动厨房会话；处理收尾阶段清理临时媒体。确认后的菜谱原子写入独立的 `recipes/imported/` 目录，读取时仅缩放用量，不重复调整已确认的操作流程。`select_imported_console_recipe` 在会话锁内拒绝覆盖活动任务，并复用菜谱确认后的忌口检查、动物蛋白状态确认和教学状态机。导入菜谱的步骤计时由用户明确启动，控制台导航也遵守未启动计时与提前结束的确认流程。新增 POST/PATCH/DELETE 接口均执行同源校验，multipart 视频上传有独立的大小上限。
 
 活动计时器属于本地会话状态。进入 `PAUSED` 时冻结剩余秒数，恢复后重新计算截止时间；AI 不能启动、暂停或修改计时。Normalizer 只保留煮、炖、焖、煎、烤、蒸、炸、焯、收汁等加热步骤的 `duration_seconds`，准备和装盘步骤不会触发计时。菜谱标准化后、开始烹饪前还会执行本地忌口复核，避免 AI 详情或本地回退与用户过敏/忌口冲突；肉类解冻由 `WAITING_MEAT_THAW` 统一处理，模型生成的重复解冻步骤会被移除。
 

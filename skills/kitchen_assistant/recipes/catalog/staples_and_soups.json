@@ -1,5 +1,5 @@
 {
-  "catalog_version": 1,
+  "catalog_version": 2,
   "recipes": [
     {
       "recipe_id": "htc_yangzhou_fried_rice",
@@ -12,7 +12,7 @@
       ],
       "summary": "米粒分明、鸡蛋鲜虾和蔬菜丰富的扬州炒饭。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/staple/扬州炒饭/扬州炒饭.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/staple/扬州炒饭/扬州炒饭.md",
@@ -68,43 +68,35 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "火腿和胡萝卜切丁，葱切末，2 个鸡蛋打散；鲜虾仁用厨房纸吸干表面水分。",
-          "safety_note": "处理生虾后清洗双手、刀具和砧板。"
+          "instruction": "按清单称量食材。将熟米饭处理成约 2 厘米的均匀块或片，2 个鸡蛋、100 克鲜虾仁、80 克火腿、50 克豌豆、50 克胡萝卜、50 克玉米粒分别洗净切好。"
         },
         {
-          "step_number": 2,
-          "instruction": "小锅加入 800 毫升清水烧开，放入豌豆、胡萝卜和玉米粒焯 2 分钟后沥干。",
-          "duration_seconds": 120,
-          "heat_level": "大火"
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
         },
         {
-          "step_number": 3,
-          "instruction": "炒锅加入 8 毫升食用油，中火把虾仁炒 3 分钟，直到虾肉完全不透明后盛出。",
-          "duration_seconds": 180,
-          "heat_level": "中火",
-          "safety_note": "虾仁未熟透时不要试吃。"
-        },
-        {
-          "step_number": 4,
-          "instruction": "锅中加入 6 毫升食用油，中火倒入蛋液炒 1 分钟至凝固后盛出。",
-          "duration_seconds": 60,
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入350 克熟米饭翻炒 3 分钟。",
+          "duration_seconds": 210,
           "heat_level": "中火"
         },
         {
-          "step_number": 5,
-          "instruction": "锅中加入剩余 6 毫升食用油，放入熟米饭，大火翻炒 3 分钟至米饭整体滚烫。",
+          "instruction": "加入2 个鸡蛋、100 克鲜虾仁、80 克火腿、50 克豌豆、50 克胡萝卜、50 克玉米粒继续翻炒或煮 3 分钟，至配菜断生。",
           "duration_seconds": 180,
-          "heat_level": "大火",
-          "safety_note": "隔夜米饭必须彻底加热至整体冒热气。"
+          "heat_level": "中火"
         },
         {
-          "step_number": 6,
-          "instruction": "加入虾仁、鸡蛋、火腿、蔬菜、葱末和 3 克盐，大火翻炒 2 分钟后关火。",
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
           "duration_seconds": 120,
-          "heat_level": "大火"
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_scallion_oil_noodles",
@@ -118,7 +110,7 @@
       ],
       "summary": "葱香浓郁、酱汁咸甜平衡的快手拌面。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/staple/葱油拌面.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/staple/葱油拌面.md",
@@ -155,46 +147,39 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "小葱洗净并彻底擦干，切成 5 厘米段；将 25 毫升生抽、5 毫升老抽、6 克白糖和 50 毫升清水调匀。"
+          "instruction": "按清单称量食材。将面条处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
         },
         {
-          "step_number": 2,
-          "instruction": "炒锅加入 40 毫升食用油和葱段，小火煎 8 分钟，直到葱段呈深绿色但没有焦黑。",
-          "duration_seconds": 480,
-          "heat_level": "小火",
-          "safety_note": "葱段必须擦干，防止热油飞溅。"
+          "instruction": "需要熟制的面条放入沸水或平底锅中加热，至中心完全熟透后取出。",
+          "safety_note": "确认需要熟制的食材已熟，不把生食与熟食混放。"
         },
         {
-          "step_number": 3,
-          "instruction": "关火静置 30 秒，倒入调好的酱汁，再开小火煮 1 分钟后关火。",
-          "duration_seconds": 90,
-          "heat_level": "小火",
-          "safety_note": "酱汁含水，倒入热油前必须先关火。"
+          "instruction": "将熟制后的主料摊开放凉 3 分钟；配菜充分沥干，避免稀释调味汁。"
         },
         {
-          "step_number": 4,
-          "instruction": "汤锅加入 1500 毫升清水烧开，放入 200 克面条，按包装建议时间煮熟后沥干。",
-          "heat_level": "大火"
+          "instruction": "小碗中加入清单里的油、醋、生抽、盐等调味料，搅拌至盐糖溶解。"
         },
         {
-          "step_number": 5,
-          "instruction": "把面条分入两碗，每碗加入一半葱油酱汁并拌匀。"
+          "instruction": "沙拉碗中放入200 克面条和配菜，先淋入一半调味汁，从碗底向上翻拌。"
+        },
+        {
+          "instruction": "检查咸淡后加入剩余调味汁，再翻拌约 20 秒；拌好后立即食用或盖好冷藏。"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_tomato_egg_soup",
       "name": "西红柿鸡蛋汤",
       "default_servings": 2,
-      "estimated_time_minutes": 15,
+      "estimated_time_minutes": 20,
       "difficulty": "简单",
       "equipment": [
         "汤锅"
       ],
       "summary": "酸甜清爽、蛋花柔嫩的基础家常汤。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/soup/西红柿鸡蛋汤.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/soup/西红柿鸡蛋汤.md",
@@ -235,45 +220,48 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "番茄洗净切块，葱切末，姜切丝，2 个鸡蛋打散。"
+          "instruction": "按清单称量食材。将番茄处理成约 2 厘米的均匀块或片，2 个鸡蛋分别洗净切好。"
         },
         {
-          "step_number": 2,
-          "instruction": "汤锅加入 5 毫升食用油，中火炒姜丝和番茄 2 分钟至番茄出汁。",
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入250 克番茄，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入2 个鸡蛋和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "不要只凭计时判断，确认食材达到可食用状态。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“西红柿鸡蛋汤”需要的浓度后关火。",
           "duration_seconds": 120,
           "heat_level": "中火"
-        },
-        {
-          "step_number": 3,
-          "instruction": "加入 800 毫升清水，大火烧开后转中火煮 3 分钟。",
-          "duration_seconds": 180,
-          "heat_level": "中火"
-        },
-        {
-          "step_number": 4,
-          "instruction": "保持汤微沸，沿锅边缓慢淋入蛋液，等待 20 秒后轻轻推动形成蛋花。",
-          "duration_seconds": 20,
-          "heat_level": "中火"
-        },
-        {
-          "step_number": 5,
-          "instruction": "加入 3 克盐和 2 毫升香油，搅匀后关火并撒葱末。"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_seaweed_egg_soup",
       "name": "紫菜蛋花汤",
       "default_servings": 2,
-      "estimated_time_minutes": 10,
+      "estimated_time_minutes": 20,
       "difficulty": "简单",
       "equipment": [
         "汤锅"
       ],
       "summary": "十分钟完成的清淡紫菜蛋花汤。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/soup/紫菜蛋花汤.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/soup/紫菜蛋花汤.md",
@@ -306,26 +294,35 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "干紫菜撕成小片，葱切末，2 个鸡蛋打散。"
+          "instruction": "按清单称量食材。将干紫菜处理成约 2 厘米的均匀块或片，2 个鸡蛋分别洗净切好。"
         },
         {
-          "step_number": 2,
-          "instruction": "汤锅加入 800 毫升清水，大火烧开后放入紫菜，中火煮 1 分钟。",
-          "duration_seconds": 60,
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入8 克干紫菜，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
           "heat_level": "中火"
         },
         {
-          "step_number": 3,
-          "instruction": "保持汤微沸，沿锅边缓慢淋入蛋液，等待 20 秒后轻轻推动。",
-          "duration_seconds": 20,
-          "heat_level": "中火"
+          "instruction": "加入2 个鸡蛋和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
         },
         {
-          "step_number": 4,
-          "instruction": "加入 2 克盐和 2 毫升香油，搅匀后关火并撒葱末。"
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "不要只凭计时判断，确认食材达到可食用状态。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“紫菜蛋花汤”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_preserved_egg_congee",
@@ -338,7 +335,7 @@
       ],
       "summary": "米粒绵软、皮蛋和瘦肉鲜香的家常粥。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/soup/皮蛋瘦肉粥.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/soup/皮蛋瘦肉粥.md",
@@ -387,36 +384,35 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "大米淘洗后沥干；猪里脊用厨房纸擦干表面并切细丝，皮蛋切丁，姜切丝，葱切末。",
-          "safety_note": "处理生猪肉后清洗双手、刀具和砧板。"
+          "instruction": "按清单称量食材。将大米处理成约 2 厘米的均匀块或片，150 克猪里脊、2 个皮蛋分别洗净切好。"
         },
         {
-          "step_number": 2,
-          "instruction": "肉丝加入 5 毫升生抽和 5 克淀粉，抓匀后腌制 10 分钟。",
-          "duration_seconds": 600
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
         },
         {
-          "step_number": 3,
-          "instruction": "汤锅加入 1500 毫升清水和大米，大火烧开后转小火，锅盖留缝熬 30 分钟并每 10 分钟搅动一次。",
-          "duration_seconds": 1800,
-          "heat_level": "小火",
-          "safety_note": "粥容易溢锅，锅盖必须留缝。"
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入150 克大米翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
         },
         {
-          "step_number": 4,
-          "instruction": "加入肉丝和姜丝，中火煮 6 分钟并把肉丝拨散，直到肉丝完全变色。",
-          "duration_seconds": 360,
-          "heat_level": "中火",
-          "safety_note": "猪肉不得带粉红色。"
-        },
-        {
-          "step_number": 5,
-          "instruction": "加入皮蛋、5 毫升食用油和 3 克盐，小火煮 3 分钟后关火并撒葱末。",
+          "instruction": "加入150 克猪里脊、2 个皮蛋继续翻炒或煮 3 分钟，至配菜断生。",
           "duration_seconds": 180,
-          "heat_level": "小火"
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_zhajiang_noodles",
@@ -430,7 +426,7 @@
       ],
       "summary": "肉酱浓郁、配菜爽脆的家常炸酱面。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/staple/炸酱面.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/staple/炸酱面.md",
@@ -479,32 +475,35 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "黄瓜和胡萝卜切细丝，葱切末；将 30 克甜面酱、30 克黄豆酱、5 克白糖和 50 毫升清水调匀。"
+          "instruction": "按清单称量食材。将面条处理成约 2 厘米的均匀块或片，200 克猪肉末、100 克黄瓜、50 克胡萝卜分别洗净切好。"
         },
         {
-          "step_number": 2,
-          "instruction": "炒锅加入 15 毫升食用油，中火放入猪肉末翻炒 5 分钟，边炒边拨散，直到肉末完全变色并略微焦香。",
-          "duration_seconds": 300,
-          "heat_level": "中火",
-          "safety_note": "猪肉末不得带粉红色，处理生肉后清洗双手和器具。"
+          "instruction": "用厨房纸吸干面条表面水分，加入清单中的盐和调味料拌匀，静置 10 分钟。"
         },
         {
-          "step_number": 3,
-          "instruction": "加入一半葱末和调好的酱汁，小火炒 4 分钟至肉酱浓稠。",
-          "duration_seconds": 240,
-          "heat_level": "小火"
+          "instruction": "平底锅加入清单中的食用油，中火加热 30 秒。",
+          "duration_seconds": 30,
+          "heat_level": "中火"
         },
         {
-          "step_number": 4,
-          "instruction": "汤锅加入 1500 毫升清水烧开，放入 300 克面条，按包装建议时间煮熟后沥干。",
-          "heat_level": "大火"
+          "instruction": "放入300 克面条单层铺开，先不要移动，煎 3 分钟至底面定型。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
         },
         {
-          "step_number": 5,
-          "instruction": "面条分入两碗，分别放上一半肉酱、黄瓜丝、胡萝卜丝和剩余葱末。"
+          "instruction": "翻面后加入200 克猪肉末、100 克黄瓜、50 克胡萝卜，继续煎炒 3 分钟，使各面均匀上色。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查最大一块的中心状态；未熟时转小火每次续煎 1 分钟并再次检查。",
+          "safety_note": "不要只凭表面颜色判断熟度。"
+        },
+        {
+          "instruction": "达到熟度后关火，静置 2 分钟再装盘，完成炸酱面。"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_curated_555a8172f87b",
@@ -517,7 +516,7 @@
       ],
       "summary": "参考固定上游版本并按家庭厨房场景校订的蛋包饭。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/staple/蛋包饭.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/staple/蛋包饭.md",
@@ -565,26 +564,35 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "按食材清单备好熟米饭、鸡蛋、火腿、豌豆、胡萝卜；蔬菜清洗后沥干，按菜品需要切配。"
+          "instruction": "按清单称量食材。将熟米饭处理成约 2 厘米的均匀块或片，4 个鸡蛋、80 克火腿、50 克豌豆、50 克胡萝卜分别洗净切好。"
         },
         {
-          "step_number": 2,
-          "instruction": "炒锅加入 8 毫升食用油，中火炒火腿、豌豆和胡萝卜 2 分钟；加入熟米饭、生抽和 1 克盐，大火炒 3 分钟后盛出。",
-          "duration_seconds": 300,
-          "heat_level": "大火"
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
         },
         {
-          "step_number": 3,
-          "instruction": "4 个鸡蛋加剩余 1 克盐打散；锅中加入剩余 7 毫升食用油，分两次摊成蛋皮，每张中小火煎 1 分钟。",
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入350 克熟米饭翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入4 个鸡蛋、80 克火腿、50 克豌豆、50 克胡萝卜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
           "duration_seconds": 120,
-          "heat_level": "中小火"
+          "heat_level": "中火"
         },
         {
-          "step_number": 4,
-          "instruction": "每张蛋皮放入一半炒饭，对折包好后装盘，淋上 25 克番茄酱。"
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_curated_e8b21dabd24d",
@@ -597,7 +605,7 @@
       ],
       "summary": "参考固定上游版本并按家庭厨房场景校订的炒河粉。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/staple/炒河粉.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/staple/炒河粉.md",
@@ -641,44 +649,48 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "按食材清单备好河粉、牛肉、豆芽、韭菜；肉类或水产用厨房纸擦干，处理后清洗双手、刀具和砧板。",
-          "safety_note": "生肉和水产不要在水槽中冲洗，处理后清洁接触面。"
+          "instruction": "按清单称量食材。将河粉处理成约 2 厘米的均匀块或片，200 克牛肉、150 克豆芽、80 克韭菜分别清理后切好。"
         },
         {
-          "step_number": 2,
-          "instruction": "炒锅加入清单中的食用油，中火放入牛肉翻炒 5 分钟，直到肉类或水产完全变色。",
-          "duration_seconds": 300,
-          "heat_level": "中火",
-          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
         },
         {
-          "step_number": 3,
-          "instruction": "加入河粉、豆芽、韭菜，大火翻炒 3 分钟至蔬菜断生。",
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入400 克河粉翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入200 克牛肉、150 克豆芽、80 克韭菜继续翻炒或煮 3 分钟，至配菜断生。",
           "duration_seconds": 180,
-          "heat_level": "大火"
+          "heat_level": "中火"
         },
         {
-          "step_number": 4,
-          "instruction": "加入生抽、盐、蚝油，翻炒 1 分钟；检查主料达到熟度要求后关火。",
-          "duration_seconds": 60,
-          "heat_level": "中火",
-          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_curated_9510e2e472b8",
       "name": "汤面",
       "default_servings": 2,
-      "estimated_time_minutes": 15,
+      "estimated_time_minutes": 20,
       "difficulty": "简单",
       "equipment": [
         "汤锅"
       ],
       "summary": "参考固定上游版本并按家庭厨房场景校订的汤面。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/staple/汤面.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/staple/汤面.md",
@@ -722,27 +734,35 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "按食材清单备好面条、青菜、鸡蛋；蔬菜清洗后沥干，按菜品需要切配。"
+          "instruction": "按清单称量食材。将面条处理成约 2 厘米的均匀块或片，150 克青菜、2 个鸡蛋分别洗净切好。"
         },
         {
-          "step_number": 2,
-          "instruction": "汤锅加入 1500 毫升清水烧开，放入面条煮至包装标示的成熟时间。",
-          "heat_level": "大火"
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
         },
         {
-          "step_number": 3,
-          "instruction": "加入青菜、鸡蛋，中火继续煮 4 分钟。",
+          "instruction": "加入200 克面条，中火翻炒 4 分钟，使各面均匀受热。",
           "duration_seconds": 240,
-          "heat_level": "中火",
-          "safety_note": null
+          "heat_level": "中火"
         },
         {
-          "step_number": 4,
-          "instruction": "加入生抽、盐、香油，搅匀并确认主料熟透后关火。",
-          "safety_note": null
+          "instruction": "加入150 克青菜、2 个鸡蛋和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "不要只凭计时判断，确认食材达到可食用状态。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“汤面”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_curated_626a1fba7c34",
@@ -755,7 +775,7 @@
       ],
       "summary": "参考固定上游版本并按家庭厨房场景校订的热干面。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/staple/热干面.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/staple/热干面.md",
@@ -807,40 +827,48 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "按食材清单备好碱水面、葱、酸豆角；蔬菜清洗后沥干，按菜品需要切配。"
+          "instruction": "按清单称量食材。将酸豆角处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
         },
         {
-          "step_number": 2,
-          "instruction": "汤锅加入 1500 毫升清水烧开，放入碱水面煮至包装标示的成熟时间。",
-          "heat_level": "大火"
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
         },
         {
-          "step_number": 3,
-          "instruction": "加入葱、酸豆角，中火继续煮 4 分钟。",
-          "duration_seconds": 240,
-          "heat_level": "中火",
-          "safety_note": null
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入60 克酸豆角翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
         },
         {
-          "step_number": 4,
-          "instruction": "加入生抽、盐、芝麻酱、香醋、香油，搅匀并确认主料熟透后关火。",
-          "safety_note": null
+          "instruction": "加入配菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_curated_ae950af59248",
       "name": "炒方便面",
       "default_servings": 2,
-      "estimated_time_minutes": 15,
+      "estimated_time_minutes": 20,
       "difficulty": "简单",
       "equipment": [
         "炒锅"
       ],
       "summary": "参考固定上游版本并按家庭厨房场景校订的炒方便面。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/staple/炒方便面/炒方便面.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/staple/炒方便面/炒方便面.md",
@@ -880,48 +908,48 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "按食材清单备好方便面、鸡蛋、青菜、火腿；蔬菜清洗后沥干，按菜品需要切配。"
+          "instruction": "按清单称量食材。将方便面处理成约 2 厘米的均匀块或片，2 个鸡蛋、150 克青菜、80 克火腿分别洗净切好。"
         },
         {
-          "step_number": 2,
-          "instruction": "鸡蛋打散；炒锅加入清单中一半食用油，中火炒 1 分钟至刚凝固，盛出备用。",
-          "duration_seconds": 60,
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入2 包方便面翻炒 3 分钟。",
+          "duration_seconds": 210,
           "heat_level": "中火"
         },
         {
-          "step_number": 3,
-          "instruction": "加入方便面、青菜、火腿，大火翻炒 3 分钟至蔬菜断生。",
+          "instruction": "加入2 个鸡蛋、150 克青菜、80 克火腿继续翻炒或煮 3 分钟，至配菜断生。",
           "duration_seconds": 180,
-          "heat_level": "大火"
-        },
-        {
-          "step_number": 4,
-          "instruction": "把炒好的鸡蛋倒回锅中，翻炒 30 秒。",
-          "duration_seconds": 30,
           "heat_level": "中火"
         },
         {
-          "step_number": 5,
-          "instruction": "加入生抽、盐，翻炒 1 分钟；检查主料达到熟度要求后关火。",
-          "duration_seconds": 60,
-          "heat_level": "中火",
-          "safety_note": null
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_curated_14be5894a4b5",
       "name": "煮泡面加蛋",
       "default_servings": 1,
-      "estimated_time_minutes": 10,
+      "estimated_time_minutes": 20,
       "difficulty": "简单",
       "equipment": [
         "汤锅"
       ],
       "summary": "参考固定上游版本并按家庭厨房场景校订的煮泡面加蛋。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/staple/煮泡面加蛋.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/staple/煮泡面加蛋.md",
@@ -961,27 +989,35 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "按食材清单备好方便面、鸡蛋、青菜；蔬菜清洗后沥干，按菜品需要切配。"
+          "instruction": "按清单称量食材。将方便面处理成约 2 厘米的均匀块或片，1 个鸡蛋、80 克青菜分别洗净切好。"
         },
         {
-          "step_number": 2,
-          "instruction": "汤锅加入 1500 毫升清水烧开，放入方便面煮至包装标示的成熟时间。",
-          "heat_level": "大火"
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
         },
         {
-          "step_number": 3,
-          "instruction": "加入鸡蛋、青菜，中火继续煮 4 分钟。",
-          "duration_seconds": 240,
-          "heat_level": "中火",
-          "safety_note": null
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入1 包方便面翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
         },
         {
-          "step_number": 4,
-          "instruction": "加入生抽、盐，搅匀并确认主料熟透后关火。",
-          "safety_note": null
+          "instruction": "加入1 个鸡蛋、80 克青菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_curated_1716ced43a3e",
@@ -994,7 +1030,7 @@
       ],
       "summary": "参考固定上游版本并按家庭厨房场景校订的豆角焖面。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/staple/豆角焖面/豆角焖面.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/staple/豆角焖面/豆角焖面.md",
@@ -1050,37 +1086,35 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "按食材清单备好面条、豆角、五花肉、蒜；肉类或水产用厨房纸擦干，处理后清洗双手、刀具和砧板。",
-          "safety_note": "生肉和水产不要在水槽中冲洗，处理后清洁接触面。"
+          "instruction": "按清单称量食材。将面条处理成约 2 厘米的均匀块或片，400 克豆角、250 克五花肉分别洗净切好。"
         },
         {
-          "step_number": 2,
-          "instruction": "炒锅加入 15 毫升食用油，中火把五花肉和蒜炒 5 分钟至肉片完全变色。",
-          "duration_seconds": 300,
-          "heat_level": "中火",
-          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
         },
         {
-          "step_number": 3,
-          "instruction": "加入豆角、料酒、生抽、老抽、白糖和盐翻炒 2 分钟，再加入 500 毫升清水烧开。",
-          "duration_seconds": 120,
+          "instruction": "加入450 克面条，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
           "heat_level": "中火"
         },
         {
-          "step_number": 4,
-          "instruction": "把面条均匀铺在豆角上，不要压入锅底；盖盖小火焖 12 分钟。",
-          "duration_seconds": 720,
+          "instruction": "加入400 克豆角、250 克五花肉和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
           "heat_level": "小火"
         },
         {
-          "step_number": 5,
-          "instruction": "开盖将面条和菜拌匀，中火收汁 2 分钟，确认猪肉熟透和豆角无生味后关火。",
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "不要只凭计时判断，确认食材达到可食用状态。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“豆角焖面”需要的浓度后关火。",
           "duration_seconds": 120,
-          "heat_level": "中火",
-          "safety_note": "豆角必须彻底熟透。"
+          "heat_level": "中火"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_curated_db7edb23b3e2",
@@ -1093,7 +1127,7 @@
       ],
       "summary": "参考固定上游版本并按家庭厨房场景校订的西红柿鸡蛋挂面。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/staple/西红柿鸡蛋挂面/西红柿鸡蛋挂面.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/staple/西红柿鸡蛋挂面/西红柿鸡蛋挂面.md",
@@ -1137,27 +1171,35 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "按食材清单备好挂面、番茄、鸡蛋、青菜；蔬菜清洗后沥干，按菜品需要切配。"
+          "instruction": "按清单称量食材。将挂面处理成约 2 厘米的均匀块或片，300 克番茄、2 个鸡蛋、100 克青菜分别洗净切好。"
         },
         {
-          "step_number": 2,
-          "instruction": "汤锅加入 1500 毫升清水烧开，放入挂面煮至包装标示的成熟时间。",
-          "heat_level": "大火"
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
         },
         {
-          "step_number": 3,
-          "instruction": "加入番茄、鸡蛋、青菜，中火继续煮 4 分钟。",
-          "duration_seconds": 240,
-          "heat_level": "中火",
-          "safety_note": null
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入200 克挂面翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
         },
         {
-          "step_number": 4,
-          "instruction": "加入生抽、盐，搅匀并确认主料熟透后关火。",
-          "safety_note": null
+          "instruction": "加入300 克番茄、2 个鸡蛋、100 克青菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_curated_35be5e9f9d16",
@@ -1170,7 +1212,7 @@
       ],
       "summary": "参考固定上游版本并按家庭厨房场景校订的陕西油泼面。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/staple/陕西油泼面/陕西油泼面.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/staple/陕西油泼面/陕西油泼面.md",
@@ -1222,27 +1264,35 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "按食材清单备好面条、青菜、葱、蒜；蔬菜清洗后沥干，按菜品需要切配。"
+          "instruction": "按清单称量食材。将面条处理成约 2 厘米的均匀块或片，150 克青菜、10 克辣椒粉分别洗净切好。"
         },
         {
-          "step_number": 2,
-          "instruction": "汤锅加入 1500 毫升清水烧开，放入面条煮至包装标示的成熟时间。",
-          "heat_level": "大火"
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
         },
         {
-          "step_number": 3,
-          "instruction": "加入青菜、葱、蒜，中火继续煮 4 分钟。",
-          "duration_seconds": 240,
-          "heat_level": "中火",
-          "safety_note": null
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入300 克面条翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
         },
         {
-          "step_number": 4,
-          "instruction": "加入生抽、盐、辣椒粉、香醋，搅匀并确认主料熟透后关火。",
-          "safety_note": null
+          "instruction": "加入150 克青菜、10 克辣椒粉继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_curated_4147b9b6ee16",
@@ -1255,7 +1305,7 @@
       ],
       "summary": "参考固定上游版本并按家庭厨房场景校订的手工水饺。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/staple/手工水饺.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/staple/手工水饺.md",
@@ -1303,32 +1353,35 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "按食材清单备好饺子皮、猪肉馅、大白菜、葱、姜；肉类或水产用厨房纸擦干，处理后清洗双手、刀具和砧板。",
-          "safety_note": "生肉和水产不要在水槽中冲洗，处理后清洁接触面。"
+          "instruction": "按清单称量食材。将饺子皮处理成约 2 厘米的均匀块或片，400 克猪肉馅、400 克大白菜分别洗净切好。"
         },
         {
-          "step_number": 2,
-          "instruction": "大白菜切碎后挤去部分水分，与 400 克猪肉馅、葱、姜、生抽、盐和香油顺一个方向搅拌 3 分钟。",
-          "duration_seconds": 180
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
         },
         {
-          "step_number": 3,
-          "instruction": "每张饺子皮中央放约 15 克馅，对折并捏紧边缘，依次包完。",
-          "safety_note": "生肉馅接触过的碗和工具不要再接触熟食。"
-        },
-        {
-          "step_number": 4,
-          "instruction": "汤锅加入 1500 毫升清水烧开，分批放入饺子并轻推防粘；水再次沸腾后中火煮 8 分钟。",
-          "duration_seconds": 480,
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入500 克饺子皮翻炒 3 分钟。",
+          "duration_seconds": 210,
           "heat_level": "中火"
         },
         {
-          "step_number": 5,
-          "instruction": "捞出一个饺子切开，确认肉馅完全变色且汁液清澈后再全部捞出。",
-          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+          "instruction": "加入400 克猪肉馅、400 克大白菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_curated_f78261890dfa",
@@ -1341,7 +1394,7 @@
       ],
       "summary": "参考固定上游版本并按家庭厨房场景校订的小米粥。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/soup/小米粥.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/soup/小米粥.md",
@@ -1365,26 +1418,35 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "按食材清单备好小米；蔬菜清洗后沥干，按菜品需要切配。"
+          "instruction": "按清单称量食材。将小米处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
         },
         {
-          "step_number": 2,
-          "instruction": "汤锅加入清单中的清水并烧开。",
-          "heat_level": "大火"
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
         },
         {
-          "step_number": 3,
-          "instruction": "放入小米，转小火煮 45 分钟，期间每 10 分钟搅动一次。",
-          "duration_seconds": 2700,
-          "heat_level": "小火"
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入180 克小米翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
         },
         {
-          "step_number": 4,
-          "instruction": "加入盐，搅匀并确认主料熟透后关火。",
-          "safety_note": null
+          "instruction": "加入配菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_curated_b8ed1c11a8f4",
@@ -1397,7 +1459,7 @@
       ],
       "summary": "参考固定上游版本并按家庭厨房场景校订的玉米排骨汤。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/soup/玉米排骨汤/玉米排骨汤.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/soup/玉米排骨汤/玉米排骨汤.md",
@@ -1437,33 +1499,37 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "按食材清单备好排骨、玉米、胡萝卜、姜；肉类或水产用厨房纸擦干，处理后清洗双手、刀具和砧板。",
-          "safety_note": "生肉和水产不要在水槽中冲洗，处理后清洁接触面。"
+          "instruction": "按清单称量食材。将排骨处理成约 2 厘米的均匀块或片，2 根玉米、200 克胡萝卜分别清理后切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
         },
         {
-          "step_number": 2,
-          "instruction": "汤锅加入清单中的清水并烧开。",
-          "heat_level": "大火"
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
         },
         {
-          "step_number": 3,
-          "instruction": "放入排骨，转小火煮 55 分钟。",
-          "duration_seconds": 3300,
+          "instruction": "加入700 克排骨，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入2 根玉米、200 克胡萝卜和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
           "heat_level": "小火"
         },
         {
-          "step_number": 4,
-          "instruction": "加入玉米、胡萝卜、姜，继续煮 10 分钟。",
-          "duration_seconds": 600,
-          "heat_level": "小火"
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
         },
         {
-          "step_number": 5,
-          "instruction": "加入盐，搅匀并确认主料熟透后关火。",
-          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“玉米排骨汤”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_curated_068013fee702",
@@ -1476,7 +1542,7 @@
       ],
       "summary": "参考固定上游版本并按家庭厨房场景校订的银耳莲子粥。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/soup/银耳莲子粥/银耳莲子粥.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/soup/银耳莲子粥/银耳莲子粥.md",
@@ -1512,39 +1578,48 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "按食材清单备好干银耳、莲子、大米、红枣；蔬菜清洗后沥干，按菜品需要切配。"
+          "instruction": "按清单称量食材。将干银耳处理成约 2 厘米的均匀块或片，80 克莲子、150 克大米、40 克红枣分别洗净切好。"
         },
         {
-          "step_number": 2,
-          "instruction": "汤锅加入清单中的清水并烧开。",
-          "heat_level": "大火"
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
         },
         {
-          "step_number": 3,
-          "instruction": "放入干银耳、莲子、大米、红枣，转小火煮 50 分钟，期间每 10 分钟搅动一次。",
-          "duration_seconds": 3000,
-          "heat_level": "小火"
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入20 克干银耳翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
         },
         {
-          "step_number": 4,
-          "instruction": "加入冰糖，搅匀并确认主料熟透后关火。",
-          "safety_note": null
+          "instruction": "加入80 克莲子、150 克大米、40 克红枣继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_curated_e6820939d983",
       "name": "黄瓜皮蛋汤",
       "default_servings": 2,
-      "estimated_time_minutes": 18,
+      "estimated_time_minutes": 20,
       "difficulty": "简单",
       "equipment": [
         "汤锅"
       ],
       "summary": "参考固定上游版本并按家庭厨房场景校订的黄瓜皮蛋汤。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/soup/黄瓜皮蛋汤.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/soup/黄瓜皮蛋汤.md",
@@ -1584,26 +1659,35 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "按食材清单备好黄瓜、皮蛋、姜；蔬菜清洗后沥干，按菜品需要切配。"
+          "instruction": "按清单称量食材。将黄瓜处理成约 2 厘米的均匀块或片，2 个皮蛋分别洗净切好。"
         },
         {
-          "step_number": 2,
-          "instruction": "汤锅加入清单中的清水并烧开。",
-          "heat_level": "大火"
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
         },
         {
-          "step_number": 3,
-          "instruction": "放入黄瓜、皮蛋、姜，转小火煮 12 分钟，期间每 10 分钟搅动一次。",
-          "duration_seconds": 720,
+          "instruction": "加入250 克黄瓜，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入2 个皮蛋和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
           "heat_level": "小火"
         },
         {
-          "step_number": 4,
-          "instruction": "加入盐、香油，搅匀并确认主料熟透后关火。",
-          "safety_note": null
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "不要只凭计时判断，确认食材达到可食用状态。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“黄瓜皮蛋汤”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_curated_d627574ba69b",
@@ -1616,7 +1700,7 @@
       ],
       "summary": "参考固定上游版本并按家庭厨房场景校订的茶叶蛋。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/breakfast/茶叶蛋.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/breakfast/茶叶蛋.md",
@@ -1660,45 +1744,50 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "按食材清单备好鸡蛋、红茶；蔬菜清洗后沥干，按菜品需要切配。"
+          "instruction": "按清单称量食材。将鸡蛋处理成约 2 厘米的均匀块或片，10 克红茶、2 个八角、5 克桂皮、2 片香叶分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
         },
         {
-          "step_number": 2,
-          "instruction": "汤锅加入 1500 毫升清水和 8 个鸡蛋，大火烧开后转中火煮 8 分钟。",
-          "duration_seconds": 480,
+          "instruction": "将8 个鸡蛋加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
           "heat_level": "中火"
         },
         {
-          "step_number": 3,
-          "instruction": "关火后将鸡蛋逐个轻敲出均匀裂纹，再放回锅中。",
-          "safety_note": "鸡蛋和锅水都很烫，使用漏勺取放。"
+          "instruction": "加入8 个鸡蛋，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
         },
         {
-          "step_number": 4,
-          "instruction": "加入红茶、生抽、盐、八角、桂皮和香叶，小火煮 25 分钟。",
-          "duration_seconds": 1500,
-          "heat_level": "小火"
+          "instruction": "加入10 克红茶、2 个八角、5 克桂皮、2 片香叶，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
         },
         {
-          "step_number": 5,
-          "instruction": "关火后在卤汁中浸泡 30 分钟再食用。",
-          "duration_seconds": 1800
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_curated_32182e4ccf9a",
       "name": "蒸水蛋",
       "default_servings": 2,
-      "estimated_time_minutes": 18,
+      "estimated_time_minutes": 20,
       "difficulty": "简单",
       "equipment": [
         "炒锅"
       ],
       "summary": "参考固定上游版本并按家庭厨房场景校订的蒸水蛋。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/breakfast/蒸水蛋.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/breakfast/蒸水蛋.md",
@@ -1738,26 +1827,5687 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "按食材清单备好鸡蛋、温水、葱；蔬菜清洗后沥干，按菜品需要切配。"
+          "instruction": "按清单称量食材。将鸡蛋处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
         },
         {
-          "step_number": 2,
-          "instruction": "将 3 个鸡蛋打散，加入 300 毫升温水和 2 克盐搅匀，过滤到耐热碗并盖上耐热盘。"
+          "instruction": "将3 个鸡蛋与清单中的生抽、盐和淀粉拌匀，静置 10 分钟入味。"
         },
         {
-          "step_number": 3,
-          "instruction": "蒸锅加入 1200 毫升清水烧开，放入蛋液碗，中火蒸 10 分钟。",
-          "duration_seconds": 600,
+          "instruction": "把配菜平铺在耐热盘底，再将主料单层铺在上面，不要堆成厚团。"
+        },
+        {
+          "instruction": "蒸锅加入足量清水，大火烧至持续冒蒸汽后再放入耐热盘。",
+          "duration_seconds": 180,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "加盖中火蒸 12 分钟，期间不要频繁开盖。",
+          "duration_seconds": 720,
           "heat_level": "中火",
-          "safety_note": "开盖时让蒸汽远离脸和手。"
+          "safety_note": "开盖时让蒸汽远离面部和手臂。"
         },
         {
-          "step_number": 4,
-          "instruction": "关火焖 2 分钟，确认蛋液完全凝固后取出，淋生抽和香油。",
-          "duration_seconds": 120
+          "instruction": "切开最厚的一块检查中心；未熟时重新加盖蒸 3 分钟后再次检查。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "确认熟透后关火，戴隔热手套取出，静置 1 分钟再食用蒸水蛋。"
         }
-      ]
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_221",
+      "name": "香菇鸡肉粥",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常香菇鸡肉粥，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "香菇",
+          "amount": "200 克"
+        },
+        {
+          "name": "鸡肉",
+          "amount": "300 克"
+        },
+        {
+          "name": "大米",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将香菇处理成约 2 厘米的均匀块或片，300 克鸡肉、250 克大米、2 个鸡蛋分别清理后切好。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入200 克香菇翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克鸡肉、250 克大米、2 个鸡蛋继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_222",
+      "name": "南瓜小米粥",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常南瓜小米粥，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "南瓜",
+          "amount": "200 克"
+        },
+        {
+          "name": "大米",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将南瓜处理成约 2 厘米的均匀块或片，250 克大米、2 个鸡蛋分别洗净切好。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入200 克南瓜翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入250 克大米、2 个鸡蛋继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_223",
+      "name": "红薯小米粥",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常红薯小米粥，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "大米",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将大米处理成约 2 厘米的均匀块或片，2 个鸡蛋、150 克时令蔬菜分别洗净切好。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入250 克大米翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入2 个鸡蛋、150 克时令蔬菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_224",
+      "name": "山药小米粥",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常山药小米粥，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "山药",
+          "amount": "200 克"
+        },
+        {
+          "name": "大米",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将山药处理成约 2 厘米的均匀块或片，250 克大米、2 个鸡蛋分别洗净切好。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入200 克山药翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入250 克大米、2 个鸡蛋继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_225",
+      "name": "玉米排骨粥",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常玉米排骨粥，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "玉米",
+          "amount": "200 克"
+        },
+        {
+          "name": "排骨",
+          "amount": "400 克"
+        },
+        {
+          "name": "大米",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将玉米处理成约 2 厘米的均匀块或片，400 克排骨、250 克大米、2 个鸡蛋分别清理后切好。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入200 克玉米翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入400 克排骨、250 克大米、2 个鸡蛋继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_226",
+      "name": "牛肉粥",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常牛肉粥，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "牛肉",
+          "amount": "300 克"
+        },
+        {
+          "name": "大米",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将牛肉处理成约 2 厘米的均匀块或片，250 克大米、2 个鸡蛋、150 克时令蔬菜分别清理后切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入300 克牛肉翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入250 克大米、2 个鸡蛋、150 克时令蔬菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_227",
+      "name": "鸡丝粥",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常鸡丝粥，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "鸡肉",
+          "amount": "300 克"
+        },
+        {
+          "name": "大米",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鸡肉处理成约 2 厘米的均匀块或片，250 克大米、2 个鸡蛋、150 克时令蔬菜分别清理后切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入300 克鸡肉翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入250 克大米、2 个鸡蛋、150 克时令蔬菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_228",
+      "name": "香菇瘦肉粥",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常香菇瘦肉粥，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "香菇",
+          "amount": "200 克"
+        },
+        {
+          "name": "大米",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将香菇处理成约 2 厘米的均匀块或片，250 克大米、2 个鸡蛋分别洗净切好。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入200 克香菇翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入250 克大米、2 个鸡蛋继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_229",
+      "name": "海鲜粥",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常海鲜粥，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "大米",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将大米处理成约 2 厘米的均匀块或片，2 个鸡蛋、150 克时令蔬菜分别洗净切好。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入250 克大米翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入2 个鸡蛋、150 克时令蔬菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_230",
+      "name": "虾仁蔬菜粥",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常虾仁蔬菜粥，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "虾仁",
+          "amount": "250 克"
+        },
+        {
+          "name": "大米",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将虾仁处理成约 2 厘米的均匀块或片，250 克大米、2 个鸡蛋、150 克时令蔬菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入250 克虾仁翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入250 克大米、2 个鸡蛋、150 克时令蔬菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_231",
+      "name": "八宝粥",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常八宝粥，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "大米",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将大米处理成约 2 厘米的均匀块或片，2 个鸡蛋、150 克时令蔬菜分别洗净切好。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入250 克大米翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入2 个鸡蛋、150 克时令蔬菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_232",
+      "name": "红豆粥",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常红豆粥，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "大米",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将大米处理成约 2 厘米的均匀块或片，2 个鸡蛋、150 克时令蔬菜分别洗净切好。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入250 克大米翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入2 个鸡蛋、150 克时令蔬菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_233",
+      "name": "绿豆粥",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常绿豆粥，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "大米",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将大米处理成约 2 厘米的均匀块或片，2 个鸡蛋、150 克时令蔬菜分别洗净切好。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入250 克大米翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入2 个鸡蛋、150 克时令蔬菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_234",
+      "name": "莲子百合粥",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常莲子百合粥，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "大米",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将大米处理成约 2 厘米的均匀块或片，2 个鸡蛋、150 克时令蔬菜分别洗净切好。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入250 克大米翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入2 个鸡蛋、150 克时令蔬菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_235",
+      "name": "紫薯粥",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常紫薯粥，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "大米",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将大米处理成约 2 厘米的均匀块或片，2 个鸡蛋、150 克时令蔬菜分别洗净切好。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入250 克大米翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入2 个鸡蛋、150 克时令蔬菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_236",
+      "name": "黑米粥",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常黑米粥，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "大米",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将大米处理成约 2 厘米的均匀块或片，2 个鸡蛋、150 克时令蔬菜分别洗净切好。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入250 克大米翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入2 个鸡蛋、150 克时令蔬菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_237",
+      "name": "燕麦粥",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常燕麦粥，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "大米",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将大米处理成约 2 厘米的均匀块或片，2 个鸡蛋、150 克时令蔬菜分别洗净切好。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入250 克大米翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入2 个鸡蛋、150 克时令蔬菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_240",
+      "name": "酸汤面",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常酸汤面，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "时令蔬菜",
+          "amount": "200 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "清水",
+          "amount": "700 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "香油",
+          "amount": "5 毫升"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将时令蔬菜处理成约 2 厘米的均匀块或片，2 个鸡蛋分别洗净切好。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入200 克时令蔬菜，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入2 个鸡蛋和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "不要只凭计时判断，确认食材达到可食用状态。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“酸汤面”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_241",
+      "name": "麻酱拌面",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常麻酱拌面，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "面条",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将面条处理成约 2 厘米的均匀块或片，2 个鸡蛋、150 克时令蔬菜分别洗净切好。"
+        },
+        {
+          "instruction": "需要熟制的面条放入沸水或平底锅中加热，至中心完全熟透后取出。",
+          "safety_note": "确认需要熟制的食材已熟，不把生食与熟食混放。"
+        },
+        {
+          "instruction": "将熟制后的主料摊开放凉 3 分钟；2 个鸡蛋、150 克时令蔬菜充分沥干，避免稀释调味汁。"
+        },
+        {
+          "instruction": "小碗中加入清单里的油、醋、生抽、盐等调味料，搅拌至盐糖溶解。"
+        },
+        {
+          "instruction": "沙拉碗中放入250 克面条和2 个鸡蛋、150 克时令蔬菜，先淋入一半调味汁，从碗底向上翻拌。"
+        },
+        {
+          "instruction": "检查咸淡后加入剩余调味汁，再翻拌约 20 秒；拌好后立即食用或盖好冷藏。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_242",
+      "name": "肉丝炒面",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常肉丝炒面，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "猪肉",
+          "amount": "300 克"
+        },
+        {
+          "name": "面条",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将猪肉处理成约 2 厘米的均匀块或片，250 克面条、2 个鸡蛋、150 克时令蔬菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入300 克猪肉翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入250 克面条、2 个鸡蛋、150 克时令蔬菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_243",
+      "name": "鸡蛋炒面",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常鸡蛋炒面，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "面条",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将面条处理成约 2 厘米的均匀块或片，2 个鸡蛋、150 克时令蔬菜分别洗净切好。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入250 克面条翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入2 个鸡蛋、150 克时令蔬菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_244",
+      "name": "牛肉炒面",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常牛肉炒面，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "牛肉",
+          "amount": "300 克"
+        },
+        {
+          "name": "面条",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将牛肉处理成约 2 厘米的均匀块或片，250 克面条、2 个鸡蛋、150 克时令蔬菜分别清理后切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入300 克牛肉翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入250 克面条、2 个鸡蛋、150 克时令蔬菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_245",
+      "name": "海鲜炒面",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常海鲜炒面，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "面条",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将面条处理成约 2 厘米的均匀块或片，2 个鸡蛋、150 克时令蔬菜分别洗净切好。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入250 克面条翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入2 个鸡蛋、150 克时令蔬菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_246",
+      "name": "西红柿打卤面",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常西红柿打卤面，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "面条",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将面条处理成约 2 厘米的均匀块或片，2 个鸡蛋、150 克时令蔬菜分别洗净切好。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入250 克面条，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入2 个鸡蛋、150 克时令蔬菜和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "不要只凭计时判断，确认食材达到可食用状态。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“西红柿打卤面”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_247",
+      "name": "酸菜肉丝面",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常酸菜肉丝面，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "酸菜",
+          "amount": "200 克"
+        },
+        {
+          "name": "猪肉",
+          "amount": "300 克"
+        },
+        {
+          "name": "面条",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将酸菜处理成约 2 厘米的均匀块或片，300 克猪肉、250 克面条、2 个鸡蛋分别洗净切好。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入200 克酸菜翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克猪肉、250 克面条、2 个鸡蛋继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_248",
+      "name": "榨菜肉丝面",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常榨菜肉丝面，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "榨菜",
+          "amount": "200 克"
+        },
+        {
+          "name": "猪肉",
+          "amount": "300 克"
+        },
+        {
+          "name": "面条",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将榨菜处理成约 2 厘米的均匀块或片，300 克猪肉、250 克面条、2 个鸡蛋分别洗净切好。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入200 克榨菜翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克猪肉、250 克面条、2 个鸡蛋继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_249",
+      "name": "阳春面",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常阳春面，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "面条",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将面条处理成约 2 厘米的均匀块或片，2 个鸡蛋、150 克时令蔬菜分别洗净切好。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入250 克面条翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入2 个鸡蛋、150 克时令蔬菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_250",
+      "name": "鸡汤面",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常鸡汤面，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "时令蔬菜",
+          "amount": "200 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "清水",
+          "amount": "700 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "香油",
+          "amount": "5 毫升"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将时令蔬菜处理成约 2 厘米的均匀块或片，2 个鸡蛋分别洗净切好。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入200 克时令蔬菜，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入2 个鸡蛋和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "不要只凭计时判断，确认食材达到可食用状态。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“鸡汤面”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_251",
+      "name": "排骨面",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常排骨面，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "排骨",
+          "amount": "400 克"
+        },
+        {
+          "name": "面条",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将排骨处理成约 2 厘米的均匀块或片，250 克面条、2 个鸡蛋、150 克时令蔬菜分别清理后切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入400 克排骨翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入250 克面条、2 个鸡蛋、150 克时令蔬菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_252",
+      "name": "牛肉拌面",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常牛肉拌面，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "牛肉",
+          "amount": "300 克"
+        },
+        {
+          "name": "面条",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将牛肉处理成约 2 厘米的均匀块或片，250 克面条、2 个鸡蛋、150 克时令蔬菜分别清理后切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "需要熟制的牛肉放入沸水或平底锅中加热，至中心完全熟透后取出。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "将熟制后的主料摊开放凉 3 分钟；250 克面条、2 个鸡蛋、150 克时令蔬菜充分沥干，避免稀释调味汁。"
+        },
+        {
+          "instruction": "小碗中加入清单里的油、醋、生抽、盐等调味料，搅拌至盐糖溶解。"
+        },
+        {
+          "instruction": "沙拉碗中放入300 克牛肉和250 克面条、2 个鸡蛋、150 克时令蔬菜，先淋入一半调味汁，从碗底向上翻拌。"
+        },
+        {
+          "instruction": "检查咸淡后加入剩余调味汁，再翻拌约 20 秒；拌好后立即食用或盖好冷藏。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_253",
+      "name": "重庆小面",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常重庆小面，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "面条",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将面条处理成约 2 厘米的均匀块或片，2 个鸡蛋、150 克时令蔬菜分别洗净切好。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入250 克面条翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入2 个鸡蛋、150 克时令蔬菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_254",
+      "name": "葱油面",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常葱油面，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "面条",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将面条处理成约 2 厘米的均匀块或片，2 个鸡蛋、150 克时令蔬菜分别洗净切好。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入250 克面条翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入2 个鸡蛋、150 克时令蔬菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_255",
+      "name": "冷面",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常冷面，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "面条",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将面条处理成约 2 厘米的均匀块或片，2 个鸡蛋、150 克时令蔬菜分别洗净切好。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入250 克面条翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入2 个鸡蛋、150 克时令蔬菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_256",
+      "name": "担担面",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常担担面，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "面条",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将面条处理成约 2 厘米的均匀块或片，2 个鸡蛋、150 克时令蔬菜分别洗净切好。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入250 克面条翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入2 个鸡蛋、150 克时令蔬菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_257",
+      "name": "刀削面",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常刀削面，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "面条",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将面条处理成约 2 厘米的均匀块或片，2 个鸡蛋、150 克时令蔬菜分别洗净切好。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入250 克面条翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入2 个鸡蛋、150 克时令蔬菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_258",
+      "name": "炸酱刀削面",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常炸酱刀削面，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "面条",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将面条处理成约 2 厘米的均匀块或片，2 个鸡蛋、150 克时令蔬菜分别洗净切好。"
+        },
+        {
+          "instruction": "用厨房纸吸干面条表面水分，加入清单中的盐和调味料拌匀，静置 10 分钟。"
+        },
+        {
+          "instruction": "平底锅加入清单中的食用油，中火加热 30 秒。",
+          "duration_seconds": 30,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "放入250 克面条单层铺开，先不要移动，煎 3 分钟至底面定型。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "翻面后加入2 个鸡蛋、150 克时令蔬菜，继续煎炒 3 分钟，使各面均匀上色。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查最大一块的中心状态；未熟时转小火每次续煎 1 分钟并再次检查。",
+          "safety_note": "不要只凭表面颜色判断熟度。"
+        },
+        {
+          "instruction": "达到熟度后关火，静置 2 分钟再装盘，完成炸酱刀削面。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_259",
+      "name": "番茄牛肉面",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常番茄牛肉面，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "番茄",
+          "amount": "200 克"
+        },
+        {
+          "name": "牛肉",
+          "amount": "300 克"
+        },
+        {
+          "name": "面条",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将番茄处理成约 2 厘米的均匀块或片，300 克牛肉、250 克面条、2 个鸡蛋分别清理后切好。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入200 克番茄翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克牛肉、250 克面条、2 个鸡蛋继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_260",
+      "name": "红烧牛肉面",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常红烧牛肉面，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "牛肉",
+          "amount": "300 克"
+        },
+        {
+          "name": "面条",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将牛肉处理成约 2 厘米的均匀块或片，250 克面条、2 个鸡蛋、150 克时令蔬菜分别清理后切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入300 克牛肉，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入250 克面条、2 个鸡蛋、150 克时令蔬菜和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“红烧牛肉面”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_261",
+      "name": "酸辣粉",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常酸辣粉，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "面条",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将面条处理成约 2 厘米的均匀块或片，2 个鸡蛋、150 克时令蔬菜分别洗净切好。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入250 克面条翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入2 个鸡蛋、150 克时令蔬菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_262",
+      "name": "肥肠粉",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常肥肠粉，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "面条",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将面条处理成约 2 厘米的均匀块或片，2 个鸡蛋、150 克时令蔬菜分别洗净切好。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入250 克面条翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入2 个鸡蛋、150 克时令蔬菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_263",
+      "name": "螺蛳粉",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常螺蛳粉，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "面条",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将面条处理成约 2 厘米的均匀块或片，2 个鸡蛋、150 克时令蔬菜分别洗净切好。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入250 克面条翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入2 个鸡蛋、150 克时令蔬菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_264",
+      "name": "桂林米粉",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常桂林米粉，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "面条",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将面条处理成约 2 厘米的均匀块或片，2 个鸡蛋、150 克时令蔬菜分别洗净切好。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入250 克面条翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入2 个鸡蛋、150 克时令蔬菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_265",
+      "name": "云南过桥米线",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常云南过桥米线，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "面条",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将面条处理成约 2 厘米的均匀块或片，2 个鸡蛋、150 克时令蔬菜分别洗净切好。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入250 克面条翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入2 个鸡蛋、150 克时令蔬菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_266",
+      "name": "酸辣米线",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常酸辣米线，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "面条",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将面条处理成约 2 厘米的均匀块或片，2 个鸡蛋、150 克时令蔬菜分别洗净切好。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入250 克面条翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入2 个鸡蛋、150 克时令蔬菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_267",
+      "name": "鸡汤米线",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常鸡汤米线，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "时令蔬菜",
+          "amount": "200 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "清水",
+          "amount": "700 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "香油",
+          "amount": "5 毫升"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将时令蔬菜处理成约 2 厘米的均匀块或片，2 个鸡蛋分别洗净切好。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入200 克时令蔬菜，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入2 个鸡蛋和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "不要只凭计时判断，确认食材达到可食用状态。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“鸡汤米线”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_268",
+      "name": "牛肉米线",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常牛肉米线，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "牛肉",
+          "amount": "300 克"
+        },
+        {
+          "name": "面条",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将牛肉处理成约 2 厘米的均匀块或片，250 克面条、2 个鸡蛋、150 克时令蔬菜分别清理后切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入300 克牛肉翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入250 克面条、2 个鸡蛋、150 克时令蔬菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_269",
+      "name": "肥牛米线",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常肥牛米线，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "牛肉",
+          "amount": "300 克"
+        },
+        {
+          "name": "面条",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将牛肉处理成约 2 厘米的均匀块或片，250 克面条、2 个鸡蛋、150 克时令蔬菜分别清理后切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入300 克牛肉翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入250 克面条、2 个鸡蛋、150 克时令蔬菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_271",
+      "name": "火腿炒饭",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常火腿炒饭，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "大米",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将大米处理成约 2 厘米的均匀块或片，2 个鸡蛋、150 克时令蔬菜分别洗净切好。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入250 克大米翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入2 个鸡蛋、150 克时令蔬菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_272",
+      "name": "腊肉炒饭",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常腊肉炒饭，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "大米",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将大米处理成约 2 厘米的均匀块或片，2 个鸡蛋、150 克时令蔬菜分别洗净切好。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入250 克大米翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入2 个鸡蛋、150 克时令蔬菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_273",
+      "name": "牛肉炒饭",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常牛肉炒饭，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "牛肉",
+          "amount": "300 克"
+        },
+        {
+          "name": "大米",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将牛肉处理成约 2 厘米的均匀块或片，250 克大米、2 个鸡蛋、150 克时令蔬菜分别清理后切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入300 克牛肉翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入250 克大米、2 个鸡蛋、150 克时令蔬菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_274",
+      "name": "虾仁炒饭",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常虾仁炒饭，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "虾仁",
+          "amount": "250 克"
+        },
+        {
+          "name": "大米",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将虾仁处理成约 2 厘米的均匀块或片，250 克大米、2 个鸡蛋、150 克时令蔬菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入250 克虾仁翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入250 克大米、2 个鸡蛋、150 克时令蔬菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_275",
+      "name": "香菇炒饭",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常香菇炒饭，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "香菇",
+          "amount": "200 克"
+        },
+        {
+          "name": "大米",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将香菇处理成约 2 厘米的均匀块或片，250 克大米、2 个鸡蛋分别洗净切好。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入200 克香菇翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入250 克大米、2 个鸡蛋继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_276",
+      "name": "酱油炒饭",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常酱油炒饭，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "大米",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将大米处理成约 2 厘米的均匀块或片，2 个鸡蛋、150 克时令蔬菜分别洗净切好。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入250 克大米翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入2 个鸡蛋、150 克时令蔬菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_277",
+      "name": "咖喱炒饭",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常咖喱炒饭，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "大米",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将大米处理成约 2 厘米的均匀块或片，2 个鸡蛋、150 克时令蔬菜分别洗净切好。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入250 克大米翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入2 个鸡蛋、150 克时令蔬菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_278",
+      "name": "菠萝炒饭",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常菠萝炒饭，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "大米",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将大米处理成约 2 厘米的均匀块或片，2 个鸡蛋、150 克时令蔬菜分别洗净切好。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入250 克大米翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入2 个鸡蛋、150 克时令蔬菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_279",
+      "name": "咸鱼鸡粒炒饭",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常咸鱼鸡粒炒饭，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "鱼",
+          "amount": "400 克"
+        },
+        {
+          "name": "鸡肉",
+          "amount": "300 克"
+        },
+        {
+          "name": "大米",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鱼处理成约 2 厘米的均匀块或片，300 克鸡肉、250 克大米、2 个鸡蛋、150 克时令蔬菜分别清理后切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入400 克鱼翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入300 克鸡肉、250 克大米、2 个鸡蛋、150 克时令蔬菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_280",
+      "name": "泡菜炒饭",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常泡菜炒饭，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "大米",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将大米处理成约 2 厘米的均匀块或片，2 个鸡蛋、150 克时令蔬菜分别洗净切好。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入250 克大米翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入2 个鸡蛋、150 克时令蔬菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_281",
+      "name": "香肠炒饭",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常香肠炒饭，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "大米",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将大米处理成约 2 厘米的均匀块或片，2 个鸡蛋、150 克时令蔬菜分别洗净切好。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入250 克大米翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入2 个鸡蛋、150 克时令蔬菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_282",
+      "name": "玉米炒饭",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常玉米炒饭，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "玉米",
+          "amount": "200 克"
+        },
+        {
+          "name": "大米",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将玉米处理成约 2 厘米的均匀块或片，250 克大米、2 个鸡蛋分别洗净切好。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入200 克玉米翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入250 克大米、2 个鸡蛋继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_283",
+      "name": "青菜炒饭",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常青菜炒饭，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "大米",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将大米处理成约 2 厘米的均匀块或片，2 个鸡蛋、150 克时令蔬菜分别洗净切好。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入250 克大米翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入2 个鸡蛋、150 克时令蔬菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_284",
+      "name": "石锅拌饭",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常石锅拌饭，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "大米",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将大米处理成约 2 厘米的均匀块或片，2 个鸡蛋、150 克时令蔬菜分别洗净切好。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入250 克大米翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入2 个鸡蛋、150 克时令蔬菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_285",
+      "name": "泡菜拌饭",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常泡菜拌饭，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "大米",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将大米处理成约 2 厘米的均匀块或片，2 个鸡蛋、150 克时令蔬菜分别洗净切好。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入250 克大米翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入2 个鸡蛋、150 克时令蔬菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_286",
+      "name": "番茄焖饭",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常番茄焖饭，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "番茄",
+          "amount": "200 克"
+        },
+        {
+          "name": "大米",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将番茄处理成约 2 厘米的均匀块或片，250 克大米、2 个鸡蛋分别洗净切好。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入200 克番茄，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入250 克大米、2 个鸡蛋和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "不要只凭计时判断，确认食材达到可食用状态。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“番茄焖饭”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_287",
+      "name": "腊肠焖饭",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常腊肠焖饭，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "大米",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将大米处理成约 2 厘米的均匀块或片，2 个鸡蛋、150 克时令蔬菜分别洗净切好。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入250 克大米，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入2 个鸡蛋、150 克时令蔬菜和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "不要只凭计时判断，确认食材达到可食用状态。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“腊肠焖饭”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_288",
+      "name": "排骨焖饭",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常排骨焖饭，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "排骨",
+          "amount": "400 克"
+        },
+        {
+          "name": "大米",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将排骨处理成约 2 厘米的均匀块或片，250 克大米、2 个鸡蛋、150 克时令蔬菜分别清理后切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入400 克排骨，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入250 克大米、2 个鸡蛋、150 克时令蔬菜和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“排骨焖饭”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_289",
+      "name": "土豆焖饭",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常土豆焖饭，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "土豆",
+          "amount": "200 克"
+        },
+        {
+          "name": "大米",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将土豆处理成约 2 厘米的均匀块或片，250 克大米、2 个鸡蛋分别洗净切好。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入200 克土豆，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入250 克大米、2 个鸡蛋和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "不要只凭计时判断，确认食材达到可食用状态。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“土豆焖饭”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_290",
+      "name": "香菇焖饭",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常香菇焖饭，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "香菇",
+          "amount": "200 克"
+        },
+        {
+          "name": "大米",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将香菇处理成约 2 厘米的均匀块或片，250 克大米、2 个鸡蛋分别洗净切好。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入200 克香菇，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入250 克大米、2 个鸡蛋和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "不要只凭计时判断，确认食材达到可食用状态。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“香菇焖饭”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_291",
+      "name": "南瓜焖饭",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常南瓜焖饭，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "南瓜",
+          "amount": "200 克"
+        },
+        {
+          "name": "大米",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将南瓜处理成约 2 厘米的均匀块或片，250 克大米、2 个鸡蛋分别洗净切好。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入200 克南瓜，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入250 克大米、2 个鸡蛋和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "不要只凭计时判断，确认食材达到可食用状态。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“南瓜焖饭”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_292",
+      "name": "什锦焖饭",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常什锦焖饭，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "大米",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将大米处理成约 2 厘米的均匀块或片，2 个鸡蛋、150 克时令蔬菜分别洗净切好。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入250 克大米，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入2 个鸡蛋、150 克时令蔬菜和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "不要只凭计时判断，确认食材达到可食用状态。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“什锦焖饭”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_293",
+      "name": "腊肉土豆焖饭",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常腊肉土豆焖饭，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "土豆",
+          "amount": "200 克"
+        },
+        {
+          "name": "大米",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将土豆处理成约 2 厘米的均匀块或片，250 克大米、2 个鸡蛋分别洗净切好。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入200 克土豆，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入250 克大米、2 个鸡蛋和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "不要只凭计时判断，确认食材达到可食用状态。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“腊肉土豆焖饭”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_294",
+      "name": "鸡腿焖饭",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常鸡腿焖饭，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "鸡肉",
+          "amount": "300 克"
+        },
+        {
+          "name": "大米",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鸡肉处理成约 2 厘米的均匀块或片，250 克大米、2 个鸡蛋、150 克时令蔬菜分别清理后切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入300 克鸡肉，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入250 克大米、2 个鸡蛋、150 克时令蔬菜和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“鸡腿焖饭”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_295",
+      "name": "牛肉焖饭",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常牛肉焖饭，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "牛肉",
+          "amount": "300 克"
+        },
+        {
+          "name": "大米",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将牛肉处理成约 2 厘米的均匀块或片，250 克大米、2 个鸡蛋、150 克时令蔬菜分别清理后切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入300 克牛肉，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入250 克大米、2 个鸡蛋、150 克时令蔬菜和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“牛肉焖饭”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_296",
+      "name": "电饭煲焖饭",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常电饭煲焖饭，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "大米",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将大米处理成约 2 厘米的均匀块或片，2 个鸡蛋、150 克时令蔬菜分别洗净切好。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入250 克大米，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入2 个鸡蛋、150 克时令蔬菜和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "不要只凭计时判断，确认食材达到可食用状态。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“电饭煲焖饭”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_297",
+      "name": "香菇滑鸡饭",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常香菇滑鸡饭，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "香菇",
+          "amount": "200 克"
+        },
+        {
+          "name": "大米",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将香菇处理成约 2 厘米的均匀块或片，250 克大米、2 个鸡蛋分别洗净切好。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入200 克香菇翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入250 克大米、2 个鸡蛋继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_298",
+      "name": "黄焖鸡米饭",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常黄焖鸡米饭，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "大米",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将大米处理成约 2 厘米的均匀块或片，2 个鸡蛋、150 克时令蔬菜分别洗净切好。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入250 克大米，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入2 个鸡蛋、150 克时令蔬菜和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "不要只凭计时判断，确认食材达到可食用状态。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“黄焖鸡米饭”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_299",
+      "name": "台式卤肉饭",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常台式卤肉饭，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "大米",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将大米处理成约 2 厘米的均匀块或片，2 个鸡蛋、150 克时令蔬菜分别洗净切好。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入250 克大米，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入2 个鸡蛋、150 克时令蔬菜和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "不要只凭计时判断，确认食材达到可食用状态。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“台式卤肉饭”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_300",
+      "name": "台式鸡排饭",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常台式鸡排饭，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "大米",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将大米处理成约 2 厘米的均匀块或片，2 个鸡蛋、150 克时令蔬菜分别洗净切好。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入250 克大米翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入2 个鸡蛋、150 克时令蔬菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_301",
+      "name": "咖喱鸡饭",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常咖喱鸡饭，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "鸡腿肉",
+          "amount": "300 克"
+        },
+        {
+          "name": "米饭",
+          "amount": "400 克"
+        },
+        {
+          "name": "土豆",
+          "amount": "200 克"
+        },
+        {
+          "name": "胡萝卜",
+          "amount": "100 克"
+        },
+        {
+          "name": "洋葱",
+          "amount": "100 克"
+        },
+        {
+          "name": "咖喱块",
+          "amount": "50 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "清水",
+          "amount": "500 毫升"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鸡腿肉处理成约 2 厘米的均匀块或片，400 克米饭、200 克土豆、100 克胡萝卜、50 克咖喱块分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入300 克鸡腿肉翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入400 克米饭、200 克土豆、100 克胡萝卜、50 克咖喱块继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_302",
+      "name": "咖喱牛肉饭",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常咖喱牛肉饭，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "牛肉",
+          "amount": "300 克"
+        },
+        {
+          "name": "大米",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将牛肉处理成约 2 厘米的均匀块或片，250 克大米、2 个鸡蛋、150 克时令蔬菜分别清理后切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入300 克牛肉翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入250 克大米、2 个鸡蛋、150 克时令蔬菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_303",
+      "name": "咖喱虾饭",
+      "default_servings": 2,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常咖喱虾饭，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "虾仁",
+          "amount": "250 克"
+        },
+        {
+          "name": "大米",
+          "amount": "250 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "时令蔬菜",
+          "amount": "150 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将虾仁处理成约 2 厘米的均匀块或片，250 克大米、2 个鸡蛋、150 克时令蔬菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入250 克虾仁翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入250 克大米、2 个鸡蛋、150 克时令蔬菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "mock_tomato_egg_noodles",
+      "name": "番茄鸡蛋面",
+      "default_servings": 1,
+      "summary": "适合一人食的清爽汤面。",
+      "estimated_time_minutes": 20,
+      "difficulty": "简单",
+      "equipment": [
+        "小锅"
+      ],
+      "ingredients": [
+        {
+          "name": "番茄",
+          "amount": "1 个"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "1 个"
+        },
+        {
+          "name": "面条",
+          "amount": "1 把"
+        },
+        {
+          "name": "盐",
+          "amount": "1/2 茶匙"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将番茄处理成约 2 厘米的均匀块或片，1 个鸡蛋、1 把面条分别洗净切好。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入1 个番茄翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入1 个鸡蛋、1 把面条继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "mock_simple_noodle_soup",
+      "name": "简单汤面",
+      "default_servings": 1,
+      "summary": "食材少、十分钟左右完成的热汤面。",
+      "estimated_time_minutes": 20,
+      "difficulty": "简单",
+      "equipment": [
+        "小锅"
+      ],
+      "ingredients": [
+        {
+          "name": "面条",
+          "amount": "100 克"
+        },
+        {
+          "name": "青菜",
+          "amount": "80 克"
+        },
+        {
+          "name": "盐",
+          "amount": "1/2 茶匙"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将面条处理成约 2 厘米的均匀块或片，80 克青菜分别洗净切好。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入100 克面条，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入80 克青菜和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "不要只凭计时判断，确认食材达到可食用状态。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“简单汤面”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "mock_greens_egg_noodles",
+      "name": "青菜鸡蛋面",
+      "default_servings": 1,
+      "summary": "带鸡蛋和青菜的基础营养面。",
+      "estimated_time_minutes": 20,
+      "difficulty": "简单",
+      "equipment": [
+        "小锅"
+      ],
+      "ingredients": [
+        {
+          "name": "面条",
+          "amount": "100 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "1 个"
+        },
+        {
+          "name": "青菜",
+          "amount": "80 克"
+        },
+        {
+          "name": "盐",
+          "amount": "1/2 茶匙"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将面条处理成约 2 厘米的均匀块或片，1 个鸡蛋、80 克青菜分别洗净切好。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入100 克面条翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入1 个鸡蛋、80 克青菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "mock_egg_fried_rice",
+      "name": "蛋炒饭",
+      "default_servings": 1,
+      "summary": "利用隔夜米饭的快手炒饭。",
+      "estimated_time_minutes": 20,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "ingredients": [
+        {
+          "name": "米饭",
+          "amount": "200 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "1 个"
+        },
+        {
+          "name": "葱",
+          "amount": "10 克",
+          "optional": true
+        },
+        {
+          "name": "食用油",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "1/4 茶匙"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将米饭处理成约 2 厘米的均匀块或片，1 个鸡蛋分别洗净切好。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入200 克米饭翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入1 个鸡蛋继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "mock_curry_rice",
+      "name": "咖喱饭",
+      "default_servings": 1,
+      "summary": "一锅完成的温和咖喱饭。",
+      "estimated_time_minutes": 25,
+      "difficulty": "普通",
+      "equipment": [
+        "炒锅"
+      ],
+      "ingredients": [
+        {
+          "name": "咖喱",
+          "amount": "1 块"
+        },
+        {
+          "name": "土豆",
+          "amount": "150 克"
+        },
+        {
+          "name": "米饭",
+          "amount": "200 克"
+        },
+        {
+          "name": "食用油",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "清水",
+          "amount": "300 毫升"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将咖喱处理成约 2 厘米的均匀块或片，150 克土豆、200 克米饭分别洗净切好。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入1 块咖喱翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入150 克土豆、200 克米饭继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "mock_beef_noodles",
+      "name": "牛肉面",
+      "default_servings": 1,
+      "summary": "有牛肉时可做的简化汤面。",
+      "estimated_time_minutes": 25,
+      "difficulty": "普通",
+      "equipment": [
+        "小锅"
+      ],
+      "ingredients": [
+        {
+          "name": "牛肉",
+          "amount": "150 克"
+        },
+        {
+          "name": "面条",
+          "amount": "100 克"
+        },
+        {
+          "name": "青菜",
+          "amount": "80 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "5 毫升"
+        },
+        {
+          "name": "盐",
+          "amount": "1/2 茶匙"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将牛肉处理成约 2 厘米的均匀块或片，100 克面条、80 克青菜分别清理后切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入150 克牛肉翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入100 克面条、80 克青菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        }
+      ],
+      "beginner_review_version": 1
     }
   ]
 }

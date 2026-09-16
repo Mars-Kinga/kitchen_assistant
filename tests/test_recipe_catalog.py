@@ -36,11 +36,11 @@ PINNED_REVISION = "c05758fa661ac4efa0361a987b700a351a22159b"
 VAGUE_MARKERS = ("适量", "少量", "少许", "按口味")
 
 
-def test_catalog_contains_exactly_one_hundred_unique_recipes() -> None:
+def test_catalog_contains_exactly_four_hundred_unique_recipes() -> None:
     recipes, _ = load_catalog(RECIPES_DIR)
     curated = [recipe for recipe in recipes if recipe.get("source_key") == "howtocook"]
 
-    assert len(recipes) == 100
+    assert len(recipes) == 440
     assert len(curated) == 90
     assert len({recipe["recipe_id"] for recipe in recipes}) == len(recipes)
     assert len({recipe["name"] for recipe in recipes}) == len(recipes)
@@ -48,6 +48,17 @@ def test_catalog_contains_exactly_one_hundred_unique_recipes() -> None:
     assert all(PINNED_REVISION in recipe["source_url"] for recipe in curated)
     assert all(recipe["source_url"].endswith(recipe["source_path"]) for recipe in curated)
     assert all(recipe["license"] == "Unlicense" for recipe in curated)
+
+
+def test_catalog_names_do_not_expose_generation_metadata() -> None:
+    recipes, _ = load_catalog(RECIPES_DIR)
+    forbidden = ("已经存在", "占位", "测试菜谱", "示例菜谱", "TODO", "待定")
+
+    assert all(
+        not any(marker in recipe["name"] for marker in forbidden)
+        for recipe in recipes
+    )
+    assert any(recipe["name"] == "少油手撕包菜" for recipe in recipes)
 
 
 def test_curated_recipes_are_concrete_and_normalize_for_supported_servings() -> None:
@@ -91,7 +102,7 @@ def test_offline_provider_finds_curated_dishes_across_categories(
     assert candidates
     assert candidates[0].title == dish
     assert ingredient_present(expected_ingredient, candidates[0].main_ingredients)
-    assert candidates[0].source_name == "HowToCook（人工校订）"
+    assert candidates[0].source_name == "HowToCook"
     assert PINNED_REVISION in str(candidates[0].source_url)
 
 

@@ -19,6 +19,12 @@ def confirm_recipe(session: Any, text: str) -> dict[str, Any]:
     )
     if ingredient_answer:
         return ingredient_answer
+    updates = parse_updates(text)
+    if updates.unavailable_ingredients:
+        apply_updates(session.request, updates)
+        session.request.excluded_candidate_ids = []
+        session.selected_candidate = None
+        return search_recipes(session)
     if session._has(text, "更简单", "简单一点", "更快", "快一点"):
         apply_updates(session.request, parse_updates(text))
         session.request.excluded_candidate_ids = []
@@ -68,6 +74,12 @@ def confirm_recipe(session: Any, text: str) -> dict[str, Any]:
             selected_candidate=session.selected_candidate.as_dict(),
         )
 
+    return prepare_confirmed_recipe(session)
+
+
+def prepare_confirmed_recipe(session: Any) -> dict[str, Any]:
+    """Apply cooking preconditions to an already validated, final recipe."""
+    assert session.current_recipe is not None
     if not recipe_respects_restrictions(
         session.current_recipe, session.request.dietary_restrictions
     ):
@@ -185,18 +197,21 @@ def begin_cooking(session: Any) -> dict[str, Any]:
                 expression="happy",
             )
         )
-    items.extend(
-        (
-            feedback(
-                f"先准备：{ingredients}。食材和调料都放在手边会更从容。",
-                f"食材：{ingredients}",
-                robot_action="nod",
-                led_effect="warm_white",
-                expression="focused",
-            ),
-            session._current_step_feedback(),
-        )
+    items.extend((
+        feedback(
+            f"先准备：{ingredients}。食材和调料都放在手边会更从容。",
+            f"食材：{ingredients}",
+            robot_action="nod",
+            led_effect="warm_white",
+            expression="focused",
+        ),
+        session._current_step_feedback(),
+    ))
+    first_timer_feedback = (
+        None if session.current_recipe.get("import_metadata") else session._start_step_timer()
     )
+    if first_timer_feedback is not None:
+        items.append(first_timer_feedback)
     return session._result(
         COOKING,
         True,

@@ -11,6 +11,7 @@ from pathlib import Path
 from chat_handler import handle_chat
 from runtime_core.executor import RuntimeExecutor
 from runtime_core.ingredient_vision import IngredientVisionService, is_visual_identification_request
+from runtime_core.kitchen_console import KitchenConsoleServer, KitchenConsoleService
 from runtime_core.logger import RuntimeLogger
 from runtime_core.mac_camera import MacCamera
 from runtime_core.skill_manager import SkillManager
@@ -232,6 +233,24 @@ def run_voice_loop(
         print("\n收到 Ctrl+C，正在退出。")
 
 
+def run_console_loop(
+    manager: SkillManager,
+    executor: RuntimeExecutor,
+    logger: RuntimeLogger,
+) -> None:
+    """Keep the LAN console alive and deliver local timer events."""
+    print("\n控制台独立运行中。按 Ctrl+C 退出。")
+    try:
+        while True:
+            result = manager.poll_active_skill()
+            if result is not None:
+                logger.log("skill_timer_event", result)
+                executor.execute_plan(result)
+            time.sleep(0.25)
+    except KeyboardInterrupt:
+        print("\n收到 Ctrl+C，正在退出。")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="skill-runtime：文字 + 语音双模式交互")
     parser.add_argument("user_text", nargs="*", help="单次执行的文本，可选")
@@ -249,6 +268,10 @@ def main() -> None:
     parser.add_argument("--max-record-seconds", type=float, default=20, help="单轮最长录音秒数")
     parser.add_argument("--calibration-seconds", type=float, default=0.8, help="环境噪声校准秒数")
     parser.add_argument("--list-devices", action="store_true", help="列出音频设备后退出")
+    parser.add_argument("--console", action="store_true", help="启动局域网厨房控制台")
+    parser.add_argument("--console-only", action="store_true", help="只运行局域网控制台，不进入文字或语音循环")
+    parser.add_argument("--console-host", default="0.0.0.0", help="控制台监听地址")
+    parser.add_argument("--console-port", type=int, default=8765, help="控制台监听端口")
     args = parser.parse_args()
 
     if args.list_devices:
@@ -262,18 +285,40 @@ def main() -> None:
 
     manager, executor, logger, vision_service = create_runtime(args)
 
-    one_shot = " ".join(args.user_text).strip()
-    if one_shot:
-        if is_exit_command(one_shot):
-            print("已退出。")
+    console_server: KitchenConsoleServer | None = None
+    if args.console or args.console_only:
+        try:
+            console_server = KitchenConsoleServer(
+                KitchenConsoleService(manager, executor, vision_service),
+                host=args.console_host,
+                port=args.console_port,
+            )
+            console_server.start()
+        except OSError as exc:
+            print(f"[控制台启动失败] {exc}")
             return
-        handle_input(one_shot, manager, executor, logger, vision_service)
-        return
+        print("[控制台] 已启动，可在同一局域网访问：")
+        for url in console_server.access_urls():
+            print(f"  - {url}")
 
-    if args.voice:
-        run_voice_loop(manager, executor, logger, vision_service, args)
-    else:
-        run_text_loop(manager, executor, logger, vision_service)
+    try:
+        one_shot = " ".join(args.user_text).strip()
+        if one_shot:
+            if is_exit_command(one_shot):
+                print("已退出。")
+                return
+            handle_input(one_shot, manager, executor, logger, vision_service)
+            return
+
+        if args.console_only:
+            run_console_loop(manager, executor, logger)
+        elif args.voice:
+            run_voice_loop(manager, executor, logger, vision_service, args)
+        else:
+            run_text_loop(manager, executor, logger, vision_service)
+    finally:
+        if console_server is not None:
+            console_server.stop()
 
 
 if __name__ == "__main__":

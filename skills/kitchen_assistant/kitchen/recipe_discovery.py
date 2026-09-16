@@ -8,6 +8,7 @@ from .ingredient_answers import (
     candidate_ingredient_lists,
 )
 from .request_parser import apply_updates, parse_updates, select_candidate
+from .recipe_errors import generation_error
 from .response_builder import feedback
 from .session_presenter import candidate_display
 from .states import PRESENTING_CANDIDATES, SEARCHING_RECIPES, WAITING_RECIPE_CONFIRMATION
@@ -21,6 +22,9 @@ def search_recipes(session: Any) -> dict[str, Any]:
         bool(getattr(session.provider, "supports_ai", False))
         or session._provider_mode() == "ai_generated"
     )
+    availability = getattr(getattr(session.provider, "llm_client", None), "is_available", None)
+    if callable(availability) and not availability():
+        configured_ai = False
     local_probe = getattr(session.provider, "has_local_match", None)
     local_available = bool(callable(local_probe) and local_probe(session.request))
     progress_emitted = False
@@ -30,9 +34,11 @@ def search_recipes(session: Any) -> dict[str, Any]:
             "请稍后，正在为你查找菜谱",
             robot_action="turn_left", led_effect="blue_dynamic", expression="focused",
         ))
+    search_error = None
     try:
         session.recipe_candidates = session._active_provider.search_recipes(session.request)
     except Exception as exc:
+        search_error = exc
         # Keep secrets and provider response bodies out of logs, but expose
         # the safe exception chain so timeout, invalid JSON and validation
         # failures no longer all look like an unconfigured AI service.
@@ -82,24 +88,19 @@ def search_recipes(session: Any) -> dict[str, Any]:
             robot_action="turn_left", led_effect="blue_dynamic", expression="focused",
         )
     if not session.recipe_candidates:
-        if session.request.bypass_cache:
-            speech = "联网生成服务暂时不可用，我没有使用已保存结果。请检查联网生成服务配置后再试。"
-        else:
-            speech = (
-                "可能AI生成服务没有生效哦，我没有找到与指定菜名匹配的离线菜谱，但我不会用无关菜谱替代。请配置生成服务，或换个菜名。"
-                if session.request.requested_dish
-                else "呜呜，好像AI生成服务没有生效，我没有找到离线菜谱，但我不会忽略其中任何一种食材。请配置生成服务，或补充食材后再试。"
-            )
+        error = generation_error(search_error, configured_ai=configured_ai)
+        if session.request.requested_dish:
+            error["message"] = "没有找到指定菜名的可用菜谱，不会用无关菜谱替代。" + error["message"]
         return session._result(
             PRESENTING_CANDIDATES,
             True,
-            searching,
             feedback(
-                speech, "暂无候选｜没有匹配菜谱",
+                error["message"], f"暂无候选｜{error['message']}",
                 robot_action="nod", led_effect="white", expression="neutral",
             ),
             recipe_candidates=[],
             provider_mode=actual_mode,
+            recommendation_error=error,
         )
 
     ingredient_lists = candidate_ingredient_lists(session)
@@ -162,6 +163,11 @@ def present_candidates(session: Any, text: str) -> dict[str, Any]:
     if ingredient_answer:
         return ingredient_answer
     updates = parse_updates(text)
+    if updates.unavailable_ingredients:
+        apply_updates(session.request, updates)
+        session.request.excluded_candidate_ids = []
+        session.selected_candidate = None
+        return search_recipes(session)
     if updates.bypass_cache:
         if not getattr(session.provider, "supports_ai", False):
             return session._result(
@@ -253,7 +259,7 @@ def present_candidates(session: Any, text: str) -> dict[str, Any]:
 def selected_summary(session: Any) -> dict[str, Any]:
     assert session.selected_candidate is not None
     candidate = session.selected_candidate
-    missing = "、".join(candidate.missing_ingredients)
+    unused = "、".join(candidate.unused_ingredients)
     generated = session._provider_mode() == "ai_generated"
     cached = session._provider_mode() == "local_cache"
     source = (
@@ -262,7 +268,7 @@ def selected_summary(session: Any) -> dict[str, Any]:
         else ("来源：已保存菜谱" if cached else f"来源：{candidate.source_name}")
     )
     inventory = (
-        f"缺少：{missing or '无'}"
+        f"没用到：{unused or '无'}"
         if session.request.available_ingredients
         else "食材库存：未提供，确认后给你完整用量清单"
     )

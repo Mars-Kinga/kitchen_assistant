@@ -39,7 +39,7 @@ class MockRecipeSearchProvider:
             recipe.setdefault("source_url", None)
             self._recipes[str(recipe["recipe_id"])] = recipe
         if "tomato_egg" not in self._recipes:
-            raise ValueError("recipes.json 缺少 tomato_egg 回退菜谱")
+            raise ValueError("本地菜谱目录缺少番茄炒蛋回退菜谱")
         self._cleanup_legacy_cache_files()
         self._load_generated_recipes()
 
@@ -63,8 +63,8 @@ class MockRecipeSearchProvider:
             for recipe_id in self._generated_recipe_ids
             if recipe_id in self._recipes
             # A named dish must retain its title.  For an ingredient-led
-            # request, rank_recipes below requires every stated ingredient,
-            # so a previously generated “蘑菇 + 牛肉” recipe can be reused
+            # request, rank_recipes orders real inventory use and accepts
+            # partial coverage, so even one usable saved recipe is reused
             # without another model call.
             and (
                 not request.requested_dish
@@ -132,6 +132,57 @@ class MockRecipeSearchProvider:
         if detail is None:
             raise KeyError(f"本地菜谱不存在：{candidate.candidate_id}")
         return dict(detail)
+
+    def list_recipes(self, query: str = "", *, category: str = "", limit: int = 500) -> list[dict[str, Any]]:
+        """Return compact local-catalog rows for the LAN console."""
+        needle = re.sub(r"\s+", "", str(query or "")).casefold()
+        rows: list[dict[str, Any]] = []
+        for recipe in sorted(self._recipes.values(), key=lambda item: str(item.get("name", ""))):
+            recipe_category = str(recipe.get("category") or "").strip()
+            # Generated cache entries do not have a catalog category. Keep them
+            # available to the conversational search flow, but do not mix them
+            # into the LAN console's categorized local-recipe library or count.
+            if not recipe_category:
+                continue
+            if category and recipe_category != category:
+                continue
+            ingredients = [str(item.get("name") or "") for item in recipe.get("ingredients", []) if isinstance(item, dict)]
+            haystack = f"{recipe.get('name', '')}{''.join(ingredients)}{recipe.get('summary', '')}".replace(" ", "").casefold()
+            if needle and needle not in haystack:
+                continue
+            rows.append({
+                "recipe_id": str(recipe.get("recipe_id")),
+                "name": str(recipe.get("name")),
+                "summary": str(recipe.get("summary") or "家常菜谱"),
+                "estimated_minutes": recipe.get("estimated_time_minutes"),
+                "difficulty": str(recipe.get("difficulty") or "家常"),
+                "main_ingredients": ingredients[:5],
+                "source_name": str(recipe.get("source_name") or "本地菜谱"),
+                "category": recipe_category,
+            })
+            if len(rows) >= max(1, min(int(limit), 500)):
+                break
+        return rows
+
+    def list_categories(self) -> list[dict[str, Any]]:
+        labels = {
+            "meat": "肉类", "vegetables": "蔬菜", "seafood": "水产",
+            "staples_and_soups": "主食与汤", "light_meals": "轻食与减脂",
+        }
+        counts: dict[str, int] = {}
+        for recipe in self._recipes.values():
+            key = str(recipe.get("category") or "").strip()
+            if not key:
+                continue
+            counts[key] = counts.get(key, 0) + 1
+        return [{"id": key, "name": labels.get(key, key), "count": count}
+                for key, count in sorted(counts.items(), key=lambda item: labels.get(item[0], item[0]))]
+
+    def get_recipe_by_id(self, recipe_id: str) -> dict[str, Any]:
+        detail = self._recipes.get(str(recipe_id))
+        if detail is None:
+            raise KeyError(f"本地菜谱不存在：{recipe_id}")
+        return deepcopy(detail)
 
     def fallback_recipe(self) -> dict[str, Any]:
         return dict(self._recipes["tomato_egg"])

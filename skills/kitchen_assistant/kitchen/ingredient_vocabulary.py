@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import re
 from collections.abc import Iterable, Mapping
+from functools import lru_cache
 
 
 # 只放“可以无损替换”的写法差异和常见语音识别误差。类别关系放在
@@ -18,6 +19,9 @@ INGREDIENT_NAME_ALIASES: dict[str, str] = {
     "莲花白": "卷心菜",
     "花菜": "菜花",
     "西蓝花": "西兰花",
+    "圣女果": "小番茄",
+    "樱桃番茄": "小番茄",
+    "车厘茄": "小番茄",
     "小葱": "葱",
     "香葱": "葱",
     "生姜": "姜",
@@ -47,7 +51,7 @@ INGREDIENT_GROUPS: dict[str, tuple[str, ...]] = {
     ),
     "牛肉": (
         "牛肉", "肥牛", "牛腩", "牛里脊", "牛排", "牛肉片", "牛肉丝", "牛肉末",
-        "牛肉馅", "牛筋", "牛腱",
+        "牛肉馅", "牛筋", "牛腱", "牛肋排", "牛小排", "牛仔骨",
     ),
     "猪肉": (
         "猪肉", "五花肉", "猪里脊", "里脊肉", "梅花肉", "排骨", "猪排", "猪肉末",
@@ -87,6 +91,7 @@ INGREDIENT_GROUPS: dict[str, tuple[str, ...]] = {
     "豆芽": ("豆芽", "绿豆芽", "黄豆芽"),
     "辣椒": ("辣椒", "青椒", "红椒", "彩椒", "甜椒", "尖椒", "线椒", "小米辣", "朝天椒"),
     "玉米": ("玉米", "玉米粒", "甜玉米", "玉米棒"),
+    "番茄": ("番茄", "小番茄"),
     "葱": ("葱", "小葱", "香葱", "大葱", "葱花", "葱段", "葱白"),
     "姜": ("姜", "生姜", "姜片", "姜丝", "姜末"),
     "蒜": ("蒜", "大蒜", "蒜头", "蒜瓣", "蒜片", "蒜末", "蒜泥", "青蒜"),
@@ -209,11 +214,25 @@ def _all_known_terms() -> tuple[str, ...]:
 
 
 KNOWN_INGREDIENTS = _all_known_terms()
+_INVENTORY_TERM_PATTERN = re.compile("|".join(
+    re.escape(term) for term in sorted(KNOWN_INGREDIENTS, key=len, reverse=True)
+))
 
 
 def canonicalize_ingredient(name: str) -> str:
     value = re.sub(r"\s+", "", str(name or "").strip())
     return INGREDIENT_NAME_ALIASES.get(value, value)
+
+
+_MENTION_ALIAS_PATTERN = re.compile("|".join(
+    re.escape(name) for name in sorted(INGREDIENT_NAME_ALIASES, key=len, reverse=True)
+))
+
+
+def _normalize_ingredient_mentions(text: str) -> str:
+    """Normalize aliases inside instructions, not only standalone labels."""
+    value = re.sub(r"\s+", "", str(text or "").strip())
+    return _MENTION_ALIAS_PATTERN.sub(lambda match: INGREDIENT_NAME_ALIASES[match.group()], value)
 
 
 def _labels_overlap(left: str, right: str) -> bool:
@@ -239,9 +258,11 @@ def _matching_groups(value: str, groups: Mapping[str, tuple[str, ...]]) -> set[s
 def ingredient_matches(required: str, actual: str) -> bool:
     """判断具体食材或库存类别是否命中，不把类别关系当作替换指令。"""
     expected = canonicalize_ingredient(required)
-    value = canonicalize_ingredient(actual)
+    value = _normalize_ingredient_mentions(actual)
     if not expected or not value:
         return False
+    if expected in _inventory_mentions(str(actual)):
+        return True
     if _labels_overlap(expected, value):
         return True
     return bool(
@@ -252,6 +273,33 @@ def ingredient_matches(required: str, actual: str) -> bool:
 
 def ingredient_present(required: str, labels: Iterable[str]) -> bool:
     return any(ingredient_matches(required, label) for label in labels)
+
+
+@lru_cache(maxsize=4096)
+def _inventory_mentions(text: str) -> frozenset[str]:
+    value = re.sub(r"\s+", "", text)
+    return frozenset(canonicalize_ingredient(match.group()) for match in _INVENTORY_TERM_PATTERN.finditer(value))
+
+
+def inventory_ingredient_present(required: str, labels: Iterable[str]) -> bool:
+    """Check actual inventory use; siblings in a food group are not substitutes.
+
+    Generic inventory such as 鸡肉 may match 鸡腿, but 牛奶 must not count as
+    used merely because the recipe contains 黄油, nor 青椒 because of 红椒.
+    """
+    expected = canonicalize_ingredient(required)
+    if not expected:
+        return False
+    for label in labels:
+        mentions = _inventory_mentions(str(label))
+        if expected in mentions:
+            return True
+        members = INGREDIENT_GROUPS.get(expected, ())
+        if any(canonicalize_ingredient(member) in mentions for member in members):
+            return True
+        if expected not in KNOWN_INGREDIENTS and _labels_overlap(expected, _normalize_ingredient_mentions(label)):
+            return True
+    return False
 
 
 def restriction_matches(restriction: str, ingredient: str) -> bool:

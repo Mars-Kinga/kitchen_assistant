@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import threading
+import time
 from typing import Any
 
 from .mock_robot_sdk import MockRobotSDK
@@ -28,6 +30,21 @@ class RuntimeExecutor:
             edge_rate=edge_rate,
             no_play=no_play,
         )
+        self._status_lock = threading.Lock()
+        self._robot_state = "idle"
+        self._last_action = "idle_wait"
+        self._last_display = "等待任务"
+        self._updated_at = time.time()
+
+    def status_snapshot(self) -> dict[str, Any]:
+        with self._status_lock:
+            return {
+                "state": self._robot_state,
+                "action": self._last_action,
+                "display": self._last_display,
+                "updated_at": self._updated_at,
+                "simulated": True,
+            }
 
     def execute_plan(self, plan: dict[str, Any]) -> dict[str, Any]:
         if not isinstance(plan, dict):
@@ -62,6 +79,8 @@ class RuntimeExecutor:
         led_effect = self._as_supported_effect(self._as_text(item.get("led_effect") or item.get("light_effect"), "white"))
         expression = self._as_supported_expression(self._as_text(item.get("expression"), "neutral"))
 
+        self._set_status("executing", action, display)
+
         # Keep independent simulated capabilities independent: one failed
         # capability must not hide the other four during a demo.
         self._safe_call("灯带", self.robot.light.set_effect, led_effect)
@@ -70,6 +89,14 @@ class RuntimeExecutor:
         self._safe_call("屏幕", self.robot.display.show_text, display)
         print(f"[模拟SDK-语音请求] {speech}")
         self._safe_call("语音", self.voice.speak, speech)
+        self._set_status("idle", action, display)
+
+    def _set_status(self, state: str, action: str, display: str) -> None:
+        with self._status_lock:
+            self._robot_state = state
+            self._last_action = action
+            self._last_display = display[:240]
+            self._updated_at = time.time()
 
     @staticmethod
     def _as_text(value: Any, fallback: str) -> str:

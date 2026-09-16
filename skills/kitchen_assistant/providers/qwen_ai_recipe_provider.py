@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import re
 import threading
 import time
@@ -13,9 +14,11 @@ from kitchen.ingredient_vocabulary import (
     INGREDIENT_GROUPS,
     ingredient_matches,
     ingredient_present,
+    inventory_ingredient_present,
     split_main_foods_and_seasonings,
 )
 from kitchen.models import RecipeCandidate, RecipeSearchRequest
+from kitchen.pantry_defaults import missing_pantry_ingredients, uses_unavailable_ingredients
 from kitchen.recipe_contract import (
     candidate_limit,
     string_list as _string_list,
@@ -78,7 +81,7 @@ class QwenAIRecipeProvider:
         request_payload = _request_payload(request)
         limit = candidate_limit(request_payload)
         local_search = getattr(self.fallback, "search_recipes", None)
-        if callable(local_search):
+        if not request.bypass_cache and callable(local_search):
             local = local_search(request)
             if local:
                 # The fixed catalog and validated generated cache are both
@@ -101,19 +104,26 @@ class QwenAIRecipeProvider:
             try:
                 payload = self.llm_client.generate_json(
                     recipe_bundle_messages(request_payload),
-                    max_tokens=RECIPE_BUNDLE_MAX_TOKENS,
+                    max_tokens=RECIPE_BUNDLE_MAX_TOKENS * (2 if limit == 3 else 1),
                     timeout=self._total_budget_seconds(),
                 )
                 prepared = _prepare_bundle_payload(payload, request, limit)
             except QwenJSONOutputError as exc:
-                prepared = self._correct_bundle_once(
-                    request_payload,
-                    request,
-                    limit,
-                    invalid_output=exc.raw_content,
-                    original_error=exc,
-                    started_at=started_at,
-                )
+                # A later row can be truncated while earlier recipes are
+                # complete. Decode only whole rows; never manufacture JSON
+                # closers or use unfinished recipe details.
+                complete_rows = _complete_rows_from_partial_json(exc.raw_content, limit)
+                try:
+                    prepared = _prepare_bundle_payload(complete_rows, request, limit)
+                except (ValueError, TypeError, AIRecipeProviderError):
+                    prepared = self._correct_bundle_once(
+                        request_payload,
+                        request,
+                        limit,
+                        invalid_output=exc.raw_content,
+                        original_error=exc,
+                        started_at=started_at,
+                    )
             except (ValueError, TypeError, AIRecipeProviderError) as exc:
                 if not _is_correctable_recipe_error(exc):
                     raise
@@ -152,9 +162,11 @@ class QwenAIRecipeProvider:
         try:
             corrected = self.llm_client.generate_json(
                 recipe_correction_messages(request_payload, invalid_output, issue),
-                max_tokens=RECIPE_BUNDLE_MAX_TOKENS,
+                max_tokens=RECIPE_BUNDLE_MAX_TOKENS * (2 if limit == 3 else 1),
                 timeout=timeout,
             )
+            if isinstance(invalid_output, dict) and request.available_ingredients and not request.requested_dish:
+                corrected = _merge_valid_bundle_rows(invalid_output, corrected, request, limit)
             prepared = _prepare_bundle_payload(corrected, request, limit)
         except (QwenClientError, ValueError, TypeError, AIRecipeProviderError) as exc:
             print(f"[厨房助手-菜谱纠错] 修正失败：{_validation_issue(exc)['code']}")
@@ -221,24 +233,106 @@ def _prepare_bundle_payload(
         try:
             candidate = _candidate_from_row(row, index, request)
             raw = _detail_from_bundled_row(row, candidate, request)
+            if request.available_ingredients and not request.requested_dish and not _raw_used_inventory(raw, request):
+                raise ValueError("完整菜谱没有实际使用任何确认食材")
         except (ValueError, TypeError) as exc:
-            row_errors.append(exc)
+            error = ValueError(f"候选{index}：{exc}")
+            error.__cause__ = exc
+            row_errors.append(error)
             continue
         prepared.append((candidate, raw))
-    if len(prepared) != limit:
+    if not prepared:
         reason = str(row_errors[-1]) if row_errors else "候选数量不足"
         error = AIRecipeProviderError(
-            f"需要{limit}个同时包含有效详情的候选菜谱：{reason}"
+            f"没有同时包含有效详情的候选菜谱：{reason}"
         )
         if row_errors:
             raise error from row_errors[-1]
         raise error
     candidates = [candidate for candidate, _ in prepared]
+    if request.available_ingredients and not request.requested_dish:
+        prepared = list({candidate.title: (candidate, raw) for candidate, raw in prepared}.values())
+        prepared.sort(key=lambda item: -_raw_inventory_usage_count(item[1], request))
+        for candidate, raw in prepared:
+            candidate.main_ingredients, candidate.main_seasonings = split_main_foods_and_seasonings(
+                str(item.get("name", "")) for item in raw.get("ingredients", [])
+                if isinstance(item, dict)
+            )
+            used_inventory = _raw_used_inventory(raw, request)
+            candidate.unused_ingredients = [
+                item for item in request.available_ingredients
+                if item not in used_inventory
+            ]
+            candidate.match_reason = (
+                "使用全部确认食材。" if not candidate.unused_ingredients
+                else f"使用{len(used_inventory)}种确认食材，其余食材没用到。"
+            )
     if request.requested_dish and any(
         request.requested_dish not in candidate.title for candidate in candidates
     ):
         raise AIRecipeProviderError("候选没有全部保留用户指定菜名")
     return prepared
+
+
+def _complete_rows_from_partial_json(raw_content: str, limit: int) -> dict[str, Any]:
+    """Recover complete array items from a truncated bundle, not partial rows."""
+    start = re.match(r'^\s*(?:```(?:json)?\s*)?\{\s*"candidates"\s*:\s*\[', raw_content)
+    if not start:
+        return {"candidates": []}
+    decoder = json.JSONDecoder()
+    cursor = start.end()
+    rows = []
+    for _ in range(limit):
+        while cursor < len(raw_content) and raw_content[cursor].isspace():
+            cursor += 1
+        try:
+            row, cursor = decoder.raw_decode(raw_content, cursor)
+        except json.JSONDecodeError:
+            break
+        rows.append(row)
+        while cursor < len(raw_content) and raw_content[cursor].isspace():
+            cursor += 1
+        if cursor >= len(raw_content) or raw_content[cursor] != ",":
+            break
+        cursor += 1
+    return {"candidates": rows}
+
+
+def _merge_valid_bundle_rows(
+    original: dict[str, Any], corrected: dict[str, Any], request: RecipeSearchRequest, limit: int,
+) -> dict[str, Any]:
+    """Keep valid original choices if a correction returns only repaired rows.
+
+    Every retained row still passes detail, dietary, equipment and quantity
+    checks. The merged bundle is then checked again for count and coverage.
+    """
+    rows_by_title: dict[str, tuple[dict[str, Any], dict[str, Any]]] = {}
+    for payload in (original, corrected):
+        rows = payload.get("candidates")
+        if not isinstance(rows, list):
+            continue
+        for index, row in enumerate(rows[:limit], start=1):
+            try:
+                candidate = _candidate_from_row(row, index, request)
+                raw = _detail_from_bundled_row(row, candidate, request)
+            except (ValueError, TypeError):
+                continue
+            rows_by_title[candidate.title] = (row, raw)
+    ranked_rows = sorted(rows_by_title.values(), key=lambda pair: -_raw_inventory_usage_count(pair[1], request))
+    return {"candidates": [row for row, _ in ranked_rows[:limit]]}
+
+
+def _raw_inventory_usage_count(raw: dict[str, Any], request: RecipeSearchRequest) -> int:
+    return len(_raw_used_inventory(raw, request))
+
+
+def _raw_used_inventory(raw: dict[str, Any], request: RecipeSearchRequest) -> list[str]:
+    labels = [str(item.get("name", "")) for item in raw.get("ingredients", [])
+              if isinstance(item, dict) and not item.get("optional")]
+    instructions = [str(step.get("instruction", "")) for step in raw.get("steps", [])
+                    if isinstance(step, dict)]
+    return [item for item in request.available_ingredients
+            if inventory_ingredient_present(item, labels) and inventory_ingredient_present(item, instructions)]
 
 
 def _exception_chain_text(exc: BaseException) -> str:
@@ -271,9 +365,11 @@ def _is_correctable_recipe_error(exc: BaseException) -> bool:
         "食材单位",
         "optional",
         "步骤说明无效",
+        "步骤无效",
         "步骤用量必须明确",
         "调料准备步骤",
-        "候选数量不足",
+        "完整菜谱没有实际使用任何确认食材",
+        "完整菜谱需要额外食材",
     )
     return any(marker in text for marker in correctable_markers)
 
@@ -286,6 +382,12 @@ def _validation_issue(exc: BaseException) -> dict[str, str]:
             "path": "$",
             "message": "输出不是完整合法JSON，请重新生成完整对象",
         }
+    row_match = re.search(r"候选(\d+)：", text)
+    candidate_index = int(row_match.group(1)) - 1 if row_match else 0
+    if row_match:
+        # A dropped row may cause an aggregate count/coverage error. Repair
+        # that row's actual defect rather than blaming an unrelated first row.
+        text = text[row_match.end():]
     code = "invalid_recipe"
     path = "candidates[0].recipe"
     if "步骤用量必须明确" in text:
@@ -293,6 +395,12 @@ def _validation_issue(exc: BaseException) -> dict[str, str]:
         match = re.search(r"第(\d+)步", text)
         if match:
             path = f"candidates[0].recipe.steps[{int(match.group(1)) - 1}].instruction"
+    elif "首个方案未实际使用全部" in text:
+        code = "incomplete_inventory_coverage"
+        path = "candidates[0].recipe"
+    elif "候选数量不足" in text:
+        code = "insufficient_candidates"
+        path = "candidates"
     elif "食材必须给出明确用量" in text or "食材用量" in text:
         code = "invalid_ingredient_amount"
         path = "candidates[0].recipe.ingredients"
@@ -305,6 +413,11 @@ def _validation_issue(exc: BaseException) -> dict[str, str]:
     elif "人数" in text:
         code = "invalid_servings"
         path = "candidates[0].recipe.servings"
+    elif "步骤无效" in text or "步骤说明无效" in text:
+        code = "invalid_step_instruction"
+        match = re.search(r"第(\d+)步", text)
+        path = f"candidates[0].recipe.steps[{int(match.group(1)) - 1}].instruction" if match else "candidates[0].recipe.steps"
+    path = path.replace("candidates[0]", f"candidates[{candidate_index}]")
     return {"code": code, "path": path, "message": text[:300]}
 
 
@@ -331,20 +444,31 @@ def _candidate_from_row(row: Any, index: int, request: RecipeSearchRequest) -> R
     _append_missing(inferred_seasonings, declared_seasonings)
     # No pantry declaration means “unknown”, rather than “everything missing”.
     missing = _string_list(row.get("missing_ingredients")) if request.available_ingredients else []
+    unused_inventory: list[str] = []
     if ingredient_conflicts([*ingredients, *inferred_seasonings], request.dietary_restrictions):
         raise ValueError("候选违反忌口")
+    if uses_unavailable_ingredients([*ingredients, *inferred_seasonings], request.unavailable_ingredients):
+        raise ValueError("候选使用了用户明确没有的食材或调料")
     if request.requested_dish and request.requested_dish not in title:
         raise ValueError("候选没有保留指定菜名")
     if _candidate_was_excluded(title, request.excluded_candidate_ids):
         raise ValueError("候选与用户要求排除的菜谱重复")
     if not request.requested_dish and request.available_ingredients:
         labels_for_matching = [*ingredients, *inferred_seasonings]
-        missing_inventory = [
+        used_inventory = [
+            item for item in request.available_ingredients
+            if ingredient_present(item, labels_for_matching)
+        ]
+        if not used_inventory:
+            raise ValueError("候选没有使用任何用户已有食材")
+        unused_inventory = [
             item for item in request.available_ingredients
             if not ingredient_present(item, labels_for_matching)
         ]
-        if missing_inventory:
-            raise ValueError(f"候选遗漏用户已有食材：{'、'.join(missing_inventory)}")
+        # Pantry discovery describes how the confirmed inventory is used. It
+        # is not a shopping-list flow, so model-provided "missing" copy would
+        # be misleading on the recommendation card.
+        missing = []
     candidate_id = f"ai_{_slug(title)}_{index}"
     return RecipeCandidate(
         candidate_id=candidate_id,
@@ -358,6 +482,7 @@ def _candidate_from_row(row: Any, index: int, request: RecipeSearchRequest) -> R
         missing_ingredients=missing,
         match_reason=_text(row.get("match_reason"), "匹配说明"),
         main_seasonings=inferred_seasonings,
+        unused_ingredients=unused_inventory,
     )
 
 
@@ -511,16 +636,18 @@ def _fill_step_quantities_from_ingredients(
 
 
 def _ensure_inventory_ingredients(raw: Any, request: RecipeSearchRequest) -> None:
-    """Do not let a detail response silently drop pantry food from its candidate."""
+    """Require a pantry-derived recipe without forcing all inventory into one dish."""
     if request.requested_dish or not request.available_ingredients or not isinstance(raw, dict):
         return
     ingredient_rows = raw.get("ingredients")
     if not isinstance(ingredient_rows, list):
         return
     labels = [str(item.get("name", "")) for item in ingredient_rows if isinstance(item, dict)]
-    missing = [item for item in request.available_ingredients if not ingredient_present(item, labels)]
-    if missing:
-        raise ValueError(f"完整菜谱遗漏用户已有食材：{'、'.join(missing)}")
+    if not any(ingredient_present(item, labels) for item in request.available_ingredients):
+        raise ValueError("完整菜谱没有使用任何用户已有食材")
+    required = [str(item.get("name", "")) for item in ingredient_rows if isinstance(item, dict) and not item.get("optional")]
+    if missing_pantry_ingredients(required, request.available_ingredients):
+        raise ValueError("完整菜谱需要额外食材，请仅使用确认食材和常备调料")
 
 
 def _ensure_equipment_constraints(raw: Any, request: RecipeSearchRequest) -> None:
@@ -546,6 +673,8 @@ def _prepare_and_validate_recipe(raw: Any, request: RecipeSearchRequest) -> None
     ] if isinstance(raw, dict) else []
     if ingredient_conflicts(ingredient_names, request.dietary_restrictions):
         raise ValueError("完整菜谱违反忌口")
+    if uses_unavailable_ingredients(ingredient_names, request.unavailable_ingredients):
+        raise ValueError("完整菜谱使用了用户明确没有的食材或调料")
     validate_raw_recipe(raw, request)
 
 
@@ -564,6 +693,7 @@ def _request_payload(request: RecipeSearchRequest) -> dict[str, Any]:
         "steak_doneness": request.steak_doneness,
         "steak_thickness_cm": request.steak_thickness_cm,
         "excluded_candidate_ids": request.excluded_candidate_ids,
+        "unavailable_ingredients": request.unavailable_ingredients,
     }
 
 

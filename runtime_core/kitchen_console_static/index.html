@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f2f2f7">
+  <title>饭宝 · 厨房助手控制台</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="回到控制台顶部">
+        <span class="brand-mark" aria-hidden="true">饭</span>
+        <span><strong>饭宝</strong><small>厨房助手控制台</small></span>
+      </a>
+      <div class="live-pill"><span></span> 局域网在线</div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <p class="eyebrow">COOKING COMPANION</p>
+          <h1>这顿饭，想做什么？</h1>
+          <p id="hero-summary">正在连接厨房助手……</p>
+        </div>
+        <div class="clock" aria-label="当前时间">
+          <strong id="clock-time">--:--</strong>
+          <span id="clock-date">----</span>
+        </div>
+      </section>
+
+      <section class="ios-search-card" aria-label="本地菜谱搜索">
+        <div class="search-copy">
+          <span class="search-symbol" aria-hidden="true">⌕</span>
+          <div><strong>本地菜谱</strong><small>搜索或按分类浏览离线菜谱</small></div>
+        </div>
+        <div class="search-field">
+          <input id="recipe-search" type="search" placeholder="搜索菜名或食材" autocomplete="off">
+          <button id="recipe-search-button" type="button">搜索</button>
+        </div>
+      </section>
+
+      <section class="recipe-library hidden" id="recipe-library">
+        <div class="section-title">
+          <div><p class="eyebrow">LOCAL RECIPES</p><h2>本地菜谱</h2></div>
+          <button class="ios-close-text" id="close-library" type="button">收起</button>
+        </div>
+        <p class="library-count" id="library-count"></p>
+        <div class="category-filter" id="recipe-categories" aria-label="菜谱分类"></div>
+        <div class="library-grid" id="library-grid"></div>
+      </section>
+
+      <section class="status-grid" aria-label="设备与计时状态">
+        <article class="status-card accent-sage">
+          <div class="card-heading"><span class="icon">R</span><span class="status-dot" id="robot-dot"></span></div>
+          <p>机器人</p><h2 id="robot-state">等待连接</h2><span id="robot-detail">—</span>
+        </article>
+        <article class="status-card accent-coral">
+          <div class="card-heading"><span class="icon">C</span><span class="status-dot" id="camera-dot"></span></div>
+          <p>摄像头</p><h2 id="camera-state">等待连接</h2><span id="camera-detail">—</span>
+        </article>
+        <article class="status-card accent-gold timer-card">
+          <div class="card-heading"><span class="icon">T</span><span class="status-dot" id="timer-dot"></span></div>
+          <p>计时器</p><h2 id="timer-state">暂无计时</h2><span id="timer-detail">可以从做菜步骤启动</span>
+        </article>
+      </section>
+
+      <section class="workspace-grid">
+        <article class="panel cooking-panel tappable" id="cooking-panel" tabindex="0" role="button" aria-label="查看当前完整菜谱">
+          <div class="section-title">
+            <div><p class="eyebrow">CURRENT TASK</p><h2>做菜进度</h2></div>
+            <span class="state-tag" id="kitchen-state">空闲</span>
+          </div>
+          <div id="empty-cooking" class="empty-state">
+            <div class="empty-glyph">○</div>
+            <h3>还没有开始做菜</h3>
+            <p>拍一张现有食材，先看看今天能做什么。</p>
+          </div>
+          <div id="active-cooking" class="active-cooking hidden">
+            <div class="recipe-line"><div><small>当前菜谱</small><h3 id="recipe-name">—</h3></div><span id="recipe-meta">—</span></div>
+            <div class="progress-track"><span id="step-progress"></span></div>
+            <div class="step-box"><small id="step-number">当前步骤</small><p id="step-instruction">—</p><div id="step-details" class="step-details"></div></div>
+            <div id="parallel-step" class="parallel-step hidden"><small>计时期间可以同步准备</small><strong id="parallel-step-title">并行步骤</strong><p id="parallel-step-instruction">—</p></div>
+            <div class="step-navigation" aria-label="做菜步骤切换">
+              <button id="previous-step" class="secondary-button" type="button">‹ 上一步</button>
+              <button id="next-step" class="primary-button" type="button">下一步 ›</button>
+            </div>
+            <div class="imported-cooking-actions hidden" id="imported-cooking-actions" aria-label="视频菜谱操作">
+              <button class="secondary-button" id="cooking-start-timer" type="button">开始计时</button>
+              <button class="secondary-button" id="cooking-confirm-done" type="button">确认完成</button>
+              <button class="secondary-button" id="cooking-pause-resume" type="button">暂停指导</button>
+              <button class="text-button hidden" id="cooking-cancel-timer" type="button">取消当前计时</button>
+              <button class="text-button hidden" id="cooking-fresh-ingredients" type="button">食材新鲜或已解冻</button>
+            </div>
+            <button class="text-button cooking-end-task hidden" id="cooking-end-task" type="button">结束当前任务</button>
+            <div class="tap-hint">查看完整配料与步骤 <span>›</span></div>
+          </div>
+          <div id="completed-cooking" class="completed-cooking hidden">
+            <div class="completion-mark">✓</div>
+            <h3 id="completed-recipe-name">这道菜完成了</h3>
+            <p>做得很好！可以查看完整菜谱，也可以继续选择下一道菜。</p>
+            <div class="completion-actions">
+              <button id="choose-another" class="primary-button" type="button">继续选择其他菜</button>
+              <button id="browse-after-complete" class="secondary-button" type="button">浏览本地菜谱</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel camera-panel">
+          <div class="section-title compact">
+            <div><p class="eyebrow">CAMERA</p><h2>摄像头画面</h2></div>
+            <button id="capture-server" class="text-button" type="button">刷新画面</button>
+          </div>
+          <div class="camera-frame" id="camera-frame">
+            <img id="camera-preview" alt="厨房摄像头快照">
+            <div id="camera-placeholder"><span>◎</span><p>点击“刷新画面”读取一帧</p></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel video-import-panel" id="video-import-panel" aria-labelledby="video-import-title">
+        <div class="video-import-header">
+          <div><p class="eyebrow">VIDEO TO RECIPE</p><h2 id="video-import-title">把教程变成可执行菜谱</h2><p>粘贴教程的分享链接，饭宝会整理食材、火候和步骤。</p></div>
+          <span class="state-tag" id="video-import-state">等待导入</span>
+        </div>
+        <div class="video-import-form" id="video-import-form">
+          <div class="video-share-field">
+            <label class="field-label" for="video-share-text">分享文案或链接</label>
+            <textarea id="video-share-text" rows="2" maxlength="4000" placeholder="例如：🔥能让我一次扒3碗米饭的下饭届天菜… https://xhslink.cn/o/…"></textarea>
+          </div>
+          <div class="video-import-side">
+            <div class="video-import-actions">
+              <button class="primary-button" id="video-import-submit" type="button">解析为菜谱</button>
+              <button class="text-button hidden" id="video-import-cancel" type="button">取消处理</button>
+            </div>
+            <label class="secondary-button" for="video-file-input" tabindex="0">上传视频</label>
+            <input id="video-file-input" type="file" accept="video/mp4,video/quicktime,.mp4,.mov">
+            <span class="video-file-copy"><span>分享链接不可用时，再上传视频</span><span id="video-file-name">MP4 / MOV · ≤100 MB · ≤3 分钟</span></span>
+            <p class="field-hint" id="video-file-meta" aria-live="polite"></p>
+          </div>
+        </div>
+        <p class="field-hint import-validation" id="video-import-validation" role="status" aria-live="polite"></p>
+        <div class="video-import-status-box" id="video-import-status-box" aria-live="polite">
+          <div id="video-import-status" class="hidden">
+            <div class="import-status-heading"><span class="status-dot" id="video-import-dot"></span><strong id="video-import-status-title">正在处理</strong></div>
+            <p id="video-import-status-message"></p>
+            <p class="import-elapsed hidden" id="video-import-elapsed" aria-live="off"></p>
+            <ol class="import-stage-list" id="video-import-stages" aria-label="视频导入进度">
+              <li data-video-stage="fetching">读取视频</li>
+              <li data-video-stage="analyzing">识别画面与语音</li>
+              <li data-video-stage="structuring">整理菜谱</li>
+              <li data-video-stage="ready">等待确认</li>
+            </ol>
+          </div>
+        </div>
+
+        <section class="video-import-preview hidden" id="video-import-preview" aria-labelledby="video-preview-title">
+          <div class="draft-heading"><h3 id="video-preview-title">正在整理菜谱</h3><span class="draft-source-note" id="video-preview-count" role="status" aria-live="polite"></span></div>
+          <p class="draft-notice">内容会陆续出现；全部整理完成后，再核对并保存。</p>
+          <p class="video-preview-ingredients" id="video-preview-ingredients"></p>
+          <ol class="video-preview-steps" id="video-preview-steps"></ol>
+        </section>
+
+        <section class="video-import-draft hidden" id="video-import-draft" aria-labelledby="video-import-draft-title">
+          <div class="draft-heading">
+            <div><h3 id="video-import-draft-title">核对这份菜谱</h3></div>
+            <span id="video-draft-source-note" class="draft-source-note"></span>
+          </div>
+          <p id="video-draft-notice" class="draft-notice">这是 AI 根据视频整理的草稿。请确认关键用量、火候和时间，再保存。</p>
+          <div class="draft-fields">
+            <label class="field-label" for="video-draft-name">菜名<input id="video-draft-name" type="text" maxlength="80" autocomplete="off"></label>
+            <label class="field-label" for="video-draft-servings">份量（人）<input id="video-draft-servings" type="number" min="1" max="6" step="1" inputmode="numeric"></label>
+          </div>
+          <div class="draft-section">
+            <div class="draft-section-heading"><h4>食材</h4><button class="text-button" id="video-draft-add-ingredient" type="button">＋ 添加食材</button></div>
+            <div class="draft-ingredient-list" id="video-draft-ingredients"></div>
+          </div>
+          <div class="draft-section">
+            <label class="field-label" for="video-draft-equipment">需要的工具<span class="field-subhint">每行一项，可留空</span><textarea id="video-draft-equipment" rows="2" maxlength="1000" placeholder="例如：炒锅&#10;锅铲"></textarea></label>
+          </div>
+          <div class="draft-section">
+            <div class="draft-section-heading"><h4>步骤</h4><button class="text-button" id="video-draft-add-step" type="button">＋ 添加步骤</button></div>
+            <div class="draft-step-list" id="video-draft-steps"></div>
+          </div>
+          <p class="draft-validation" id="video-draft-validation" role="status" aria-live="polite"></p>
+          <div class="draft-actions">
+            <button class="secondary-button hidden" id="video-draft-complete" type="button">AI 补全缺失信息</button>
+            <button class="secondary-button" id="video-draft-save" type="button">保存修改</button>
+            <button class="primary-button" id="video-draft-confirm" type="button">确认并保存菜谱</button>
+          </div>
+        </section>
+      </section>
+
+      <section class="panel imported-recipes-panel hidden" id="imported-recipes-panel" aria-labelledby="imported-recipes-title">
+        <div class="section-title compact">
+          <div><h2 id="imported-recipes-title">已导入菜谱</h2></div>
+          <button class="text-button" id="refresh-imported-recipes" type="button">刷新</button>
+        </div>
+        <p class="library-count" id="imported-recipes-count"></p>
+        <div class="library-grid imported-recipes-grid" id="imported-recipes-grid"></div>
+      </section>
+
+      <section class="panel pantry-panel" id="pantry">
+        <div class="pantry-copy">
+          <p class="eyebrow">WHAT CAN I COOK?</p>
+          <h2>拍下食材，看看能做什么</h2>
+          <p>可以用手机直接拍摄，也可以上传相册照片。识别后请先确认食材，再生成菜谱方案。</p>
+          <div class="upload-actions">
+            <label class="primary-button" for="photo-input">拍照 / 上传照片</label>
+            <button class="secondary-button" id="use-camera-frame" type="button">使用上方画面</button>
+            <input id="photo-input" type="file" accept="image/jpeg,image/png,image/webp" capture="environment">
+          </div>
+        </div>
+        <div class="upload-preview" id="upload-preview">
+          <div id="upload-placeholder"><span>＋</span><p>照片仅在内存中用于本次识别</p></div>
+          <img id="selected-photo" alt="待识别的食材照片">
+          <div class="loading-layer hidden" id="vision-loading"><span></span><p>正在识别可见食材…</p></div>
+        </div>
+      </section>
+
+      <section class="panel results-panel hidden" id="ingredient-results">
+        <div class="section-title">
+          <div><p class="eyebrow">CONFIRM FIRST</p><h2>确认识别到的食材</h2></div>
+          <button class="text-button" id="add-ingredient" type="button">＋ 添加食材</button>
+        </div>
+        <p class="result-summary" id="vision-summary"></p>
+        <div class="ingredient-chips" id="ingredient-chips"></div>
+        <p class="uncertain hidden" id="uncertain-items"></p>
+        <div class="recommend-controls">
+          <label>人数<select id="servings"><option value="1" selected>1 人</option><option value="2">2 人</option><option value="3">3 人</option><option value="4">4 人</option><option value="5">5 人</option><option value="6">6 人</option></select></label>
+          <label>口味<select id="taste"><option value="正常">正常</option><option value="少盐">少盐</option><option value="辣">辣</option></select></label>
+          <button class="primary-button" id="recommend" type="button">生成菜谱方案</button>
+        </div>
+      </section>
+
+      <section class="panel recommendations hidden" id="recommendations">
+        <div class="section-title"><div><p class="eyebrow">RECIPE IDEAS</p><h2>可以试试这些</h2></div><span id="provider-label"></span></div>
+        <p class="result-summary" id="recommendation-message" role="status" aria-live="polite"></p>
+        <div class="recipe-cards" id="recipe-cards"></div>
+      </section>
+
+      <aside class="scope-note" id="scope-notice">本控制台只提供流程辅助，不提供食品或设备安全判断。</aside>
+    </main>
+  </div>
+  <div class="sheet-backdrop hidden" id="recipe-sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+    <section class="recipe-sheet-card">
+      <div class="sheet-handle" aria-hidden="true"></div>
+      <header class="sheet-header">
+        <button class="sheet-close" id="sheet-close" type="button" aria-label="关闭">×</button>
+        <div><span id="sheet-kicker">完整菜谱</span><h2 id="sheet-title">菜谱详情</h2></div>
+        <span class="sheet-spacer"></span>
+      </header>
+      <div class="sheet-scroll">
+        <div class="recipe-hero-meta" id="sheet-meta"></div>
+        <section><h3>食材</h3><div class="sheet-ingredients" id="sheet-ingredients"></div></section>
+        <section><h3>步骤</h3><ol class="sheet-steps" id="sheet-steps"></ol></section>
+      </div>
+      <footer class="sheet-actions">
+        <label>人数<select id="sheet-servings"><option value="1" selected>1 人</option><option value="2">2 人</option><option value="3">3 人</option><option value="4">4 人</option><option value="5">5 人</option><option value="6">6 人</option></select></label>
+        <button class="ios-primary" id="select-recipe" type="button">选择这道菜</button>
+      </footer>
+    </section>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="/app.js" defer></script>
+</body>
+</html>

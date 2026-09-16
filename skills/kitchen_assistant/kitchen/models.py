@@ -20,6 +20,7 @@ class RecipeSearchRequest:
     unavailable_equipment: list[str] = field(default_factory=list)
     equipment_only: bool = False
     bypass_cache: bool = False
+    unavailable_ingredients: list[str] = field(default_factory=list)
 
     def as_cache_key(self) -> tuple[object, ...]:
         return (
@@ -29,6 +30,7 @@ class RecipeSearchRequest:
             self.difficulty_preference, self.steak_doneness, self.steak_thickness_cm,
             tuple(sorted(self.excluded_candidate_ids)), tuple(sorted(self.unavailable_equipment)),
             self.equipment_only, self.bypass_cache,
+            tuple(sorted(self.unavailable_ingredients)),
         )
 
 
@@ -45,6 +47,7 @@ class RecipeCandidate:
     missing_ingredients: list[str]
     match_reason: str
     main_seasonings: list[str] = field(default_factory=list)
+    unused_ingredients: list[str] = field(default_factory=list)
 
     def as_dict(self) -> dict[str, Any]:
         return {
@@ -58,6 +61,7 @@ class RecipeCandidate:
             "main_ingredients": self.main_ingredients,
             "main_seasonings": self.main_seasonings,
             "missing_ingredients": self.missing_ingredients,
+            "unused_ingredients": self.unused_ingredients,
             "match_reason": self.match_reason,
         }
 

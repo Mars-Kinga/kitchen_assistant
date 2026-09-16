@@ -54,6 +54,7 @@ class RequestUpdates:
     unavailable_equipment: list[str] = field(default_factory=list)
     equipment_only: bool = False
     bypass_cache: bool = False
+    unavailable_ingredients: list[str] = field(default_factory=list)
 
 
 def parse_updates(text: str) -> RequestUpdates:
@@ -77,6 +78,18 @@ def parse_updates(text: str) -> RequestUpdates:
     # When someone says e.g. “牛肉和蘑菇不知道做什么”, the ingredient list is
     # still an explicit pantry declaration even without “我有”.
     updates.ingredients = extract_ingredients(text, allow_bare=updates.asks_for_recommendation)
+    negative_spans = re.findall(r"(?:没有|缺少|没)([^，,。！？；;]*)", text)
+    for span in negative_spans:
+        negative = re.split(r"但|不过|可是|只有|还有", span, maxsplit=1)[0]
+        negative = re.sub(r"^(?:任何|这些|足够的|足够)\s*", "", negative.strip())
+        if not negative.startswith((*KNOWN_INGREDIENTS, "油", "调料", "调味料")):
+            continue
+        _extend_unique(updates.unavailable_ingredients, extract_known_ingredients(negative))
+        if negative.strip().startswith("油"):
+            _extend_unique(updates.unavailable_ingredients, ["油"])
+        if negative.strip().startswith(("调料", "调味料")):
+            _extend_unique(updates.unavailable_ingredients, ["调料"])
+    updates.ingredients = [name for name in updates.ingredients if name not in updates.unavailable_ingredients]
     updates.servings = extract_servings(text)
     updates.taste = extract_flavor(text)
     if "辣" in text and not any(word in text for word in ("不吃辣", "不要辣", "不辣")):
@@ -191,6 +204,9 @@ def apply_updates(request: RecipeSearchRequest, updates: RequestUpdates) -> Reci
     if updates.requested_dish:
         request.requested_dish = updates.requested_dish
     _extend_unique(request.available_ingredients, updates.ingredients)
+    request.unavailable_ingredients = [name for name in request.unavailable_ingredients if name not in updates.ingredients]
+    _extend_unique(request.unavailable_ingredients, updates.unavailable_ingredients)
+    request.available_ingredients = [name for name in request.available_ingredients if name not in request.unavailable_ingredients]
     if updates.servings:
         request.servings = updates.servings
     if updates.taste:

@@ -24,7 +24,11 @@ def load_catalog(recipes_dir: Path) -> tuple[list[dict[str, Any]], dict[str, dic
     catalog_dir = recipes_dir / "catalog"
     if catalog_dir.is_dir():
         for path in sorted(catalog_dir.rglob("*.json")):
-            recipes.extend(_read_recipe_list(_load_json_object(path), path))
+            category = path.stem
+            rows = _read_recipe_list(_load_json_object(path), path)
+            for row in rows:
+                row.setdefault("category", category)
+            recipes.extend(rows)
 
     _validate_unique_recipe_identity(recipes, recipes_dir)
     return recipes, {str(name): profile for name, profile in profiles.items() if isinstance(profile, dict)}

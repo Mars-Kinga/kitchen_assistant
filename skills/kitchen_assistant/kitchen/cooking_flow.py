@@ -43,7 +43,9 @@ def handle_cooking_turn(session: Any, text: str) -> dict[str, Any]:
             step_feedback = session._current_step_feedback(
                 str(confirmation.get("confirmation_prefix", "确认完成。"))
             )
-            timer_feedback = session._start_step_timer()
+            timer_feedback = (
+                None if session.current_recipe.get("import_metadata") else session._start_step_timer()
+            )
             items = [step_feedback]
             if timer_feedback:
                 items.append(timer_feedback)
