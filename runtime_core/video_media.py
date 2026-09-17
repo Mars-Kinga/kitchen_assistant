@@ -252,15 +252,7 @@ def _ip_is_public(address: ipaddress._BaseAddress) -> bool:
     # ``is_global`` excludes loopback, private, link-local, multicast,
     # unspecified and documentation ranges.  Explicit checks keep behaviour
     # stable across Python versions for unusual reserved ranges.
-    return bool(
-        address.is_global
-        and not address.is_private
-        and not address.is_loopback
-        and not address.is_link_local
-        and not address.is_multicast
-        and not address.is_unspecified
-        and not address.is_reserved
-    )
+    return video_network._is_public_ip(str(address))
 
 
 def validate_public_url(url: str) -> str:

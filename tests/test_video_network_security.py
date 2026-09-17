@@ -52,8 +52,14 @@ def _dns_results(*addresses: str):
     ]
 
 
-def test_xhs_fake_dns_uses_bounded_trusted_doh_and_returns_public_addresses(monkeypatch) -> None:
-    monkeypatch.setattr(video_network.socket, "getaddrinfo", _dns_results("198.18.0.98"))
+@pytest.mark.parametrize("addresses", [
+    ("198.18.0.98",),
+    ("198.18.0.98", "::ffff:198.18.0.98"),
+    ("198.18.0.98", "::ffff:0:c612:62"),
+    ("::ffff:0:c612:62",),
+])
+def test_xhs_fake_dns_uses_bounded_trusted_doh_and_returns_public_addresses(monkeypatch, addresses) -> None:
+    monkeypatch.setattr(video_network.socket, "getaddrinfo", _dns_results(*addresses))
     calls = []
 
     def fake_urlopen(request, *, timeout):
@@ -113,7 +119,7 @@ def test_arbitrary_fake_dns_domain_is_rejected_without_doh(monkeypatch) -> None:
         video_media.validate_public_url("https://example.com/video.mp4")
 
 
-@pytest.mark.parametrize("address", ("10.0.0.8", "127.0.0.1", "::1"))
+@pytest.mark.parametrize("address", ("10.0.0.8", "127.0.0.1", "::1", "::ffff:10.0.0.8", "::ffff:0:a00:8", "::ffff:0:7f00:1"))
 def test_supported_xhs_private_dns_is_rejected_without_doh(monkeypatch, address) -> None:
     monkeypatch.setattr(video_network.socket, "getaddrinfo", _dns_results(address))
 
@@ -124,6 +130,13 @@ def test_supported_xhs_private_dns_is_rejected_without_doh(monkeypatch, address)
 
     with pytest.raises(video_media.PublicURLBlocked):
         video_media.validate_public_url("https://www.xiaohongshu.com/explore/demo")
+
+
+@pytest.mark.parametrize("address", ["::ffff:0:a00:8", "::ffff:0:7f00:1", "::ffff:0:c0a8:5"])
+def test_embedded_private_ipv4_literals_are_rejected(address):
+    assert not video_network._is_public_ip(address)
+    with pytest.raises(video_media.PublicURLBlocked):
+        video_media.validate_public_url(f"http://[{address}]/video.mp4")
 
 
 def test_doh_private_answer_is_rejected(monkeypatch) -> None:

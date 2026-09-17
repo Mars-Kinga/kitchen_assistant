@@ -22,3 +22,11 @@ def test_empty_local_values_preserve_explicit_environment_settings(monkeypatch, 
     settings = config.QwenConfig.from_environment()
     assert settings.api_key == "environment-test-key"
     assert settings.base_url == "https://example.invalid/v1"
+
+
+def test_windows_notepad_utf8_bom_preserves_first_api_key(monkeypatch, tmp_path):
+    path = tmp_path / "qwen.env"
+    path.write_text("DASHSCOPE_API_KEY=notepad-test-key\r\n", encoding="utf-8-sig")
+    monkeypatch.setattr(config, "LOCAL_CONFIG_PATH", path)
+    monkeypatch.delenv("DASHSCOPE_API_KEY", raising=False)
+    assert config.QwenConfig.from_environment().api_key == "notepad-test-key"

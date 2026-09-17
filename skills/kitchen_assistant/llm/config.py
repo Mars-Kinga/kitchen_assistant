@@ -23,7 +23,7 @@ def _settings() -> dict[str, str]:
     try:
         if LOCAL_CONFIG_PATH.stat().st_size > 16_384:
             return settings
-        text = LOCAL_CONFIG_PATH.read_text(encoding="utf-8")
+        text = LOCAL_CONFIG_PATH.read_text(encoding="utf-8-sig")
     except (OSError, UnicodeError):
         return settings
     allowed = {"DASHSCOPE_API_KEY", "QWEN_BASE_URL", "QWEN_TEXT_MODEL", "QWEN_VISION_MODEL", "QWEN_TIMEOUT_SECONDS", "QWEN_VISION_TIMEOUT_SECONDS", "QWEN_MAX_RETRIES"}

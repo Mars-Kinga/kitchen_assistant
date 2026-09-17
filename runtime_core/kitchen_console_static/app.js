@@ -36,8 +36,8 @@ let importedRecipesExpanded = false;
 
 const VIDEO_IMPORT_STAGE_LABELS = {
   queued: "排队中",
-  fetching: "读取视频",
-  analyzing: "识别画面与语音",
+  fetching: "读取教程",
+  analyzing: "识别教程内容",
   structuring: "整理菜谱",
   ready: "等待确认",
   confirmed: "已保存",
@@ -472,6 +472,7 @@ function videoImportFieldOrigin(item, metadata, path) {
   if (normalized.includes("user") || normalized.includes("manual")) return "用户修改";
   if (normalized.includes("rule") || normalized.includes("default")) return "规则补全";
   if (normalized.includes("ai") || normalized.includes("infer") || normalized.includes("model")) return "AI 补全";
+  if (normalized.includes("post")) return "图文提取";
   if (normalized.includes("video") || normalized.includes("source")) return "视频提取";
   return String(raw);
 }
@@ -529,7 +530,7 @@ function renderVideoDraft(draft) {
   $("#video-draft-servings").value = String(normalized.servings);
   $("#video-draft-equipment").value = normalized.equipment.join("\n");
   $("#video-draft-source-note").textContent = videoDraftSourceNote(normalized);
-  $("#video-draft-notice").textContent = normalized.import_metadata?.notice || "这是 AI 根据视频整理的草稿。请确认关键用量、火候和时间，再保存。";
+  $("#video-draft-notice").textContent = normalized.import_metadata?.notice || "这是 AI 根据教程整理的草稿。请确认关键用量、火候和时间，再保存。";
   const metadata = normalized.import_metadata || {};
   const completeButton = $("#video-draft-complete");
   if (completeButton) completeButton.classList.toggle("hidden", !(metadata.completion_needed || normalized.ingredients.some(item => item.amount === "" || (!item.unit.trim() && !/适量|少量|按口味|一圈/.test(String(item.amount)))) || (metadata.completion_needed === undefined && metadata.quality_issues?.length && !metadata.ai_completed)));
@@ -646,7 +647,7 @@ function startVideoImportPolling(id) {
         stopVideoImportPolling();
         videoImportPending = false;
         updateVideoImportButtons();
-        if (videoImportStage === "ready") showToast("视频菜谱已整理好，请核对后保存");
+        if (videoImportStage === "ready") showToast("菜谱已整理好，请核对后保存");
         return;
       }
       videoImportPollTimer = setTimeout(poll, 1000);
@@ -681,7 +682,7 @@ function inspectVideoDuration(file) {
       if (Number.isFinite(duration) && duration > VIDEO_MAX_SECONDS) finish(reject, new Error("视频不能超过 3 分钟，请剪辑后重试。"));
       else finish(resolve, Number.isFinite(duration) ? duration : null);
     };
-    video.onerror = () => finish(reject, new Error("无法读取视频时长，请选择 MP4 或 MOV 文件。"));
+    video.onerror = () => finish(reject, new Error("无法读取教程时长，请选择 MP4 或 MOV 文件。"));
     video.src = objectUrl;
   });
 }
@@ -744,7 +745,7 @@ async function submitVideoImport(event) {
   $("#video-import-draft").classList.add("hidden");
   setVideoImportValidation("");
   videoImportPending = true;
-  renderVideoImportStatus({ stage: "queued", message: file ? "已收到视频，准备分析画面与语音。" : "已收到分享文案，准备读取视频。" });
+  renderVideoImportStatus({ stage: "queued", message: file ? "已收到视频，准备分析画面与语音。" : "已收到分享文案，准备读取教程。" });
   try {
     const options = file
       ? (() => { const form = new FormData(); form.append("file", file, file.name || "recipe-video.mp4"); return { method: "POST", body: form }; })()
@@ -839,7 +840,7 @@ function setDraftValidation(message = "") {
 
 async function persistVideoDraft(draft, { silent = false, allowIncomplete = false } = {}) {
   if (!videoImportId) {
-    setDraftValidation("导入任务已结束，请重新解析视频。");
+    setDraftValidation("导入任务已结束，请重新解析教程。");
     return false;
   }
   const validation = validateVideoDraft(draft);
@@ -919,7 +920,7 @@ async function completeVideoDraft() {
 }
 
 async function confirmVideoDraft() {
-  if (!videoImportId) return showToast("请先解析一段视频。");
+  if (!videoImportId) return showToast("请先解析一个教程。");
   const draft = collectVideoDraft();
   const validation = validateVideoDraft(draft);
   if (validation) { setDraftValidation(validation); return showToast(validation); }
@@ -1023,7 +1024,7 @@ function renderImportedRecipes() {
     const recipeId = item.recipe_id || item.id || "";
     const metadata = item.import_metadata || {};
     const sourceMetadata = metadata.source && typeof metadata.source === "object" ? metadata.source : {};
-    const source = metadata.platform || metadata.source_platform || item.source_name || sourceMetadata.platform || "视频菜谱";
+    const source = metadata.platform || metadata.source_platform || item.source_name || sourceMetadata.platform || "导入菜谱";
     const servings = Number($("#servings")?.value);
     const requestedServings = Number.isInteger(servings) && servings >= 1 && servings <= 6 ? servings : 1;
     return `<button class="library-card imported-recipe-card" type="button" aria-label="查看菜谱：${escapeHtml(item.name || "未命名菜谱")}" title="${escapeHtml(item.name || "未命名菜谱")}" data-imported-recipe-id="${escapeHtml(recipeId)}" data-servings="${requestedServings}">

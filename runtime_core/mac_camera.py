@@ -10,7 +10,7 @@ class MacCameraError(RuntimeError):
 
 
 class MacCamera:
-    """Capture one compressed JPEG from the default macOS camera."""
+    """Capture one JPEG on macOS, Windows or Linux (legacy public name)."""
 
     def __init__(
         self,
@@ -38,7 +38,7 @@ class MacCamera:
         try:
             if not capture.isOpened():
                 raise MacCameraError(
-                    "无法打开 Mac 摄像头。请检查相机权限，或关闭正在占用摄像头的应用。"
+                    "无法打开本机摄像头。请检查相机权限，或关闭正在占用摄像头的应用。"
                 )
             capture.set(getattr(cv2, "CAP_PROP_FRAME_WIDTH", 3), self.max_width)
             capture.set(getattr(cv2, "CAP_PROP_FRAME_HEIGHT", 4), 720)

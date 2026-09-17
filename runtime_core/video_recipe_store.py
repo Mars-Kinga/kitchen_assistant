@@ -27,6 +27,12 @@ _NUMBER_RE = re.compile(r"(?<![A-Za-z])(?P<number>\d+/\d+|\d+(?:\.\d+)?)(?![A-Za
 _SAFE_RECIPE_ID = re.compile(r"^video_[A-Za-z0-9][A-Za-z0-9_.-]{1,127}$")
 
 
+def is_qualitative_amount(value: Any) -> bool:
+    """Source phrases have valid quantities without a numeric unit."""
+    text = str(value or "").strip()
+    return bool(re.match(r"^(?:适量|少量|少许|足量|若干|按口味|一圈)", text))
+
+
 class VideoRecipeStoreError(ValueError):
     pass
 
@@ -187,7 +193,7 @@ class VideoRecipeStore:
                 raise VideoRecipeStoreError("食材字段无效。")
             if item.get("amount") in (None, ""):
                 raise VideoRecipeStoreError("食材用量无效。")
-            if not str(item.get("unit") or "").strip():
+            if not str(item.get("unit") or "").strip() and not is_qualitative_amount(item.get("amount")):
                 raise VideoRecipeStoreError("食材单位无效。")
             if "optional" in item and not isinstance(item.get("optional"), bool):
                 raise VideoRecipeStoreError("食材optional字段无效。")

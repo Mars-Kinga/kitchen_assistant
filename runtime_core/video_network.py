@@ -26,6 +26,7 @@ from urllib.request import HTTPHandler, HTTPRedirectHandler, HTTPSHandler, Reque
 
 
 FAKE_DNS_NETWORK = ipaddress.ip_network("198.18.0.0/15")
+IPV4_TRANSLATED_NETWORK = ipaddress.ip_network("::ffff:0:0:0/96")
 TRUSTED_DOH_ENDPOINT = "https://dns.google/resolve"
 DOH_TIMEOUT_SECONDS = 5.0
 DOH_MAX_RESPONSE_BYTES = 64 * 1024
@@ -76,9 +77,19 @@ def is_supported_xhs_host(hostname: str) -> bool:
     return host in SUPPORTED_XHS_HOSTS or host == "xhscdn.com" or host.endswith(".xhscdn.com")
 
 
+def _effective_ip(value: str) -> ipaddress.IPv4Address | ipaddress.IPv6Address:
+    address = ipaddress.ip_address(value)
+    if isinstance(address, ipaddress.IPv6Address):
+        if address.ipv4_mapped is not None:
+            return address.ipv4_mapped
+        if address in IPV4_TRANSLATED_NETWORK:
+            return ipaddress.IPv4Address(int(address) & 0xFFFFFFFF)
+    return address
+
+
 def _is_public_ip(value: str) -> bool:
     try:
-        address = ipaddress.ip_address(value)
+        address = _effective_ip(value)
     except ValueError:
         return False
     return bool(
@@ -94,7 +105,7 @@ def _is_public_ip(value: str) -> bool:
 
 def _is_fake_ip(value: str) -> bool:
     try:
-        return ipaddress.ip_address(value) in FAKE_DNS_NETWORK
+        return _effective_ip(value) in FAKE_DNS_NETWORK
     except ValueError:
         return False
 

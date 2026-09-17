@@ -23,3 +23,6 @@ skills/kitchen_assistant/recipes/generated/*.json
 !skills/kitchen_assistant/recipes/generated/.gitkeep
 
 skills/kitchen_assistant/recipes/imported/*.json
+
+dist/
+config/console.json

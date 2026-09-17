@@ -1,8 +1,10 @@
 from __future__ import annotations
 
+import errno
 import json
 import mimetypes
 import socket
+import sys
 import threading
 import time
 from email import policy
@@ -20,6 +22,13 @@ from .skill_manager import SkillManager
 
 MAX_REQUEST_BYTES = 12 * 1024 * 1024
 ASSET_ROOT = Path(__file__).resolve().parent / "kitchen_console_static"
+DEFAULT_CONSOLE_PORT = 18765
+
+
+class _ConsoleHTTPServer(ThreadingHTTPServer):
+    # SO_REUSEADDR on Windows can permit two processes to bind the same port.
+    allow_reuse_address = sys.platform != "win32"
+    allow_reuse_port = False
 
 
 class KitchenConsoleService:
@@ -199,10 +208,26 @@ class KitchenConsoleServer:
         service: KitchenConsoleService,
         *,
         host: str = "0.0.0.0",
-        port: int = 8765,
+        port: int = DEFAULT_CONSOLE_PORT,
+        port_attempts: int = 20,
     ) -> None:
+        if not 0 <= port <= 65535:
+            raise ValueError("控制台端口必须在 0–65535 之间")
+        if not 1 <= port_attempts <= 100:
+            raise ValueError("端口尝试次数必须在 1–100 之间")
         handler = _handler_factory(service)
-        self.httpd = ThreadingHTTPServer((host, port), handler)
+        # Bind directly so there is no race between checking and reserving a port.
+        last_port = port if port == 0 else min(65535, port + port_attempts - 1)
+        for candidate in range(port, last_port + 1):
+            try:
+                self.httpd = _ConsoleHTTPServer((host, candidate), handler)
+                break
+            except OSError as exc:
+                occupied = exc.errno == errno.EADDRINUSE or getattr(exc, "winerror", None) == 10048
+                # Windows can report access denied for an excluded/reserved port.
+                reserved = exc.errno == errno.EACCES and sys.platform == "win32"
+                if not (occupied or reserved) or candidate == last_port:
+                    raise
         self.httpd.daemon_threads = True
         self._thread: threading.Thread | None = None
 

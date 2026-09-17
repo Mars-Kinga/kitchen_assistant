@@ -94,7 +94,7 @@
               <button id="previous-step" class="secondary-button" type="button">‹ 上一步</button>
               <button id="next-step" class="primary-button" type="button">下一步 ›</button>
             </div>
-            <div class="imported-cooking-actions hidden" id="imported-cooking-actions" aria-label="视频菜谱操作">
+            <div class="imported-cooking-actions hidden" id="imported-cooking-actions" aria-label="导入菜谱操作">
               <button class="secondary-button" id="cooking-start-timer" type="button">开始计时</button>
               <button class="secondary-button" id="cooking-confirm-done" type="button">确认完成</button>
               <button class="secondary-button" id="cooking-pause-resume" type="button">暂停指导</button>
@@ -133,7 +133,7 @@
 
       <section class="panel video-import-panel" id="video-import-panel" aria-labelledby="video-import-title">
         <div class="video-import-header">
-          <div><p class="eyebrow" aria-hidden="true">VIDEO TO RECIPE</p><h2 id="video-import-title">把教程变成可执行菜谱</h2><p>粘贴教程的分享链接，饭宝会整理食材、火候和步骤。</p></div>
+          <div><p class="eyebrow" aria-hidden="true">TUTORIAL TO RECIPE</p><h2 id="video-import-title">把教程变成可执行菜谱</h2><p>粘贴视频或图文教程的分享链接，饭宝会整理食材、火候和步骤。</p></div>
           <span class="state-tag" id="video-import-state">等待导入</span>
         </div>
         <div class="video-import-form" id="video-import-form">
@@ -148,7 +148,7 @@
             </div>
             <label class="secondary-button" for="video-file-input" tabindex="0">上传视频</label>
             <input id="video-file-input" type="file" accept="video/mp4,video/quicktime,.mp4,.mov">
-            <span class="video-file-copy"><span>分享链接不可用时，再上传视频</span><span id="video-file-name">MP4 / MOV · ≤100 MB · ≤3 分钟</span></span>
+            <span class="video-file-copy"><span>视频链接不可用时，再上传原视频</span><span id="video-file-name">MP4 / MOV · ≤100 MB · ≤3 分钟</span></span>
             <p class="field-hint" id="video-file-meta" aria-live="polite"></p>
           </div>
         </div>
@@ -158,9 +158,9 @@
             <div class="import-status-heading"><span class="status-dot" id="video-import-dot"></span><strong id="video-import-status-title">正在处理</strong></div>
             <p id="video-import-status-message"></p>
             <p class="import-elapsed hidden" id="video-import-elapsed" aria-live="off"></p>
-            <ol class="import-stage-list" id="video-import-stages" aria-label="视频导入进度">
-              <li data-video-stage="fetching">读取视频</li>
-              <li data-video-stage="analyzing">识别画面与语音</li>
+            <ol class="import-stage-list" id="video-import-stages" aria-label="教程导入进度">
+              <li data-video-stage="fetching">读取教程</li>
+              <li data-video-stage="analyzing">识别教程内容</li>
               <li data-video-stage="structuring">整理菜谱</li>
               <li data-video-stage="ready">等待确认</li>
             </ol>
@@ -179,7 +179,7 @@
             <div><h3 id="video-import-draft-title">核对这份菜谱</h3></div>
             <span id="video-draft-source-note" class="draft-source-note"></span>
           </div>
-          <p id="video-draft-notice" class="draft-notice">这是 AI 根据视频整理的草稿。请确认关键用量、火候和时间，再保存。</p>
+          <p id="video-draft-notice" class="draft-notice">这是 AI 根据教程整理的草稿。请确认关键用量、火候和时间，再保存。</p>
           <div class="draft-fields">
             <label class="field-label" for="video-draft-name">菜名<input id="video-draft-name" type="text" maxlength="80" autocomplete="off"></label>
             <label class="field-label" for="video-draft-servings">份量（人）<input id="video-draft-servings" type="number" min="1" max="6" step="1" inputmode="numeric"></label>
