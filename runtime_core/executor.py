@@ -2,7 +2,9 @@ from __future__ import annotations
 
 import threading
 import time
+from collections import deque
 from typing import Any
+from uuid import uuid4
 
 from .mock_robot_sdk import MockRobotSDK
 from .voice_io import VoiceOutput
@@ -34,6 +36,12 @@ class RuntimeExecutor:
         self._robot_state = "idle"
         self._last_action = "idle_wait"
         self._last_display = "等待任务"
+        self._last_led_effect = None
+        self._last_expression = None
+        self._last_speech = ""
+        self._feedback_stream_id = uuid4().hex
+        self._feedback_sequence = 0
+        self._feedback_events: deque[dict[str, Any]] = deque(maxlen=64)
         self._updated_at = time.time()
 
     def status_snapshot(self) -> dict[str, Any]:
@@ -42,6 +50,11 @@ class RuntimeExecutor:
                 "state": self._robot_state,
                 "action": self._last_action,
                 "display": self._last_display,
+                "led_effect": self._last_led_effect,
+                "expression": self._last_expression,
+                "speech": self._last_speech,
+                "feedback_stream_id": self._feedback_stream_id,
+                "feedback_events": [dict(event) for event in self._feedback_events],
                 "updated_at": self._updated_at,
                 "simulated": True,
             }
@@ -79,7 +92,7 @@ class RuntimeExecutor:
         led_effect = self._as_supported_effect(self._as_text(item.get("led_effect") or item.get("light_effect"), "white"))
         expression = self._as_supported_expression(self._as_text(item.get("expression"), "neutral"))
 
-        self._set_status("executing", action, display)
+        self._set_status("executing", action, display, led_effect, expression, speech)
 
         # Keep independent simulated capabilities independent: one failed
         # capability must not hide the other four during a demo.
@@ -89,14 +102,29 @@ class RuntimeExecutor:
         self._safe_call("屏幕", self.robot.display.show_text, display)
         print(f"[模拟SDK-语音请求] {speech}")
         self._safe_call("语音", self.voice.speak, speech)
-        self._set_status("idle", action, display)
+        self._set_status("idle", action, display, led_effect, expression, speech)
 
-    def _set_status(self, state: str, action: str, display: str) -> None:
+    def _set_status(self, state: str, action: str, display: str, led_effect: str, expression: str, speech: str) -> None:
         with self._status_lock:
             self._robot_state = state
             self._last_action = action
             self._last_display = display[:240]
+            self._last_led_effect = led_effect
+            self._last_expression = expression
+            self._last_speech = speech
             self._updated_at = time.time()
+            if state == "executing":
+                self._feedback_sequence += 1
+                self._feedback_events.append({
+                    "sequence": self._feedback_sequence,
+                    "action": action,
+                    "display": display,
+                    "led_effect": led_effect,
+                    "expression": expression,
+                    "speech": speech,
+                    "updated_at": self._updated_at,
+                    "simulated": True,
+                })
 
     @staticmethod
     def _as_text(value: Any, fallback: str) -> str:

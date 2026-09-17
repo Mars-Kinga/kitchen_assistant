@@ -20,7 +20,7 @@
     <main>
       <section class="hero">
         <div>
-          <p class="eyebrow">COOKING COMPANION</p>
+          <p class="eyebrow" aria-hidden="true">COOKING COMPANION</p>
           <h1>这顿饭，想做什么？</h1>
           <p id="hero-summary">正在连接厨房助手……</p>
         </div>
@@ -43,7 +43,7 @@
 
       <section class="recipe-library hidden" id="recipe-library">
         <div class="section-title">
-          <div><p class="eyebrow">LOCAL RECIPES</p><h2>本地菜谱</h2></div>
+          <div><p class="eyebrow" aria-hidden="true">LOCAL RECIPES</p><h2>本地菜谱</h2></div>
           <button class="ios-close-text" id="close-library" type="button">收起</button>
         </div>
         <p class="library-count" id="library-count"></p>
@@ -53,23 +53,31 @@
 
       <section class="status-grid" aria-label="设备与计时状态">
         <article class="status-card accent-sage">
-          <div class="card-heading"><span class="icon">R</span><span class="status-dot" id="robot-dot"></span></div>
-          <p>机器人</p><h2 id="robot-state">等待连接</h2><span id="robot-detail">—</span>
-        </article>
-        <article class="status-card accent-coral">
-          <div class="card-heading"><span class="icon">C</span><span class="status-dot" id="camera-dot"></span></div>
-          <p>摄像头</p><h2 id="camera-state">等待连接</h2><span id="camera-detail">—</span>
+          <div class="card-heading"><div class="status-card-identity"><span class="icon">R</span><strong>机器人：饭宝</strong></div><span class="status-dot" id="robot-dot"></span></div>
+          <h2 id="robot-state">等待连接</h2><span id="robot-detail">—</span>
         </article>
         <article class="status-card accent-gold timer-card">
-          <div class="card-heading"><span class="icon">T</span><span class="status-dot" id="timer-dot"></span></div>
-          <p>计时器</p><h2 id="timer-state">暂无计时</h2><span id="timer-detail">可以从做菜步骤启动</span>
+          <div class="card-heading"><div class="status-card-identity"><span class="icon">T</span><strong>计时器</strong></div><span class="status-dot" id="timer-dot"></span></div>
+          <h2 id="timer-state">等待启动</h2><span id="timer-detail">可以从做菜步骤启动</span>
+        </article>
+        <article class="status-card accent-coral camera-overview" aria-label="摄像头画面">
+          <div class="card-heading">
+            <div class="status-card-identity"><span class="icon">C</span><strong id="camera-state">摄像头：在线待机</strong></div>
+            <div class="camera-tools"><button id="capture-server" class="text-button" type="button">刷新画面</button><span class="status-dot" id="camera-dot"></span></div>
+          </div>
+          <div class="camera-overview-body">
+            <div class="camera-frame" id="camera-frame">
+              <img id="camera-preview" alt="厨房摄像头快照">
+              <div id="camera-placeholder"><span>◎</span><p>点击“刷新画面”读取一帧</p></div>
+            </div>
+          </div>
         </article>
       </section>
 
       <section class="workspace-grid">
         <article class="panel cooking-panel tappable" id="cooking-panel" tabindex="0" role="button" aria-label="查看当前完整菜谱">
           <div class="section-title">
-            <div><p class="eyebrow">CURRENT TASK</p><h2>做菜进度</h2></div>
+            <div><p class="eyebrow" aria-hidden="true">CURRENT TASK</p><h2>做菜进度</h2></div>
             <span class="state-tag" id="kitchen-state">空闲</span>
           </div>
           <div id="empty-cooking" class="empty-state">
@@ -107,21 +115,25 @@
           </div>
         </article>
 
-        <article class="panel camera-panel">
-          <div class="section-title compact">
-            <div><p class="eyebrow">CAMERA</p><h2>摄像头画面</h2></div>
-            <button id="capture-server" class="text-button" type="button">刷新画面</button>
+        <article class="panel robot-feedback-panel" aria-labelledby="robot-feedback-title">
+          <div class="section-title robot-feedback-heading">
+            <h2 id="robot-feedback-title">机器人反馈</h2>
           </div>
-          <div class="camera-frame" id="camera-frame">
-            <img id="camera-preview" alt="厨房摄像头快照">
-            <div id="camera-placeholder"><span>◎</span><p>点击“刷新画面”读取一帧</p></div>
+          <div id="robot-feedback-content" role="status" aria-live="polite" aria-atomic="true">
+            <dl class="robot-feedback-fields">
+              <div><dt>动作</dt><dd id="feedback-action">等待任务</dd></div>
+              <div><dt>灯效</dt><dd id="feedback-light">—</dd></div>
+              <div><dt>表情</dt><dd id="feedback-expression">—</dd></div>
+            </dl>
+            <div class="feedback-output"><span>机器人语音</span><p id="feedback-speech">选择菜谱或切换步骤后，机器人语音会显示在这里。</p></div>
+            <div class="feedback-output"><span>屏幕内容</span><p id="feedback-display">等待任务</p></div>
           </div>
         </article>
       </section>
 
       <section class="panel video-import-panel" id="video-import-panel" aria-labelledby="video-import-title">
         <div class="video-import-header">
-          <div><p class="eyebrow">VIDEO TO RECIPE</p><h2 id="video-import-title">把教程变成可执行菜谱</h2><p>粘贴教程的分享链接，饭宝会整理食材、火候和步骤。</p></div>
+          <div><p class="eyebrow" aria-hidden="true">VIDEO TO RECIPE</p><h2 id="video-import-title">把教程变成可执行菜谱</h2><p>粘贴教程的分享链接，饭宝会整理食材、火候和步骤。</p></div>
           <span class="state-tag" id="video-import-state">等待导入</span>
         </div>
         <div class="video-import-form" id="video-import-form">
@@ -193,17 +205,19 @@
       </section>
 
       <section class="panel imported-recipes-panel hidden" id="imported-recipes-panel" aria-labelledby="imported-recipes-title">
-        <div class="section-title compact">
-          <div><h2 id="imported-recipes-title">已导入菜谱</h2></div>
+        <div class="section-title compact imported-recipes-heading">
+          <div><p class="eyebrow" aria-hidden="true">IMPORTED RECIPES</p><h2 id="imported-recipes-title">已导入菜谱</h2><p class="library-count" id="imported-recipes-count"></p></div>
+        </div>
+        <div class="imported-recipes-grid" id="imported-recipes-grid" tabindex="0" role="group" aria-label="已导入菜谱，可左右滑动浏览"></div>
+        <div class="imported-recipes-controls">
+          <button class="text-button" id="toggle-imported-recipes" type="button" aria-expanded="false" aria-controls="imported-recipes-grid">展开</button>
           <button class="text-button" id="refresh-imported-recipes" type="button">刷新</button>
         </div>
-        <p class="library-count" id="imported-recipes-count"></p>
-        <div class="library-grid imported-recipes-grid" id="imported-recipes-grid"></div>
       </section>
 
       <section class="panel pantry-panel" id="pantry">
         <div class="pantry-copy">
-          <p class="eyebrow">WHAT CAN I COOK?</p>
+          <p class="eyebrow" aria-hidden="true">WHAT CAN I COOK?</p>
           <h2>拍下食材，看看能做什么</h2>
           <p>可以用手机直接拍摄，也可以上传相册照片。识别后请先确认食材，再生成菜谱方案。</p>
           <div class="upload-actions">
@@ -221,7 +235,7 @@
 
       <section class="panel results-panel hidden" id="ingredient-results">
         <div class="section-title">
-          <div><p class="eyebrow">CONFIRM FIRST</p><h2>确认识别到的食材</h2></div>
+          <div><p class="eyebrow" aria-hidden="true">CONFIRM FIRST</p><h2>确认识别到的食材</h2></div>
           <button class="text-button" id="add-ingredient" type="button">＋ 添加食材</button>
         </div>
         <p class="result-summary" id="vision-summary"></p>
@@ -235,7 +249,7 @@
       </section>
 
       <section class="panel recommendations hidden" id="recommendations">
-        <div class="section-title"><div><p class="eyebrow">RECIPE IDEAS</p><h2>可以试试这些</h2></div><span id="provider-label"></span></div>
+        <div class="section-title"><div><p class="eyebrow" aria-hidden="true">RECIPE IDEAS</p><h2>可以试试这些</h2></div><span id="provider-label"></span></div>
         <p class="result-summary" id="recommendation-message" role="status" aria-live="polite"></p>
         <div class="recipe-cards" id="recipe-cards"></div>
       </section>

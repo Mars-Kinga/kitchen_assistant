@@ -48,10 +48,11 @@ const ids = [
   "video-import-draft", "video-draft-name",
   "video-draft-servings", "video-draft-equipment", "video-draft-source-note", "video-draft-notice",
   "video-draft-ingredients", "video-draft-steps", "video-draft-validation", "video-draft-save",
-  "video-draft-confirm", "video-draft-complete", "imported-recipes-panel", "imported-recipes-count", "imported-recipes-grid",
+  "video-draft-confirm", "video-draft-complete", "imported-recipes-panel", "imported-recipes-count", "imported-recipes-grid", "toggle-imported-recipes",
   "cooking-start-timer", "cooking-confirm-done", "cooking-pause-resume", "cooking-cancel-timer",
   "cooking-fresh-ingredients", "cooking-end-task", "scope-notice", "robot-dot", "camera-dot", "timer-dot",
-  "robot-state", "robot-detail", "camera-state", "camera-detail", "timer-state", "timer-detail",
+  "robot-state", "robot-detail", "camera-state", "timer-state", "timer-detail",
+  "feedback-action", "feedback-light", "feedback-expression", "feedback-display", "feedback-speech",
   "kitchen-state", "hero-summary", "empty-cooking", "active-cooking", "completed-cooking", "completed-recipe-name",
   "recipe-name", "recipe-meta", "step-number", "step-instruction", "step-details", "parallel-step",
   "parallel-step-title", "parallel-step-instruction", "step-progress", "previous-step", "next-step",
@@ -219,6 +220,28 @@ async function main() {
   assert.equal(requests[1].url, "/api/imported-recipes");
   assert.deepEqual(context.openedRecipe, { recipeId: "imported-1", servings: 2 });
   assert.match(nodes["imported-recipes-grid"].innerHTML, /蒜香鸡翅/);
+  assert.match(nodes["imported-recipes-grid"].innerHTML, /aria-label="查看菜谱：蒜香鸡翅/);
+  assert.equal(nodes["toggle-imported-recipes"].attributes["aria-expanded"], "false");
+  vm.runInContext("savedImportedRecipesForStripTest = importedRecipes; importedRecipes = Array.from({length: 12}, (_, index) => ({recipe_id: `strip-${index}`, name: `导入菜谱 ${index + 1}`})); renderImportedRecipes()", context);
+  assert.equal((nodes["imported-recipes-grid"].innerHTML.match(/data-imported-recipe-id=/g) || []).length, 12, "all recipes remain available in the horizontal strip");
+  assert.equal(nodes["imported-recipes-count"].textContent, "共 12 道 · 左右滑动");
+  vm.runInContext("importedRecipes = []; renderImportedRecipes()", context);
+  assert.equal(nodes["imported-recipes-panel"].classList.contains("hidden"), true);
+  assert.equal(nodes["imported-recipes-grid"].innerHTML, "");
+  vm.runInContext("importedRecipes = savedImportedRecipesForStripTest; renderImportedRecipes()", context);
+  assert.equal(nodes["imported-recipes-panel"].classList.contains("hidden"), false);
+  assert.equal(nodes["toggle-imported-recipes"].textContent, "展开");
+  assert.equal(nodes["imported-recipes-count"].textContent, "共 1 道 · 左右滑动");
+  vm.runInContext("toggleImportedRecipes()", context);
+  assert.equal(nodes["imported-recipes-panel"].classList.contains("is-expanded"), true);
+  assert.equal(nodes["toggle-imported-recipes"].attributes["aria-expanded"], "true");
+  assert.equal(nodes["toggle-imported-recipes"].textContent, "收起");
+  assert.equal(nodes["imported-recipes-count"].textContent, "共 1 道");
+  vm.runInContext("renderImportedRecipes()", context);
+  assert.equal(nodes["imported-recipes-panel"].classList.contains("is-expanded"), true, "refresh preserves the user's expanded layout");
+  vm.runInContext("toggleImportedRecipes()", context);
+  assert.equal(nodes["imported-recipes-panel"].classList.contains("is-expanded"), false);
+  assert.equal(nodes["toggle-imported-recipes"].attributes["aria-expanded"], "false");
   assert.doesNotMatch(requests.map((item) => item.url).join(" "), /recipes\/select/);
 
   vm.runInContext("videoImportId = 'video-error'; videoImportStage = 'ready'; videoImportDraftDirty = true", context);

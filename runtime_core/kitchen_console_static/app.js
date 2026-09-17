@@ -13,6 +13,7 @@ function ingredientAmountDisplay(item = {}) {
 let selectedImageDataUrl = "";
 let ingredients = [];
 let statusTimer = null;
+let statusRefreshInFlight = null;
 let currentKitchen = null;
 let cookingMutationPending = false;
 let activeRecipeId = "";
@@ -31,6 +32,7 @@ let videoImportPollErrors = 0;
 let videoImportRequest = null;
 let videoImportPreviewSignature = "";
 let importedRecipes = [];
+let importedRecipesExpanded = false;
 
 const VIDEO_IMPORT_STAGE_LABELS = {
   queued: "排队中",
@@ -93,12 +95,12 @@ function updateStatus(data) {
   $("#robot-state").textContent = robotBusy ? "执行中" : "在线待机";
   $("#robot-detail").textContent = robot.display || robot.action || "等待任务";
   setDot("#robot-dot", robotBusy ? "busy" : "online");
+  renderRobotFeedback(robot);
 
   const cameraError = camera.state === "error";
   const cameraBusy = camera.state === "capturing";
   const cameraReady = camera.state === "ready";
-  $("#camera-state").textContent = cameraError ? "暂不可用" : (cameraBusy ? "读取中" : (cameraReady ? "在线待机" : "待检测"));
-  $("#camera-detail").textContent = camera.message || "尚未读取摄像头";
+  $("#camera-state").textContent = `摄像头：${cameraError ? "暂不可用" : (cameraBusy ? "读取中" : "在线待机")}`;
   setDot("#camera-dot", cameraError ? "error" : (cameraBusy ? "busy" : (cameraReady ? "online" : "")));
 
   const timer = timers[0];
@@ -107,7 +109,7 @@ function updateStatus(data) {
     $("#timer-detail").textContent = `${timer.label} · ${timer.state === "paused" ? "已暂停" : "进行中"}`;
     setDot("#timer-dot", timer.state === "paused" ? "busy" : "online");
   } else {
-    $("#timer-state").textContent = "暂无计时";
+    $("#timer-state").textContent = "等待启动";
     $("#timer-detail").textContent = "可以从做菜步骤启动";
     setDot("#timer-dot", "");
   }
@@ -170,6 +172,50 @@ function updateStatus(data) {
   $("#scope-notice").textContent = data.scope_notice;
 }
 
+const robotActionLabels = {
+  idle_wait: "原地等待", speak: "语音播报", wave_hand: "挥手", handshake: "握手",
+  fist_bump: "碰拳", high_five: "击掌", nod: "点头", shake_head: "摇头",
+  show_smile: "微笑", show_concern: "关心", encourage_gesture: "鼓励手势", hug: "拥抱",
+  turn_left: "左转", turn_right: "右转", step_forward: "前进一步", step_back: "后退一步",
+  stop: "停止运动", breathing_guide: "呼吸引导", goodbye: "送别"
+};
+const robotLightLabels = {
+  off: "关闭", white: "白色常亮", blue: "蓝色常亮", green: "绿色常亮",
+  yellow: "黄色常亮", red: "红色常亮", warm_white: "暖白低亮",
+  green_dynamic: "绿色动态", blue_dynamic: "蓝色动态", rainbow: "彩色庆祝"
+};
+const robotExpressionLabels = {
+  neutral: "平静", happy: "开心", curious: "好奇", focused: "专注", confident: "自信",
+  alert: "留意", waiting: "等待", confused: "疑惑", excited: "兴奋", warning: "提醒"
+};
+
+let robotFeedbackStreamId = null;
+let robotFeedbackSequence = 0;
+let robotFeedbackSupported = false;
+
+function renderRobotFeedback(robot = {}) {
+  robotFeedbackSupported = Array.isArray(robot.feedback_events);
+  if (!robotFeedbackSupported) return;
+  if (robot.feedback_stream_id !== robotFeedbackStreamId) {
+    robotFeedbackStreamId = robot.feedback_stream_id;
+    robotFeedbackSequence = 0;
+    $("#feedback-action").textContent = "等待任务";
+    $("#feedback-light").textContent = "—";
+    $("#feedback-expression").textContent = "—";
+    $("#feedback-display").textContent = "等待任务";
+    $("#feedback-speech").textContent = "选择菜谱或切换步骤后，机器人语音会显示在这里。";
+  }
+  const event = robot.feedback_events.reduce((latest, item) =>
+    !latest || item.sequence > latest.sequence ? item : latest, null);
+  if (!event || event.sequence <= robotFeedbackSequence) return;
+  robotFeedbackSequence = event.sequence;
+  $("#feedback-action").textContent = robotActionLabels[event.action] || event.action || "未提供";
+  $("#feedback-light").textContent = robotLightLabels[event.led_effect] || event.led_effect || "未提供";
+  $("#feedback-expression").textContent = robotExpressionLabels[event.expression] || event.expression || "未提供";
+  $("#feedback-display").textContent = event.display || "未提供";
+  $("#feedback-speech").textContent = event.speech || "未提供";
+}
+
 function syncCookingNavigation() {
   const kitchen = currentKitchen || {};
   const step = kitchen.current_step;
@@ -183,8 +229,13 @@ function syncCookingNavigation() {
 }
 
 async function refreshStatus() {
-  try { updateStatus(await api("/api/status")); }
-  catch (error) { showToast(error.message); }
+  if (statusRefreshInFlight) return statusRefreshInFlight;
+  statusRefreshInFlight = (async () => {
+    try { updateStatus(await api("/api/status")); }
+    catch (error) { showToast(error.message); }
+    finally { statusRefreshInFlight = null; }
+  })();
+  return statusRefreshInFlight;
 }
 
 async function navigateCookingStep(direction, button) {
@@ -201,7 +252,7 @@ async function navigateCookingStep(direction, button) {
   try {
     const result = await api("/api/cooking/step", jsonPost({ direction }));
     await refreshStatus();
-    showToast(result.message || (direction === "previous" ? "已返回上一步" : (currentKitchen?.state === "COMPLETED" ? "这道菜完成了" : "已跳到下一步")));
+    if (!robotFeedbackSupported) showToast(result.message || (direction === "previous" ? "已返回上一步" : (currentKitchen?.state === "COMPLETED" ? "这道菜完成了" : "已跳到下一步")));
   } catch (error) {
     showToast(error.message);
   } finally {
@@ -946,12 +997,28 @@ async function loadImportedRecipes() {
   }
 }
 
+function syncImportedRecipesLayout() {
+  const panel = $("#imported-recipes-panel");
+  const toggle = $("#toggle-imported-recipes");
+  panel.classList.toggle("is-expanded", importedRecipesExpanded);
+  toggle.textContent = importedRecipesExpanded ? "收起" : "展开";
+  toggle.setAttribute("aria-expanded", String(importedRecipesExpanded));
+  $("#imported-recipes-grid").setAttribute("aria-label", importedRecipesExpanded ? "全部已导入菜谱" : "已导入菜谱，可左右滑动浏览");
+  $("#imported-recipes-count").textContent = importedRecipes.length
+    ? `共 ${importedRecipes.length} 道${importedRecipesExpanded ? "" : " · 左右滑动"}` : "";
+}
+
+function toggleImportedRecipes() {
+  importedRecipesExpanded = !importedRecipesExpanded;
+  syncImportedRecipesLayout();
+}
+
 function renderImportedRecipes() {
   const panel = $("#imported-recipes-panel");
   const grid = $("#imported-recipes-grid");
   if (!panel || !grid) return;
   panel.classList.toggle("hidden", !importedRecipes.length);
-  $("#imported-recipes-count").textContent = importedRecipes.length ? `共 ${importedRecipes.length} 道从视频整理的菜谱` : "";
+  syncImportedRecipesLayout();
   grid.innerHTML = importedRecipes.map((item, index) => {
     const recipeId = item.recipe_id || item.id || "";
     const metadata = item.import_metadata || {};
@@ -959,7 +1026,7 @@ function renderImportedRecipes() {
     const source = metadata.platform || metadata.source_platform || item.source_name || sourceMetadata.platform || "视频菜谱";
     const servings = Number($("#servings")?.value);
     const requestedServings = Number.isInteger(servings) && servings >= 1 && servings <= 6 ? servings : 1;
-    return `<button class="library-card imported-recipe-card" type="button" data-imported-recipe-id="${escapeHtml(recipeId)}" data-servings="${requestedServings}">
+    return `<button class="library-card imported-recipe-card" type="button" aria-label="查看菜谱：${escapeHtml(item.name || "未命名菜谱")}" title="${escapeHtml(item.name || "未命名菜谱")}" data-imported-recipe-id="${escapeHtml(recipeId)}" data-servings="${requestedServings}">
       <span>${escapeHtml(source)} · ${escapeHtml(item.estimated_time_minutes || item.estimated_minutes || "?")} 分钟</span>
       <strong>${escapeHtml(item.name || "未命名菜谱")}</strong>
       <small>${escapeHtml((item.ingredients || []).slice(0, 3).map((ingredient) => ingredient.name).join("、") || "点击查看完整步骤")}</small>
@@ -977,7 +1044,7 @@ async function sendCookingAction(action, button) {
   try {
     const result = await api("/api/cooking/action", jsonPost({ action }));
     await refreshStatus();
-    showToast(result.message || ({ start_timer: "计时已开始", confirm_done: "已确认完成", pause: "指导已暂停", resume: "指导已恢复", cancel_timer: "已取消当前计时", fresh_ingredients: "已确认食材状态" }[action] || "操作已完成"));
+    if (!robotFeedbackSupported) showToast(result.message || ({ start_timer: "计时已开始", confirm_done: "已确认完成", pause: "指导已暂停", resume: "指导已恢复", cancel_timer: "已取消当前计时", fresh_ingredients: "已确认食材状态" }[action] || "操作已完成"));
   } catch (error) { showToast(errorText(error)); }
   finally {
     cookingMutationPending = false;
@@ -1094,8 +1161,8 @@ async function selectActiveRecipe() {
       servings: Number($("#sheet-servings").value)
     }));
     closeRecipeSheet();
-    showToast("已选择这道菜，做菜流程已准备好");
     updateStatus({ ...(await api("/api/status")) });
+    if (!robotFeedbackSupported) showToast("已选择这道菜，做菜流程已准备好");
     $("#cooking-panel").scrollIntoView({ behavior: "smooth", block: "center" });
   } catch (error) {
     showToast(error.status === 409 ? (error.message || "请先结束当前厨房任务，再开始这道菜。") : error.message);
@@ -1221,6 +1288,7 @@ $("#imported-recipes-grid").addEventListener("click", (event) => {
   if (card) openRecipeSheet(card.dataset.importedRecipeId, card.dataset.servings);
 });
 $("#refresh-imported-recipes").addEventListener("click", loadImportedRecipes);
+$("#toggle-imported-recipes").addEventListener("click", toggleImportedRecipes);
 $("#cooking-start-timer").addEventListener("click", (event) => sendCookingAction("start_timer", event.currentTarget));
 $("#cooking-confirm-done").addEventListener("click", (event) => sendCookingAction("confirm_done", event.currentTarget));
 $("#cooking-pause-resume").addEventListener("click", (event) => sendCookingAction(currentKitchen?.state === "PAUSED" ? "resume" : "pause", event.currentTarget));
@@ -1231,5 +1299,5 @@ $("#cooking-end-task").addEventListener("click", (event) => endCurrentCookingTas
 tickClock();
 setInterval(tickClock, 30000);
 refreshStatus();
-statusTimer = setInterval(refreshStatus, 2000);
+statusTimer = setInterval(refreshStatus, 500);
 loadImportedRecipes();
