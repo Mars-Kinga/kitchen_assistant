@@ -6,7 +6,7 @@ import os
 from dataclasses import dataclass
 
 
-DEFAULT_BASE_URL = "https://ws-1jj0fvndfsqmsmid.cn-beijing.maas.aliyuncs.com/compatible-mode/v1"
+DEFAULT_BASE_URL = "https://dashscope.aliyuncs.com/compatible-mode/v1"
 DEFAULT_TEXT_MODEL = "qwen3-omni-flash"
 DEFAULT_VISION_MODEL = "qwen3-vl-flash"
 DEFAULT_TIMEOUT_SECONDS = 25.0
