@@ -407,7 +407,7 @@ def test_offline_requested_dish_matches_exactly_or_returns_no_candidates() -> No
     session = make_session()
     response = start_known_dish(session, "松鼠鳜鱼")
     assert response["recipe_candidates"] == []
-    assert "不会用无关菜谱替代" in response["steps"][-1]["speech"]
+    assert "不会用无关菜谱替代" in response["speech"]
 
 
 def test_unknown_dinner_flow_parses_ingredients_and_ranks_candidates() -> None:
@@ -447,14 +447,14 @@ def test_only_available_ingredients_wording_immediately_starts_recommendation_fl
     assert "几个人" in response["steps"][-1].get("question", "")
 
 
-def test_offline_recommendations_do_not_drop_explicit_pantry_ingredients() -> None:
+def test_offline_recommendations_report_that_ai_generation_is_unavailable() -> None:
     session = make_session()
     session.handle("牛肉和蘑菇不知道做什么")
     session.handle("一个人")
     response = session.handle("正常")
 
     assert response["recipe_candidates"] == []
-    assert "不会忽略其中任何一种" in response["steps"][-1]["speech"]
+    assert "AI 菜谱生成服务" in response["speech"]
 
 
 def test_candidates_support_refresh_and_simple_fast_filters() -> None:
@@ -734,6 +734,18 @@ def test_normalizer_scales_local_ingredients_to_requested_servings() -> None:
     assert "150克牛肉" in recipe["steps"][0]["instruction"]
     assert "1汤匙生抽" in recipe["steps"][0]["instruction"]
     assert "1/4茶匙盐" in recipe["steps"][0]["instruction"]
+
+
+def test_normalizer_formats_scaled_metric_amount_as_decimal_not_improper_fraction() -> None:
+    recipe = RecipeNormalizer().normalize({
+        "name": "三人份测试菜",
+        "default_servings": 3,
+        "ingredients": [{"name": "食用油", "amount": "20 毫升"}],
+        "steps": [{"instruction": "炒锅加入 20 毫升食用油。"}],
+    }, servings=1)
+
+    assert recipe["ingredients"][0]["amount"] == "6.7 毫升"
+    assert recipe["steps"][0]["instruction"] == "炒锅加入 6.7 毫升食用油"
 
 
 def test_unmarked_local_recipe_uses_one_serving_as_legacy_baseline() -> None:
@@ -1367,9 +1379,9 @@ def test_raw_meat_requires_safe_thaw_confirmation_and_steak_timer_flow() -> None
         ("油温过高怎么办", "调小火", "CAUTION"),
         ("油一直在溅", "调小火", "CAUTION"),
         ("我忘记放调料", "少量补", "NORMAL"),
-        ("锅里大量冒烟了", "关闭加热", "STOP_AND_CHECK"),
-        ("锅里起火了", "不要向油火泼水", "STOP_AND_CHECK"),
-        ("我闻到燃气味", "不要开关电器", "STOP_AND_CHECK"),
+        ("锅里大量冒烟了", "不提供处置方案", "STOP_AND_CHECK"),
+        ("锅里起火了", "不提供处置方案", "STOP_AND_CHECK"),
+        ("我闻到燃气味", "不提供处置方案", "STOP_AND_CHECK"),
     ],
 )
 def test_rule_based_questions_cover_normal_and_safety_cases(question: str, required: str, safety: str) -> None:

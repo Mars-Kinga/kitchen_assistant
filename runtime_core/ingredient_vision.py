@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import re
+import threading
 import time
 from typing import Any, Protocol
 
@@ -44,6 +45,41 @@ class IngredientVisionService:
     def __init__(self, camera: Camera, client: VisionClient) -> None:
         self.camera = camera
         self.client = client
+        self._capture_lock = threading.Lock()
+        self._state_lock = threading.Lock()
+        self._camera_state = "idle"
+        self._camera_message = "尚未读取摄像头"
+        self._last_capture_at: float | None = None
+
+    def status_snapshot(self) -> dict[str, Any]:
+        with self._state_lock:
+            return {
+                "state": self._camera_state,
+                "message": self._camera_message,
+                "last_capture_at": self._last_capture_at,
+                "model_available": bool(self.client.is_available()),
+            }
+
+    def capture_preview(self) -> str:
+        """Capture one frame for the console without persisting it."""
+        with self._capture_lock:
+            self._set_camera_state("capturing", "正在读取摄像头")
+            try:
+                image_data_url = self.camera.capture_data_url()
+            except Exception as exc:
+                message = str(exc) if isinstance(exc, MacCameraError) else "摄像头读取失败"
+                self._set_camera_state("error", message)
+                raise
+            self._set_camera_state("ready", "摄像头在线", captured=True)
+            return image_data_url
+
+    def analyze_pantry_image(self, image_data_url: str) -> dict[str, Any]:
+        """Extract an editable pantry list from an uploaded or captured image."""
+        if not self.client.is_available():
+            raise RuntimeError("视觉识别尚未配置，请设置 DASHSCOPE_API_KEY。")
+        _validate_image_data_url(image_data_url)
+        payload = self.client.vision_json(image_data_url, _pantry_prompt())
+        return _normalize_pantry_result(payload)
 
     def recognize(self, user_text: str) -> dict[str, Any]:
         if not self.client.is_available():
@@ -54,7 +90,7 @@ class IngredientVisionService:
 
         started = time.perf_counter()
         try:
-            image_data_url = self.camera.capture_data_url()
+            image_data_url = self.capture_preview()
             captured = time.perf_counter()
             payload = self.client.vision_json(
                 image_data_url,
@@ -102,6 +138,13 @@ class IngredientVisionService:
             },
         }
 
+    def _set_camera_state(self, state: str, message: str, *, captured: bool = False) -> None:
+        with self._state_lock:
+            self._camera_state = state
+            self._camera_message = message[:160]
+            if captured:
+                self._last_capture_at = time.time()
+
 
 def _vision_prompt(user_text: str) -> str:
     return (
@@ -113,6 +156,67 @@ def _vision_prompt(user_text: str) -> str:
         '"needs_retake":boolean,"retake_instruction":string|null}。'
         f"用户问题：{str(user_text).strip()[:200]}"
     )
+
+
+def _pantry_prompt() -> str:
+    return (
+        "你是厨房食材盘点助手。只识别图片中清晰可见、可用于做菜的食材，"
+        "不要判断新鲜度、成熟度、过敏原或食品安全，也不要给事故处置建议。"
+        "相同食材合并；包装遮挡或无法确认的物品放进uncertain_items，不要猜。"
+        "只返回合法JSON，不要Markdown。结构："
+        '{"ingredients":[{"name":string,"confidence":"高"|"中"}],'
+        '"uncertain_items":[string],"summary":string,"needs_retake":boolean,'
+        '"retake_instruction":string|null}。ingredients最多12项，name不含数量和形容词。'
+    )
+
+
+def _validate_image_data_url(value: str) -> None:
+    if not isinstance(value, str) or not re.match(
+        r"^data:image/(?:jpeg|jpg|png|webp);base64,[A-Za-z0-9+/=\r\n]+$",
+        value,
+        flags=re.IGNORECASE,
+    ):
+        raise ValueError("仅支持 JPEG、PNG 或 WebP 图片。")
+    # Base64 expands binary data by roughly 4/3. Keep the decoded upload below 8 MiB.
+    if len(value) > 11_200_000:
+        raise ValueError("图片不能超过 8 MB。")
+
+
+def _normalize_pantry_result(payload: Any) -> dict[str, Any]:
+    if not isinstance(payload, dict):
+        raise ValueError("食材识别结果必须是对象。")
+    rows = payload.get("ingredients")
+    if not isinstance(rows, list):
+        raise ValueError("食材识别结果缺少 ingredients。")
+    ingredients: list[dict[str, str]] = []
+    seen: set[str] = set()
+    for row in rows[:12]:
+        if not isinstance(row, dict):
+            continue
+        name = re.sub(r"\s+", "", str(row.get("name") or "").strip())[:30]
+        confidence = str(row.get("confidence") or "中").strip()
+        if not name or name in seen:
+            continue
+        seen.add(name)
+        ingredients.append({
+            "name": name,
+            "confidence": confidence if confidence in {"高", "中"} else "中",
+        })
+    uncertain_items = _short_strings(payload.get("uncertain_items"), limit=6, max_length=40)
+    summary = str(payload.get("summary") or "").strip()[:160]
+    needs_retake = bool(payload.get("needs_retake"))
+    instruction_raw = payload.get("retake_instruction")
+    instruction = str(instruction_raw).strip()[:120] if instruction_raw else None
+    if not ingredients and not uncertain_items:
+        needs_retake = True
+        instruction = instruction or "请靠近食材并保持画面清晰后重新拍摄。"
+    return {
+        "ingredients": ingredients,
+        "uncertain_items": uncertain_items,
+        "summary": summary or f"识别到 {len(ingredients)} 种可见食材。",
+        "needs_retake": needs_retake,
+        "retake_instruction": instruction,
+    }
 
 
 def _normalize_result(payload: Any) -> dict[str, Any]:

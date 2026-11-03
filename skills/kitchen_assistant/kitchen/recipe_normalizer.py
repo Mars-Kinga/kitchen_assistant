@@ -172,7 +172,9 @@ class RecipeNormalizer:
             scaled = value * factor
             if scaled.denominator == 1:
                 return str(scaled.numerator)
-            if scaled.denominator in {2, 3, 4, 8}:
+            # Fractions are natural for sub-unit measures (1/2 个、1/4 茶匙),
+            # but values such as 20/3 毫升 are awkward in a kitchen UI.
+            if abs(scaled) < 1 and scaled.denominator in {2, 3, 4, 8}:
                 return f"{scaled.numerator}/{scaled.denominator}"
             return f"{float(scaled):.1f}".rstrip("0").rstrip(".")
 

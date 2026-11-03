@@ -4,6 +4,7 @@ import json
 from typing import Any, Iterable
 
 from kitchen.dish_profiles import profile_prompt_rules
+from kitchen.pantry_defaults import pantry_meal_rule, pantry_seasoning_rule
 from kitchen.recipe_contract import (
     RECIPE_BUNDLE_SCHEMA_TEXT,
     RECIPE_SCHEMA_TEXT,
@@ -29,17 +30,19 @@ _CANDIDATE_SCHEMA = (
 
 def candidate_messages(request: dict[str, Any]) -> list[dict[str, str]]:
     rules = [
-        "任务：只生成1个适合新手的菜谱候选。只输出合法JSON；不要Markdown、解释、URL、来源或联网声明。",
-        "遵守忌口和设备/时间限制，优先使用已有食材。",
+        "任务：按菜名生成1个候选；按现有食材优先生成2个适合新手的菜谱候选，有1个可行方案也返回，最多3个。只输出合法JSON；不要Markdown、解释、URL、来源或联网声明。",
+        "遵守忌口和设备/时间限制，优先使用已有食材，不使用unavailable_ingredients。",
         "若requested_dish存在：首个title必须包含该菜名；其余只能是合理变体，不得换成无关菜。缺食材也保留原菜。",
         "available_ingredients缺失或为空=库存未知，此时missing_ingredients必须为[]；仅在库存明确时列出确实缺少的食材。",
         "main_ingredients列全核心食材（如番茄肥牛必须同时有番茄、肥牛），不得把菜名中的核心食材误报为缺少；盐、糖、油、生抽、老抽、醋、料酒、胡椒等列入main_seasonings。",
     ]
     if request.get("available_ingredients") and not request.get("requested_dish"):
+        rules.append(pantry_seasoning_rule(request))
+        rules.append(pantry_meal_rule(request))
         ingredients = "、".join(str(item) for item in request["available_ingredients"])
         rules.append(
-            f"用户尚未指定菜名，明确现有食材为：{ingredients}。每个候选都必须实际使用这些食材，"
-            "并在main_ingredients或main_seasonings逐项列出；不能忽略其中任何一种，也不能用无关菜替代。"
+            f"用户尚未指定菜名，明确现有食材为：{ingredients}。从中选择适合搭配的一种或多种食材，"
+            "优先使用全部库存并列入main_ingredients或main_seasonings，允许没用到部分食材；不能推荐与库存无关的菜。"
         )
     rules.extend(profile_prompt_rules(request, stage="candidate"))
     rules.append(f"输出结构：{_CANDIDATE_SCHEMA}")
@@ -77,6 +80,7 @@ def recipe_correction_messages(
         "所有candidate必须包含完整recipe，并符合结构："
         f"{RECIPE_BUNDLE_SCHEMA_TEXT}"
     )
+    system += "\n" + "\n".join(bundle_prompt_rules(request))
     payload = {
         "request": _select(request, REQUEST_FIELDS),
         "validation_error": validation_error,
@@ -90,7 +94,7 @@ def recipe_messages(candidate: dict[str, Any], request: dict[str, Any]) -> list[
         "任务：生成面向新手的完整结构化菜谱。只输出合法JSON；不要Markdown、解释、URL、来源、机器人动作或设备控制。",
         "严格遵守servings、忌口、设备和口味；每种食材/调料给明确amount与unit，ingredient.amount禁止“适量”“少量”“少许”“按口味”。步骤允许用“少许”描述微量润锅油或点缀香料，仍禁止“适量”“少量”“按口味”。肉类和蔬菜写克数，鸡蛋/土豆等写个数，液体调料写毫升或汤匙/茶匙；可选食材也给用量并标optional=true。",
         "步骤中第一次加入主食材、肉类、蔬菜或调味料时，重复写出对应的明确用量，例如“倒入10毫升生抽、5毫升老抽和1克盐”；不得只写“加调味料”或“加少量盐”。",
-        "中式调味只按菜品需要选用盐、油、生抽、老抽、料酒、葱姜蒜等，不要机械堆料。",
+        "中式调味按菜品需要选用盐、油、生抽、老抽、料酒、葱姜蒜等，不要堆料。",
         "炒制写清热锅→用油量→下料状态→火力→熟度判断；需要补油时说明。不要声称看见现场或保证已熟。",
         "运行时另行确认肉类解冻，steps不要包含解冻。每步只含一个易记操作阶段；腌制、泡发、切配应分步，同类切配最多合并3项。",
         "duration_seconds用于煮炖焖煎烤蒸炸焯收汁等火候步骤，以及腌制、浸泡、泡发、静置等等待步骤；腌制必须明确时长并填入duration_seconds。洗切拌调味装盘填null。时间须符合家庭烹饪常识，并写可观察的完成状态。",
@@ -99,11 +103,15 @@ def recipe_messages(candidate: dict[str, Any], request: dict[str, Any]) -> list[
         "step_number从1连续。",
     ]
 
+    if request.get("unavailable_ingredients"):
+        rules.append("不得使用unavailable_ingredients中用户明确没有的食材或调料。")
     if request.get("available_ingredients") and not request.get("requested_dish"):
+        rules.append(pantry_seasoning_rule(request))
+        rules.append(pantry_meal_rule(request))
         ingredients = "、".join(str(item) for item in request["available_ingredients"])
         rules.append(
-            f"这是根据用户已有的{ingredients}推荐的菜。完整菜谱必须在ingredients和实际步骤中使用这些食材，"
-            "且首次加入时写明用量；不可遗漏。"
+            f"这是根据用户已有的{ingredients}推荐的菜。完整菜谱必须使用候选已选中的库存食材，"
+            "并在ingredients和实际步骤中写明用量；优先用完所有库存，允许没用到部分食材，有一份完整可做的菜谱也保留。"
         )
 
     dish_context = {"candidate": candidate, "request": request}
@@ -127,8 +135,9 @@ def recipe_messages(candidate: dict[str, Any], request: dict[str, Any]) -> list[
 
 def cooking_question_messages(question: str, context: dict[str, Any]) -> list[dict[str, str]]:
     system = (
-        "你是谨慎的厨房助手。简洁回答当前烹饪问题，只提供建议，不推进步骤或控制设备。"
-        "不要声称联网、看见现场或确认食物已熟。遇到高温、燃气、火灾或伤害风险，先让用户停止操作并寻求现场帮助。"
+        "你是厨房流程助手。简洁回答普通烹饪问题，只提供做菜步骤建议，不推进步骤或控制设备。"
+        "不要声称联网、看见现场或确认食物已熟。不得判断或处理燃气、火灾、触电、受伤等事故；"
+        "若问题涉及事故，只说明超出功能范围，不给出具体处置步骤。"
     )
     return _messages(system, {"question": question, "context": _compact(context)})
 

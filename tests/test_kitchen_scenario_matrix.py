@@ -57,14 +57,18 @@ def test_asr_near_miss_keeps_carrot_as_a_pantry_ingredient() -> None:
     assert updates.ingredients == ["胡萝卜", "鸡肉"]
 
 
-def test_asr_near_miss_does_not_recommend_a_recipe_missing_carrot() -> None:
+def test_asr_near_miss_keeps_carrot_confirmed_and_labels_partial_alternatives() -> None:
     session = KitchenSession()
     session.handle("我只有胡萝鸡肉，做什么？厨房助手")
     session.handle("一人")
     response = session.handle("正常")
 
     assert session.request.available_ingredients == ["胡萝卜", "鸡肉"]
-    assert all("胡萝卜" in candidate["main_ingredients"] for candidate in response["recipe_candidates"])
+    assert response["recipe_candidates"]
+    assert all("胡萝卜" in candidate["main_ingredients"] or "胡萝卜" in candidate["unused_ingredients"]
+               for candidate in response["recipe_candidates"])
+    unused_counts = [len(candidate["unused_ingredients"]) for candidate in response["recipe_candidates"]]
+    assert unused_counts == sorted(unused_counts)
 
 
 class _FreshSearchSpy:
@@ -176,7 +180,8 @@ def test_dietary_restrictions_survive_a_complete_pantry_conversation() -> None:
     assert session.request.available_ingredients == ["鸡蛋", "番茄"]
     assert {"低脂", "高蛋白", "花生", "辣"} <= set(session.request.dietary_restrictions)
     assert response["recipe_candidates"] == []
-    assert "不会忽略" in response["steps"][-1]["speech"] or "没有找到" in response["steps"][-1]["speech"]
+    assert response["recommendation_error"]["code"] == "not_configured"
+    assert "未配置 AI 菜谱生成服务" in response["speech"]
 
 
 def test_cooking_questions_answer_locally_without_advancing() -> None:

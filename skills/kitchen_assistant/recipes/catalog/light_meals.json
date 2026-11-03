@@ -1,0 +1,2810 @@
+{
+  "catalog_version": 1,
+  "recipes": [
+    {
+      "recipe_id": "light_001",
+      "name": "鸡胸肉蔬菜沙拉",
+      "default_servings": 1,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "小锅",
+        "沙拉碗",
+        "水果刀"
+      ],
+      "summary": "鸡胸肉煮至嫩熟，搭配三种脆嫩蔬菜和简单油醋汁。",
+      "ingredients": [
+        {
+          "name": "鸡胸肉",
+          "amount": "120克"
+        },
+        {
+          "name": "生菜",
+          "amount": "50克"
+        },
+        {
+          "name": "黄瓜",
+          "amount": "50克"
+        },
+        {
+          "name": "番茄",
+          "amount": "50克"
+        },
+        {
+          "name": "橄榄油",
+          "amount": "5毫升"
+        },
+        {
+          "name": "黑胡椒",
+          "amount": "1克"
+        },
+        {
+          "name": "食用盐",
+          "amount": "1克"
+        },
+        {
+          "name": "柠檬汁",
+          "amount": "10毫升"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "小锅加能没过鸡胸肉的清水，大火烧开后放入 120 克鸡胸肉，转小火保持微沸。"
+        },
+        {
+          "instruction": "小火煮鸡胸肉 10 分钟，关火后加盖焖 5 分钟；切开最厚处，中心完全变白且没有粉红汁水才算熟。",
+          "duration_seconds": 900
+        },
+        {
+          "instruction": "煮肉时将 50 克生菜逐片洗净并甩干，撕成入口大小；黄瓜和番茄洗净后分别切成约 1 厘米块。"
+        },
+        {
+          "instruction": "小碗中加入 5 毫升橄榄油、10 毫升柠檬汁、1 克食用盐和 1 克黑胡椒，搅匀至看不到盐粒。"
+        },
+        {
+          "instruction": "熟鸡胸肉放置 3 分钟降温，再顺着纹理撕成细条；不要用处理生鸡肉的刀板直接切熟食。",
+          "duration_seconds": 180
+        },
+        {
+          "instruction": "沙拉碗中放入生菜、黄瓜、番茄和鸡丝，淋入调好的油醋汁。"
+        },
+        {
+          "instruction": "从碗底向上翻拌约 20 秒，让食材薄薄裹上调味汁，拌好后立即食用。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "light_002",
+      "name": "虾仁牛油果沙拉",
+      "default_servings": 1,
+      "estimated_time_minutes": 20,
+      "difficulty": "简单",
+      "equipment": [
+        "平底锅",
+        "沙拉碗",
+        "水果刀"
+      ],
+      "summary": "煎熟虾仁搭配牛油果、生菜和玉米，酸香清爽。",
+      "ingredients": [
+        {
+          "name": "虾仁",
+          "amount": "100克"
+        },
+        {
+          "name": "牛油果",
+          "amount": "80克"
+        },
+        {
+          "name": "生菜",
+          "amount": "60克"
+        },
+        {
+          "name": "即食甜玉米粒",
+          "amount": "50克"
+        },
+        {
+          "name": "橄榄油",
+          "amount": "5毫升"
+        },
+        {
+          "name": "柠檬汁",
+          "amount": "10毫升"
+        },
+        {
+          "name": "腌虾用盐",
+          "amount": "0.5克"
+        },
+        {
+          "name": "沙拉用盐",
+          "amount": "0.5克"
+        },
+        {
+          "name": "黑胡椒",
+          "amount": "0.5克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "虾仁去除虾线，用厨房纸吸干，加入 0.5 克食用盐和 0.5 克黑胡椒抓匀，静置 5 分钟。",
+          "duration_seconds": 300,
+          "safety_note": "处理生虾后洗净双手、刀具和接触台面。"
+        },
+        {
+          "instruction": "生菜逐片洗净并充分沥干，撕成入口大小；即食甜玉米粒沥干水分。"
+        },
+        {
+          "instruction": "牛油果沿果核纵向切开，旋开后去核，用勺挖出果肉并切成约 1.5 厘米块。"
+        },
+        {
+          "instruction": "平底锅加入 5 毫升橄榄油，中火加热 30 秒，放入虾仁单层铺开。",
+          "duration_seconds": 30,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "虾仁每面煎约 2 分钟，至整体变红、中心完全不透明后关火，放置 2 分钟降温。",
+          "duration_seconds": 240,
+          "heat_level": "中火",
+          "safety_note": "虾仁中心仍透明时继续加热，不要仅凭表面颜色判断。"
+        },
+        {
+          "instruction": "沙拉碗中放入生菜、玉米和牛油果，加入 10 毫升柠檬汁及剩余 0.5 克盐，轻轻翻拌。"
+        },
+        {
+          "instruction": "把温热虾仁铺在沙拉顶部，食用前再翻拌几下，避免牛油果被压成泥。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "light_003",
+      "name": "金枪鱼玉米沙拉",
+      "default_servings": 1,
+      "estimated_time_minutes": 10,
+      "difficulty": "简单",
+      "equipment": [
+        "滤网",
+        "沙拉碗",
+        "水果刀"
+      ],
+      "summary": "使用可直接食用的罐装金枪鱼和玉米，十分钟完成。",
+      "ingredients": [
+        {
+          "name": "水浸金枪鱼",
+          "amount": "100克"
+        },
+        {
+          "name": "即食甜玉米粒",
+          "amount": "60克"
+        },
+        {
+          "name": "生菜",
+          "amount": "60克"
+        },
+        {
+          "name": "番茄",
+          "amount": "80克"
+        },
+        {
+          "name": "橄榄油",
+          "amount": "5毫升"
+        },
+        {
+          "name": "柠檬汁",
+          "amount": "10毫升"
+        },
+        {
+          "name": "食用盐",
+          "amount": "0.5克"
+        },
+        {
+          "name": "黑胡椒",
+          "amount": "0.5克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "确认水浸金枪鱼和甜玉米的包装标明可直接食用；分别倒入滤网，沥去罐内液体。"
+        },
+        {
+          "instruction": "生菜逐片冲洗并充分甩干，撕成入口大小；叶面水分太多会冲淡调味汁。"
+        },
+        {
+          "instruction": "番茄洗净，去蒂后切成约 1.5 厘米块，切出的汁也保留。"
+        },
+        {
+          "instruction": "沙拉碗中加入 5 毫升橄榄油、10 毫升柠檬汁、0.5 克盐和 0.5 克黑胡椒，搅拌至乳化。"
+        },
+        {
+          "instruction": "把金枪鱼放入碗中，用叉子轻轻拨成小块，不要反复压成泥。"
+        },
+        {
+          "instruction": "加入玉米、生菜和番茄，从碗底向上翻拌约 20 秒，调味汁均匀附着后立即食用。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "light_004",
+      "name": "藜麦鸡肉沙拉",
+      "default_servings": 1,
+      "estimated_time_minutes": 35,
+      "difficulty": "简单",
+      "equipment": [
+        "两个小锅",
+        "细筛",
+        "沙拉碗"
+      ],
+      "summary": "藜麦煮透、鸡肉嫩熟，配焯熟蔬菜组成一份饱腹沙拉。",
+      "ingredients": [
+        {
+          "name": "鸡胸肉",
+          "amount": "120克"
+        },
+        {
+          "name": "藜麦",
+          "amount": "50克"
+        },
+        {
+          "name": "西兰花",
+          "amount": "80克"
+        },
+        {
+          "name": "胡萝卜",
+          "amount": "50克"
+        },
+        {
+          "name": "橄榄油",
+          "amount": "5毫升"
+        },
+        {
+          "name": "柠檬汁",
+          "amount": "10毫升"
+        },
+        {
+          "name": "煮鸡用盐",
+          "amount": "0.5克"
+        },
+        {
+          "name": "沙拉用盐",
+          "amount": "0.5克"
+        },
+        {
+          "name": "黑胡椒",
+          "amount": "0.5克"
+        },
+        {
+          "name": "煮藜麦用清水",
+          "amount": "120毫升"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "50 克藜麦放入细筛，在流动清水下轻轻淘洗约 30 秒，沥干。"
+        },
+        {
+          "instruction": "小锅放入藜麦和 120 毫升清水，大火煮开后转小火加盖煮 15 分钟，至水分基本吸收。",
+          "duration_seconds": 900,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "藜麦关火后继续加盖焖 5 分钟，再用叉子拨松并摊开降温。",
+          "duration_seconds": 300
+        },
+        {
+          "instruction": "另一小锅加能没过鸡肉的水和 0.5 克煮鸡用盐，水开后放入鸡胸肉，转小火煮 10 分钟。",
+          "duration_seconds": 600,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "关火后让鸡肉在锅中加盖焖 5 分钟；切开最厚处，中心完全变白、没有粉红汁水才可取出。",
+          "duration_seconds": 300,
+          "safety_note": "鸡肉中心仍粉红时重新加热，不能直接拌入沙拉。"
+        },
+        {
+          "instruction": "西兰花切小朵，胡萝卜切约 0.5 厘米薄片；另烧一锅水，先放胡萝卜煮 2 分钟。",
+          "duration_seconds": 120
+        },
+        {
+          "instruction": "加入西兰花再煮 2 分钟，至颜色鲜绿且梗部能被筷子扎入，捞出沥干并摊开放凉。",
+          "duration_seconds": 120
+        },
+        {
+          "instruction": "鸡胸肉放凉 3 分钟后顺纹理撕成条；另将 5 毫升橄榄油、10 毫升柠檬汁、0.5 克沙拉用盐和黑胡椒搅匀。",
+          "duration_seconds": 180
+        },
+        {
+          "instruction": "沙拉碗中放入藜麦、鸡丝、西兰花和胡萝卜，淋入调味汁，从碗底向上翻拌均匀。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "light_005",
+      "name": "牛肉蔬菜能量碗",
+      "default_servings": 1,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅",
+        "小锅",
+        "大碗"
+      ],
+      "summary": "使用熟糙米搭配嫩炒牛肉和焯熟蔬菜，适合作为完整一餐。",
+      "ingredients": [
+        {
+          "name": "瘦牛肉",
+          "amount": "120克"
+        },
+        {
+          "name": "熟糙米饭",
+          "amount": "150克"
+        },
+        {
+          "name": "西兰花",
+          "amount": "100克"
+        },
+        {
+          "name": "胡萝卜",
+          "amount": "60克"
+        },
+        {
+          "name": "橄榄油",
+          "amount": "8毫升"
+        },
+        {
+          "name": "生抽",
+          "amount": "8毫升"
+        },
+        {
+          "name": "食用盐",
+          "amount": "0.5克"
+        },
+        {
+          "name": "黑胡椒",
+          "amount": "0.5克"
+        },
+        {
+          "name": "淀粉",
+          "amount": "5克"
+        },
+        {
+          "name": "腌肉用清水",
+          "amount": "15毫升"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "瘦牛肉逆着纹理切成约 3 毫米薄片，加入 8 毫升生抽、5 克淀粉、15 毫升清水和黑胡椒抓匀。",
+          "safety_note": "处理生牛肉后清洗双手、刀具、砧板和接触台面。"
+        },
+        {
+          "instruction": "牛肉静置腌制 10 分钟；这期间把西兰花切成小朵，胡萝卜切成约 0.5 厘米薄片。",
+          "duration_seconds": 600
+        },
+        {
+          "instruction": "小锅水烧开，先放胡萝卜煮 1 分钟，再加入西兰花煮 2 分钟。",
+          "duration_seconds": 180
+        },
+        {
+          "instruction": "蔬菜颜色鲜亮、梗部能被筷子扎入时捞出，充分沥水后拌入 0.5 克食用盐。"
+        },
+        {
+          "instruction": "炒锅加入 8 毫升橄榄油，中火加热 30 秒；放入牛肉片并尽量单层摊开。",
+          "duration_seconds": 30,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "牛肉先煎 1 分钟再翻炒 2 分钟，直到肉片两面全部变色、锅内没有血水。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "切开最厚肉片检查，中心仍生红时继续翻炒。"
+        },
+        {
+          "instruction": "150 克熟糙米饭加热至中心冒热气，铺在大碗底部；不要使用在室温久放的剩饭。"
+        },
+        {
+          "instruction": "把炒熟的牛肉、西兰花和胡萝卜分区铺在糙米饭上，趁热食用。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "light_006",
+      "name": "西兰花虾仁减脂餐",
+      "default_servings": 1,
+      "estimated_time_minutes": 20,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅",
+        "小锅",
+        "滤网"
+      ],
+      "summary": "虾仁单独炒熟，西兰花和玉米笋先焯后炒，少油也能保持鲜嫩。",
+      "ingredients": [
+        {
+          "name": "虾仁",
+          "amount": "120克"
+        },
+        {
+          "name": "西兰花",
+          "amount": "150克"
+        },
+        {
+          "name": "玉米笋",
+          "amount": "80克"
+        },
+        {
+          "name": "橄榄油",
+          "amount": "6毫升"
+        },
+        {
+          "name": "蒜",
+          "amount": "5克"
+        },
+        {
+          "name": "腌虾用盐",
+          "amount": "0.5克"
+        },
+        {
+          "name": "炒菜用盐",
+          "amount": "0.5克"
+        },
+        {
+          "name": "黑胡椒",
+          "amount": "0.5克"
+        },
+        {
+          "name": "清水",
+          "amount": "30毫升"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "虾仁去除虾线，用厨房纸吸干，加入 0.5 克腌虾用盐和 0.5 克黑胡椒抓匀，静置 5 分钟。",
+          "duration_seconds": 300,
+          "safety_note": "处理生虾后清洗双手和所有接触表面。"
+        },
+        {
+          "instruction": "西兰花切成大小接近的小朵，较粗的梗纵向切半；玉米笋纵向切半，蒜切末。"
+        },
+        {
+          "instruction": "小锅水烧开，放入西兰花和玉米笋焯 2 分钟，至西兰花颜色鲜绿。",
+          "duration_seconds": 120
+        },
+        {
+          "instruction": "蔬菜倒入滤网充分沥水；表面残留太多水会让后续炒制变成水煮。"
+        },
+        {
+          "instruction": "炒锅加入 6 毫升橄榄油，中火加热 30 秒，放入蒜末炒 20 秒，闻到蒜香即可。",
+          "duration_seconds": 50,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入虾仁，中火翻炒约 3 分钟，直到虾仁卷曲变红、中心完全不透明。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "仍有透明部分的虾仁需要继续加热。"
+        },
+        {
+          "instruction": "加入焯好的蔬菜、30 毫升清水和 0.5 克炒菜用盐，转大火翻炒 1 分钟，水分基本收干后关火。",
+          "duration_seconds": 60,
+          "heat_level": "大火"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "light_007",
+      "name": "糙米鸡胸肉便当",
+      "default_servings": 1,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "平底锅",
+        "小锅",
+        "便当盒"
+      ],
+      "summary": "熟糙米、煎鸡胸、焯西兰花和全熟鸡蛋组成的工作日便当。",
+      "ingredients": [
+        {
+          "name": "鸡胸肉",
+          "amount": "120克"
+        },
+        {
+          "name": "熟糙米饭",
+          "amount": "150克"
+        },
+        {
+          "name": "西兰花",
+          "amount": "100克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "1个"
+        },
+        {
+          "name": "橄榄油",
+          "amount": "5毫升"
+        },
+        {
+          "name": "黑胡椒",
+          "amount": "1克"
+        },
+        {
+          "name": "食用盐",
+          "amount": "1克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "鸡胸肉横向片成约 1.5 厘米厚，加入 1 克盐和 1 克黑胡椒，两面抹匀后静置 5 分钟。",
+          "duration_seconds": 300,
+          "safety_note": "处理生鸡肉后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "鸡蛋放入小锅，加冷水没过鸡蛋；水开后转小火煮 9 分钟，捞入冷水降温。",
+          "duration_seconds": 540,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "西兰花切成小朵，放入沸水煮 2 分钟，至颜色鲜绿且梗部能被筷子扎入后捞出沥水。",
+          "duration_seconds": 120
+        },
+        {
+          "instruction": "平底锅加入 5 毫升橄榄油，中火加热 30 秒，放入鸡胸肉煎 4 分钟。",
+          "duration_seconds": 270,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "鸡胸肉翻面后再煎 4 分钟；切开最厚处，中心完全变白、流出透明汁水后关火。",
+          "duration_seconds": 240,
+          "heat_level": "中火",
+          "safety_note": "鸡肉中心仍粉红时继续加热并再次检查。"
+        },
+        {
+          "instruction": "鸡肉静置 3 分钟后切条；鸡蛋剥壳切半，熟糙米饭重新加热至中心冒热气。",
+          "duration_seconds": 180
+        },
+        {
+          "instruction": "便当盒中分区装入糙米饭、鸡肉、西兰花和鸡蛋，不要在食材仍大量冒蒸汽时立即密封。"
+        },
+        {
+          "instruction": "食材不再冒蒸汽后盖好冷藏；携带时保持低温，食用前把鸡肉和米饭充分加热。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "light_008",
+      "name": "蒸南瓜鸡胸肉",
+      "default_servings": 1,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "蒸锅",
+        "耐热盘",
+        "小碗"
+      ],
+      "summary": "鸡肉先腌后与南瓜同蒸，秋葵后放，熟度和口感更容易掌握。",
+      "ingredients": [
+        {
+          "name": "鸡胸肉",
+          "amount": "150克"
+        },
+        {
+          "name": "南瓜",
+          "amount": "150克"
+        },
+        {
+          "name": "秋葵",
+          "amount": "80克"
+        },
+        {
+          "name": "生抽",
+          "amount": "8毫升"
+        },
+        {
+          "name": "淀粉",
+          "amount": "5克"
+        },
+        {
+          "name": "食用盐",
+          "amount": "1克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "鸡胸肉切成约 1 厘米厚片，加入 8 毫升生抽、5 克淀粉、1 克盐和 1 克黑胡椒抓匀。",
+          "safety_note": "处理生鸡肉后立即清洗双手、刀具和砧板。"
+        },
+        {
+          "instruction": "鸡肉腌制 10 分钟；这期间南瓜去籽切成约 1.5 厘米厚片，秋葵清理后后切去硬蒂。",
+          "duration_seconds": 600
+        },
+        {
+          "instruction": "耐热盘底部平铺南瓜片，腌好的鸡肉单层铺在南瓜上，不要相互堆叠。"
+        },
+        {
+          "instruction": "蒸锅加足量水烧开，放入耐热盘，加盖中火蒸 10 分钟。",
+          "duration_seconds": 600,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "打开锅盖，把秋葵放在盘边，重新加盖中火再蒸 5 分钟。",
+          "duration_seconds": 300,
+          "heat_level": "中火",
+          "safety_note": "开盖时让蒸汽朝远离面部和手臂的方向散出。"
+        },
+        {
+          "instruction": "切开最厚鸡肉片，中心完全变白且没有粉红汁水；筷子能轻松扎入南瓜即熟。"
+        },
+        {
+          "instruction": "鸡肉未熟时继续蒸 3 分钟再检查；确认熟透后关火，戴隔热手套取出耐热盘。",
+          "duration_seconds": 180,
+          "safety_note": "计时只是参考，鸡肉必须以中心完全熟透为准。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "light_009",
+      "name": "低脂鸡肉卷",
+      "default_servings": 1,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "平底锅",
+        "小碗",
+        "水果刀"
+      ],
+      "summary": "煎熟鸡胸搭配清爽酸奶酱和脆嫩蔬菜，卷好即可携带。",
+      "ingredients": [
+        {
+          "name": "鸡胸肉",
+          "amount": "120克"
+        },
+        {
+          "name": "全麦卷饼",
+          "amount": "1张（约60克）"
+        },
+        {
+          "name": "生菜",
+          "amount": "60克"
+        },
+        {
+          "name": "黄瓜",
+          "amount": "50克"
+        },
+        {
+          "name": "橄榄油",
+          "amount": "5毫升"
+        },
+        {
+          "name": "无糖酸奶",
+          "amount": "30克"
+        },
+        {
+          "name": "黄芥末酱",
+          "amount": "5克"
+        },
+        {
+          "name": "黑胡椒",
+          "amount": "0.5克"
+        },
+        {
+          "name": "食用盐",
+          "amount": "1克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "鸡胸肉片成约 1 厘米厚，加入 1 克盐和 0.5 克黑胡椒，两面抹匀后静置 5 分钟。",
+          "duration_seconds": 300,
+          "safety_note": "处理生鸡肉后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "生菜洗净后彻底甩干，黄瓜切细条；小碗中把 30 克无糖酸奶和 5 克黄芥末酱搅匀。"
+        },
+        {
+          "instruction": "平底锅加入 5 毫升橄榄油，中火加热 30 秒，放入鸡胸肉煎 4 分钟。",
+          "duration_seconds": 270,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "翻面再煎 4 分钟，切开最厚处确认中心完全变白后关火，静置 3 分钟再切条。",
+          "duration_seconds": 420,
+          "heat_level": "中火",
+          "safety_note": "鸡肉中心仍粉红时继续加热。"
+        },
+        {
+          "instruction": "用锅中余温把全麦卷饼每面加热 15 秒，使饼皮变软但不发脆。",
+          "duration_seconds": 30,
+          "heat_level": "关火余温"
+        },
+        {
+          "instruction": "卷饼中央依次放生菜、黄瓜和鸡肉条，淋上酸奶芥末酱，两侧各留约 3 厘米。"
+        },
+        {
+          "instruction": "先把左右两侧向内折，再从靠近身体的一端卷紧；携带时用烘焙纸包住接口。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "light_010",
+      "name": "全麦金枪鱼三明治",
+      "default_servings": 1,
+      "estimated_time_minutes": 10,
+      "difficulty": "简单",
+      "equipment": [
+        "滤网",
+        "小碗",
+        "水果刀"
+      ],
+      "summary": "水浸金枪鱼拌酸奶芥末酱，搭配全麦面包和新鲜蔬菜。",
+      "ingredients": [
+        {
+          "name": "水浸金枪鱼",
+          "amount": "100克"
+        },
+        {
+          "name": "全麦面包",
+          "amount": "2片（约80克）"
+        },
+        {
+          "name": "生菜",
+          "amount": "40克"
+        },
+        {
+          "name": "番茄",
+          "amount": "80克"
+        },
+        {
+          "name": "无糖酸奶",
+          "amount": "25克"
+        },
+        {
+          "name": "黄芥末酱",
+          "amount": "5克"
+        },
+        {
+          "name": "黑胡椒",
+          "amount": "0.5克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "确认水浸金枪鱼包装标明可直接食用，倒入滤网并用勺背轻压，充分沥去罐内液体。"
+        },
+        {
+          "instruction": "生菜逐片洗净并甩干；番茄去蒂后切成约 0.5 厘米薄片，用厨房纸轻轻吸去切面水分。"
+        },
+        {
+          "instruction": "小碗中放入金枪鱼、25 克无糖酸奶、5 克黄芥末酱和 0.5 克黑胡椒。"
+        },
+        {
+          "instruction": "用叉子把金枪鱼拨散并拌匀，成品应湿润但碗底没有流动液体。"
+        },
+        {
+          "instruction": "一片全麦面包上依次铺生菜、番茄片和金枪鱼馅，边缘留约 1 厘米防止挤出。"
+        },
+        {
+          "instruction": "盖上另一片面包，轻压固定后沿对角线切开；不立即食用时包好并冷藏。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "light_011",
+      "name": "鸡蛋牛油果吐司",
+      "default_servings": 1,
+      "estimated_time_minutes": 15,
+      "difficulty": "简单",
+      "equipment": [
+        "小锅",
+        "烤面包机",
+        "小碗"
+      ],
+      "summary": "全熟水煮蛋与柠檬牛油果泥铺在酥脆全麦吐司上。",
+      "ingredients": [
+        {
+          "name": "鸡蛋",
+          "amount": "1个"
+        },
+        {
+          "name": "全麦吐司",
+          "amount": "1片（约40克）"
+        },
+        {
+          "name": "牛油果",
+          "amount": "80克"
+        },
+        {
+          "name": "柠檬汁",
+          "amount": "5毫升"
+        },
+        {
+          "name": "黑胡椒",
+          "amount": "0.5克"
+        },
+        {
+          "name": "食用盐",
+          "amount": "0.5克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "鸡蛋放入小锅，加冷水没过鸡蛋；大火煮开后转小火煮 9 分钟。",
+          "duration_seconds": 540,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "鸡蛋捞入冷水中降温 2 分钟，确认外壳不烫手后剥壳，切成薄片。",
+          "duration_seconds": 120
+        },
+        {
+          "instruction": "牛油果纵向切开并去核，挖出 80 克果肉放入小碗。"
+        },
+        {
+          "instruction": "牛油果加入 5 毫升柠檬汁、0.5 克盐和 0.5 克黑胡椒，用叉子压成保留部分颗粒的泥。"
+        },
+        {
+          "instruction": "全麦吐司放入烤面包机烘烤约 2 分钟，至表面微黄、边缘酥脆。",
+          "duration_seconds": 120
+        },
+        {
+          "instruction": "牛油果泥均匀抹在吐司上，铺好鸡蛋片；趁吐司仍酥脆时食用。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "light_012",
+      "name": "酸奶水果燕麦杯",
+      "default_servings": 1,
+      "estimated_time_minutes": 15,
+      "difficulty": "简单",
+      "equipment": [
+        "玻璃杯",
+        "小碗",
+        "水果刀"
+      ],
+      "summary": "酸奶清爽、燕麦有饱腹感，十分钟即可完成的水果早餐杯。",
+      "ingredients": [
+        {
+          "name": "无糖酸奶",
+          "amount": "150克"
+        },
+        {
+          "name": "即食燕麦片",
+          "amount": "40克"
+        },
+        {
+          "name": "蓝莓",
+          "amount": "60克"
+        },
+        {
+          "name": "香蕉",
+          "amount": "70克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "蓝莓放入清水中轻轻淘洗两遍，沥干水分；香蕉去皮，切成约 0.5 厘米厚的圆片。"
+        },
+        {
+          "instruction": "把 150 克无糖酸奶放入小碗，用勺子搅拌约 20 秒，使酸奶质地顺滑。"
+        },
+        {
+          "instruction": "杯底先铺 20 克即食燕麦片，再盖上约一半酸奶，用勺背轻轻铺平。"
+        },
+        {
+          "instruction": "放入一半香蕉片和蓝莓，再依次铺入剩余 20 克燕麦片和酸奶。"
+        },
+        {
+          "instruction": "把剩余香蕉片和蓝莓摆在顶部，静置 5 分钟，让燕麦稍微软化。",
+          "duration_seconds": 300
+        },
+        {
+          "instruction": "从杯底向上舀着吃；若暂不食用，立即盖好冷藏，并在 12 小时内吃完。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "light_013",
+      "name": "香蕉花生酱隔夜燕麦",
+      "default_servings": 1,
+      "estimated_time_minutes": 10,
+      "difficulty": "简单",
+      "equipment": [
+        "带盖容器",
+        "小碗",
+        "勺子",
+        "水果刀"
+      ],
+      "summary": "提前一晚冷藏即可",
+      "ingredients": [
+        {
+          "name": "燕麦",
+          "amount": "40克"
+        },
+        {
+          "name": "香蕉",
+          "amount": "80克"
+        },
+        {
+          "name": "无糖酸奶",
+          "amount": "100克"
+        },
+        {
+          "name": "花生酱",
+          "amount": "15克"
+        },
+        {
+          "name": "牛奶",
+          "amount": "80毫升"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "香蕉去皮，取 50 克放入小碗，用勺背压成细腻香蕉泥；剩余 30 克切片，留作顶部装饰。"
+        },
+        {
+          "instruction": "带盖容器中放入 40 克燕麦片、100 克无糖酸奶和 80 毫升牛奶。"
+        },
+        {
+          "instruction": "加入香蕉泥，用勺子充分搅拌约 30 秒，确认没有成团的干燕麦。"
+        },
+        {
+          "instruction": "加入 15 克花生酱，轻轻划拌几下保留纹路，不必完全搅匀。"
+        },
+        {
+          "instruction": "盖紧容器，放入冰箱冷藏至少 6 小时，让燕麦充分吸水变软。",
+          "duration_seconds": 21600
+        },
+        {
+          "instruction": "食用前搅匀，若质地太稠可再加 10 毫升牛奶；铺上预留的香蕉片后即可食用。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "light_014",
+      "name": "低脂虾仁蒸蛋",
+      "default_servings": 1,
+      "estimated_time_minutes": 20,
+      "difficulty": "简单",
+      "equipment": [
+        "蒸锅",
+        "耐热蒸碗",
+        "细筛"
+      ],
+      "summary": "虾仁和菠菜分段放入，蛋羹熟得均匀、口感嫩滑。",
+      "ingredients": [
+        {
+          "name": "虾仁",
+          "amount": "60克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "1个（约50克）"
+        },
+        {
+          "name": "菠菜",
+          "amount": "30克"
+        },
+        {
+          "name": "温水",
+          "amount": "100毫升"
+        },
+        {
+          "name": "香油",
+          "amount": "2毫升"
+        },
+        {
+          "name": "食用盐",
+          "amount": "1克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "虾仁去除虾线并冲洗干净，用厨房纸吸干；菠菜洗净后切成约 2 厘米段。"
+        },
+        {
+          "instruction": "鸡蛋磕入碗中，加入 1 克食用盐，用筷子顺一个方向打散至蛋白和蛋黄完全混合。"
+        },
+        {
+          "instruction": "边搅拌边加入 100 毫升温水；水温以手摸温热但不烫为准，过热会把蛋液烫成蛋花。"
+        },
+        {
+          "instruction": "蛋液经细筛倒入耐热蒸碗，撇去表面气泡；盖一个耐热盘，防止蒸汽水滴落。"
+        },
+        {
+          "instruction": "蒸锅水烧开后放入蒸碗，中小火蒸 6 分钟，使蛋液边缘开始凝固。",
+          "duration_seconds": 360
+        },
+        {
+          "instruction": "打开锅盖，把虾仁和菠菜均匀铺在蛋羹表面，重新盖盘，中小火再蒸 5 分钟。",
+          "duration_seconds": 300
+        },
+        {
+          "instruction": "关火焖 2 分钟；确认虾仁完全变红、中心不透明，蛋羹轻晃只微微颤动后淋 2 毫升香油。",
+          "duration_seconds": 120
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "light_015",
+      "name": "番茄豆腐汤",
+      "default_servings": 1,
+      "estimated_time_minutes": 20,
+      "difficulty": "简单",
+      "equipment": [
+        "汤锅"
+      ],
+      "summary": "番茄炒出汤汁后加豆腐和金针菇，酸鲜清爽。",
+      "ingredients": [
+        {
+          "name": "嫩豆腐",
+          "amount": "150克"
+        },
+        {
+          "name": "番茄",
+          "amount": "200克"
+        },
+        {
+          "name": "金针菇",
+          "amount": "80克"
+        },
+        {
+          "name": "橄榄油",
+          "amount": "5毫升"
+        },
+        {
+          "name": "葱",
+          "amount": "5克"
+        },
+        {
+          "name": "食用盐",
+          "amount": "1克"
+        },
+        {
+          "name": "清水",
+          "amount": "500毫升"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "番茄洗净去蒂，切成约 2 厘米块；金针菇切掉根部，撕成小束后快速冲洗并沥干。"
+        },
+        {
+          "instruction": "嫩豆腐切成约 2 厘米块，葱切葱花；豆腐质地易碎，切好后不要反复翻动。"
+        },
+        {
+          "instruction": "汤锅加入 5 毫升橄榄油，中火加热 30 秒，放入番茄和 0.5 克盐翻炒 3 分钟，至番茄出汁。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入 500 毫升清水，大火煮至明显沸腾。",
+          "duration_seconds": 240,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "放入豆腐和金针菇，转中小火煮 5 分钟，保持汤面轻微翻滚。",
+          "duration_seconds": 300,
+          "heat_level": "中小火"
+        },
+        {
+          "instruction": "确认金针菇完全变软后加入剩余 0.5 克盐，轻推豆腐两三下使味道均匀。"
+        },
+        {
+          "instruction": "关火后撒入 5 克葱花，静置 1 分钟再盛出，避免豆腐烫口。",
+          "duration_seconds": 60
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "light_016",
+      "name": "紫菜虾皮豆腐汤",
+      "default_servings": 1,
+      "estimated_time_minutes": 15,
+      "difficulty": "简单",
+      "equipment": [
+        "汤锅"
+      ],
+      "summary": "紫菜、虾皮和豆腐带来鲜味，十几分钟即可完成。",
+      "ingredients": [
+        {
+          "name": "嫩豆腐",
+          "amount": "150克"
+        },
+        {
+          "name": "紫菜",
+          "amount": "5克"
+        },
+        {
+          "name": "虾皮",
+          "amount": "8克"
+        },
+        {
+          "name": "姜",
+          "amount": "5克"
+        },
+        {
+          "name": "香油",
+          "amount": "2毫升"
+        },
+        {
+          "name": "食用盐",
+          "amount": "0.5克"
+        },
+        {
+          "name": "清水",
+          "amount": "500毫升"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "虾皮放入细筛快速冲洗并沥干；紫菜撕成小片，姜切细丝。"
+        },
+        {
+          "instruction": "嫩豆腐切成约 2 厘米块；下刀要直上直下，避免把豆腐压碎。"
+        },
+        {
+          "instruction": "汤锅加入 500 毫升清水、姜丝和虾皮，大火煮开后转小火煮 3 分钟释放鲜味。",
+          "duration_seconds": 180,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "加入豆腐块，中小火煮 4 分钟；用勺背轻推，不要大力搅拌。",
+          "duration_seconds": 240,
+          "heat_level": "中小火"
+        },
+        {
+          "instruction": "放入紫菜，用筷子拨散后煮 1 分钟，至紫菜完全舒展。",
+          "duration_seconds": 60,
+          "heat_level": "中小火"
+        },
+        {
+          "instruction": "加入 0.5 克盐后关火，淋入 2 毫升香油，尝味前先吹凉一小勺汤。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "light_017",
+      "name": "冬瓜鸡肉丸汤",
+      "default_servings": 1,
+      "estimated_time_minutes": 30,
+      "difficulty": "简单",
+      "equipment": [
+        "汤锅",
+        "大碗"
+      ],
+      "summary": "手工鸡肉丸搭配软嫩冬瓜，汤清而鲜。",
+      "ingredients": [
+        {
+          "name": "鸡胸肉末",
+          "amount": "120克"
+        },
+        {
+          "name": "冬瓜",
+          "amount": "200克"
+        },
+        {
+          "name": "香菜",
+          "amount": "5克"
+        },
+        {
+          "name": "淀粉",
+          "amount": "8克"
+        },
+        {
+          "name": "蛋清",
+          "amount": "15克"
+        },
+        {
+          "name": "姜末",
+          "amount": "5克"
+        },
+        {
+          "name": "肉丸用盐",
+          "amount": "1克"
+        },
+        {
+          "name": "汤用盐",
+          "amount": "1克"
+        },
+        {
+          "name": "清水",
+          "amount": "600毫升"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "冬瓜去皮去瓤，切成约 1 厘米厚片；香菜洗净沥干后切成约 2 厘米段。"
+        },
+        {
+          "instruction": "大碗中放入鸡胸肉末、8 克淀粉、15 克蛋清、5 克姜末和 1 克肉丸用盐。"
+        },
+        {
+          "instruction": "用筷子顺一个方向搅拌约 2 分钟，直到肉馅发黏、提起筷子时不松散。"
+        },
+        {
+          "instruction": "汤锅加入 600 毫升清水和冬瓜，大火煮开后转中火煮 6 分钟。",
+          "duration_seconds": 360,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "转小火保持汤面微动；用湿勺取一勺肉馅整成约 3 厘米丸子，逐个滑入锅中。",
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "肉丸全部下锅后转中小火煮 7 分钟，期间撇去表面浮沫。",
+          "duration_seconds": 420,
+          "heat_level": "中小火"
+        },
+        {
+          "instruction": "切开最大的肉丸，中心完全变白、没有粉红色，且冬瓜变半透明时加入 1 克汤用盐。",
+          "safety_note": "肉丸中心仍粉红时继续煮 2 分钟再检查。"
+        },
+        {
+          "instruction": "关火后撒入香菜段，静置 1 分钟再盛汤。",
+          "duration_seconds": 60
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "light_018",
+      "name": "菌菇鸡胸肉汤",
+      "default_servings": 1,
+      "estimated_time_minutes": 20,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "菌香浓郁且热量友好",
+      "ingredients": [
+        {
+          "name": "鸡胸肉",
+          "amount": "120克"
+        },
+        {
+          "name": "口蘑",
+          "amount": "50克"
+        },
+        {
+          "name": "蟹味菇",
+          "amount": "50克"
+        },
+        {
+          "name": "青菜",
+          "amount": "50克"
+        },
+        {
+          "name": "橄榄油",
+          "amount": "5毫升"
+        },
+        {
+          "name": "黑胡椒",
+          "amount": "1克"
+        },
+        {
+          "name": "食用盐",
+          "amount": "1克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鸡胸肉处理成约 2 厘米的均匀块或片，50克口蘑、50克蟹味菇、50克青菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入120克鸡胸肉，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入50克口蘑、50克蟹味菇、50克青菜和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“菌菇鸡胸肉汤”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "light_019",
+      "name": "白菜豆腐减脂汤",
+      "default_servings": 1,
+      "estimated_time_minutes": 20,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "家常食材做出轻盈汤品",
+      "ingredients": [
+        {
+          "name": "嫩豆腐",
+          "amount": "120克"
+        },
+        {
+          "name": "大白菜",
+          "amount": "50克"
+        },
+        {
+          "name": "香菇",
+          "amount": "50克"
+        },
+        {
+          "name": "橄榄油",
+          "amount": "5毫升"
+        },
+        {
+          "name": "黑胡椒",
+          "amount": "1克"
+        },
+        {
+          "name": "食用盐",
+          "amount": "1克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将嫩豆腐处理成约 2 厘米的均匀块或片，50克大白菜、50克香菇分别洗净切好。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入120克嫩豆腐，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入50克大白菜、50克香菇和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "不要只凭计时判断，确认食材达到可食用状态。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“白菜豆腐减脂汤”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "light_020",
+      "name": "凉拌鸡丝黄瓜",
+      "default_servings": 1,
+      "estimated_time_minutes": 20,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "酸辣开胃，蛋白质充足",
+      "ingredients": [
+        {
+          "name": "鸡胸肉",
+          "amount": "120克"
+        },
+        {
+          "name": "黄瓜",
+          "amount": "50克"
+        },
+        {
+          "name": "香菜",
+          "amount": "50克"
+        },
+        {
+          "name": "橄榄油",
+          "amount": "5毫升"
+        },
+        {
+          "name": "黑胡椒",
+          "amount": "1克"
+        },
+        {
+          "name": "食用盐",
+          "amount": "1克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鸡胸肉处理成约 2 厘米的均匀块或片，50克黄瓜、50克香菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "需要熟制的鸡胸肉放入沸水或平底锅中加热，至中心完全熟透后取出。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "将熟制后的主料摊开放凉 3 分钟；50克黄瓜、50克香菜充分沥干，避免稀释调味汁。"
+        },
+        {
+          "instruction": "小碗中加入清单里的油、醋、生抽、盐等调味料，搅拌至盐糖溶解。"
+        },
+        {
+          "instruction": "沙拉碗中放入120克鸡胸肉和50克黄瓜、50克香菜，先淋入一半调味汁，从碗底向上翻拌。"
+        },
+        {
+          "instruction": "检查咸淡后加入剩余调味汁，再翻拌约 20 秒；拌好后立即食用或盖好冷藏。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "light_021",
+      "name": "凉拌木耳洋葱",
+      "default_servings": 1,
+      "estimated_time_minutes": 20,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "爽脆低卡的凉菜",
+      "ingredients": [
+        {
+          "name": "黑木耳",
+          "amount": "120克"
+        },
+        {
+          "name": "洋葱",
+          "amount": "50克"
+        },
+        {
+          "name": "香菜",
+          "amount": "50克"
+        },
+        {
+          "name": "橄榄油",
+          "amount": "5毫升"
+        },
+        {
+          "name": "黑胡椒",
+          "amount": "1克"
+        },
+        {
+          "name": "食用盐",
+          "amount": "1克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将黑木耳处理成约 2 厘米的均匀块或片，50克香菜分别洗净切好。"
+        },
+        {
+          "instruction": "需要熟制的黑木耳放入沸水或平底锅中加热，至中心完全熟透后取出。",
+          "safety_note": "确认需要熟制的食材已熟，不把生食与熟食混放。"
+        },
+        {
+          "instruction": "将熟制后的主料摊开放凉 3 分钟；50克香菜充分沥干，避免稀释调味汁。"
+        },
+        {
+          "instruction": "小碗中加入清单里的油、醋、生抽、盐等调味料，搅拌至盐糖溶解。"
+        },
+        {
+          "instruction": "沙拉碗中放入120克黑木耳和50克香菜，先淋入一半调味汁，从碗底向上翻拌。"
+        },
+        {
+          "instruction": "检查咸淡后加入剩余调味汁，再翻拌约 20 秒；拌好后立即食用或盖好冷藏。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "light_022",
+      "name": "凉拌西兰花",
+      "default_servings": 1,
+      "estimated_time_minutes": 20,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "简单焯拌，保留蔬菜口感",
+      "ingredients": [
+        {
+          "name": "西兰花",
+          "amount": "120克"
+        },
+        {
+          "name": "蒜",
+          "amount": "50克"
+        },
+        {
+          "name": "胡萝卜",
+          "amount": "50克"
+        },
+        {
+          "name": "橄榄油",
+          "amount": "5毫升"
+        },
+        {
+          "name": "黑胡椒",
+          "amount": "1克"
+        },
+        {
+          "name": "食用盐",
+          "amount": "1克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将西兰花处理成约 2 厘米的均匀块或片，50克胡萝卜分别洗净切好。"
+        },
+        {
+          "instruction": "需要熟制的西兰花放入沸水或平底锅中加热，至中心完全熟透后取出。",
+          "safety_note": "确认需要熟制的食材已熟，不把生食与熟食混放。"
+        },
+        {
+          "instruction": "将熟制后的主料摊开放凉 3 分钟；50克胡萝卜充分沥干，避免稀释调味汁。"
+        },
+        {
+          "instruction": "小碗中加入清单里的油、醋、生抽、盐等调味料，搅拌至盐糖溶解。"
+        },
+        {
+          "instruction": "沙拉碗中放入120克西兰花和50克胡萝卜，先淋入一半调味汁，从碗底向上翻拌。"
+        },
+        {
+          "instruction": "检查咸淡后加入剩余调味汁，再翻拌约 20 秒；拌好后立即食用或盖好冷藏。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "light_023",
+      "name": "芝麻菠菜鸡蛋沙拉",
+      "default_servings": 1,
+      "estimated_time_minutes": 20,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "铁元素与蛋白质兼顾",
+      "ingredients": [
+        {
+          "name": "菠菜",
+          "amount": "120克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "50克"
+        },
+        {
+          "name": "芝麻",
+          "amount": "50克"
+        },
+        {
+          "name": "橄榄油",
+          "amount": "5毫升"
+        },
+        {
+          "name": "黑胡椒",
+          "amount": "1克"
+        },
+        {
+          "name": "食用盐",
+          "amount": "1克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将菠菜处理成约 2 厘米的均匀块或片，50克鸡蛋、50克芝麻分别洗净切好。"
+        },
+        {
+          "instruction": "需要熟制的菠菜放入沸水或平底锅中加热，至中心完全熟透后取出。",
+          "safety_note": "确认需要熟制的食材已熟，不把生食与熟食混放。"
+        },
+        {
+          "instruction": "将熟制后的主料摊开放凉 3 分钟；50克鸡蛋、50克芝麻充分沥干，避免稀释调味汁。"
+        },
+        {
+          "instruction": "小碗中加入清单里的油、醋、生抽、盐等调味料，搅拌至盐糖溶解。"
+        },
+        {
+          "instruction": "沙拉碗中放入120克菠菜和50克鸡蛋、50克芝麻，先淋入一半调味汁，从碗底向上翻拌。"
+        },
+        {
+          "instruction": "检查咸淡后加入剩余调味汁，再翻拌约 20 秒；拌好后立即食用或盖好冷藏。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "light_024",
+      "name": "彩椒鸡肉沙拉",
+      "default_servings": 1,
+      "estimated_time_minutes": 20,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "颜色丰富，适合便当",
+      "ingredients": [
+        {
+          "name": "鸡胸肉",
+          "amount": "120克"
+        },
+        {
+          "name": "彩椒",
+          "amount": "50克"
+        },
+        {
+          "name": "生菜",
+          "amount": "50克"
+        },
+        {
+          "name": "玉米粒",
+          "amount": "50克"
+        },
+        {
+          "name": "橄榄油",
+          "amount": "5毫升"
+        },
+        {
+          "name": "黑胡椒",
+          "amount": "1克"
+        },
+        {
+          "name": "食用盐",
+          "amount": "1克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鸡胸肉处理成约 2 厘米的均匀块或片，50克彩椒、50克生菜、50克玉米粒分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "需要熟制的鸡胸肉放入沸水或平底锅中加热，至中心完全熟透后取出。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "将熟制后的主料摊开放凉 3 分钟；50克彩椒、50克生菜、50克玉米粒充分沥干，避免稀释调味汁。"
+        },
+        {
+          "instruction": "小碗中加入清单里的油、醋、生抽、盐等调味料，搅拌至盐糖溶解。"
+        },
+        {
+          "instruction": "沙拉碗中放入120克鸡胸肉和50克彩椒、50克生菜、50克玉米粒，先淋入一半调味汁，从碗底向上翻拌。"
+        },
+        {
+          "instruction": "检查咸淡后加入剩余调味汁，再翻拌约 20 秒；拌好后立即食用或盖好冷藏。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "light_025",
+      "name": "苹果鸡肉沙拉",
+      "default_servings": 1,
+      "estimated_time_minutes": 20,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "果香清甜，口感有层次",
+      "ingredients": [
+        {
+          "name": "鸡胸肉",
+          "amount": "120克"
+        },
+        {
+          "name": "苹果",
+          "amount": "50克"
+        },
+        {
+          "name": "生菜",
+          "amount": "50克"
+        },
+        {
+          "name": "核桃",
+          "amount": "50克"
+        },
+        {
+          "name": "橄榄油",
+          "amount": "5毫升"
+        },
+        {
+          "name": "黑胡椒",
+          "amount": "1克"
+        },
+        {
+          "name": "食用盐",
+          "amount": "1克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鸡胸肉处理成约 2 厘米的均匀块或片，50克苹果、50克生菜、50克核桃分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "需要熟制的鸡胸肉放入沸水或平底锅中加热，至中心完全熟透后取出。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "将熟制后的主料摊开放凉 3 分钟；50克苹果、50克生菜、50克核桃充分沥干，避免稀释调味汁。"
+        },
+        {
+          "instruction": "小碗中加入清单里的油、醋、生抽、盐等调味料，搅拌至盐糖溶解。"
+        },
+        {
+          "instruction": "沙拉碗中放入120克鸡胸肉和50克苹果、50克生菜、50克核桃，先淋入一半调味汁，从碗底向上翻拌。"
+        },
+        {
+          "instruction": "检查咸淡后加入剩余调味汁，再翻拌约 20 秒；拌好后立即食用或盖好冷藏。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "light_026",
+      "name": "鹰嘴豆蔬菜沙拉",
+      "default_servings": 1,
+      "estimated_time_minutes": 20,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "植物蛋白与膳食纤维丰富",
+      "ingredients": [
+        {
+          "name": "鹰嘴豆",
+          "amount": "120克"
+        },
+        {
+          "name": "黄瓜",
+          "amount": "50克"
+        },
+        {
+          "name": "番茄",
+          "amount": "50克"
+        },
+        {
+          "name": "紫甘蓝",
+          "amount": "50克"
+        },
+        {
+          "name": "橄榄油",
+          "amount": "5毫升"
+        },
+        {
+          "name": "黑胡椒",
+          "amount": "1克"
+        },
+        {
+          "name": "食用盐",
+          "amount": "1克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鹰嘴豆处理成约 2 厘米的均匀块或片，50克黄瓜、50克番茄、50克紫甘蓝分别洗净切好。"
+        },
+        {
+          "instruction": "需要熟制的鹰嘴豆放入沸水或平底锅中加热，至中心完全熟透后取出。",
+          "safety_note": "确认需要熟制的食材已熟，不把生食与熟食混放。"
+        },
+        {
+          "instruction": "将熟制后的主料摊开放凉 3 分钟；50克黄瓜、50克番茄、50克紫甘蓝充分沥干，避免稀释调味汁。"
+        },
+        {
+          "instruction": "小碗中加入清单里的油、醋、生抽、盐等调味料，搅拌至盐糖溶解。"
+        },
+        {
+          "instruction": "沙拉碗中放入120克鹰嘴豆和50克黄瓜、50克番茄、50克紫甘蓝，先淋入一半调味汁，从碗底向上翻拌。"
+        },
+        {
+          "instruction": "检查咸淡后加入剩余调味汁，再翻拌约 20 秒；拌好后立即食用或盖好冷藏。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "light_027",
+      "name": "毛豆鸡蛋减脂餐",
+      "default_servings": 1,
+      "estimated_time_minutes": 20,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "高蛋白小份主食",
+      "ingredients": [
+        {
+          "name": "毛豆",
+          "amount": "120克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "50克"
+        },
+        {
+          "name": "玉米粒",
+          "amount": "50克"
+        },
+        {
+          "name": "橄榄油",
+          "amount": "5毫升"
+        },
+        {
+          "name": "黑胡椒",
+          "amount": "1克"
+        },
+        {
+          "name": "食用盐",
+          "amount": "1克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将毛豆处理成约 2 厘米的均匀块或片，50克鸡蛋、50克玉米粒分别洗净切好。"
+        },
+        {
+          "instruction": "将120克毛豆加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入120克毛豆，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入50克鸡蛋、50克玉米粒，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "light_028",
+      "name": "豆腐牛肉生菜包",
+      "default_servings": 1,
+      "estimated_time_minutes": 20,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "用生菜包着吃更清爽",
+      "ingredients": [
+        {
+          "name": "瘦牛肉",
+          "amount": "120克"
+        },
+        {
+          "name": "豆腐",
+          "amount": "50克"
+        },
+        {
+          "name": "生菜",
+          "amount": "50克"
+        },
+        {
+          "name": "彩椒",
+          "amount": "50克"
+        },
+        {
+          "name": "橄榄油",
+          "amount": "5毫升"
+        },
+        {
+          "name": "黑胡椒",
+          "amount": "1克"
+        },
+        {
+          "name": "食用盐",
+          "amount": "1克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将瘦牛肉处理成约 2 厘米的均匀块或片，50克豆腐、50克生菜、50克彩椒分别清理后切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "将120克瘦牛肉加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入120克瘦牛肉，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入50克豆腐、50克生菜、50克彩椒，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "light_029",
+      "name": "三文鱼藜麦碗",
+      "default_servings": 1,
+      "estimated_time_minutes": 20,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "优质脂肪搭配复合碳水",
+      "ingredients": [
+        {
+          "name": "三文鱼",
+          "amount": "120克"
+        },
+        {
+          "name": "藜麦",
+          "amount": "50克"
+        },
+        {
+          "name": "西兰花",
+          "amount": "50克"
+        },
+        {
+          "name": "黄瓜",
+          "amount": "50克"
+        },
+        {
+          "name": "橄榄油",
+          "amount": "5毫升"
+        },
+        {
+          "name": "黑胡椒",
+          "amount": "1克"
+        },
+        {
+          "name": "食用盐",
+          "amount": "1克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将三文鱼处理成约 2 厘米的均匀块或片，50克藜麦、50克西兰花、50克黄瓜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "将120克三文鱼加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入120克三文鱼，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入50克藜麦、50克西兰花、50克黄瓜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "light_030",
+      "name": "鳕鱼蔬菜蒸盘",
+      "default_servings": 1,
+      "estimated_time_minutes": 20,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "一盘蒸熟，少油省事",
+      "ingredients": [
+        {
+          "name": "鳕鱼",
+          "amount": "120克"
+        },
+        {
+          "name": "西兰花",
+          "amount": "50克"
+        },
+        {
+          "name": "胡萝卜",
+          "amount": "50克"
+        },
+        {
+          "name": "南瓜",
+          "amount": "50克"
+        },
+        {
+          "name": "橄榄油",
+          "amount": "5毫升"
+        },
+        {
+          "name": "黑胡椒",
+          "amount": "1克"
+        },
+        {
+          "name": "食用盐",
+          "amount": "1克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鳕鱼处理成约 2 厘米的均匀块或片，50克西兰花、50克胡萝卜、50克南瓜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "将120克鳕鱼与清单中的生抽、盐和淀粉拌匀，静置 10 分钟入味。"
+        },
+        {
+          "instruction": "把50克西兰花、50克胡萝卜、50克南瓜平铺在耐热盘底，再将主料单层铺在上面，不要堆成厚团。"
+        },
+        {
+          "instruction": "蒸锅加入足量清水，大火烧至持续冒蒸汽后再放入耐热盘。",
+          "duration_seconds": 180,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "加盖中火蒸 12 分钟，期间不要频繁开盖。",
+          "duration_seconds": 720,
+          "heat_level": "中火",
+          "safety_note": "开盖时让蒸汽远离面部和手臂。"
+        },
+        {
+          "instruction": "切开最厚的一块检查中心；未熟时重新加盖蒸 3 分钟后再次检查。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "确认熟透后关火，戴隔热手套取出，静置 1 分钟再食用鳕鱼蔬菜蒸盘。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "light_031",
+      "name": "鸡胸肉西葫芦面",
+      "default_servings": 1,
+      "estimated_time_minutes": 20,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "用西葫芦替代部分面条",
+      "ingredients": [
+        {
+          "name": "鸡胸肉",
+          "amount": "120克"
+        },
+        {
+          "name": "西葫芦",
+          "amount": "50克"
+        },
+        {
+          "name": "番茄",
+          "amount": "50克"
+        },
+        {
+          "name": "橄榄油",
+          "amount": "5毫升"
+        },
+        {
+          "name": "黑胡椒",
+          "amount": "1克"
+        },
+        {
+          "name": "食用盐",
+          "amount": "1克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鸡胸肉处理成约 2 厘米的均匀块或片，50克西葫芦、50克番茄分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入120克鸡胸肉翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入50克西葫芦、50克番茄继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "light_032",
+      "name": "番茄虾仁荞麦面",
+      "default_servings": 1,
+      "estimated_time_minutes": 20,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "清爽汤面，饱腹不厚重",
+      "ingredients": [
+        {
+          "name": "虾仁",
+          "amount": "120克"
+        },
+        {
+          "name": "荞麦面",
+          "amount": "50克"
+        },
+        {
+          "name": "番茄",
+          "amount": "50克"
+        },
+        {
+          "name": "菠菜",
+          "amount": "50克"
+        },
+        {
+          "name": "橄榄油",
+          "amount": "5毫升"
+        },
+        {
+          "name": "黑胡椒",
+          "amount": "1克"
+        },
+        {
+          "name": "食用盐",
+          "amount": "1克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将虾仁处理成约 2 厘米的均匀块或片，50克荞麦面、50克番茄、50克菠菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入120克虾仁翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入50克荞麦面、50克番茄、50克菠菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "light_033",
+      "name": "荞麦鸡丝拌面",
+      "default_servings": 1,
+      "estimated_time_minutes": 20,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合夏天的低脂主食",
+      "ingredients": [
+        {
+          "name": "鸡胸肉",
+          "amount": "120克"
+        },
+        {
+          "name": "荞麦面",
+          "amount": "50克"
+        },
+        {
+          "name": "黄瓜",
+          "amount": "50克"
+        },
+        {
+          "name": "胡萝卜",
+          "amount": "50克"
+        },
+        {
+          "name": "橄榄油",
+          "amount": "5毫升"
+        },
+        {
+          "name": "黑胡椒",
+          "amount": "1克"
+        },
+        {
+          "name": "食用盐",
+          "amount": "1克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鸡胸肉处理成约 2 厘米的均匀块或片，50克荞麦面、50克黄瓜、50克胡萝卜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "需要熟制的鸡胸肉放入沸水或平底锅中加热，至中心完全熟透后取出。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "将熟制后的主料摊开放凉 3 分钟；50克荞麦面、50克黄瓜、50克胡萝卜充分沥干，避免稀释调味汁。"
+        },
+        {
+          "instruction": "小碗中加入清单里的油、醋、生抽、盐等调味料，搅拌至盐糖溶解。"
+        },
+        {
+          "instruction": "沙拉碗中放入120克鸡胸肉和50克荞麦面、50克黄瓜、50克胡萝卜，先淋入一半调味汁，从碗底向上翻拌。"
+        },
+        {
+          "instruction": "检查咸淡后加入剩余调味汁，再翻拌约 20 秒；拌好后立即食用或盖好冷藏。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "light_034",
+      "name": "紫薯鸡蛋早餐碗",
+      "default_servings": 1,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "蒸锅",
+        "小锅",
+        "早餐碗",
+        "水果刀"
+      ],
+      "summary": "软糯紫薯搭配水煮蛋、酸奶和蓝莓，甜咸分区，适合早餐。",
+      "ingredients": [
+        {
+          "name": "鸡蛋",
+          "amount": "1个"
+        },
+        {
+          "name": "紫薯",
+          "amount": "150克"
+        },
+        {
+          "name": "无糖酸奶",
+          "amount": "80克"
+        },
+        {
+          "name": "蓝莓",
+          "amount": "40克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "紫薯刷洗干净后削皮，切成约 2 厘米块；蓝莓用清水轻轻淘洗两遍并沥干。"
+        },
+        {
+          "instruction": "蒸锅加足量清水烧开，紫薯块平铺在蒸屉上，加盖中火蒸 15 分钟。",
+          "duration_seconds": 900
+        },
+        {
+          "instruction": "蒸紫薯时把鸡蛋放入小锅，加冷水没过鸡蛋；水开后转小火煮 8 分钟。",
+          "duration_seconds": 480
+        },
+        {
+          "instruction": "鸡蛋捞入冷水降温 2 分钟后剥壳，纵向切成两半；剥壳前确认蛋壳已不烫手。",
+          "duration_seconds": 120
+        },
+        {
+          "instruction": "用筷子扎入最大紫薯块，能轻松穿透即熟；若仍发硬，加盖继续蒸 3 分钟。",
+          "duration_seconds": 180
+        },
+        {
+          "instruction": "紫薯、鸡蛋分别放入早餐碗，另一侧加入 80 克无糖酸奶，撒上 40 克蓝莓即可。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "light_035",
+      "name": "红薯鸡胸肉便当",
+      "default_servings": 1,
+      "estimated_time_minutes": 20,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "粗粮替代精制主食",
+      "ingredients": [
+        {
+          "name": "鸡胸肉",
+          "amount": "120克"
+        },
+        {
+          "name": "红薯",
+          "amount": "50克"
+        },
+        {
+          "name": "生菜",
+          "amount": "50克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "50克"
+        },
+        {
+          "name": "橄榄油",
+          "amount": "5毫升"
+        },
+        {
+          "name": "黑胡椒",
+          "amount": "1克"
+        },
+        {
+          "name": "食用盐",
+          "amount": "1克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鸡胸肉处理成约 2 厘米的均匀块或片，50克红薯、50克生菜、50克鸡蛋分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "将120克鸡胸肉加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入120克鸡胸肉，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入50克红薯、50克生菜、50克鸡蛋，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "light_036",
+      "name": "玉米鸡蛋蔬菜饼",
+      "default_servings": 1,
+      "estimated_time_minutes": 20,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "平底锅少油即可完成",
+      "ingredients": [
+        {
+          "name": "鸡蛋",
+          "amount": "120克"
+        },
+        {
+          "name": "玉米粒",
+          "amount": "50克"
+        },
+        {
+          "name": "胡萝卜",
+          "amount": "50克"
+        },
+        {
+          "name": "菠菜",
+          "amount": "50克"
+        },
+        {
+          "name": "橄榄油",
+          "amount": "5毫升"
+        },
+        {
+          "name": "黑胡椒",
+          "amount": "1克"
+        },
+        {
+          "name": "食用盐",
+          "amount": "1克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鸡蛋处理成约 2 厘米的均匀块或片，50克玉米粒、50克胡萝卜、50克菠菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "将120克鸡蛋加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入120克鸡蛋，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入50克玉米粒、50克胡萝卜、50克菠菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "light_037",
+      "name": "豆腐蔬菜蒸饼",
+      "default_servings": 1,
+      "estimated_time_minutes": 20,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "软嫩易入口，适合晚餐",
+      "ingredients": [
+        {
+          "name": "嫩豆腐",
+          "amount": "120克"
+        },
+        {
+          "name": "胡萝卜",
+          "amount": "50克"
+        },
+        {
+          "name": "香菇",
+          "amount": "50克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "50克"
+        },
+        {
+          "name": "橄榄油",
+          "amount": "5毫升"
+        },
+        {
+          "name": "黑胡椒",
+          "amount": "1克"
+        },
+        {
+          "name": "食用盐",
+          "amount": "1克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将嫩豆腐处理成约 2 厘米的均匀块或片，50克胡萝卜、50克香菇、50克鸡蛋分别洗净切好。"
+        },
+        {
+          "instruction": "将120克嫩豆腐与清单中的生抽、盐和淀粉拌匀，静置 10 分钟入味。"
+        },
+        {
+          "instruction": "把50克胡萝卜、50克香菇、50克鸡蛋平铺在耐热盘底，再将主料单层铺在上面，不要堆成厚团。"
+        },
+        {
+          "instruction": "蒸锅加入足量清水，大火烧至持续冒蒸汽后再放入耐热盘。",
+          "duration_seconds": 180,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "加盖中火蒸 12 分钟，期间不要频繁开盖。",
+          "duration_seconds": 720,
+          "heat_level": "中火",
+          "safety_note": "开盖时让蒸汽远离面部和手臂。"
+        },
+        {
+          "instruction": "切开最厚的一块检查中心；未熟时重新加盖蒸 3 分钟后再次检查。",
+          "safety_note": "确认中心完全熟透后再食用。"
+        },
+        {
+          "instruction": "确认熟透后关火，戴隔热手套取出，静置 1 分钟再食用豆腐蔬菜蒸饼。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "light_038",
+      "name": "无油煎鸡腿排",
+      "default_servings": 1,
+      "estimated_time_minutes": 20,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "不额外加油也能煎出香气",
+      "ingredients": [
+        {
+          "name": "去皮鸡腿肉",
+          "amount": "120克"
+        },
+        {
+          "name": "西兰花",
+          "amount": "50克"
+        },
+        {
+          "name": "番茄",
+          "amount": "50克"
+        },
+        {
+          "name": "橄榄油",
+          "amount": "5毫升"
+        },
+        {
+          "name": "黑胡椒",
+          "amount": "1克"
+        },
+        {
+          "name": "食用盐",
+          "amount": "1克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将去皮鸡腿肉处理成约 2 厘米的均匀块或片，50克西兰花、50克番茄分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "用厨房纸吸干去皮鸡腿肉表面水分，加入清单中的盐和调味料拌匀，静置 10 分钟。"
+        },
+        {
+          "instruction": "平底锅加入清单中的食用油，中火加热 30 秒。",
+          "duration_seconds": 30,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "放入120克去皮鸡腿肉单层铺开，先不要移动，煎 3 分钟至底面定型。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "翻面后加入50克西兰花、50克番茄，继续煎炒 3 分钟，使各面均匀上色。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "检查最大一块的中心状态；未熟时转小火每次续煎 1 分钟并再次检查。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "达到熟度后关火，静置 2 分钟再装盘，完成无油煎鸡腿排。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "light_039",
+      "name": "香煎鳕鱼配芦笋",
+      "default_servings": 1,
+      "estimated_time_minutes": 20,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "简单调味突出鱼肉鲜味",
+      "ingredients": [
+        {
+          "name": "鳕鱼",
+          "amount": "120克"
+        },
+        {
+          "name": "芦笋",
+          "amount": "50克"
+        },
+        {
+          "name": "柠檬",
+          "amount": "50克"
+        },
+        {
+          "name": "橄榄油",
+          "amount": "5毫升"
+        },
+        {
+          "name": "黑胡椒",
+          "amount": "1克"
+        },
+        {
+          "name": "食用盐",
+          "amount": "1克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鳕鱼处理成约 2 厘米的均匀块或片，50克芦笋、50克柠檬分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "用厨房纸吸干鳕鱼表面水分，加入清单中的盐和调味料拌匀，静置 10 分钟。"
+        },
+        {
+          "instruction": "平底锅加入清单中的食用油，中火加热 30 秒。",
+          "duration_seconds": 30,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "放入120克鳕鱼单层铺开，先不要移动，煎 3 分钟至底面定型。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "翻面后加入50克芦笋、50克柠檬，继续煎炒 3 分钟，使各面均匀上色。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "检查最大一块的中心状态；未熟时转小火每次续煎 1 分钟并再次检查。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "达到熟度后关火，静置 2 分钟再装盘，完成香煎鳕鱼配芦笋。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "light_040",
+      "name": "鸡肉紫甘蓝沙拉",
+      "default_servings": 1,
+      "estimated_time_minutes": 20,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "脆爽低脂，适合晚餐",
+      "ingredients": [
+        {
+          "name": "鸡胸肉",
+          "amount": "120克"
+        },
+        {
+          "name": "紫甘蓝",
+          "amount": "50克"
+        },
+        {
+          "name": "黄瓜",
+          "amount": "50克"
+        },
+        {
+          "name": "玉米粒",
+          "amount": "50克"
+        },
+        {
+          "name": "橄榄油",
+          "amount": "5毫升"
+        },
+        {
+          "name": "黑胡椒",
+          "amount": "1克"
+        },
+        {
+          "name": "食用盐",
+          "amount": "1克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鸡胸肉处理成约 2 厘米的均匀块或片，50克紫甘蓝、50克黄瓜、50克玉米粒分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "需要熟制的鸡胸肉放入沸水或平底锅中加热，至中心完全熟透后取出。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "将熟制后的主料摊开放凉 3 分钟；50克紫甘蓝、50克黄瓜、50克玉米粒充分沥干，避免稀释调味汁。"
+        },
+        {
+          "instruction": "小碗中加入清单里的油、醋、生抽、盐等调味料，搅拌至盐糖溶解。"
+        },
+        {
+          "instruction": "沙拉碗中放入120克鸡胸肉和50克紫甘蓝、50克黄瓜、50克玉米粒，先淋入一半调味汁，从碗底向上翻拌。"
+        },
+        {
+          "instruction": "检查咸淡后加入剩余调味汁，再翻拌约 20 秒；拌好后立即食用或盖好冷藏。"
+        }
+      ],
+      "beginner_review_version": 1
+    }
+  ]
+}

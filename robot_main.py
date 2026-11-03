@@ -6,11 +6,13 @@ import re
 import sys
 import threading
 import time
+import webbrowser
 from pathlib import Path
 
 from chat_handler import handle_chat
 from runtime_core.executor import RuntimeExecutor
 from runtime_core.ingredient_vision import IngredientVisionService, is_visual_identification_request
+from runtime_core.kitchen_console import DEFAULT_CONSOLE_PORT, KitchenConsoleServer, KitchenConsoleService
 from runtime_core.logger import RuntimeLogger
 from runtime_core.mac_camera import MacCamera
 from runtime_core.skill_manager import SkillManager
@@ -68,7 +70,7 @@ def handle_input(
         return None
 
     if vision_service is not None and is_visual_identification_request(user_text):
-        print("\n[视觉识别] 正在从 Mac 摄像头拍照并识别食材……")
+        print("\n[视觉识别] 正在从本机摄像头拍照并识别食材……")
         result = vision_service.recognize(user_text)
         logger.log("user_input", {"text": user_text})
         logger.log("vision_result", result)
@@ -232,6 +234,24 @@ def run_voice_loop(
         print("\n收到 Ctrl+C，正在退出。")
 
 
+def run_console_loop(
+    manager: SkillManager,
+    executor: RuntimeExecutor,
+    logger: RuntimeLogger,
+) -> None:
+    """Keep the LAN console alive and deliver local timer events."""
+    print("\n控制台独立运行中。按 Ctrl+C 退出。")
+    try:
+        while True:
+            result = manager.poll_active_skill()
+            if result is not None:
+                logger.log("skill_timer_event", result)
+                executor.execute_plan(result)
+            time.sleep(0.25)
+    except KeyboardInterrupt:
+        print("\n收到 Ctrl+C，正在退出。")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="skill-runtime：文字 + 语音双模式交互")
     parser.add_argument("user_text", nargs="*", help="单次执行的文本，可选")
@@ -249,7 +269,17 @@ def main() -> None:
     parser.add_argument("--max-record-seconds", type=float, default=20, help="单轮最长录音秒数")
     parser.add_argument("--calibration-seconds", type=float, default=0.8, help="环境噪声校准秒数")
     parser.add_argument("--list-devices", action="store_true", help="列出音频设备后退出")
+    parser.add_argument("--console", action="store_true", help="启动局域网厨房控制台")
+    parser.add_argument("--console-only", action="store_true", help="只运行局域网控制台，不进入文字或语音循环")
+    parser.add_argument("--console-host", default="0.0.0.0", help="控制台监听地址")
+    parser.add_argument("--console-port", type=int, default=DEFAULT_CONSOLE_PORT, help="控制台首选端口，0 表示系统分配")
+    parser.add_argument("--console-port-attempts", type=int, default=20, help="端口占用时连续尝试的端口数（1–100）")
+    parser.add_argument("--console-open-browser", action="store_true", help="启动控制台后打开本机浏览器")
     args = parser.parse_args()
+    if not 0 <= args.console_port <= 65535:
+        parser.error("--console-port 必须在 0–65535 之间")
+    if not 1 <= args.console_port_attempts <= 100:
+        parser.error("--console-port-attempts 必须在 1–100 之间")
 
     if args.list_devices:
         try:
@@ -262,18 +292,48 @@ def main() -> None:
 
     manager, executor, logger, vision_service = create_runtime(args)
 
-    one_shot = " ".join(args.user_text).strip()
-    if one_shot:
-        if is_exit_command(one_shot):
-            print("已退出。")
-            return
-        handle_input(one_shot, manager, executor, logger, vision_service)
-        return
+    console_server: KitchenConsoleServer | None = None
+    if args.console or args.console_only:
+        try:
+            console_server = KitchenConsoleServer(
+                KitchenConsoleService(manager, executor, vision_service),
+                host=args.console_host,
+                port=args.console_port,
+                port_attempts=args.console_port_attempts,
+            )
+            console_server.start()
+        except OSError as exc:
+            print(f"[控制台启动失败] {exc}。请更换 --console-port 或检查监听地址。")
+            raise SystemExit(1) from exc
+        if args.console_port and console_server.port != args.console_port:
+            print(f"[控制台] 首选端口 {args.console_port} 不可用，已切换到 {console_server.port}")
+        print("[控制台] 已启动，可在同一局域网访问：")
+        for url in console_server.access_urls():
+            print(f"  - {url}")
+        if args.console_open_browser:
+            try:
+                webbrowser.open(f"http://127.0.0.1:{console_server.port}")
+            except Exception:
+                print("[控制台] 无法自动打开浏览器，请手动打开上面的地址。")
 
-    if args.voice:
-        run_voice_loop(manager, executor, logger, vision_service, args)
-    else:
-        run_text_loop(manager, executor, logger, vision_service)
+    try:
+        one_shot = " ".join(args.user_text).strip()
+        if one_shot:
+            if is_exit_command(one_shot):
+                print("已退出。")
+                return
+            handle_input(one_shot, manager, executor, logger, vision_service)
+            return
+
+        if args.console_only:
+            run_console_loop(manager, executor, logger)
+        elif args.voice:
+            run_voice_loop(manager, executor, logger, vision_service, args)
+        else:
+            run_text_loop(manager, executor, logger, vision_service)
+    finally:
+        if console_server is not None:
+            console_server.stop()
 
 
 if __name__ == "__main__":

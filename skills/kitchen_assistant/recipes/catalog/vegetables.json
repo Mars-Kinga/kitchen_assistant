@@ -1,18 +1,18 @@
 {
-  "catalog_version": 1,
+  "catalog_version": 2,
   "recipes": [
     {
       "recipe_id": "htc_hand_torn_cabbage",
       "name": "手撕包菜",
       "default_servings": 2,
-      "estimated_time_minutes": 18,
+      "estimated_time_minutes": 20,
       "difficulty": "简单",
       "equipment": [
         "炒锅"
       ],
       "summary": "包菜脆嫩、带五花肉香气的家常快炒。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/vegetable_dish/手撕包菜/手撕包菜.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/vegetable_dish/手撕包菜/手撕包菜.md",
@@ -65,36 +65,35 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "包菜撕成约 5 厘米的片后沥干，五花肉用厨房纸擦干表面并切薄片，姜、蒜和小米辣切好。",
-          "safety_note": "切配时保持手指与刀刃距离。"
+          "instruction": "按清单称量食材。将包菜处理成约 2 厘米的均匀块或片，120 克五花肉、2 个小米辣分别洗净切好。"
         },
         {
-          "step_number": 2,
-          "instruction": "炒锅加入 10 毫升食用油，中火加热 30 秒，放入五花肉煸炒 3 分钟，直到肉片变色并微微卷起。",
-          "duration_seconds": 180,
-          "heat_level": "中火",
-          "safety_note": "生猪肉必须炒到完全变色，热油飞溅时后退半步。"
+          "instruction": "将350 克包菜加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
         },
         {
-          "step_number": 3,
-          "instruction": "加入姜、蒜和小米辣翻炒 30 秒，再倒入 5 毫升料酒。",
-          "duration_seconds": 30,
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
           "heat_level": "中火"
         },
         {
-          "step_number": 4,
-          "instruction": "转大火，加入包菜和剩余 10 毫升食用油，快速翻炒 2 分钟。",
+          "instruction": "加入350 克包菜，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入120 克五花肉、2 个小米辣，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
           "duration_seconds": 120,
           "heat_level": "大火"
         },
         {
-          "step_number": 5,
-          "instruction": "加入 10 毫升生抽、5 毫升香醋和 3 克盐，翻炒 1 分钟至包菜断生后关火。",
-          "duration_seconds": 60,
-          "heat_level": "大火"
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_braised_eggplant",
@@ -107,7 +106,7 @@
       ],
       "summary": "用少油煎软代替油炸的家常红烧茄子。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/vegetable_dish/红烧茄子.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/vegetable_dish/红烧茄子.md",
@@ -159,35 +158,35 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "茄子切滚刀块，青椒和番茄切块，蒜切末；将 15 毫升生抽、5 克白糖、5 克淀粉、2 克盐和 100 毫升清水调成料汁。"
+          "instruction": "按清单称量食材。将茄子处理成约 2 厘米的均匀块或片，80 克青椒、150 克番茄分别洗净切好。"
         },
         {
-          "step_number": 2,
-          "instruction": "炒锅加入 20 毫升食用油，中火放入茄子煎炒 6 分钟，翻动至各面变软。",
-          "duration_seconds": 360,
-          "heat_level": "中火",
-          "safety_note": "茄子下锅前擦干表面水分，避免热油飞溅。"
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
         },
         {
-          "step_number": 3,
-          "instruction": "加入剩余 5 毫升食用油、蒜末和番茄，中火翻炒 2 分钟至番茄出汁。",
-          "duration_seconds": 120,
+          "instruction": "加入400 克茄子，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
           "heat_level": "中火"
         },
         {
-          "step_number": 4,
-          "instruction": "加入青椒和调好的料汁，小火焖 3 分钟。",
-          "duration_seconds": 180,
+          "instruction": "加入80 克青椒、150 克番茄和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
           "heat_level": "小火"
         },
         {
-          "step_number": 5,
-          "instruction": "转中火翻炒 1 分钟，待汤汁裹住茄子后关火。",
-          "duration_seconds": 60,
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "不要只凭计时判断，确认食材达到可食用状态。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“家常红烧茄子”需要的浓度后关火。",
+          "duration_seconds": 120,
           "heat_level": "中火"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_di_san_xian",
@@ -200,7 +199,7 @@
       ],
       "summary": "土豆、茄子和青椒组成的少油家常地三鲜。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/vegetable_dish/地三鲜/地三鲜.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/vegetable_dish/地三鲜/地三鲜.md",
@@ -256,40 +255,41 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "茄子、土豆和青椒切块，蒜和姜切末；将 10 毫升生抽、6 克白糖、8 克淀粉和 100 毫升清水调匀。"
+          "instruction": "按清单称量食材。将茄子处理成约 2 厘米的均匀块或片，150 克土豆、120 克青椒分别洗净切好。"
         },
         {
-          "step_number": 2,
-          "instruction": "炒锅加入 15 毫升食用油，中火把土豆煎 7 分钟，翻面至表面金黄且筷子可以扎入后盛出。",
-          "duration_seconds": 420,
+          "instruction": "将200 克茄子加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
           "heat_level": "中火"
         },
         {
-          "step_number": 3,
-          "instruction": "锅中加入 10 毫升食用油，中火把茄子煎炒 5 分钟至变软后盛出。",
-          "duration_seconds": 300,
+          "instruction": "加入200 克茄子，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
           "heat_level": "中火"
         },
         {
-          "step_number": 4,
-          "instruction": "加入剩余 5 毫升食用油，放入姜蒜和 15 克豆瓣酱，小火炒 30 秒。",
-          "duration_seconds": 30,
-          "heat_level": "小火"
-        },
-        {
-          "step_number": 5,
-          "instruction": "倒回土豆和茄子，加入青椒及料汁，中火翻炒 2 分钟至汤汁浓稠后关火。",
+          "instruction": "加入150 克土豆、120 克青椒，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
           "duration_seconds": 120,
-          "heat_level": "中火"
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_garlic_broccoli",
       "name": "蒜蓉西兰花",
       "default_servings": 2,
-      "estimated_time_minutes": 15,
+      "estimated_time_minutes": 20,
       "difficulty": "简单",
       "equipment": [
         "炒锅",
@@ -297,7 +297,7 @@
       ],
       "summary": "颜色翠绿、口感清脆的蒜香西兰花。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/vegetable_dish/蒜蓉西兰花.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/vegetable_dish/蒜蓉西兰花.md",
@@ -334,42 +334,48 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "西兰花切成小朵并清洗，蒜切末；另取 30 毫升清水与 10 毫升生抽、5 毫升蚝油和 2 克白糖调匀。"
+          "instruction": "按清单称量食材。将西兰花处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
         },
         {
-          "step_number": 2,
-          "instruction": "汤锅加入 1000 毫升清水烧开，放入西兰花焯 90 秒后沥干。",
-          "duration_seconds": 90,
-          "heat_level": "大火",
-          "safety_note": "捞取时防止沸水烫伤。"
+          "instruction": "将300 克西兰花加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
         },
         {
-          "step_number": 3,
-          "instruction": "炒锅加入 10 毫升食用油，小火放入蒜末炒 30 秒。",
-          "duration_seconds": 30,
-          "heat_level": "小火"
-        },
-        {
-          "step_number": 4,
-          "instruction": "加入西兰花和调好的料汁，中火翻炒 1 分钟后关火。",
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
           "duration_seconds": 60,
           "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克西兰花，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_oyster_lettuce",
       "name": "蚝油生菜",
       "default_servings": 2,
-      "estimated_time_minutes": 12,
+      "estimated_time_minutes": 20,
       "difficulty": "简单",
       "equipment": [
         "炒锅"
       ],
       "summary": "十分钟左右完成的清脆蚝油生菜。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/vegetable_dish/蚝油生菜.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/vegetable_dish/蚝油生菜.md",
@@ -410,41 +416,48 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "生菜逐片洗净并沥干，蒜切末；将 10 毫升蚝油、8 毫升生抽、1 克白糖和 30 毫升清水调匀。"
+          "instruction": "按清单称量食材。将生菜处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
         },
         {
-          "step_number": 2,
-          "instruction": "炒锅加入 4 毫升食用油，大火放入生菜和 1 克盐，快速翻炒 45 秒后盛出。",
-          "duration_seconds": 45,
+          "instruction": "将300 克生菜加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克生菜，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
           "heat_level": "大火"
         },
         {
-          "step_number": 3,
-          "instruction": "锅中加入剩余 4 毫升食用油，小火炒蒜末 20 秒。",
-          "duration_seconds": 20,
-          "heat_level": "小火"
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
         },
         {
-          "step_number": 4,
-          "instruction": "倒入料汁煮 30 秒，关火后淋在生菜上。",
-          "duration_seconds": 30,
-          "heat_level": "中火"
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_chive_eggs",
       "name": "韭菜炒蛋",
       "default_servings": 2,
-      "estimated_time_minutes": 12,
+      "estimated_time_minutes": 20,
       "difficulty": "简单",
       "equipment": [
         "炒锅"
       ],
       "summary": "韭香浓郁、鸡蛋嫩滑的快手家常菜。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/vegetable_dish/韭菜炒蛋/韭菜炒蛋.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/vegetable_dish/韭菜炒蛋/韭菜炒蛋.md",
@@ -469,41 +482,48 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "韭菜洗净沥干后切成 4 厘米段，3 个鸡蛋加 1 克盐打散。"
+          "instruction": "按清单称量食材。将韭菜处理成约 2 厘米的均匀块或片，3 个鸡蛋分别洗净切好。"
         },
         {
-          "step_number": 2,
-          "instruction": "炒锅加入 10 毫升食用油，中火加热 30 秒，倒入蛋液炒 60 秒至刚凝固后盛出。",
+          "instruction": "将180 克韭菜加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
           "duration_seconds": 60,
           "heat_level": "中火"
         },
         {
-          "step_number": 3,
-          "instruction": "锅中加入剩余 5 毫升食用油，大火放入韭菜和剩余 1 克盐翻炒 45 秒。",
-          "duration_seconds": 45,
+          "instruction": "加入180 克韭菜，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入3 个鸡蛋，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
           "heat_level": "大火"
         },
         {
-          "step_number": 4,
-          "instruction": "倒回鸡蛋，大火翻炒 20 秒后立即关火。",
-          "duration_seconds": 20,
-          "heat_level": "大火"
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_curated_a5c463be5bbc",
       "name": "皮蛋豆腐",
       "default_servings": 2,
-      "estimated_time_minutes": 10,
+      "estimated_time_minutes": 20,
       "difficulty": "简单",
       "equipment": [
         "炒锅"
       ],
       "summary": "参考固定上游版本并按家庭厨房场景校订的皮蛋豆腐。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/vegetable_dish/皮蛋豆腐.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/vegetable_dish/皮蛋豆腐.md",
@@ -547,32 +567,48 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "按食材清单备好嫩豆腐、皮蛋、葱；蔬菜清洗后沥干，按菜品需要切配。"
+          "instruction": "按清单称量食材。将嫩豆腐处理成约 2 厘米的均匀块或片，2 个皮蛋分别洗净切好。"
         },
         {
-          "step_number": 2,
-          "instruction": "将嫩豆腐、皮蛋、葱放入干净大碗，加入生抽、香醋、盐、白糖、香油。"
+          "instruction": "将300 克嫩豆腐加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
         },
         {
-          "step_number": 3,
-          "instruction": "充分拌匀后静置 10 分钟，使味道均匀。",
-          "duration_seconds": 600
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克嫩豆腐，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入2 个皮蛋，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_curated_db8cfa5a6530",
       "name": "葱煎豆腐",
       "default_servings": 2,
-      "estimated_time_minutes": 18,
+      "estimated_time_minutes": 20,
       "difficulty": "简单",
       "equipment": [
         "炒锅"
       ],
       "summary": "参考固定上游版本并按家庭厨房场景校订的葱煎豆腐。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/vegetable_dish/葱煎豆腐.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/vegetable_dish/葱煎豆腐.md",
@@ -604,36 +640,48 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "按食材清单备好老豆腐、葱；蔬菜清洗后沥干，按菜品需要切配。"
+          "instruction": "按清单称量食材。将老豆腐处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
         },
         {
-          "step_number": 2,
-          "instruction": "炒锅加入清单中的食用油，中火放入老豆腐，大火翻炒 3 分钟至蔬菜断生。",
+          "instruction": "用厨房纸吸干老豆腐表面水分，加入清单中的盐和调味料拌匀，静置 10 分钟。"
+        },
+        {
+          "instruction": "平底锅加入清单中的食用油，中火加热 30 秒。",
+          "duration_seconds": 30,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "放入350 克老豆腐单层铺开，先不要移动，煎 3 分钟至底面定型。",
           "duration_seconds": 180,
-          "heat_level": "大火"
+          "heat_level": "中火"
         },
         {
-          "step_number": 3,
-          "instruction": "加入生抽、盐，翻炒 1 分钟；检查主料达到熟度要求后关火。",
-          "duration_seconds": 60,
-          "heat_level": "中火",
-          "safety_note": null
+          "instruction": "翻面后加入配菜，继续煎炒 3 分钟，使各面均匀上色。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查最大一块的中心状态；未熟时转小火每次续煎 1 分钟并再次检查。",
+          "safety_note": "不要只凭表面颜色判断熟度。"
+        },
+        {
+          "instruction": "达到熟度后关火，静置 2 分钟再装盘，完成葱煎豆腐。"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_curated_dfe5a882445f",
       "name": "松仁玉米",
       "default_servings": 2,
-      "estimated_time_minutes": 15,
+      "estimated_time_minutes": 20,
       "difficulty": "简单",
       "equipment": [
         "炒锅"
       ],
       "summary": "参考固定上游版本并按家庭厨房场景校订的松仁玉米。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/vegetable_dish/松仁玉米.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/vegetable_dish/松仁玉米.md",
@@ -677,36 +725,48 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "按食材清单备好玉米粒、松子、胡萝卜、豌豆；蔬菜清洗后沥干，按菜品需要切配。"
+          "instruction": "按清单称量食材。将玉米粒处理成约 2 厘米的均匀块或片，40 克松子、50 克胡萝卜、50 克豌豆分别洗净切好。"
         },
         {
-          "step_number": 2,
-          "instruction": "炒锅加入清单中的食用油，中火放入玉米粒、松子、胡萝卜、豌豆，大火翻炒 3 分钟至蔬菜断生。",
+          "instruction": "将250 克玉米粒加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入250 克玉米粒，铺开后翻炒 3 分钟，使表面均匀受热。",
           "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入40 克松子、50 克胡萝卜、50 克豌豆，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
           "heat_level": "大火"
         },
         {
-          "step_number": 3,
-          "instruction": "加入生抽、盐、白糖，翻炒 1 分钟；检查主料达到熟度要求后关火。",
-          "duration_seconds": 60,
-          "heat_level": "中火",
-          "safety_note": null
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_curated_19715afd5528",
       "name": "西葫芦炒鸡蛋",
       "default_servings": 2,
-      "estimated_time_minutes": 15,
+      "estimated_time_minutes": 20,
       "difficulty": "简单",
       "equipment": [
         "炒锅"
       ],
       "summary": "参考固定上游版本并按家庭厨房场景校订的西葫芦炒鸡蛋。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/vegetable_dish/西葫芦炒鸡蛋/西葫芦炒鸡蛋.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/vegetable_dish/西葫芦炒鸡蛋/西葫芦炒鸡蛋.md",
@@ -738,35 +798,35 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "按食材清单备好西葫芦、鸡蛋；蔬菜清洗后沥干，按菜品需要切配。"
+          "instruction": "按清单称量食材。将西葫芦处理成约 2 厘米的均匀块或片，3 个鸡蛋分别洗净切好。"
         },
         {
-          "step_number": 2,
-          "instruction": "鸡蛋打散；炒锅加入清单中一半食用油，中火炒 1 分钟至刚凝固，盛出备用。",
+          "instruction": "将300 克西葫芦加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
           "duration_seconds": 60,
           "heat_level": "中火"
         },
         {
-          "step_number": 3,
-          "instruction": "加入西葫芦，大火翻炒 3 分钟至蔬菜断生。",
+          "instruction": "加入300 克西葫芦，铺开后翻炒 3 分钟，使表面均匀受热。",
           "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入3 个鸡蛋，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
           "heat_level": "大火"
         },
         {
-          "step_number": 4,
-          "instruction": "把炒好的鸡蛋倒回锅中，翻炒 30 秒。",
-          "duration_seconds": 30,
-          "heat_level": "中火"
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
         },
         {
-          "step_number": 5,
-          "instruction": "加入生抽、盐，翻炒 1 分钟；检查主料达到熟度要求后关火。",
-          "duration_seconds": 60,
-          "heat_level": "中火",
-          "safety_note": null
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_curated_5e98a61bbf97",
@@ -779,7 +839,7 @@
       ],
       "summary": "参考固定上游版本并按家庭厨房场景校订的清蒸南瓜。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/vegetable_dish/清蒸南瓜.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/vegetable_dish/清蒸南瓜.md",
@@ -803,25 +863,34 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "按食材清单备好南瓜；蔬菜清洗后沥干，按菜品需要切配。"
+          "instruction": "按清单称量食材。将南瓜处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
         },
         {
-          "step_number": 2,
-          "instruction": "南瓜去瓤后切成约 3 厘米块，整齐放入耐热盘并撒 8 克白糖。"
+          "instruction": "将500 克南瓜与清单中的生抽、盐和淀粉拌匀，静置 10 分钟入味。"
         },
         {
-          "step_number": 3,
-          "instruction": "蒸锅加入 1500 毫升清水烧开，放入南瓜，大火蒸 15 分钟。",
-          "duration_seconds": 900,
-          "heat_level": "大火",
-          "safety_note": "开盖时让蒸汽远离脸和手。"
+          "instruction": "把配菜平铺在耐热盘底，再将主料单层铺在上面，不要堆成厚团。"
         },
         {
-          "step_number": 4,
-          "instruction": "用筷子确认南瓜可以轻松扎透后关火并取出。"
+          "instruction": "蒸锅加入足量清水，大火烧至持续冒蒸汽后再放入耐热盘。",
+          "duration_seconds": 180,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "加盖中火蒸 12 分钟，期间不要频繁开盖。",
+          "duration_seconds": 720,
+          "heat_level": "中火",
+          "safety_note": "开盖时让蒸汽远离面部和手臂。"
+        },
+        {
+          "instruction": "切开最厚的一块检查中心；未熟时重新加盖蒸 3 分钟后再次检查。",
+          "safety_note": "确认中心完全熟透后再食用。"
+        },
+        {
+          "instruction": "确认熟透后关火，戴隔热手套取出，静置 1 分钟再食用清蒸南瓜。"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_curated_824d32829edb",
@@ -834,7 +903,7 @@
       ],
       "summary": "参考固定上游版本并按家庭厨房场景校订的凉拌木耳。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/vegetable_dish/凉拌木耳/凉拌木耳.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/vegetable_dish/凉拌木耳/凉拌木耳.md",
@@ -878,26 +947,26 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "按食材清单备好干木耳、胡萝卜、香菜；蔬菜清洗后沥干，按菜品需要切配。"
+          "instruction": "按清单称量食材。将干木耳处理成约 2 厘米的均匀块或片，50 克胡萝卜、10 克香菜、1 个小米辣分别洗净切好。"
         },
         {
-          "step_number": 2,
-          "instruction": "汤锅加入 1000 毫升清水烧开，放入泡发木耳煮 3 分钟，捞出沥干并放凉。",
-          "duration_seconds": 180,
-          "heat_level": "大火",
-          "safety_note": "捞取时防止沸水烫伤。"
+          "instruction": "需要熟制的干木耳放入沸水或平底锅中加热，至中心完全熟透后取出。",
+          "safety_note": "确认需要熟制的食材已熟，不把生食与熟食混放。"
         },
         {
-          "step_number": 3,
-          "instruction": "将干木耳、胡萝卜、香菜放入干净大碗，加入生抽、香醋、盐、白糖、小米辣。"
+          "instruction": "将熟制后的主料摊开放凉 3 分钟；50 克胡萝卜、10 克香菜、1 个小米辣充分沥干，避免稀释调味汁。"
         },
         {
-          "step_number": 4,
-          "instruction": "充分拌匀后静置 10 分钟，使味道均匀。",
-          "duration_seconds": 600
+          "instruction": "小碗中加入清单里的油、醋、生抽、盐等调味料，搅拌至盐糖溶解。"
+        },
+        {
+          "instruction": "沙拉碗中放入20 克干木耳和50 克胡萝卜、10 克香菜、1 个小米辣，先淋入一半调味汁，从碗底向上翻拌。"
+        },
+        {
+          "instruction": "检查咸淡后加入剩余调味汁，再翻拌约 20 秒；拌好后立即食用或盖好冷藏。"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_curated_a524ac2cd293",
@@ -910,12 +979,16 @@
       ],
       "summary": "参考固定上游版本并按家庭厨房场景校订的干锅花菜。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/vegetable_dish/干锅花菜/干锅花菜.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/vegetable_dish/干锅花菜/干锅花菜.md",
       "license": "Unlicense",
       "ingredients": [
+        {
+          "name": "花菜",
+          "amount": "200 克"
+        },
         {
           "name": "菜花",
           "amount": "400 克"
@@ -950,44 +1023,49 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "按食材清单备好菜花、五花肉、青椒；肉类或水产用厨房纸擦干，处理后清洗双手、刀具和砧板。",
-          "safety_note": "生肉和水产不要在水槽中冲洗，处理后清洁接触面。"
+          "instruction": "按清单称量食材。将花菜处理成约 2 厘米的均匀块或片，400 克菜花、120 克五花肉、80 克青椒分别洗净切好。"
         },
         {
-          "step_number": 2,
-          "instruction": "炒锅加入清单中的食用油，中火放入五花肉翻炒 5 分钟，直到肉类或水产完全变色。",
-          "duration_seconds": 300,
-          "heat_level": "中火",
-          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+          "instruction": "将200 克花菜加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
         },
         {
-          "step_number": 3,
-          "instruction": "加入菜花、青椒，大火翻炒 3 分钟至蔬菜断生。",
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入200 克花菜，铺开后翻炒 3 分钟，使表面均匀受热。",
           "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入400 克菜花、120 克五花肉、80 克青椒，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
           "heat_level": "大火"
         },
         {
-          "step_number": 4,
-          "instruction": "加入生抽、盐、豆瓣酱，翻炒 1 分钟；检查主料达到熟度要求后关火。",
-          "duration_seconds": 60,
-          "heat_level": "中火",
-          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
         }
-      ]
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
     },
     {
       "recipe_id": "htc_curated_40552b54f402",
       "name": "蒜蓉炒芹菜",
       "default_servings": 2,
-      "estimated_time_minutes": 12,
+      "estimated_time_minutes": 20,
       "difficulty": "简单",
       "equipment": [
         "炒锅"
       ],
       "summary": "参考固定上游版本并按家庭厨房场景校订的蒜蓉炒芹菜。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/vegetable_dish/蒜蓉炒芹菜/蒜蓉炒芹菜.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/vegetable_dish/蒜蓉炒芹菜/蒜蓉炒芹菜.md",
@@ -1019,36 +1097,48 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "按食材清单备好芹菜、蒜；蔬菜清洗后沥干，按菜品需要切配。"
+          "instruction": "按清单称量食材。将芹菜处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
         },
         {
-          "step_number": 2,
-          "instruction": "炒锅加入清单中的食用油，中火放入芹菜，大火翻炒 3 分钟至蔬菜断生。",
+          "instruction": "将350 克芹菜加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入350 克芹菜，铺开后翻炒 3 分钟，使表面均匀受热。",
           "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
           "heat_level": "大火"
         },
         {
-          "step_number": 3,
-          "instruction": "加入生抽、盐，翻炒 1 分钟；检查主料达到熟度要求后关火。",
-          "duration_seconds": 60,
-          "heat_level": "中火",
-          "safety_note": null
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_curated_9c0a468f715e",
       "name": "鸡蛋火腿炒黄瓜",
       "default_servings": 2,
-      "estimated_time_minutes": 15,
+      "estimated_time_minutes": 20,
       "difficulty": "简单",
       "equipment": [
         "炒锅"
       ],
       "summary": "参考固定上游版本并按家庭厨房场景校订的鸡蛋火腿炒黄瓜。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/vegetable_dish/鸡蛋火腿炒黄瓜.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/vegetable_dish/鸡蛋火腿炒黄瓜.md",
@@ -1084,53 +1174,57 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "按食材清单备好黄瓜、鸡蛋、火腿；蔬菜清洗后沥干，按菜品需要切配。"
+          "instruction": "按清单称量食材。将黄瓜处理成约 2 厘米的均匀块或片，2 个鸡蛋、80 克火腿分别洗净切好。"
         },
         {
-          "step_number": 2,
-          "instruction": "鸡蛋打散；炒锅加入清单中一半食用油，中火炒 1 分钟至刚凝固，盛出备用。",
+          "instruction": "将250 克黄瓜加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
           "duration_seconds": 60,
           "heat_level": "中火"
         },
         {
-          "step_number": 3,
-          "instruction": "加入黄瓜、火腿，大火翻炒 3 分钟至蔬菜断生。",
+          "instruction": "加入250 克黄瓜，铺开后翻炒 3 分钟，使表面均匀受热。",
           "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入2 个鸡蛋、80 克火腿，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
           "heat_level": "大火"
         },
         {
-          "step_number": 4,
-          "instruction": "把炒好的鸡蛋倒回锅中，翻炒 30 秒。",
-          "duration_seconds": 30,
-          "heat_level": "中火"
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
         },
         {
-          "step_number": 5,
-          "instruction": "加入生抽、盐，翻炒 1 分钟；检查主料达到熟度要求后关火。",
-          "duration_seconds": 60,
-          "heat_level": "中火",
-          "safety_note": null
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_curated_a6ca987f0c7d",
       "name": "清炒花菜",
       "default_servings": 2,
-      "estimated_time_minutes": 15,
+      "estimated_time_minutes": 20,
       "difficulty": "简单",
       "equipment": [
         "炒锅"
       ],
       "summary": "参考固定上游版本并按家庭厨房场景校订的清炒花菜。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/vegetable_dish/清炒花菜.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/vegetable_dish/清炒花菜.md",
       "license": "Unlicense",
       "ingredients": [
+        {
+          "name": "花菜",
+          "amount": "200 克"
+        },
         {
           "name": "菜花",
           "amount": "400 克"
@@ -1157,23 +1251,36 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "按食材清单备好菜花、蒜；蔬菜清洗后沥干，按菜品需要切配。"
+          "instruction": "按清单称量食材。将花菜处理成约 2 厘米的均匀块或片，400 克菜花分别洗净切好。"
         },
         {
-          "step_number": 2,
-          "instruction": "炒锅加入清单中的食用油，中火放入菜花，大火翻炒 3 分钟至蔬菜断生。",
+          "instruction": "将200 克花菜加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入200 克花菜，铺开后翻炒 3 分钟，使表面均匀受热。",
           "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入400 克菜花，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
           "heat_level": "大火"
         },
         {
-          "step_number": 3,
-          "instruction": "加入生抽、盐，翻炒 1 分钟；检查主料达到熟度要求后关火。",
-          "duration_seconds": 60,
-          "heat_level": "中火",
-          "safety_note": null
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
         }
-      ]
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
     },
     {
       "recipe_id": "htc_curated_6b2f7287871f",
@@ -1186,7 +1293,7 @@
       ],
       "summary": "参考固定上游版本并按家庭厨房场景校订的红烧冬瓜。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/vegetable_dish/红烧冬瓜/红烧冬瓜.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/vegetable_dish/红烧冬瓜/红烧冬瓜.md",
@@ -1238,42 +1345,48 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "按食材清单备好冬瓜、葱、姜；蔬菜清洗后沥干，按菜品需要切配。"
+          "instruction": "按清单称量食材。将冬瓜处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
         },
         {
-          "step_number": 2,
-          "instruction": "炒锅加入 15 毫升食用油，中火放入冬瓜、葱、姜翻炒 3 分钟。",
-          "duration_seconds": 180,
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入500 克冬瓜，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
           "heat_level": "中火"
         },
         {
-          "step_number": 3,
-          "instruction": "加入料酒、生抽、老抽、白糖、盐和 500 毫升清水，盖盖小火焖 15 分钟。",
-          "duration_seconds": 900,
+          "instruction": "加入配菜和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
           "heat_level": "小火"
         },
         {
-          "step_number": 4,
-          "instruction": "开盖中火收汁 3 分钟，检查主料熟透后关火。",
-          "duration_seconds": 180,
-          "heat_level": "中火",
-          "safety_note": null
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "不要只凭计时判断，确认食材达到可食用状态。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“红烧冬瓜”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_curated_89bc7cef1ba8",
       "name": "炒青菜",
       "default_servings": 2,
-      "estimated_time_minutes": 10,
+      "estimated_time_minutes": 20,
       "difficulty": "简单",
       "equipment": [
         "炒锅"
       ],
       "summary": "参考固定上游版本并按家庭厨房场景校订的炒青菜。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/vegetable_dish/炒青菜.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/vegetable_dish/炒青菜.md",
@@ -1305,36 +1418,48 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "按食材清单备好青菜、蒜；蔬菜清洗后沥干，按菜品需要切配。"
+          "instruction": "按清单称量食材。将青菜处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
         },
         {
-          "step_number": 2,
-          "instruction": "炒锅加入清单中的食用油，中火放入青菜，大火翻炒 3 分钟至蔬菜断生。",
+          "instruction": "将400 克青菜加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入400 克青菜，铺开后翻炒 3 分钟，使表面均匀受热。",
           "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
           "heat_level": "大火"
         },
         {
-          "step_number": 3,
-          "instruction": "加入生抽、盐，翻炒 1 分钟；检查主料达到熟度要求后关火。",
-          "duration_seconds": 60,
-          "heat_level": "中火",
-          "safety_note": null
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_curated_2f5d30a0810b",
       "name": "酸辣土豆丝",
       "default_servings": 2,
-      "estimated_time_minutes": 18,
+      "estimated_time_minutes": 20,
       "difficulty": "简单",
       "equipment": [
         "炒锅"
       ],
       "summary": "参考固定上游版本并按家庭厨房场景校订的酸辣土豆丝。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/vegetable_dish/酸辣土豆丝.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/vegetable_dish/酸辣土豆丝.md",
@@ -1374,36 +1499,48 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "按食材清单备好土豆、干辣椒、蒜；蔬菜清洗后沥干，按菜品需要切配。"
+          "instruction": "按清单称量食材。将土豆处理成约 2 厘米的均匀块或片，5 克干辣椒分别洗净切好。"
         },
         {
-          "step_number": 2,
-          "instruction": "炒锅加入清单中的食用油，中火放入土豆、干辣椒，大火翻炒 3 分钟至蔬菜断生。",
+          "instruction": "将400 克土豆加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入400 克土豆，铺开后翻炒 3 分钟，使表面均匀受热。",
           "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入5 克干辣椒，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
           "heat_level": "大火"
         },
         {
-          "step_number": 3,
-          "instruction": "加入生抽、盐、香醋，翻炒 1 分钟；检查主料达到熟度要求后关火。",
-          "duration_seconds": 60,
-          "heat_level": "中火",
-          "safety_note": null
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_curated_97ed025a03b5",
       "name": "蒜蓉空心菜",
       "default_servings": 2,
-      "estimated_time_minutes": 12,
+      "estimated_time_minutes": 20,
       "difficulty": "简单",
       "equipment": [
         "炒锅"
       ],
       "summary": "参考固定上游版本并按家庭厨房场景校订的蒜蓉空心菜。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/vegetable_dish/蒜蓉空心菜/蒜蓉空心菜.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/vegetable_dish/蒜蓉空心菜/蒜蓉空心菜.md",
@@ -1435,23 +1572,35 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "按食材清单备好空心菜、蒜；蔬菜清洗后沥干，按菜品需要切配。"
+          "instruction": "按清单称量食材。将空心菜处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
         },
         {
-          "step_number": 2,
-          "instruction": "炒锅加入清单中的食用油，中火放入空心菜，大火翻炒 3 分钟至蔬菜断生。",
+          "instruction": "将400 克空心菜加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入400 克空心菜，铺开后翻炒 3 分钟，使表面均匀受热。",
           "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
           "heat_level": "大火"
         },
         {
-          "step_number": 3,
-          "instruction": "加入生抽、盐，翻炒 1 分钟；检查主料达到熟度要求后关火。",
-          "duration_seconds": 60,
-          "heat_level": "中火",
-          "safety_note": null
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_curated_6c3c664e4159",
@@ -1464,7 +1613,7 @@
       ],
       "summary": "参考固定上游版本并按家庭厨房场景校订的上汤娃娃菜。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/vegetable_dish/上汤娃娃菜/上汤娃娃菜.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/vegetable_dish/上汤娃娃菜/上汤娃娃菜.md",
@@ -1504,26 +1653,35 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "按食材清单备好娃娃菜、皮蛋、火腿、蒜；蔬菜清洗后沥干，按菜品需要切配。"
+          "instruction": "按清单称量食材。将娃娃菜处理成约 2 厘米的均匀块或片，1 个皮蛋、60 克火腿分别洗净切好。"
         },
         {
-          "step_number": 2,
-          "instruction": "汤锅加入清单中的清水并烧开。",
-          "heat_level": "大火"
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
         },
         {
-          "step_number": 3,
-          "instruction": "放入娃娃菜、皮蛋、火腿、蒜，转小火煮 12 分钟，期间每 10 分钟搅动一次。",
-          "duration_seconds": 720,
+          "instruction": "加入400 克娃娃菜，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入1 个皮蛋、60 克火腿和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
           "heat_level": "小火"
         },
         {
-          "step_number": 4,
-          "instruction": "加入盐，搅匀并确认主料熟透后关火。",
-          "safety_note": null
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "不要只凭计时判断，确认食材达到可食用状态。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“上汤娃娃菜”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_curated_5b19343eb230",
@@ -1536,7 +1694,7 @@
       ],
       "summary": "参考固定上游版本并按家庭厨房场景校订的凉拌黄瓜。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/vegetable_dish/凉拌黄瓜.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/vegetable_dish/凉拌黄瓜.md",
@@ -1576,19 +1734,26 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "按食材清单备好黄瓜、蒜；蔬菜清洗后沥干，按菜品需要切配。"
+          "instruction": "按清单称量食材。将黄瓜处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
         },
         {
-          "step_number": 2,
-          "instruction": "将黄瓜、蒜放入干净大碗，加入生抽、香醋、盐、白糖、香油。"
+          "instruction": "需要熟制的黄瓜放入沸水或平底锅中加热，至中心完全熟透后取出。",
+          "safety_note": "确认需要熟制的食材已熟，不把生食与熟食混放。"
         },
         {
-          "step_number": 3,
-          "instruction": "充分拌匀后静置 10 分钟，使味道均匀。",
-          "duration_seconds": 600
+          "instruction": "将熟制后的主料摊开放凉 3 分钟；配菜充分沥干，避免稀释调味汁。"
+        },
+        {
+          "instruction": "小碗中加入清单里的油、醋、生抽、盐等调味料，搅拌至盐糖溶解。"
+        },
+        {
+          "instruction": "沙拉碗中放入400 克黄瓜和配菜，先淋入一半调味汁，从碗底向上翻拌。"
+        },
+        {
+          "instruction": "检查咸淡后加入剩余调味汁，再翻拌约 20 秒；拌好后立即食用或盖好冷藏。"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_curated_9492795d23a2",
@@ -1601,7 +1766,7 @@
       ],
       "summary": "参考固定上游版本并按家庭厨房场景校订的鸡蛋羹。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/vegetable_dish/鸡蛋羹/鸡蛋羹.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/vegetable_dish/鸡蛋羹/鸡蛋羹.md",
@@ -1637,26 +1802,37 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "按食材清单备好鸡蛋、温水；蔬菜清洗后沥干，按菜品需要切配。"
+          "instruction": "按清单称量食材。将鸡蛋处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
         },
         {
-          "step_number": 2,
-          "instruction": "将 3 个鸡蛋打散，加入 300 毫升温水和 2 克盐搅匀，过滤到耐热碗并盖上耐热盘。"
+          "instruction": "将3 个鸡蛋加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
         },
         {
-          "step_number": 3,
-          "instruction": "蒸锅加入 1200 毫升清水烧开，放入蛋液碗，中火蒸 10 分钟。",
-          "duration_seconds": 600,
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入3 个鸡蛋，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
           "heat_level": "中火",
-          "safety_note": "开盖时让蒸汽远离脸和手。"
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
         },
         {
-          "step_number": 4,
-          "instruction": "关火焖 2 分钟，确认蛋液完全凝固后取出，淋生抽和香油。",
-          "duration_seconds": 120
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_curated_c6d120c60078",
@@ -1669,7 +1845,7 @@
       ],
       "summary": "参考固定上游版本并按家庭厨房场景校订的虎皮青椒。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/vegetable_dish/虎皮青椒/虎皮青椒.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/vegetable_dish/虎皮青椒/虎皮青椒.md",
@@ -1709,36 +1885,48 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "按食材清单备好青椒、蒜；蔬菜清洗后沥干，按菜品需要切配。"
+          "instruction": "按清单称量食材。将青椒处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
         },
         {
-          "step_number": 2,
-          "instruction": "炒锅加入清单中的食用油，中火放入青椒，大火翻炒 3 分钟至蔬菜断生。",
+          "instruction": "将350 克青椒加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入350 克青椒，铺开后翻炒 3 分钟，使表面均匀受热。",
           "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
           "heat_level": "大火"
         },
         {
-          "step_number": 3,
-          "instruction": "加入生抽、盐、香醋、白糖，翻炒 1 分钟；检查主料达到熟度要求后关火。",
-          "duration_seconds": 60,
-          "heat_level": "中火",
-          "safety_note": null
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_curated_17ef9ac3e39d",
       "name": "菠菜炒鸡蛋",
       "default_servings": 2,
-      "estimated_time_minutes": 15,
+      "estimated_time_minutes": 20,
       "difficulty": "简单",
       "equipment": [
         "炒锅"
       ],
       "summary": "参考固定上游版本并按家庭厨房场景校订的菠菜炒鸡蛋。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/vegetable_dish/菠菜炒鸡蛋/菠菜炒鸡蛋.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/vegetable_dish/菠菜炒鸡蛋/菠菜炒鸡蛋.md",
@@ -1770,48 +1958,48 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "按食材清单备好菠菜、鸡蛋；蔬菜清洗后沥干，按菜品需要切配。"
+          "instruction": "按清单称量食材。将菠菜处理成约 2 厘米的均匀块或片，3 个鸡蛋分别洗净切好。"
         },
         {
-          "step_number": 2,
-          "instruction": "鸡蛋打散；炒锅加入清单中一半食用油，中火炒 1 分钟至刚凝固，盛出备用。",
+          "instruction": "将300 克菠菜加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
           "duration_seconds": 60,
           "heat_level": "中火"
         },
         {
-          "step_number": 3,
-          "instruction": "加入菠菜，大火翻炒 3 分钟至蔬菜断生。",
+          "instruction": "加入300 克菠菜，铺开后翻炒 3 分钟，使表面均匀受热。",
           "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入3 个鸡蛋，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
           "heat_level": "大火"
         },
         {
-          "step_number": 4,
-          "instruction": "把炒好的鸡蛋倒回锅中，翻炒 30 秒。",
-          "duration_seconds": 30,
-          "heat_level": "中火"
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
         },
         {
-          "step_number": 5,
-          "instruction": "加入生抽、盐，翻炒 1 分钟；检查主料达到熟度要求后关火。",
-          "duration_seconds": 60,
-          "heat_level": "中火",
-          "safety_note": null
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_curated_8fbb82d41231",
       "name": "白灼菜心",
       "default_servings": 2,
-      "estimated_time_minutes": 12,
+      "estimated_time_minutes": 20,
       "difficulty": "简单",
       "equipment": [
         "汤锅"
       ],
       "summary": "参考固定上游版本并按家庭厨房场景校订的白灼菜心。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/vegetable_dish/白灼菜心/白灼菜心.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/vegetable_dish/白灼菜心/白灼菜心.md",
@@ -1847,27 +2035,5455 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "按食材清单备好菜心、蒜；蔬菜清洗后沥干，按菜品需要切配。"
+          "instruction": "按清单称量食材。将菜心处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
         },
         {
-          "step_number": 2,
-          "instruction": "汤锅加入 1500 毫升清水，大火烧开。",
+          "instruction": "将350 克菜心加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入350 克菜心，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
           "heat_level": "大火"
         },
         {
-          "step_number": 3,
-          "instruction": "放入菜心、蒜，转中火煮 3 分钟。",
-          "duration_seconds": 180,
-          "heat_level": "中火",
-          "safety_note": null
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
         },
         {
-          "step_number": 4,
-          "instruction": "加入生抽、盐、蚝油，确认主料熟透后关火。",
-          "safety_note": null
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
         }
-      ]
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_081",
+      "name": "蒜蓉菜心",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常蒜蓉菜心，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "菜心",
+          "amount": "200 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将菜心处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
+        },
+        {
+          "instruction": "将200 克菜心加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入200 克菜心，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_082",
+      "name": "蚝油菜心",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常蚝油菜心，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "菜心",
+          "amount": "200 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将菜心处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
+        },
+        {
+          "instruction": "将200 克菜心加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入200 克菜心，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_083",
+      "name": "上汤菜心",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常上汤菜心，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "菜心",
+          "amount": "200 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将菜心处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入200 克菜心，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "不要只凭计时判断，确认食材达到可食用状态。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“上汤菜心”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_084",
+      "name": "清炒菜心",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常清炒菜心，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "菜心",
+          "amount": "200 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将菜心处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
+        },
+        {
+          "instruction": "将200 克菜心加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入200 克菜心，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_085",
+      "name": "腐乳空心菜",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常腐乳空心菜，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "空心菜",
+          "amount": "200 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将空心菜处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
+        },
+        {
+          "instruction": "将200 克空心菜加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入200 克空心菜，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_086",
+      "name": "豆豉鲮鱼油麦菜",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常豆豉鲮鱼油麦菜，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "油麦菜",
+          "amount": "200 克"
+        },
+        {
+          "name": "鱼",
+          "amount": "400 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鱼处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "将400 克鱼加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入400 克鱼，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_087",
+      "name": "蒜蓉油麦菜",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常蒜蓉油麦菜，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "油麦菜",
+          "amount": "200 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将油麦菜处理成约 2 厘米的均匀块或片，4 瓣蒜分别洗净切好。"
+        },
+        {
+          "instruction": "将200 克油麦菜加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入200 克油麦菜，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入4 瓣蒜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_088",
+      "name": "清炒油麦菜",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常清炒油麦菜，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "油麦菜",
+          "amount": "200 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将油麦菜处理成约 2 厘米的均匀块或片，4 瓣蒜分别洗净切好。"
+        },
+        {
+          "instruction": "将200 克油麦菜加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入200 克油麦菜，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入4 瓣蒜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_089",
+      "name": "白灼生菜",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常白灼生菜，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "生菜",
+          "amount": "200 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将生菜处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
+        },
+        {
+          "instruction": "将200 克生菜加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入200 克生菜，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_090",
+      "name": "蒜蓉生菜",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常蒜蓉生菜，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "生菜",
+          "amount": "200 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将生菜处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
+        },
+        {
+          "instruction": "将200 克生菜加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入200 克生菜，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_091",
+      "name": "蚝油芥蓝",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常蚝油芥蓝，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "芥蓝",
+          "amount": "200 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将芥蓝处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
+        },
+        {
+          "instruction": "将200 克芥蓝加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入200 克芥蓝，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_092",
+      "name": "白灼芥蓝",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常白灼芥蓝，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "芥蓝",
+          "amount": "200 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将芥蓝处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
+        },
+        {
+          "instruction": "将200 克芥蓝加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入200 克芥蓝，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_093",
+      "name": "蒜蓉芥蓝",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常蒜蓉芥蓝，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "芥蓝",
+          "amount": "200 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将芥蓝处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
+        },
+        {
+          "instruction": "将200 克芥蓝加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入200 克芥蓝，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_094",
+      "name": "清炒芥蓝",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常清炒芥蓝，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "芥蓝",
+          "amount": "200 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将芥蓝处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
+        },
+        {
+          "instruction": "将200 克芥蓝加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入200 克芥蓝，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_095",
+      "name": "上汤菠菜",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常上汤菠菜，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "菠菜",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将菠菜处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入300 克菠菜，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "不要只凭计时判断，确认食材达到可食用状态。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“上汤菠菜”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_096",
+      "name": "蒜蓉菠菜",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常蒜蓉菠菜，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "菠菜",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将菠菜处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
+        },
+        {
+          "instruction": "将300 克菠菜加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克菠菜，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_097",
+      "name": "清炒菠菜",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常清炒菠菜，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "菠菜",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将菠菜处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
+        },
+        {
+          "instruction": "将300 克菠菜加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克菠菜，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_098",
+      "name": "菠菜拌粉丝",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常菠菜拌粉丝，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "菠菜",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将菠菜处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
+        },
+        {
+          "instruction": "需要熟制的菠菜放入沸水或平底锅中加热，至中心完全熟透后取出。",
+          "safety_note": "确认需要熟制的食材已熟，不把生食与熟食混放。"
+        },
+        {
+          "instruction": "将熟制后的主料摊开放凉 3 分钟；配菜充分沥干，避免稀释调味汁。"
+        },
+        {
+          "instruction": "小碗中加入清单里的油、醋、生抽、盐等调味料，搅拌至盐糖溶解。"
+        },
+        {
+          "instruction": "沙拉碗中放入300 克菠菜和配菜，先淋入一半调味汁，从碗底向上翻拌。"
+        },
+        {
+          "instruction": "检查咸淡后加入剩余调味汁，再翻拌约 20 秒；拌好后立即食用或盖好冷藏。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_099",
+      "name": "菠菜豆腐汤",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常菠菜豆腐汤，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "豆腐",
+          "amount": "300 克"
+        },
+        {
+          "name": "菠菜",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将豆腐处理成约 2 厘米的均匀块或片，300 克菠菜分别洗净切好。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入300 克豆腐，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克菠菜和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "不要只凭计时判断，确认食材达到可食用状态。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“菠菜豆腐汤”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_100",
+      "name": "清炒小白菜",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常清炒小白菜，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "小白菜",
+          "amount": "200 克"
+        },
+        {
+          "name": "白菜",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将小白菜处理成约 2 厘米的均匀块或片，300 克白菜分别洗净切好。"
+        },
+        {
+          "instruction": "将200 克小白菜加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入200 克小白菜，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克白菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_101",
+      "name": "蒜蓉小白菜",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常蒜蓉小白菜，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "小白菜",
+          "amount": "200 克"
+        },
+        {
+          "name": "白菜",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将小白菜处理成约 2 厘米的均匀块或片，300 克白菜分别洗净切好。"
+        },
+        {
+          "instruction": "将200 克小白菜加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入200 克小白菜，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克白菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_102",
+      "name": "香菇小白菜",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常香菇小白菜，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "小白菜",
+          "amount": "200 克"
+        },
+        {
+          "name": "香菇",
+          "amount": "200 克"
+        },
+        {
+          "name": "白菜",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将小白菜处理成约 2 厘米的均匀块或片，200 克香菇、300 克白菜分别洗净切好。"
+        },
+        {
+          "instruction": "将200 克小白菜加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入200 克小白菜，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入200 克香菇、300 克白菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_103",
+      "name": "醋溜白菜",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常醋溜白菜，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "白菜",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将白菜处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
+        },
+        {
+          "instruction": "将300 克白菜加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克白菜，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_104",
+      "name": "白菜炖豆腐",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常白菜炖豆腐，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "豆腐",
+          "amount": "300 克"
+        },
+        {
+          "name": "白菜",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将豆腐处理成约 2 厘米的均匀块或片，300 克白菜分别洗净切好。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入300 克豆腐，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克白菜和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "不要只凭计时判断，确认食材达到可食用状态。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“白菜炖豆腐”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_105",
+      "name": "白菜炖粉条",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常白菜炖粉条，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "白菜",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将白菜处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入300 克白菜，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "不要只凭计时判断，确认食材达到可食用状态。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“白菜炖粉条”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_106",
+      "name": "白菜炒木耳",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常白菜炒木耳，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "木耳",
+          "amount": "200 克"
+        },
+        {
+          "name": "白菜",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将木耳处理成约 2 厘米的均匀块或片，300 克白菜分别洗净切好。"
+        },
+        {
+          "instruction": "将200 克木耳加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入200 克木耳，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克白菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_107",
+      "name": "白菜炒肉片",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常白菜炒肉片，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "猪肉",
+          "amount": "300 克"
+        },
+        {
+          "name": "白菜",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将猪肉处理成约 2 厘米的均匀块或片，300 克白菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "将300 克猪肉加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克猪肉，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入300 克白菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_108",
+      "name": "白菜丸子汤",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常白菜丸子汤，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "白菜",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将白菜处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入300 克白菜，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "不要只凭计时判断，确认食材达到可食用状态。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“白菜丸子汤”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_109",
+      "name": "酸辣白菜",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常酸辣白菜，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "白菜",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将白菜处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
+        },
+        {
+          "instruction": "将300 克白菜加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克白菜，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_110",
+      "name": "白菜卷肉",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常白菜卷肉，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "白菜",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将白菜处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
+        },
+        {
+          "instruction": "将300 克白菜加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克白菜，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_111",
+      "name": "白菜豆腐煲",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常白菜豆腐煲，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "豆腐",
+          "amount": "300 克"
+        },
+        {
+          "name": "白菜",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将豆腐处理成约 2 厘米的均匀块或片，300 克白菜分别洗净切好。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入300 克豆腐，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克白菜和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "不要只凭计时判断，确认食材达到可食用状态。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“白菜豆腐煲”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_112",
+      "name": "白菜粉丝煲",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常白菜粉丝煲，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "白菜",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将白菜处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入300 克白菜，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "不要只凭计时判断，确认食材达到可食用状态。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“白菜粉丝煲”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_113",
+      "name": "少油手撕包菜",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "用少量油快速炒出脆嫩口感，酸香微辣的家常手撕包菜。",
+      "ingredients": [
+        {
+          "name": "包菜",
+          "amount": "400 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "10 克"
+        },
+        {
+          "name": "干辣椒",
+          "amount": "3 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        },
+        {
+          "name": "香醋",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "白糖",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "包菜去掉破损外叶和硬根，叶片用手撕成约 4 厘米块；较厚的叶梗斜切薄片，和叶片分开放。"
+        },
+        {
+          "instruction": "包菜放入清水中淘洗，捞出后充分沥干；表面不能有明显水珠，否则下锅后难以炒香。"
+        },
+        {
+          "instruction": "蒜切薄片，干辣椒剪成小段；小碗中加入 10 毫升生抽、10 毫升香醋、2 克盐和 2 克白糖搅匀。"
+        },
+        {
+          "instruction": "炒锅空锅中火加热 1 分钟，确认锅内没有残留水分。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入 10 毫升食用油、蒜片和干辣椒，中小火翻炒 20 秒，闻到香味但蒜片尚未变焦。",
+          "duration_seconds": 20,
+          "heat_level": "中小火"
+        },
+        {
+          "instruction": "先放较厚的包菜梗，转大火翻炒 1 分钟，让梗部开始变得半透明。",
+          "duration_seconds": 60,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "加入全部包菜叶，大火快速翻炒 2 分钟，炒至叶片体积缩小、边缘略软但仍有脆度。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "把碗汁沿锅边淋入，大火翻炒 30 秒至调味均匀，立即关火装盘，避免继续加热使包菜出水。",
+          "duration_seconds": 30,
+          "heat_level": "大火"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1,
+      "name_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_114",
+      "name": "干锅包菜",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常干锅包菜，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "包菜",
+          "amount": "200 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将包菜处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
+        },
+        {
+          "instruction": "将200 克包菜加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入200 克包菜，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_115",
+      "name": "腊肉炒包菜",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常腊肉炒包菜，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "包菜",
+          "amount": "200 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将包菜处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
+        },
+        {
+          "instruction": "将200 克包菜加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入200 克包菜，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_116",
+      "name": "蒜香包菜",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常蒜香包菜，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "包菜",
+          "amount": "200 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将包菜处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
+        },
+        {
+          "instruction": "将200 克包菜加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入200 克包菜，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_117",
+      "name": "酸辣包菜",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常酸辣包菜，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "包菜",
+          "amount": "200 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将包菜处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
+        },
+        {
+          "instruction": "将200 克包菜加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入200 克包菜，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_118",
+      "name": "包菜炒粉丝",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常包菜炒粉丝，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "包菜",
+          "amount": "200 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将包菜处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入200 克包菜翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "成品中心应充分热透。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_119",
+      "name": "包菜炒鸡蛋",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常包菜炒鸡蛋，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "包菜",
+          "amount": "200 克"
+        },
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将包菜处理成约 2 厘米的均匀块或片，2 个鸡蛋分别洗净切好。"
+        },
+        {
+          "instruction": "将200 克包菜加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入200 克包菜，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入2 个鸡蛋，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_120",
+      "name": "干煸四季豆",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常干煸四季豆，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "四季豆",
+          "amount": "200 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将四季豆处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
+        },
+        {
+          "instruction": "将200 克四季豆加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入200 克四季豆，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_121",
+      "name": "肉末四季豆",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常肉末四季豆，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "四季豆",
+          "amount": "200 克"
+        },
+        {
+          "name": "猪肉",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将四季豆处理成约 2 厘米的均匀块或片，300 克猪肉分别洗净切好。"
+        },
+        {
+          "instruction": "将200 克四季豆加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入200 克四季豆，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克猪肉，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_122",
+      "name": "蒜蓉四季豆",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常蒜蓉四季豆，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "四季豆",
+          "amount": "200 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将四季豆处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
+        },
+        {
+          "instruction": "将200 克四季豆加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入200 克四季豆，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_123",
+      "name": "橄榄菜四季豆",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常橄榄菜四季豆，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "四季豆",
+          "amount": "200 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将四季豆处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
+        },
+        {
+          "instruction": "将200 克四季豆加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入200 克四季豆，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_124",
+      "name": "四季豆炒腊肉",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常四季豆炒腊肉，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "四季豆",
+          "amount": "200 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将四季豆处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
+        },
+        {
+          "instruction": "将200 克四季豆加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入200 克四季豆，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_125",
+      "name": "豆角炒鸡蛋",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常豆角炒鸡蛋，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "豆角",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鸡蛋处理成约 2 厘米的均匀块或片，300 克豆角分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "将2 个鸡蛋加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入2 个鸡蛋，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入300 克豆角，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_126",
+      "name": "酸豆角炒肉",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常酸豆角炒肉，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "酸豆角",
+          "amount": "200 克"
+        },
+        {
+          "name": "豆角",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将酸豆角处理成约 2 厘米的均匀块或片，300 克豆角分别洗净切好。"
+        },
+        {
+          "instruction": "将200 克酸豆角加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入200 克酸豆角，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克豆角，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_127",
+      "name": "酸豆角炒鸡胗",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常酸豆角炒鸡胗，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "酸豆角",
+          "amount": "200 克"
+        },
+        {
+          "name": "鸡肉",
+          "amount": "300 克"
+        },
+        {
+          "name": "豆角",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将酸豆角处理成约 2 厘米的均匀块或片，300 克鸡肉、300 克豆角分别清理后切好。"
+        },
+        {
+          "instruction": "将200 克酸豆角加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入200 克酸豆角，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克鸡肉、300 克豆角，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_128",
+      "name": "干煸豆角",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常干煸豆角，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "豆角",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将豆角处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
+        },
+        {
+          "instruction": "将300 克豆角加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克豆角，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_129",
+      "name": "豆角焖饭",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常豆角焖饭，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "豆角",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将豆角处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入300 克豆角，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "不要只凭计时判断，确认食材达到可食用状态。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“豆角焖饭”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_130",
+      "name": "蒜香豇豆",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常蒜香豇豆，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "豇豆",
+          "amount": "200 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将豇豆处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
+        },
+        {
+          "instruction": "将200 克豇豆加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入200 克豇豆，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_131",
+      "name": "凉拌豇豆",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常凉拌豇豆，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "豇豆",
+          "amount": "200 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将豇豆处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
+        },
+        {
+          "instruction": "需要熟制的豇豆放入沸水或平底锅中加热，至中心完全熟透后取出。",
+          "safety_note": "确认需要熟制的食材已熟，不把生食与熟食混放。"
+        },
+        {
+          "instruction": "将熟制后的主料摊开放凉 3 分钟；配菜充分沥干，避免稀释调味汁。"
+        },
+        {
+          "instruction": "小碗中加入清单里的油、醋、生抽、盐等调味料，搅拌至盐糖溶解。"
+        },
+        {
+          "instruction": "沙拉碗中放入200 克豇豆和配菜，先淋入一半调味汁，从碗底向上翻拌。"
+        },
+        {
+          "instruction": "检查咸淡后加入剩余调味汁，再翻拌约 20 秒；拌好后立即食用或盖好冷藏。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_132",
+      "name": "白灼豇豆",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常白灼豇豆，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "豇豆",
+          "amount": "200 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将豇豆处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
+        },
+        {
+          "instruction": "将200 克豇豆加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入200 克豇豆，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_133",
+      "name": "豇豆炒茄子",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常豇豆炒茄子，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "豇豆",
+          "amount": "200 克"
+        },
+        {
+          "name": "茄子",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将豇豆处理成约 2 厘米的均匀块或片，300 克茄子分别洗净切好。"
+        },
+        {
+          "instruction": "将200 克豇豆加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入200 克豇豆，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克茄子，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_134",
+      "name": "豇豆烧土豆",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常豇豆烧土豆，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "豇豆",
+          "amount": "200 克"
+        },
+        {
+          "name": "土豆",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将豇豆处理成约 2 厘米的均匀块或片，300 克土豆分别洗净切好。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入200 克豇豆，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克土豆和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "不要只凭计时判断，确认食材达到可食用状态。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“豇豆烧土豆”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_135",
+      "name": "红烧茄子",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常红烧茄子，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "茄子",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将茄子处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入300 克茄子，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "不要只凭计时判断，确认食材达到可食用状态。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“红烧茄子”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_136",
+      "name": "鱼香茄子",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常鱼香茄子，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "茄子",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将茄子处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
+        },
+        {
+          "instruction": "将300 克茄子加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克茄子，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_137",
+      "name": "肉末烧茄子",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常肉末烧茄子，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "猪肉",
+          "amount": "300 克"
+        },
+        {
+          "name": "茄子",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将猪肉处理成约 2 厘米的均匀块或片，300 克茄子分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入300 克猪肉，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入300 克茄子和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“肉末烧茄子”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_138",
+      "name": "蒜泥茄子",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常蒜泥茄子，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "茄子",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将茄子处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
+        },
+        {
+          "instruction": "将300 克茄子加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克茄子，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_139",
+      "name": "凉拌茄子",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常凉拌茄子，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "茄子",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将茄子处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
+        },
+        {
+          "instruction": "需要熟制的茄子放入沸水或平底锅中加热，至中心完全熟透后取出。",
+          "safety_note": "确认需要熟制的食材已熟，不把生食与熟食混放。"
+        },
+        {
+          "instruction": "将熟制后的主料摊开放凉 3 分钟；配菜充分沥干，避免稀释调味汁。"
+        },
+        {
+          "instruction": "小碗中加入清单里的油、醋、生抽、盐等调味料，搅拌至盐糖溶解。"
+        },
+        {
+          "instruction": "沙拉碗中放入300 克茄子和配菜，先淋入一半调味汁，从碗底向上翻拌。"
+        },
+        {
+          "instruction": "检查咸淡后加入剩余调味汁，再翻拌约 20 秒；拌好后立即食用或盖好冷藏。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_140",
+      "name": "酱烧茄子",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常酱烧茄子，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "茄子",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将茄子处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入300 克茄子，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "不要只凭计时判断，确认食材达到可食用状态。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“酱烧茄子”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_141",
+      "name": "脆皮茄子",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常脆皮茄子，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "茄子",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将茄子处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
+        },
+        {
+          "instruction": "将300 克茄子加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克茄子，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_142",
+      "name": "茄子烧豆角",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常茄子烧豆角，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "豆角",
+          "amount": "200 克"
+        },
+        {
+          "name": "茄子",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将豆角处理成约 2 厘米的均匀块或片，300 克茄子分别洗净切好。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入200 克豆角，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克茄子和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "不要只凭计时判断，确认食材达到可食用状态。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“茄子烧豆角”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_143",
+      "name": "茄子炒青椒",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常茄子炒青椒，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "青椒",
+          "amount": "200 克"
+        },
+        {
+          "name": "茄子",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将青椒处理成约 2 厘米的均匀块或片，300 克茄子分别洗净切好。"
+        },
+        {
+          "instruction": "将200 克青椒加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入200 克青椒，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克茄子，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_144",
+      "name": "茄子焖面",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常茄子焖面，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "茄子",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将茄子处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入300 克茄子，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "不要只凭计时判断，确认食材达到可食用状态。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“茄子焖面”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_145",
+      "name": "长豆角烧茄子",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常长豆角烧茄子，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "豆角",
+          "amount": "200 克"
+        },
+        {
+          "name": "茄子",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将豆角处理成约 2 厘米的均匀块或片，300 克茄子分别洗净切好。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入200 克豆角，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克茄子和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "不要只凭计时判断，确认食材达到可食用状态。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“长豆角烧茄子”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_146",
+      "name": "家常烧茄子",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常家常烧茄子，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "茄子",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将茄子处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入300 克茄子，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "不要只凭计时判断，确认食材达到可食用状态。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“家常烧茄子”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_147",
+      "name": "炝炒土豆丝",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常炝炒土豆丝，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "土豆",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将土豆处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
+        },
+        {
+          "instruction": "将300 克土豆加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克土豆，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_148",
+      "name": "土豆丝炒肉",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常土豆丝炒肉，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "土豆",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将土豆处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
+        },
+        {
+          "instruction": "将300 克土豆加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克土豆，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_149",
+      "name": "土豆片炒肉",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常土豆片炒肉，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "土豆",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将土豆处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
+        },
+        {
+          "instruction": "将300 克土豆加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克土豆，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_150",
+      "name": "土豆片炒青椒",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常土豆片炒青椒，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "青椒",
+          "amount": "200 克"
+        },
+        {
+          "name": "土豆",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将青椒处理成约 2 厘米的均匀块或片，300 克土豆分别洗净切好。"
+        },
+        {
+          "instruction": "将200 克青椒加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入200 克青椒，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克土豆，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_151",
+      "name": "干锅土豆片",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常干锅土豆片，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "土豆",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将土豆处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
+        },
+        {
+          "instruction": "将300 克土豆加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克土豆，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_152",
+      "name": "香煎土豆片",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常香煎土豆片，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "土豆",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将土豆处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
+        },
+        {
+          "instruction": "用厨房纸吸干土豆表面水分，加入清单中的盐和调味料拌匀，静置 10 分钟。"
+        },
+        {
+          "instruction": "平底锅加入清单中的食用油，中火加热 30 秒。",
+          "duration_seconds": 30,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "放入300 克土豆单层铺开，先不要移动，煎 3 分钟至底面定型。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "翻面后加入配菜，继续煎炒 3 分钟，使各面均匀上色。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查最大一块的中心状态；未熟时转小火每次续煎 1 分钟并再次检查。",
+          "safety_note": "不要只凭表面颜色判断熟度。"
+        },
+        {
+          "instruction": "达到熟度后关火，静置 2 分钟再装盘，完成香煎土豆片。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_153",
+      "name": "田园土豆泥",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常田园土豆泥，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "土豆",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将土豆处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
+        },
+        {
+          "instruction": "将300 克土豆加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克土豆，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_154",
+      "name": "奶香土豆泥",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常奶香土豆泥，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "土豆",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将土豆处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
+        },
+        {
+          "instruction": "将300 克土豆加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克土豆，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_155",
+      "name": "土豆炖豆角",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常土豆炖豆角，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "豆角",
+          "amount": "200 克"
+        },
+        {
+          "name": "土豆",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将豆角处理成约 2 厘米的均匀块或片，300 克土豆分别洗净切好。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入200 克豆角，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克土豆和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "不要只凭计时判断，确认食材达到可食用状态。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“土豆炖豆角”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_156",
+      "name": "土豆炖茄子",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常土豆炖茄子，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "土豆",
+          "amount": "200 克"
+        },
+        {
+          "name": "茄子",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将土豆处理成约 2 厘米的均匀块或片，300 克茄子分别洗净切好。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入200 克土豆，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克茄子和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "不要只凭计时判断，确认食材达到可食用状态。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“土豆炖茄子”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_157",
+      "name": "土豆烧豆腐",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常土豆烧豆腐，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "豆腐",
+          "amount": "300 克"
+        },
+        {
+          "name": "土豆",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将豆腐处理成约 2 厘米的均匀块或片，300 克土豆分别洗净切好。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入300 克豆腐，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克土豆和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "不要只凭计时判断，确认食材达到可食用状态。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“土豆烧豆腐”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_158",
+      "name": "土豆丝煎饼",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常土豆丝煎饼，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "土豆",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将土豆处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
+        },
+        {
+          "instruction": "用厨房纸吸干土豆表面水分，加入清单中的盐和调味料拌匀，静置 10 分钟。"
+        },
+        {
+          "instruction": "平底锅加入清单中的食用油，中火加热 30 秒。",
+          "duration_seconds": 30,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "放入300 克土豆单层铺开，先不要移动，煎 3 分钟至底面定型。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "翻面后加入配菜，继续煎炒 3 分钟，使各面均匀上色。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查最大一块的中心状态；未熟时转小火每次续煎 1 分钟并再次检查。",
+          "safety_note": "不要只凭表面颜色判断熟度。"
+        },
+        {
+          "instruction": "达到熟度后关火，静置 2 分钟再装盘，完成土豆丝煎饼。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_159",
+      "name": "土豆鸡蛋饼",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常土豆鸡蛋饼，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "土豆",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鸡蛋处理成约 2 厘米的均匀块或片，300 克土豆分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "将2 个鸡蛋加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入2 个鸡蛋，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入300 克土豆，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_160",
+      "name": "清炒藕片",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常清炒藕片，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "时令蔬菜",
+          "amount": "300 克"
+        },
+        {
+          "name": "蒜",
+          "amount": "4 瓣"
+        },
+        {
+          "name": "生抽",
+          "amount": "10 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将时令蔬菜处理成约 2 厘米的均匀块或片，配菜分别洗净切好。"
+        },
+        {
+          "instruction": "将300 克时令蔬菜加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克时令蔬菜，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "tomato_egg",
+      "name": "番茄炒蛋",
+      "default_servings": 2,
+      "estimated_time_minutes": 20,
+      "ingredients": [
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "番茄",
+          "amount": "2 个"
+        },
+        {
+          "name": "食用油",
+          "amount": "1 汤匙 + 1 茶匙"
+        },
+        {
+          "name": "盐",
+          "amount": "1/4 茶匙"
+        },
+        {
+          "name": "生抽",
+          "amount": "1 茶匙",
+          "optional": true
+        },
+        {
+          "name": "葱花",
+          "amount": "1 汤匙",
+          "optional": true
+        }
+      ],
+      "notes": [
+        "热油和灶具请由使用者自行安全操作。",
+        "少盐口味请先按菜谱盐量的一半添加，尝味后再决定是否补加。"
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鸡蛋处理成约 2 厘米的均匀块或片，2 个番茄分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "将2 个鸡蛋加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入2 个鸡蛋，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入2 个番茄，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        }
+      ],
+      "summary": "经典家常番茄炒蛋，适合新手练习。",
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "source_name": "本地示例菜谱",
+      "source_url": null,
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "mock_shredded_potato",
+      "name": "土豆丝",
+      "default_servings": 2,
+      "summary": "适合新手练习切配和快炒的家常菜。",
+      "estimated_time_minutes": 20,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "ingredients": [
+        {
+          "name": "土豆",
+          "amount": "300 克"
+        },
+        {
+          "name": "盐",
+          "amount": "1/3 茶匙"
+        },
+        {
+          "name": "辣椒",
+          "amount": "1 根",
+          "optional": true
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将土豆处理成约 2 厘米的均匀块或片，1 根辣椒分别洗净切好。"
+        },
+        {
+          "instruction": "将300 克土豆加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克土豆，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入1 根辣椒，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1
     }
   ]
 }

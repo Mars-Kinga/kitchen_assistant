@@ -1,6 +1,10 @@
 from __future__ import annotations
 
+import threading
+import time
+from collections import deque
 from typing import Any
+from uuid import uuid4
 
 from .mock_robot_sdk import MockRobotSDK
 from .voice_io import VoiceOutput
@@ -28,6 +32,32 @@ class RuntimeExecutor:
             edge_rate=edge_rate,
             no_play=no_play,
         )
+        self._status_lock = threading.Lock()
+        self._robot_state = "idle"
+        self._last_action = "idle_wait"
+        self._last_display = "等待任务"
+        self._last_led_effect = None
+        self._last_expression = None
+        self._last_speech = ""
+        self._feedback_stream_id = uuid4().hex
+        self._feedback_sequence = 0
+        self._feedback_events: deque[dict[str, Any]] = deque(maxlen=64)
+        self._updated_at = time.time()
+
+    def status_snapshot(self) -> dict[str, Any]:
+        with self._status_lock:
+            return {
+                "state": self._robot_state,
+                "action": self._last_action,
+                "display": self._last_display,
+                "led_effect": self._last_led_effect,
+                "expression": self._last_expression,
+                "speech": self._last_speech,
+                "feedback_stream_id": self._feedback_stream_id,
+                "feedback_events": [dict(event) for event in self._feedback_events],
+                "updated_at": self._updated_at,
+                "simulated": True,
+            }
 
     def execute_plan(self, plan: dict[str, Any]) -> dict[str, Any]:
         if not isinstance(plan, dict):
@@ -35,13 +65,25 @@ class RuntimeExecutor:
             plan = {}
         if isinstance(plan.get("steps"), list):
             executed = 0
-            for index, step in enumerate(plan["steps"], start=1):
+            steps = plan["steps"]
+            execution_id = uuid4().hex
+            for index, step in enumerate(steps, start=1):
                 print(f"\n[执行步骤 {index}] {step.get('stage', '')}")
-                self._execute_single(step)
+                self._execute_single(
+                    step,
+                    execution_id=execution_id,
+                    execution_step=self._as_positive_int(step.get("execution_step"), index),
+                    execution_total=self._as_positive_int(step.get("execution_total"), len(steps)),
+                )
                 executed += 1
             return {"status": "ok", "steps_executed": executed}
 
-        self._execute_single(plan)
+        self._execute_single(
+            plan,
+            execution_id=uuid4().hex,
+            execution_step=self._as_positive_int(plan.get("execution_step"), 1),
+            execution_total=self._as_positive_int(plan.get("execution_total"), 1),
+        )
         return {
             "status": "ok",
             "robot_action": plan.get("robot_action", "idle_wait"),
@@ -51,7 +93,14 @@ class RuntimeExecutor:
             "expression": plan.get("expression"),
         }
 
-    def _execute_single(self, item: dict[str, Any]) -> None:
+    def _execute_single(
+        self,
+        item: dict[str, Any],
+        *,
+        execution_id: str | None = None,
+        execution_step: int = 1,
+        execution_total: int = 1,
+    ) -> None:
         if not isinstance(item, dict):
             print("[执行器-警告] 单条反馈不是对象，已安全降级。")
             item = {}
@@ -62,6 +111,13 @@ class RuntimeExecutor:
         led_effect = self._as_supported_effect(self._as_text(item.get("led_effect") or item.get("light_effect"), "white"))
         expression = self._as_supported_expression(self._as_text(item.get("expression"), "neutral"))
 
+        self._set_status(
+            "executing", action, display, led_effect, expression, speech,
+            execution_id=execution_id,
+            execution_step=execution_step,
+            execution_total=execution_total,
+        )
+
         # Keep independent simulated capabilities independent: one failed
         # capability must not hide the other four during a demo.
         self._safe_call("灯带", self.robot.light.set_effect, led_effect)
@@ -70,6 +126,44 @@ class RuntimeExecutor:
         self._safe_call("屏幕", self.robot.display.show_text, display)
         print(f"[模拟SDK-语音请求] {speech}")
         self._safe_call("语音", self.voice.speak, speech)
+        self._set_status("idle", action, display, led_effect, expression, speech)
+
+    def _set_status(
+        self,
+        state: str,
+        action: str,
+        display: str,
+        led_effect: str,
+        expression: str,
+        speech: str,
+        *,
+        execution_id: str | None = None,
+        execution_step: int = 1,
+        execution_total: int = 1,
+    ) -> None:
+        with self._status_lock:
+            self._robot_state = state
+            self._last_action = action
+            self._last_display = display[:240]
+            self._last_led_effect = led_effect
+            self._last_expression = expression
+            self._last_speech = speech
+            self._updated_at = time.time()
+            if state == "executing":
+                self._feedback_sequence += 1
+                self._feedback_events.append({
+                    "sequence": self._feedback_sequence,
+                    "action": action,
+                    "display": display,
+                    "led_effect": led_effect,
+                    "expression": expression,
+                    "speech": speech,
+                    "execution_id": execution_id,
+                    "execution_step": execution_step,
+                    "execution_total": execution_total,
+                    "updated_at": self._updated_at,
+                    "simulated": True,
+                })
 
     @staticmethod
     def _as_text(value: Any, fallback: str) -> str:
@@ -80,6 +174,14 @@ class RuntimeExecutor:
             print(f"[执行器-警告] 反馈字段类型无效，已转换为文本。")
             return str(value)
         return value
+
+    @staticmethod
+    def _as_positive_int(value: Any, fallback: int) -> int:
+        try:
+            parsed = int(value)
+        except (TypeError, ValueError):
+            return fallback
+        return parsed if parsed > 0 else fallback
 
     def _as_supported_action(self, action: str) -> str:
         if action not in self.robot.motion.ACTION_TEXT:

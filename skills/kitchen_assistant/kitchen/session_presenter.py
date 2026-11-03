@@ -1,13 +1,24 @@
 from __future__ import annotations
 
+import re
 from typing import Any
 
 from .models import RecipeCandidate
 
 
 def ingredient_display(item: dict[str, Any]) -> str:
-    amount = str(item.get("amount") or "适量")
-    unit = str(item.get("unit") or "")
+    amount = str(item.get("amount") if item.get("amount") is not None else "适量").strip() or "适量"
+    unit = str(item.get("unit") or "").strip()
+    qualitative = re.match(r"^(适量|少量|少许|若干|按口味)", amount)
+    if qualitative:
+        if re.fullmatch(r"(适量|少量|少许|若干)[块个片瓣勺碗份把圈]*", amount):
+            amount = qualitative.group(1)
+        unit = ""
+    elif unit:
+        while amount.endswith(unit + unit):
+            amount = amount[:-len(unit)]
+        if amount.endswith(unit) or re.search(r"(?:\d|[一二两三四五六七八九十半])\s*(?:毫升|毫克|千克|公斤|汤匙|茶匙|汤勺|小勺|勺|匙|碗|杯|克|斤|两|个|块|片|瓣|份|把|圈|kg|g|ml)$", amount, re.I):
+            unit = ""
     optional = "（可选）" if item.get("optional") else ""
     return f"{item.get('name', '食材')} {amount}{unit}{optional}"
 
@@ -37,11 +48,7 @@ def candidate_display(
         elif not inventory_known:
             supply = "食材见详情"
         else:
-            supply = (
-                "现有食材足够"
-                if not candidate.missing_ingredients
-                else f"缺：{'、'.join(candidate.missing_ingredients)}"
-            )
+            supply = f"没用到：{'、'.join(candidate.unused_ingredients) or '无'}"
         prefix = "" if single_candidate else f"{index}. "
         lines.append(
             f"{prefix}{candidate.title}｜{candidate.estimated_minutes or '?'} 分钟｜"

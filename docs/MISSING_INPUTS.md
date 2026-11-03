@@ -1,39 +1,48 @@
-# 接入配置与待补资料（公开版本）
+# 接入配置与待补资料
 
-2026-11-03 按公开源码快照 `e645b53` 核对。当前 `main` 与较新的本地实现有区别，见 [版本范围](../README.md#published-version-and-local-development)。
+2026-11-03 按本次同步的仓库实现核对。代码与共享说明一起发布；真实账号、目标设备及平台体验仍需分别验证。
 
-## 已有千问适配与配置
+## 已有千问文字、视觉与教程理解
 
-已有 OpenAI 兼容客户端，用于菜谱生成、普通厨房问答和本机相机食材识别。默认文字模型 `qwen3-omni-flash`、视觉模型 `qwen3-vl-flash`，关闭深度思考；文字调用使用流式输出。这些默认值不保证账号具备相应权限。
+项目通过 `openai` Python SDK 使用 OpenAI 兼容接口。当前默认文字模型为 `qwen3-omni-flash`，视觉模型为 `qwen3-vl-flash`，请求关闭深度思考，文字生成使用流式输出。服务地址、模型名及权限须与实际账号匹配。
 
-**公开版本只读取环境变量**：`DASHSCOPE_API_KEY`、`QWEN_BASE_URL`、`QWEN_TEXT_MODEL`、`QWEN_VISION_MODEL`、`QWEN_TIMEOUT_SECONDS`、`QWEN_VISION_TIMEOUT_SECONDS`、`QWEN_MAX_RETRIES`。复制 `.env` 或 `config/qwen.env` 不会自动生效；需要在启动程序的终端设置变量，不能提交密钥。本地新版本的配置文件覆盖机制尚未发布到 `main`。
+`skills/kitchen_assistant/llm/config.py` 先读环境变量，再用 `config/qwen.env` 中允许的非空值覆盖。允许项为：
 
-未配置千问时使用本地菜谱；配置后仍先查本地目录与已验证缓存。客户端默认零重试，但非法 JSON 或可纠正校验失败可以触发一次有预算限制的业务纠错。
+- `DASHSCOPE_API_KEY`、`QWEN_BASE_URL`
+- `QWEN_TEXT_MODEL`、`QWEN_VISION_MODEL`
+- `QWEN_TIMEOUT_SECONDS`、`QWEN_VISION_TIMEOUT_SECONDS`、`QWEN_MAX_RETRIES`
 
-真实运行仍需确认服务地址、地域、模型权限和可用凭据。`scripts/check_qwen_connection.py` 是显式联网检查，不属于默认离线测试，也不替代相机、语音或其他设备验证。
+不会自动读取根目录 `.env`，不会执行配置内容。`config/qwen.env` 被 Git 忽略；不要提交密钥，修改后重启服务。无千问配置时仍可使用本地固定菜谱和文字流程。
+
+视频理解复用上述账号配置，视频模型与超时通过环境变量 `QWEN_VIDEO_MODEL`、`QWEN_VIDEO_TIMEOUT_SECONDS` 设置；这两个变量不在本地配置文件允许项列表内。图文理解使用视觉模型。第三方视频获取通道使用 `VIDEO_IMPORT_API_KEY` 和可选 `VIDEO_IMPORT_WELLBYTE_URL`，需独立账号与额度，它不等于千问权限。
+
+待真实验证：账号是否允许目标模型、地址和地域是否匹配，以及文字、图片、视频/图文各自的请求结果。`scripts/check_qwen_connection.py` 会主动联网，只检查实际调用的路径，不替代所有功能验收。
 
 ## 真实菜谱搜索仍未接通
 
-`OnlineRecipeSearchProvider` 为占位，不发真实搜索请求。AI 生成不等于网络搜索。实现真实搜索前需要：
+`OnlineRecipeSearchProvider` 仍为 `web_search` 占位，不发真实搜索请求。未配置 AI 时使用本地 Provider；配置 AI 后仍默认本地优先，未命中时生成。AI 生成和教程导入都不等于通用网页菜谱搜索。
 
-- 选定 API/服务及官方文档、Base URL、鉴权、参数、响应和错误码。
-- 调用限制、超时、重试、分页、空结果与非法 JSON 规则。
-- 来源展示、缓存和再分发许可。
-- 如使用百炼搜索组件，确认工作空间授权、模型工具协议和费用。
-- 明确搜索/生成模式与来源展示，保持 `web_search`、`ai_generated` 和本地模式区别。
+实施搜索前需要：
 
-## 真实机器人
+- 选定服务及官方文档、地址、鉴权、请求/响应样例和错误码。
+- 调用限制、超时、重试、分页及空结果规则。
+- 来源链接、缓存、展示与再分发许可。
+- 若使用百炼搜索组件，确认工作空间授权、模型工具协议和相关费用。
+- 明确搜索与生成的模式选择及来源展示，继续区分 `web_search`、`ai_generated` 和本地结果。
 
-当前机器人动作、屏幕、灯带和表情是 Mock；语音可由 TTS 播放。接入真实设备还需要具体型号、官方 Skill 规范、SDK 安装方法、五通道接口、可用动作/效果 ID、参数约束与故障反馈，以及允许操作范围和测试设备。
+## 真实机器人与相机
 
-本机相机已有 OpenCV 单帧读取，不能将其描述为机器人侧摄像头已接通。公开版本也没有局域网控制台或设备遥测。
+当前 `MockRobotSDK` 提供模拟动作、屏幕、灯带和表情，语音由 `VoiceOutput` 按配置播放或仅打印。控制台的 `simulated` 状态不是机器人遥测。本机相机已有 OpenCV 适配，目标平台权限和可用性仍需现场验证。
 
-## 语音链路
+接入真实机器人仍需要：
 
-录音、VAD、ASR 和 TTS 代码已存在，依赖在 `requirements-voice.txt`。ASR 使用 `MIMO_API_KEY` 或 `TOKEN_PLAN_API_KEY`，以及 `MIMO_BASE_URL`、`MIMO_ASR_MODEL`，与千问配置独立。
+- 具体型号、官方 Skill 规范与 SDK 安装方法。
+- 五通道接口、动作/效果 ID、参数限制及故障反馈格式。
+- 机器人侧摄像头读取和状态接口。
+- 测试设备、允许操作范围与可观察的验收标准。
 
-目标麦克风、识别服务、播放后端、连续对话和录音期间计时提醒仍需验证；`voice_outputs/` 的留存与清理也需确定。代码存在不代表真实设备体验已验收。
+## 语音链路待验证
 
-## 尚未公开的本地功能
+已有录音、VAD、ASR、TTS 与 `--voice` 入口。ASR 读取 `MIMO_API_KEY` 或 `TOKEN_PLAN_API_KEY`，可通过 `MIMO_BASE_URL`、`MIMO_ASR_MODEL` 配置，与千问独立。依赖见 `requirements-voice.txt`，本地千问配置文件不读取这些 ASR 项。
 
-本地继续开发的控制台、视频/图文教程导入及便携启动，不是安装一个缺少的依赖就能在当前 `main` 中开启的功能。其代码同步发布后，再按对应版本文档配置和验证。
+仍需确定目标电脑与麦克风、可用识别服务、播放后端，以及 `voice_outputs/` 录音留存和清理要求。安装成功、Mock 反馈或入口测试均不等于完整语音体验已验收。

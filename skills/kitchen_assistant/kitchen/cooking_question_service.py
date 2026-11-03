@@ -15,7 +15,7 @@ class CookingQuestionService(Protocol):
 
 
 class RuleBasedCookingQuestionService:
-    """Offline safety-first advice. It never advances or edits a recipe step."""
+    """Offline cooking help with a hard boundary around incident response."""
 
     def answer(self, question: str, context: CookingContext) -> CookingAnswer | None:
         text = question.replace(" ", "")
@@ -79,16 +79,21 @@ class RuleBasedCookingQuestionService:
 
     @staticmethod
     def _stop_answer(text: str) -> CookingAnswer | None:
-        if "起火" in text or "着火" in text:
-            return CookingAnswer("先停止加热；不要向油火泼水。若火势无法立即安全控制，请远离现场并联系当地紧急服务。", "请先停止加热并检查安全：油火不要泼水。", STOP_AND_CHECK, True, "stop", "red", "warning")
-        if any(word in text for word in ("燃气味", "煤气味", "闻到燃气", "闻到煤气")):
-            return CookingAnswer("先关闭火源；不要开关电器或使用明火，开窗通风并离开有气味区域，必要时联系燃气服务。", "疑似燃气泄漏：关火、勿动电器、通风并远离。", STOP_AND_CHECK, True, "stop", "red", "warning")
-        if "大量" in text and "烟" in text:
-            return CookingAnswer("先关闭加热并保持距离，确认锅内没有起火；烟持续或刺激明显时请通风并寻求现场帮助。", "大量冒烟：先停火，保持距离并检查。", STOP_AND_CHECK, True, "stop", "red", "warning")
-        if "烫伤" in text or "烫到" in text:
-            return CookingAnswer("请先停止当前操作并远离热源；用流动凉水持续冷却烫伤处，伤势严重或不确定时及时寻求医疗帮助。", "疑似烫伤：先停下并用流动凉水冷却。", STOP_AND_CHECK, True, "stop", "red", "warning")
-        if "电器进水" in text or ("电器" in text and "进水" in text):
-            return CookingAnswer("请先停止使用该电器；不要徒手接触可能带电的部位，必要时在确保安全的前提下切断电源并联系专业人员。", "电器进水：停止使用，勿触碰带电部位。", STOP_AND_CHECK, True, "stop", "red", "warning")
+        incident_markers = (
+            "起火", "着火", "燃气味", "煤气味", "闻到燃气", "闻到煤气",
+            "大量烟", "大量冒烟", "烫伤", "烫到", "电器进水",
+        )
+        if any(marker in text for marker in incident_markers):
+            return CookingAnswer(
+                "这属于事故或人身、设备风险，超出厨房助手的功能范围。"
+                "我不能判断现场情况，也不提供处置方案；本次烹饪指导已暂停，请寻求现场专业人员或当地紧急服务帮助。",
+                "超出功能范围｜厨房助手不提供事故处置方案",
+                STOP_AND_CHECK,
+                True,
+                "stop",
+                "red",
+                "warning",
+            )
         if "油溅" in text or ("油" in text and "溅" in text) or "油一直在响" in text or "油温过高" in text:
             return CookingAnswer("油温可能偏高，请先调小火或暂时离火，食材擦干后再下锅，并保持手脸远离锅沿。", "油温偏高：调小火，食材擦干，远离锅沿。", CAUTION, False, "stop", "yellow", "warning")
         return None
@@ -97,7 +102,7 @@ class RuleBasedCookingQuestionService:
 class LLMCookingQuestionService:
     """Reserved fallback wrapper until an approved LLM contract is supplied.
 
-    This class deliberately delegates to the local safety/rule service. A
+    This class deliberately delegates to the local boundary/rule service. A
     future structured LLM result must be validated before becoming a
     ``CookingAnswer`` and may never change the session's current step.
     """
@@ -110,7 +115,7 @@ class LLMCookingQuestionService:
 
 
 class QwenCookingQuestionService:
-    """Rules first; Qwen only answers ordinary questions that rules miss."""
+    """Rules and incident boundaries first; Qwen answers ordinary questions only."""
 
     def __init__(self, llm_client: object, fallback: CookingQuestionService | None = None) -> None:
         self.llm_client = llm_client
@@ -143,4 +148,4 @@ class QwenCookingQuestionService:
                 raise ValueError("回复为空或过长")
             return CookingAnswer(answer, answer[:80], NORMAL, False, "nod", "blue", "focused")
         except Exception:
-            return CookingAnswer("这个问题我暂时无法可靠判断。请先保持当前步骤不变，确认火候和安全后再继续。", "无法可靠判断：请先保持当前步骤并检查安全。", CAUTION, False, "nod", "yellow", "focused")
+            return CookingAnswer("这个烹饪问题我暂时无法可靠回答。请保持当前步骤不变，等你确认后再继续。", "暂时无法回答｜保持当前步骤", CAUTION, False, "nod", "yellow", "focused")

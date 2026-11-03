@@ -1,5 +1,5 @@
 {
-  "catalog_version": 1,
+  "catalog_version": 2,
   "recipes": [
     {
       "recipe_id": "htc_steamed_sea_bass",
@@ -12,7 +12,7 @@
       ],
       "summary": "突出鱼肉鲜嫩口感的基础清蒸鲈鱼。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/aquatic/清蒸鲈鱼/清蒸鲈鱼.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/aquatic/清蒸鲈鱼/清蒸鲈鱼.md",
@@ -53,48 +53,48 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "请摊主处理好鲈鱼；回家后用厨房纸擦干表面，在鱼身两侧各划两刀，抹 2 克盐和 10 毫升料酒，姜切片，葱切丝。",
-          "safety_note": "处理生鱼后清洗双手、刀具、砧板和台面。"
+          "instruction": "按清单称量食材。将鲈鱼处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
         },
         {
-          "step_number": 2,
-          "instruction": "鱼盘铺一半姜片和葱丝，放上鲈鱼，再把剩余姜片放在鱼身上。"
+          "instruction": "将500 克鲈鱼与清单中的生抽、盐和淀粉拌匀，静置 10 分钟入味。"
         },
         {
-          "step_number": 3,
-          "instruction": "蒸锅加入 1500 毫升清水烧开，放入鱼盘，大火蒸 9 分钟。",
-          "duration_seconds": 540,
-          "heat_level": "大火",
-          "safety_note": "开盖时让蒸汽远离脸和手。"
+          "instruction": "把配菜平铺在耐热盘底，再将主料单层铺在上面，不要堆成厚团。"
         },
         {
-          "step_number": 4,
-          "instruction": "关火后焖 2 分钟，确认鱼肉完全不透明且能用筷子轻松拨开；未熟时继续蒸 2 分钟。",
-          "duration_seconds": 120,
-          "safety_note": "鱼肉未熟透时不要试吃。"
+          "instruction": "蒸锅加入足量清水，大火烧至持续冒蒸汽后再放入耐热盘。",
+          "duration_seconds": 180,
+          "heat_level": "大火"
         },
         {
-          "step_number": 5,
-          "instruction": "倒掉盘中多余汁水，淋 15 毫升蒸鱼豉油并放葱丝；另锅把 12 毫升食用油加热 40 秒后淋在葱丝上。",
-          "duration_seconds": 40,
+          "instruction": "加盖中火蒸 12 分钟，期间不要频繁开盖。",
+          "duration_seconds": 720,
           "heat_level": "中火",
-          "safety_note": "淋热油时保持手和脸远离鱼盘。"
+          "safety_note": "开盖时让蒸汽远离面部和手臂。"
+        },
+        {
+          "instruction": "切开最厚的一块检查中心；未熟时重新加盖蒸 3 分钟后再次检查。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "确认熟透后关火，戴隔热手套取出，静置 1 分钟再食用清蒸鲈鱼。"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_blanch_shrimp",
       "name": "白灼虾",
       "default_servings": 2,
-      "estimated_time_minutes": 15,
+      "estimated_time_minutes": 20,
       "difficulty": "简单",
       "equipment": [
         "汤锅"
       ],
       "summary": "火候短、保留虾肉清甜的白灼做法。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/aquatic/白灼虾/白灼虾.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/aquatic/白灼虾/白灼虾.md",
@@ -139,32 +139,37 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "剪去鲜虾长须并去虾线，用厨房纸吸去表面水分；姜切片，葱切段，蒜切末。",
-          "safety_note": "处理生虾后清洗双手、剪刀、砧板和台面。"
+          "instruction": "按清单称量食材。将鲜虾处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
         },
         {
-          "step_number": 2,
-          "instruction": "将蒜末、15 毫升生抽、10 毫升香醋和 3 毫升香油调成蘸汁。"
+          "instruction": "将350 克鲜虾加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
         },
         {
-          "step_number": 3,
-          "instruction": "汤锅加入 1000 毫升清水、姜、葱和 10 毫升料酒，大火烧开。",
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入350 克鲜虾，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
           "heat_level": "大火"
         },
         {
-          "step_number": 4,
-          "instruction": "放入鲜虾，大火煮 3 分钟，直到虾身弯曲、外壳变红且虾肉完全不透明。",
-          "duration_seconds": 180,
-          "heat_level": "大火",
-          "safety_note": "虾肉仍透明时继续加热，不要试吃。"
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
         },
         {
-          "step_number": 5,
-          "instruction": "用漏勺捞出鲜虾并沥水，配蘸汁食用。",
-          "safety_note": "捞取时防止沸水烫伤。"
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_braised_prawns",
@@ -177,7 +182,7 @@
       ],
       "summary": "酱汁红亮、虾肉鲜甜的家常油焖大虾。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/aquatic/油焖大虾/油焖大虾.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/aquatic/油焖大虾/油焖大虾.md",
@@ -222,37 +227,37 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "剪去鲜虾长须并去虾线，用厨房纸吸干表面水分；葱切段，姜切丝。",
-          "safety_note": "处理生虾后清洗双手、剪刀、砧板和台面。"
+          "instruction": "按清单称量食材。将鲜虾处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
         },
         {
-          "step_number": 2,
-          "instruction": "炒锅加入 20 毫升食用油，中火放入鲜虾，两面共煎 4 分钟至虾壳变红。",
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入400 克鲜虾，中火翻炒 4 分钟，使各面均匀受热。",
           "duration_seconds": 240,
           "heat_level": "中火",
-          "safety_note": "虾表面必须吸干，避免热油飞溅。"
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
         },
         {
-          "step_number": 3,
-          "instruction": "加入葱和姜翻炒 30 秒，再加入 20 毫升料酒、10 毫升生抽、8 克白糖、2 克盐和 80 毫升清水。",
-          "duration_seconds": 30,
-          "heat_level": "中火"
+          "instruction": "加入配菜和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
         },
         {
-          "step_number": 4,
-          "instruction": "盖锅盖小火焖 4 分钟，直到虾身弯曲且虾肉完全不透明。",
-          "duration_seconds": 240,
-          "heat_level": "小火",
-          "safety_note": "虾肉仍透明时继续加热。"
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
         },
         {
-          "step_number": 5,
-          "instruction": "开盖转中火收汁 2 分钟，汤汁浓稠后关火。",
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“油焖大虾”需要的浓度后关火。",
           "duration_seconds": 120,
           "heat_level": "中火"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_red_braised_fish",
@@ -265,7 +270,7 @@
       ],
       "summary": "咸鲜微甜、汤汁下饭的家常红烧鱼。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/aquatic/红烧鱼.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/aquatic/红烧鱼.md",
@@ -322,37 +327,37 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "请摊主处理好鲜鱼；回家后用厨房纸擦干表面，在鱼身两侧各划两刀，姜切片，葱切段，蒜拍裂。",
-          "safety_note": "处理生鱼后清洗双手、刀具、砧板和台面。"
+          "instruction": "按清单称量食材。将鲜鱼处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
         },
         {
-          "step_number": 2,
-          "instruction": "炒锅加入 25 毫升食用油，中火把鱼两面各煎 3 分钟。",
-          "duration_seconds": 360,
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入600 克鲜鱼，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
           "heat_level": "中火",
-          "safety_note": "鱼表面必须擦干；翻鱼时用锅铲托稳，防止热油飞溅。"
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
         },
         {
-          "step_number": 3,
-          "instruction": "加入姜、葱和蒜炒 30 秒，再沿锅边加入 15 毫升料酒。",
-          "duration_seconds": 30,
-          "heat_level": "中火"
+          "instruction": "加入配菜和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
         },
         {
-          "step_number": 4,
-          "instruction": "加入 15 毫升生抽、5 毫升老抽、5 毫升香醋、6 克白糖、2 克盐和 400 毫升清水，烧开后盖盖小火焖 12 分钟。",
-          "duration_seconds": 720,
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
           "heat_level": "小火"
         },
         {
-          "step_number": 5,
-          "instruction": "开盖中火收汁 3 分钟，确认鱼肉完全不透明且能轻松拨开后关火。",
-          "duration_seconds": 180,
-          "heat_level": "中火",
-          "safety_note": "鱼肉未熟透时继续加热，不要试吃。"
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“红烧鱼”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_curated_eebace3a0c5f",
@@ -365,7 +370,7 @@
       ],
       "summary": "参考固定上游版本并按家庭厨房场景校订的红烧鲤鱼。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/aquatic/红烧鲤鱼.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/aquatic/红烧鲤鱼.md",
@@ -425,30 +430,37 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "按食材清单备好鲤鱼、姜、葱、蒜；肉类或水产用厨房纸擦干，处理后清洗双手、刀具和砧板。",
-          "safety_note": "生肉和水产不要在水槽中冲洗，处理后清洁接触面。"
+          "instruction": "按清单称量食材。将鲤鱼处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
         },
         {
-          "step_number": 2,
-          "instruction": "炒锅加入 15 毫升食用油，中火放入姜、葱、蒜、鲤鱼翻炒 5 分钟，直到表面全部变色。",
-          "duration_seconds": 300,
-          "heat_level": "中火"
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
         },
         {
-          "step_number": 3,
-          "instruction": "加入料酒、生抽、老抽、白糖、盐、香醋和 500 毫升清水，烧开后盖盖小火焖 20 分钟。",
+          "instruction": "加入700 克鲤鱼，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入配菜和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
           "duration_seconds": 1200,
           "heat_level": "小火"
         },
         {
-          "step_number": 4,
-          "instruction": "开盖中火收汁 3 分钟，检查主料熟透后关火。",
-          "duration_seconds": 180,
-          "heat_level": "中火",
-          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“红烧鲤鱼”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_curated_51b421c7dd58",
@@ -461,7 +473,7 @@
       ],
       "summary": "参考固定上游版本并按家庭厨房场景校订的清蒸生蚝。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/aquatic/清蒸生蚝.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/aquatic/清蒸生蚝.md",
@@ -501,34 +513,35 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "按食材清单备好生蚝、蒜、葱；肉类或水产用厨房纸擦干，处理后清洗双手、刀具和砧板。",
-          "safety_note": "生肉和水产不要在水槽中冲洗，处理后清洁接触面。"
+          "instruction": "按清单称量食材。将生蚝处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
         },
         {
-          "step_number": 2,
-          "instruction": "将生蚝、蒜、葱放入耐热盘，加入生抽、盐。"
+          "instruction": "将600 克生蚝与清单中的生抽、盐和淀粉拌匀，静置 10 分钟入味。"
         },
         {
-          "step_number": 3,
-          "instruction": "蒸锅加入 1500 毫升清水烧开，放入菜盘，大火蒸 12 分钟。",
+          "instruction": "把配菜平铺在耐热盘底，再将主料单层铺在上面，不要堆成厚团。"
+        },
+        {
+          "instruction": "蒸锅加入足量清水，大火烧至持续冒蒸汽后再放入耐热盘。",
+          "duration_seconds": 180,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "加盖中火蒸 12 分钟，期间不要频繁开盖。",
           "duration_seconds": 720,
-          "heat_level": "大火",
-          "safety_note": "开盖时让蒸汽远离脸和手。"
-        },
-        {
-          "step_number": 4,
-          "instruction": "关火后检查主料熟透，再小心取出菜盘。",
-          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
-        },
-        {
-          "step_number": 5,
-          "instruction": "炒锅加热 5 毫升食用油 30 秒，将热油淋在蒸好的菜上。",
-          "duration_seconds": 30,
           "heat_level": "中火",
-          "safety_note": "淋热油时保持脸和手远离菜盘。"
+          "safety_note": "开盖时让蒸汽远离面部和手臂。"
+        },
+        {
+          "instruction": "切开最厚的一块检查中心；未熟时重新加盖蒸 3 分钟后再次检查。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "确认熟透后关火，戴隔热手套取出，静置 1 分钟再食用清蒸生蚝。"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_curated_5f4ef14a3e9e",
@@ -541,7 +554,7 @@
       ],
       "summary": "参考固定上游版本并按家庭厨房场景校订的鳊鱼炖豆腐。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/aquatic/鳊鱼炖豆腐/鳊鱼炖豆腐.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/aquatic/鳊鱼炖豆腐/鳊鱼炖豆腐.md",
@@ -597,36 +610,37 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "按食材清单备好鳊鱼、豆腐、姜、葱；肉类或水产用厨房纸擦干，处理后清洗双手、刀具和砧板。",
-          "safety_note": "生肉和水产不要在水槽中冲洗，处理后清洁接触面。"
+          "instruction": "按清单称量食材。将鳊鱼处理成约 2 厘米的均匀块或片，400 克豆腐分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
         },
         {
-          "step_number": 2,
-          "instruction": "炒锅加入 15 毫升食用油，中火放入姜、葱、鳊鱼翻炒 5 分钟，直到表面全部变色。",
-          "duration_seconds": 300,
-          "heat_level": "中火"
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
         },
         {
-          "step_number": 3,
-          "instruction": "加入料酒、生抽、老抽、白糖、盐和 500 毫升清水，烧开后盖盖小火焖 25 分钟。",
-          "duration_seconds": 1500,
-          "heat_level": "小火"
-        },
-        {
-          "step_number": 4,
-          "instruction": "加入豆腐，继续小火焖 12 分钟。",
-          "duration_seconds": 720,
-          "heat_level": "小火"
-        },
-        {
-          "step_number": 5,
-          "instruction": "开盖中火收汁 3 分钟，检查主料熟透后关火。",
-          "duration_seconds": 180,
+          "instruction": "加入700 克鳊鱼，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
           "heat_level": "中火",
-          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入400 克豆腐和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“鳊鱼炖豆腐”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_curated_8e6f9fac4821",
@@ -639,7 +653,7 @@
       ],
       "summary": "参考固定上游版本并按家庭厨房场景校订的蒜香黄油虾。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/aquatic/蒜香黄油虾/蒜香黄油虾.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/aquatic/蒜香黄油虾/蒜香黄油虾.md",
@@ -679,25 +693,37 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "按食材清单备好鲜虾、蒜；肉类或水产用厨房纸擦干，处理后清洗双手、刀具和砧板。",
-          "safety_note": "生肉和水产不要在水槽中冲洗，处理后清洁接触面。"
+          "instruction": "按清单称量食材。将鲜虾处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
         },
         {
-          "step_number": 2,
-          "instruction": "炒锅加入清单中的食用油，中火放入蒜、鲜虾翻炒 5 分钟，直到肉类或水产完全变色。",
-          "duration_seconds": 300,
-          "heat_level": "中火",
-          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+          "instruction": "将450 克鲜虾加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
         },
         {
-          "step_number": 3,
-          "instruction": "加入生抽、盐、黄油、黑胡椒粉，翻炒 1 分钟；检查主料达到熟度要求后关火。",
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
           "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入450 克鲜虾，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
           "heat_level": "中火",
-          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_curated_d78e304b4af9",
@@ -710,7 +736,7 @@
       ],
       "summary": "参考固定上游版本并按家庭厨房场景校订的葱油桂鱼。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/aquatic/葱油桂鱼/葱油桂鱼.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/aquatic/葱油桂鱼/葱油桂鱼.md",
@@ -750,34 +776,37 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "按食材清单备好桂鱼、葱、姜；肉类或水产用厨房纸擦干，处理后清洗双手、刀具和砧板。",
-          "safety_note": "生肉和水产不要在水槽中冲洗，处理后清洁接触面。"
+          "instruction": "按清单称量食材。将桂鱼处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
         },
         {
-          "step_number": 2,
-          "instruction": "将桂鱼、葱、姜放入耐热盘，加入生抽、盐、蒸鱼豉油。"
+          "instruction": "将700 克桂鱼加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
         },
         {
-          "step_number": 3,
-          "instruction": "蒸锅加入 1500 毫升清水烧开，放入菜盘，大火蒸 12 分钟。",
-          "duration_seconds": 720,
-          "heat_level": "大火",
-          "safety_note": "开盖时让蒸汽远离脸和手。"
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
         },
         {
-          "step_number": 4,
-          "instruction": "关火后检查主料熟透，再小心取出菜盘。",
-          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
-        },
-        {
-          "step_number": 5,
-          "instruction": "炒锅加热 5 毫升食用油 30 秒，将热油淋在蒸好的菜上。",
-          "duration_seconds": 30,
+          "instruction": "加入700 克桂鱼，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
           "heat_level": "中火",
-          "safety_note": "淋热油时保持脸和手远离菜盘。"
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_curated_2100ef8721d3",
@@ -790,7 +819,7 @@
       ],
       "summary": "参考固定上游版本并按家庭厨房场景校订的蒜蓉虾。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/aquatic/蒜蓉虾/蒜蓉虾.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/aquatic/蒜蓉虾/蒜蓉虾.md",
@@ -830,34 +859,37 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "按食材清单备好鲜虾、蒜、粉丝；肉类或水产用厨房纸擦干，处理后清洗双手、刀具和砧板。",
-          "safety_note": "生肉和水产不要在水槽中冲洗，处理后清洁接触面。"
+          "instruction": "按清单称量食材。将鲜虾处理成约 2 厘米的均匀块或片，100 克粉丝分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
         },
         {
-          "step_number": 2,
-          "instruction": "将鲜虾、蒜、粉丝放入耐热盘，加入生抽、盐、蒸鱼豉油。"
+          "instruction": "将450 克鲜虾加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
         },
         {
-          "step_number": 3,
-          "instruction": "蒸锅加入 1500 毫升清水烧开，放入菜盘，大火蒸 12 分钟。",
-          "duration_seconds": 720,
-          "heat_level": "大火",
-          "safety_note": "开盖时让蒸汽远离脸和手。"
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
         },
         {
-          "step_number": 4,
-          "instruction": "关火后检查主料熟透，再小心取出菜盘。",
-          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
-        },
-        {
-          "step_number": 5,
-          "instruction": "炒锅加热 5 毫升食用油 30 秒，将热油淋在蒸好的菜上。",
-          "duration_seconds": 30,
+          "instruction": "加入450 克鲜虾，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
           "heat_level": "中火",
-          "safety_note": "淋热油时保持脸和手远离菜盘。"
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入100 克粉丝，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_curated_4a8c017b54b2",
@@ -870,7 +902,7 @@
       ],
       "summary": "参考固定上游版本并按家庭厨房场景校订的水煮鱼。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/aquatic/水煮鱼.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/aquatic/水煮鱼.md",
@@ -922,40 +954,37 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "按食材清单备好鱼片、豆芽、青菜；肉类或水产用厨房纸擦干，处理后清洗双手、刀具和砧板。",
-          "safety_note": "生肉和水产不要在水槽中冲洗，处理后清洁接触面。"
+          "instruction": "按清单称量食材。将鱼片处理成约 2 厘米的均匀块或片，300 克豆芽、200 克青菜、15 克干辣椒、8 克花椒分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
         },
         {
-          "step_number": 2,
-          "instruction": "鱼片加入 15 克淀粉抓匀，腌制 10 分钟。",
-          "duration_seconds": 600
+          "instruction": "将700 克鱼片加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
         },
         {
-          "step_number": 3,
-          "instruction": "汤锅加入一半食用油和豆瓣酱，小火炒 1 分钟；加入清水烧开。",
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
           "duration_seconds": 60,
-          "heat_level": "小火"
-        },
-        {
-          "step_number": 4,
-          "instruction": "先放入豆芽和青菜煮 3 分钟并捞入碗底。",
-          "duration_seconds": 180,
           "heat_level": "中火"
         },
         {
-          "step_number": 5,
-          "instruction": "逐片放入鱼片，中火煮 4 分钟至鱼肉完全不透明。",
-          "duration_seconds": 240,
+          "instruction": "加入700 克鱼片，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
           "heat_level": "中火",
-          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
         },
         {
-          "step_number": 6,
-          "instruction": "把鱼片和汤倒入碗中，撒干辣椒和花椒；另锅烧热剩余食用油后淋在香料上。",
-          "safety_note": "淋热油时保持脸和手远离碗口。"
+          "instruction": "加入300 克豆芽、200 克青菜、15 克干辣椒、8 克花椒，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_curated_87dd9561e5cb",
@@ -968,7 +997,7 @@
       ],
       "summary": "参考固定上游版本并按家庭厨房场景校订的烤鱼。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/aquatic/混合烤鱼/烤鱼.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/aquatic/混合烤鱼/烤鱼.md",
@@ -1024,27 +1053,38 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "按食材清单备好鲜鱼、土豆、洋葱、青椒；肉类或水产用厨房纸擦干，处理后清洗双手、刀具和砧板。",
-          "safety_note": "生肉和水产不要在水槽中冲洗，处理后清洁接触面。"
+          "instruction": "按清单称量食材。将鲜鱼处理成约 2 厘米的均匀块或片，300 克土豆、150 克青椒、8 克孜然粉、6 克辣椒粉分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
         },
         {
-          "step_number": 2,
-          "instruction": "将鲜鱼、土豆、洋葱、青椒与生抽、料酒、盐、豆瓣酱、孜然粉、辣椒粉拌匀，平铺在烤盘中。"
+          "instruction": "将1000 克鲜鱼与清单中的盐、生抽和香辛料拌匀，腌制 15 分钟。"
         },
         {
-          "step_number": 3,
-          "instruction": "烤箱预热至 200 摄氏度，放入烤盘烤 35 分钟。",
-          "duration_seconds": 2100,
-          "heat_level": "200摄氏度",
-          "safety_note": "使用隔热手套取放烤盘。"
+          "instruction": "烤箱按菜谱温度预热 10 分钟，烤盘铺烘焙纸。",
+          "duration_seconds": 600,
+          "heat_level": "上下火 200℃"
         },
         {
-          "step_number": 4,
-          "instruction": "确认鱼肉完全不透明且能轻松拨开后取出；未熟时继续烤 5 分钟。",
-          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+          "instruction": "把主料和300 克土豆、150 克青椒、8 克孜然粉、6 克辣椒粉单层摆入烤盘，彼此留出空隙，表面薄薄刷油。"
+        },
+        {
+          "instruction": "放入烤箱中层烤 15 分钟，再取出翻面。",
+          "duration_seconds": 900,
+          "heat_level": "上下火 200℃",
+          "safety_note": "取放烤盘时使用隔热手套。"
+        },
+        {
+          "instruction": "继续烤 8 分钟，直到表面上色。",
+          "duration_seconds": 480,
+          "heat_level": "上下火 200℃",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "检查最厚处熟度；达到要求后静置 3 分钟再切分装盘。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_curated_c8ee5c3f5d0f",
@@ -1057,7 +1097,7 @@
       ],
       "summary": "参考固定上游版本并按家庭厨房场景校订的鲤鱼炖白菜。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/aquatic/鲤鱼炖白菜/鲤鱼炖白菜.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/aquatic/鲤鱼炖白菜/鲤鱼炖白菜.md",
@@ -1113,36 +1153,37 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "按食材清单备好鲤鱼、大白菜、姜、葱；肉类或水产用厨房纸擦干，处理后清洗双手、刀具和砧板。",
-          "safety_note": "生肉和水产不要在水槽中冲洗，处理后清洁接触面。"
+          "instruction": "按清单称量食材。将鲤鱼处理成约 2 厘米的均匀块或片，500 克大白菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
         },
         {
-          "step_number": 2,
-          "instruction": "炒锅加入 15 毫升食用油，中火放入姜、葱、鲤鱼翻炒 5 分钟，直到表面全部变色。",
-          "duration_seconds": 300,
-          "heat_level": "中火"
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
         },
         {
-          "step_number": 3,
-          "instruction": "加入料酒、生抽、老抽、白糖、盐和 500 毫升清水，烧开后盖盖小火焖 30 分钟。",
-          "duration_seconds": 1800,
-          "heat_level": "小火"
-        },
-        {
-          "step_number": 4,
-          "instruction": "加入大白菜，继续小火焖 12 分钟。",
-          "duration_seconds": 720,
-          "heat_level": "小火"
-        },
-        {
-          "step_number": 5,
-          "instruction": "开盖中火收汁 3 分钟，检查主料熟透后关火。",
-          "duration_seconds": 180,
+          "instruction": "加入700 克鲤鱼，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
           "heat_level": "中火",
-          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入500 克大白菜和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“鲤鱼炖白菜”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
         }
-      ]
+      ],
+      "beginner_review_version": 1
     },
     {
       "recipe_id": "htc_curated_270bae9a3e69",
@@ -1155,7 +1196,7 @@
       ],
       "summary": "参考固定上游版本并按家庭厨房场景校订的糖醋鲤鱼。",
       "source_key": "howtocook",
-      "source_name": "HowToCook（人工校订）",
+      "source_name": "HowToCook",
       "source_revision": "c05758fa661ac4efa0361a987b700a351a22159b",
       "source_path": "dishes/aquatic/糖醋鲤鱼/糖醋鲤鱼.md",
       "source_url": "https://github.com/Anduin2017/HowToCook/blob/c05758fa661ac4efa0361a987b700a351a22159b/dishes/aquatic/糖醋鲤鱼/糖醋鲤鱼.md",
@@ -1211,34 +1252,4263 @@
       ],
       "steps": [
         {
-          "step_number": 1,
-          "instruction": "按食材清单备好鲤鱼、葱、姜；肉类或水产用厨房纸擦干，处理后清洗双手、刀具和砧板。",
-          "safety_note": "生肉和水产不要在水槽中冲洗，处理后清洁接触面。"
+          "instruction": "按清单称量食材。将鲤鱼处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
         },
         {
-          "step_number": 2,
-          "instruction": "鲤鱼两侧各划数刀，抹 3 克盐后均匀拍上 50 克淀粉。",
-          "safety_note": "处理生鱼后清洗双手、刀具和砧板。"
+          "instruction": "将900 克鲤鱼加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
         },
         {
-          "step_number": 3,
-          "instruction": "炒锅加入 60 毫升食用油，中火把鱼两面各煎 6 分钟，至鱼肉完全不透明后盛出。",
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入900 克鲤鱼，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_161",
+      "name": "清蒸多宝鱼",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常清蒸多宝鱼，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "鱼块",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鱼块处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "将300 克鱼块与清单中的生抽、盐和淀粉拌匀，静置 10 分钟入味。"
+        },
+        {
+          "instruction": "把配菜平铺在耐热盘底，再将主料单层铺在上面，不要堆成厚团。"
+        },
+        {
+          "instruction": "蒸锅加入足量清水，大火烧至持续冒蒸汽后再放入耐热盘。",
+          "duration_seconds": 180,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "加盖中火蒸 12 分钟，期间不要频繁开盖。",
           "duration_seconds": 720,
           "heat_level": "中火",
-          "safety_note": "鱼身必须擦干，翻面时用锅铲托稳。"
+          "safety_note": "开盖时让蒸汽远离面部和手臂。"
         },
         {
-          "step_number": 4,
-          "instruction": "锅中留 5 毫升油，加入葱、姜、番茄酱、香醋、白糖、生抽和 80 毫升清水，小火煮 2 分钟。",
-          "duration_seconds": 120,
+          "instruction": "切开最厚的一块检查中心；未熟时重新加盖蒸 3 分钟后再次检查。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "确认熟透后关火，戴隔热手套取出，静置 1 分钟再食用清蒸多宝鱼。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_162",
+      "name": "清蒸黄花鱼",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常清蒸黄花鱼，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "鱼块",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鱼块处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "将300 克鱼块与清单中的生抽、盐和淀粉拌匀，静置 10 分钟入味。"
+        },
+        {
+          "instruction": "把配菜平铺在耐热盘底，再将主料单层铺在上面，不要堆成厚团。"
+        },
+        {
+          "instruction": "蒸锅加入足量清水，大火烧至持续冒蒸汽后再放入耐热盘。",
+          "duration_seconds": 180,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "加盖中火蒸 12 分钟，期间不要频繁开盖。",
+          "duration_seconds": 720,
+          "heat_level": "中火",
+          "safety_note": "开盖时让蒸汽远离面部和手臂。"
+        },
+        {
+          "instruction": "切开最厚的一块检查中心；未熟时重新加盖蒸 3 分钟后再次检查。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "确认熟透后关火，戴隔热手套取出，静置 1 分钟再食用清蒸黄花鱼。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_163",
+      "name": "清蒸带鱼",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常清蒸带鱼，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "鱼块",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鱼块处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "将300 克鱼块与清单中的生抽、盐和淀粉拌匀，静置 10 分钟入味。"
+        },
+        {
+          "instruction": "把配菜平铺在耐热盘底，再将主料单层铺在上面，不要堆成厚团。"
+        },
+        {
+          "instruction": "蒸锅加入足量清水，大火烧至持续冒蒸汽后再放入耐热盘。",
+          "duration_seconds": 180,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "加盖中火蒸 12 分钟，期间不要频繁开盖。",
+          "duration_seconds": 720,
+          "heat_level": "中火",
+          "safety_note": "开盖时让蒸汽远离面部和手臂。"
+        },
+        {
+          "instruction": "切开最厚的一块检查中心；未熟时重新加盖蒸 3 分钟后再次检查。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "确认熟透后关火，戴隔热手套取出，静置 1 分钟再食用清蒸带鱼。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_164",
+      "name": "清蒸鳜鱼",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常清蒸鳜鱼，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "鱼块",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鱼块处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "将300 克鱼块与清单中的生抽、盐和淀粉拌匀，静置 10 分钟入味。"
+        },
+        {
+          "instruction": "把配菜平铺在耐热盘底，再将主料单层铺在上面，不要堆成厚团。"
+        },
+        {
+          "instruction": "蒸锅加入足量清水，大火烧至持续冒蒸汽后再放入耐热盘。",
+          "duration_seconds": 180,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "加盖中火蒸 12 分钟，期间不要频繁开盖。",
+          "duration_seconds": 720,
+          "heat_level": "中火",
+          "safety_note": "开盖时让蒸汽远离面部和手臂。"
+        },
+        {
+          "instruction": "切开最厚的一块检查中心；未熟时重新加盖蒸 3 分钟后再次检查。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "确认熟透后关火，戴隔热手套取出，静置 1 分钟再食用清蒸鳜鱼。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_165",
+      "name": "清蒸石斑鱼",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常清蒸石斑鱼，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "鱼块",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鱼块处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "将300 克鱼块与清单中的生抽、盐和淀粉拌匀，静置 10 分钟入味。"
+        },
+        {
+          "instruction": "把配菜平铺在耐热盘底，再将主料单层铺在上面，不要堆成厚团。"
+        },
+        {
+          "instruction": "蒸锅加入足量清水，大火烧至持续冒蒸汽后再放入耐热盘。",
+          "duration_seconds": 180,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "加盖中火蒸 12 分钟，期间不要频繁开盖。",
+          "duration_seconds": 720,
+          "heat_level": "中火",
+          "safety_note": "开盖时让蒸汽远离面部和手臂。"
+        },
+        {
+          "instruction": "切开最厚的一块检查中心；未熟时重新加盖蒸 3 分钟后再次检查。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "确认熟透后关火，戴隔热手套取出，静置 1 分钟再食用清蒸石斑鱼。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_166",
+      "name": "清蒸鲳鱼",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常清蒸鲳鱼，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "鱼块",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鱼块处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "将300 克鱼块与清单中的生抽、盐和淀粉拌匀，静置 10 分钟入味。"
+        },
+        {
+          "instruction": "把配菜平铺在耐热盘底，再将主料单层铺在上面，不要堆成厚团。"
+        },
+        {
+          "instruction": "蒸锅加入足量清水，大火烧至持续冒蒸汽后再放入耐热盘。",
+          "duration_seconds": 180,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "加盖中火蒸 12 分钟，期间不要频繁开盖。",
+          "duration_seconds": 720,
+          "heat_level": "中火",
+          "safety_note": "开盖时让蒸汽远离面部和手臂。"
+        },
+        {
+          "instruction": "切开最厚的一块检查中心；未熟时重新加盖蒸 3 分钟后再次检查。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "确认熟透后关火，戴隔热手套取出，静置 1 分钟再食用清蒸鲳鱼。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_167",
+      "name": "红烧鲳鱼",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常红烧鲳鱼，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "鱼块",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鱼块处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入300 克鱼块，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入配菜和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
           "heat_level": "小火"
         },
         {
-          "step_number": 5,
-          "instruction": "将糖醋汁均匀淋在煎熟的鲤鱼上。",
-          "safety_note": "确认动物性食材中心完全熟透、无粉红或透明部分。"
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“红烧鲳鱼”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
         }
-      ]
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_168",
+      "name": "红烧带鱼",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常红烧带鱼，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "鱼块",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鱼块处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入300 克鱼块，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入配菜和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“红烧带鱼”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_169",
+      "name": "红烧黄花鱼",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常红烧黄花鱼，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "鱼块",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鱼块处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入300 克鱼块，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入配菜和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“红烧黄花鱼”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_170",
+      "name": "红烧鳜鱼",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常红烧鳜鱼，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "鱼块",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鱼块处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入300 克鱼块，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入配菜和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“红烧鳜鱼”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_171",
+      "name": "红烧鲫鱼",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常红烧鲫鱼，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "鱼块",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鱼块处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入300 克鱼块，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入配菜和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“红烧鲫鱼”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_172",
+      "name": "红烧草鱼块",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常红烧草鱼块，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "鱼块",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鱼块处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入300 克鱼块，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入配菜和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“红烧草鱼块”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_173",
+      "name": "红烧鱼头",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常红烧鱼头，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "鱼块",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鱼块处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入300 克鱼块，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入配菜和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“红烧鱼头”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_174",
+      "name": "剁椒鱼头",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常剁椒鱼头，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "鱼块",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鱼块处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "将300 克鱼块加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克鱼块，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_175",
+      "name": "鱼头豆腐汤",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常鱼头豆腐汤，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "豆腐",
+          "amount": "300 克"
+        },
+        {
+          "name": "鱼块",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将豆腐处理成约 2 厘米的均匀块或片，300 克鱼块分别洗净切好。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入300 克豆腐，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克鱼块和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "不要只凭计时判断，确认食材达到可食用状态。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“鱼头豆腐汤”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_176",
+      "name": "鱼头泡饼",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常鱼头泡饼，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "鱼块",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鱼块处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "将300 克鱼块加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克鱼块，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_177",
+      "name": "酸菜鱼",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常酸菜鱼，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "酸菜",
+          "amount": "200 克"
+        },
+        {
+          "name": "鱼块",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将酸菜处理成约 2 厘米的均匀块或片，300 克鱼块分别洗净切好。"
+        },
+        {
+          "instruction": "将200 克酸菜加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入200 克酸菜，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克鱼块，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_178",
+      "name": "水煮鱼片",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常水煮鱼片，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "鱼块",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鱼块处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "将300 克鱼块加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克鱼块，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_179",
+      "name": "番茄鱼片",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常番茄鱼片，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "番茄",
+          "amount": "200 克"
+        },
+        {
+          "name": "鱼块",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将番茄处理成约 2 厘米的均匀块或片，300 克鱼块分别洗净切好。"
+        },
+        {
+          "instruction": "将200 克番茄加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入200 克番茄，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克鱼块，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_180",
+      "name": "鱼片豆腐汤",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常鱼片豆腐汤，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "豆腐",
+          "amount": "300 克"
+        },
+        {
+          "name": "鱼块",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将豆腐处理成约 2 厘米的均匀块或片，300 克鱼块分别洗净切好。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入300 克豆腐，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克鱼块和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "不要只凭计时判断，确认食材达到可食用状态。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“鱼片豆腐汤”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_181",
+      "name": "鱼片粥",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常鱼片粥，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "鱼块",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鱼块处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入300 克鱼块翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入配菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_182",
+      "name": "鱼片米线",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常鱼片米线，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "鱼块",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鱼块处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "先按包装或清单要求把主食煮至熟透；煮好后沥水或焖至水分被吸收。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒，放入300 克鱼块翻炒 3 分钟。",
+          "duration_seconds": 210,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入配菜继续翻炒或煮 3 分钟，至配菜断生。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入清单中的生抽、盐等调味料，翻拌均匀；汤面或粥类按清单补足清水。"
+        },
+        {
+          "instruction": "加入已熟主食，中火加热 2 分钟，使主食与配料温度、味道均匀。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "检查动物性食材熟度和主食软硬，达到要求后关火盛出。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_183",
+      "name": "鱼香鱼块",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常鱼香鱼块，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "鱼块",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鱼块处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "将300 克鱼块加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克鱼块，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_184",
+      "name": "糖醋鱼块",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常糖醋鱼块，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "鱼块",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鱼块处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "将300 克鱼块加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克鱼块，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_185",
+      "name": "香煎带鱼",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常香煎带鱼，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "鱼块",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鱼块处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "用厨房纸吸干鱼块表面水分，加入清单中的盐和调味料拌匀，静置 10 分钟。"
+        },
+        {
+          "instruction": "平底锅加入清单中的食用油，中火加热 30 秒。",
+          "duration_seconds": 30,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "放入300 克鱼块单层铺开，先不要移动，煎 3 分钟至底面定型。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "翻面后加入配菜，继续煎炒 3 分钟，使各面均匀上色。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "检查最大一块的中心状态；未熟时转小火每次续煎 1 分钟并再次检查。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "达到熟度后关火，静置 2 分钟再装盘，完成香煎带鱼。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_186",
+      "name": "香煎鲳鱼",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常香煎鲳鱼，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "鱼块",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鱼块处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "用厨房纸吸干鱼块表面水分，加入清单中的盐和调味料拌匀，静置 10 分钟。"
+        },
+        {
+          "instruction": "平底锅加入清单中的食用油，中火加热 30 秒。",
+          "duration_seconds": 30,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "放入300 克鱼块单层铺开，先不要移动，煎 3 分钟至底面定型。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "翻面后加入配菜，继续煎炒 3 分钟，使各面均匀上色。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "检查最大一块的中心状态；未熟时转小火每次续煎 1 分钟并再次检查。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "达到熟度后关火，静置 2 分钟再装盘，完成香煎鲳鱼。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_187",
+      "name": "香煎黄花鱼",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常香煎黄花鱼，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "鱼块",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鱼块处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "用厨房纸吸干鱼块表面水分，加入清单中的盐和调味料拌匀，静置 10 分钟。"
+        },
+        {
+          "instruction": "平底锅加入清单中的食用油，中火加热 30 秒。",
+          "duration_seconds": 30,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "放入300 克鱼块单层铺开，先不要移动，煎 3 分钟至底面定型。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "翻面后加入配菜，继续煎炒 3 分钟，使各面均匀上色。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "检查最大一块的中心状态；未熟时转小火每次续煎 1 分钟并再次检查。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "达到熟度后关火，静置 2 分钟再装盘，完成香煎黄花鱼。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_188",
+      "name": "干烧黄鱼",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常干烧黄鱼，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "鱼块",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鱼块处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入300 克鱼块，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入配菜和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“干烧黄鱼”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_189",
+      "name": "葱烧鱼块",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常葱烧鱼块，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "鱼块",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鱼块处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入300 克鱼块，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入配菜和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“葱烧鱼块”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_190",
+      "name": "豆瓣鱼",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常豆瓣鱼，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "鱼块",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鱼块处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "将300 克鱼块加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克鱼块，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_191",
+      "name": "椒盐鱼块",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常椒盐鱼块，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "鱼块",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鱼块处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "用厨房纸吸干鱼块表面水分，加入清单中的盐和调味料拌匀，静置 10 分钟。"
+        },
+        {
+          "instruction": "平底锅加入清单中的食用油，中火加热 30 秒。",
+          "duration_seconds": 30,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "放入300 克鱼块单层铺开，先不要移动，煎 3 分钟至底面定型。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "翻面后加入配菜，继续煎炒 3 分钟，使各面均匀上色。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "检查最大一块的中心状态；未熟时转小火每次续煎 1 分钟并再次检查。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "达到熟度后关火，静置 2 分钟再装盘，完成椒盐鱼块。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_192",
+      "name": "椒盐小黄鱼",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常椒盐小黄鱼，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "鱼块",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鱼块处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "用厨房纸吸干鱼块表面水分，加入清单中的盐和调味料拌匀，静置 10 分钟。"
+        },
+        {
+          "instruction": "平底锅加入清单中的食用油，中火加热 30 秒。",
+          "duration_seconds": 30,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "放入300 克鱼块单层铺开，先不要移动，煎 3 分钟至底面定型。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "翻面后加入配菜，继续煎炒 3 分钟，使各面均匀上色。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "检查最大一块的中心状态；未熟时转小火每次续煎 1 分钟并再次检查。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "达到熟度后关火，静置 2 分钟再装盘，完成椒盐小黄鱼。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_193",
+      "name": "炸鱼块",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常炸鱼块，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "鱼块",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鱼块处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "用厨房纸吸干鱼块表面水分，加入清单中的盐和调味料拌匀，静置 10 分钟。"
+        },
+        {
+          "instruction": "平底锅加入清单中的食用油，中火加热 30 秒。",
+          "duration_seconds": 30,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "放入300 克鱼块单层铺开，先不要移动，煎 3 分钟至底面定型。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "翻面后加入配菜，继续煎炒 3 分钟，使各面均匀上色。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "检查最大一块的中心状态；未熟时转小火每次续煎 1 分钟并再次检查。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "达到熟度后关火，静置 2 分钟再装盘，完成炸鱼块。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_194",
+      "name": "酥炸带鱼",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常酥炸带鱼，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "鱼块",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鱼块处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "用厨房纸吸干鱼块表面水分，加入清单中的盐和调味料拌匀，静置 10 分钟。"
+        },
+        {
+          "instruction": "平底锅加入清单中的食用油，中火加热 30 秒。",
+          "duration_seconds": 30,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "放入300 克鱼块单层铺开，先不要移动，煎 3 分钟至底面定型。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "翻面后加入配菜，继续煎炒 3 分钟，使各面均匀上色。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "检查最大一块的中心状态；未熟时转小火每次续煎 1 分钟并再次检查。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "达到熟度后关火，静置 2 分钟再装盘，完成酥炸带鱼。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_195",
+      "name": "鱼香茄子鱼片",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常鱼香茄子鱼片，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "茄子",
+          "amount": "200 克"
+        },
+        {
+          "name": "鱼块",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将茄子处理成约 2 厘米的均匀块或片，300 克鱼块分别洗净切好。"
+        },
+        {
+          "instruction": "将200 克茄子加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入200 克茄子，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克鱼块，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_196",
+      "name": "蒜香鲈鱼",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常蒜香鲈鱼，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "鱼块",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鱼块处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "将300 克鱼块加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克鱼块，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_197",
+      "name": "豉汁蒸鱼",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常豉汁蒸鱼，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "鱼块",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鱼块处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "将300 克鱼块与清单中的生抽、盐和淀粉拌匀，静置 10 分钟入味。"
+        },
+        {
+          "instruction": "把配菜平铺在耐热盘底，再将主料单层铺在上面，不要堆成厚团。"
+        },
+        {
+          "instruction": "蒸锅加入足量清水，大火烧至持续冒蒸汽后再放入耐热盘。",
+          "duration_seconds": 180,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "加盖中火蒸 12 分钟，期间不要频繁开盖。",
+          "duration_seconds": 720,
+          "heat_level": "中火",
+          "safety_note": "开盖时让蒸汽远离面部和手臂。"
+        },
+        {
+          "instruction": "切开最厚的一块检查中心；未熟时重新加盖蒸 3 分钟后再次检查。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "确认熟透后关火，戴隔热手套取出，静置 1 分钟再食用豉汁蒸鱼。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_198",
+      "name": "柠檬蒸鱼",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常柠檬蒸鱼，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "鱼块",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鱼块处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "将300 克鱼块与清单中的生抽、盐和淀粉拌匀，静置 10 分钟入味。"
+        },
+        {
+          "instruction": "把配菜平铺在耐热盘底，再将主料单层铺在上面，不要堆成厚团。"
+        },
+        {
+          "instruction": "蒸锅加入足量清水，大火烧至持续冒蒸汽后再放入耐热盘。",
+          "duration_seconds": 180,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "加盖中火蒸 12 分钟，期间不要频繁开盖。",
+          "duration_seconds": 720,
+          "heat_level": "中火",
+          "safety_note": "开盖时让蒸汽远离面部和手臂。"
+        },
+        {
+          "instruction": "切开最厚的一块检查中心；未熟时重新加盖蒸 3 分钟后再次检查。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "确认熟透后关火，戴隔热手套取出，静置 1 分钟再食用柠檬蒸鱼。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_199",
+      "name": "橙香鱼排",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常橙香鱼排，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "鱼块",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鱼块处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "将300 克鱼块加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克鱼块，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_200",
+      "name": "香草烤鱼",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常香草烤鱼，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "鱼块",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鱼块处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "将300 克鱼块与清单中的盐、生抽和香辛料拌匀，腌制 15 分钟。"
+        },
+        {
+          "instruction": "烤箱按菜谱温度预热 10 分钟，烤盘铺烘焙纸。",
+          "duration_seconds": 600,
+          "heat_level": "上下火 200℃"
+        },
+        {
+          "instruction": "把主料和配菜单层摆入烤盘，彼此留出空隙，表面薄薄刷油。"
+        },
+        {
+          "instruction": "放入烤箱中层烤 15 分钟，再取出翻面。",
+          "duration_seconds": 900,
+          "heat_level": "上下火 200℃",
+          "safety_note": "取放烤盘时使用隔热手套。"
+        },
+        {
+          "instruction": "继续烤 8 分钟，直到表面上色。",
+          "duration_seconds": 480,
+          "heat_level": "上下火 200℃",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "检查最厚处熟度；达到要求后静置 3 分钟再切分装盘。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_201",
+      "name": "香辣烤鱼",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常香辣烤鱼，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "鱼块",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鱼块处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "将300 克鱼块与清单中的盐、生抽和香辛料拌匀，腌制 15 分钟。"
+        },
+        {
+          "instruction": "烤箱按菜谱温度预热 10 分钟，烤盘铺烘焙纸。",
+          "duration_seconds": 600,
+          "heat_level": "上下火 200℃"
+        },
+        {
+          "instruction": "把主料和配菜单层摆入烤盘，彼此留出空隙，表面薄薄刷油。"
+        },
+        {
+          "instruction": "放入烤箱中层烤 15 分钟，再取出翻面。",
+          "duration_seconds": 900,
+          "heat_level": "上下火 200℃",
+          "safety_note": "取放烤盘时使用隔热手套。"
+        },
+        {
+          "instruction": "继续烤 8 分钟，直到表面上色。",
+          "duration_seconds": 480,
+          "heat_level": "上下火 200℃",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "检查最厚处熟度；达到要求后静置 3 分钟再切分装盘。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_202",
+      "name": "烤鱼豆腐",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常烤鱼豆腐，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "豆腐",
+          "amount": "300 克"
+        },
+        {
+          "name": "鱼块",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将豆腐处理成约 2 厘米的均匀块或片，300 克鱼块分别洗净切好。"
+        },
+        {
+          "instruction": "将300 克豆腐与清单中的盐、生抽和香辛料拌匀，腌制 15 分钟。"
+        },
+        {
+          "instruction": "烤箱按菜谱温度预热 10 分钟，烤盘铺烘焙纸。",
+          "duration_seconds": 600,
+          "heat_level": "上下火 200℃"
+        },
+        {
+          "instruction": "把主料和300 克鱼块单层摆入烤盘，彼此留出空隙，表面薄薄刷油。"
+        },
+        {
+          "instruction": "放入烤箱中层烤 15 分钟，再取出翻面。",
+          "duration_seconds": 900,
+          "heat_level": "上下火 200℃",
+          "safety_note": "取放烤盘时使用隔热手套。"
+        },
+        {
+          "instruction": "继续烤 8 分钟，直到表面上色。",
+          "duration_seconds": 480,
+          "heat_level": "上下火 200℃"
+        },
+        {
+          "instruction": "检查最厚处熟度；达到要求后静置 3 分钟再切分装盘。",
+          "safety_note": "确认中心熟透后再食用。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_203",
+      "name": "烤鱼蔬菜煲",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常烤鱼蔬菜煲，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "鱼块",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鱼块处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入300 克鱼块，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入配菜和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“烤鱼蔬菜煲”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_204",
+      "name": "川味烤鱼",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常川味烤鱼，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "鱼块",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鱼块处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "将300 克鱼块与清单中的盐、生抽和香辛料拌匀，腌制 15 分钟。"
+        },
+        {
+          "instruction": "烤箱按菜谱温度预热 10 分钟，烤盘铺烘焙纸。",
+          "duration_seconds": 600,
+          "heat_level": "上下火 200℃"
+        },
+        {
+          "instruction": "把主料和配菜单层摆入烤盘，彼此留出空隙，表面薄薄刷油。"
+        },
+        {
+          "instruction": "放入烤箱中层烤 15 分钟，再取出翻面。",
+          "duration_seconds": 900,
+          "heat_level": "上下火 200℃",
+          "safety_note": "取放烤盘时使用隔热手套。"
+        },
+        {
+          "instruction": "继续烤 8 分钟，直到表面上色。",
+          "duration_seconds": 480,
+          "heat_level": "上下火 200℃",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "检查最厚处熟度；达到要求后静置 3 分钟再切分装盘。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_205",
+      "name": "家常烤鱼",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常家常烤鱼，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "鱼块",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鱼块处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "将300 克鱼块与清单中的盐、生抽和香辛料拌匀，腌制 15 分钟。"
+        },
+        {
+          "instruction": "烤箱按菜谱温度预热 10 分钟，烤盘铺烘焙纸。",
+          "duration_seconds": 600,
+          "heat_level": "上下火 200℃"
+        },
+        {
+          "instruction": "把主料和配菜单层摆入烤盘，彼此留出空隙，表面薄薄刷油。"
+        },
+        {
+          "instruction": "放入烤箱中层烤 15 分钟，再取出翻面。",
+          "duration_seconds": 900,
+          "heat_level": "上下火 200℃",
+          "safety_note": "取放烤盘时使用隔热手套。"
+        },
+        {
+          "instruction": "继续烤 8 分钟，直到表面上色。",
+          "duration_seconds": 480,
+          "heat_level": "上下火 200℃",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "检查最厚处熟度；达到要求后静置 3 分钟再切分装盘。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_206",
+      "name": "麻辣烤鱼",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常麻辣烤鱼，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "鱼块",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鱼块处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "将300 克鱼块与清单中的盐、生抽和香辛料拌匀，腌制 15 分钟。"
+        },
+        {
+          "instruction": "烤箱按菜谱温度预热 10 分钟，烤盘铺烘焙纸。",
+          "duration_seconds": 600,
+          "heat_level": "上下火 200℃"
+        },
+        {
+          "instruction": "把主料和配菜单层摆入烤盘，彼此留出空隙，表面薄薄刷油。"
+        },
+        {
+          "instruction": "放入烤箱中层烤 15 分钟，再取出翻面。",
+          "duration_seconds": 900,
+          "heat_level": "上下火 200℃",
+          "safety_note": "取放烤盘时使用隔热手套。"
+        },
+        {
+          "instruction": "继续烤 8 分钟，直到表面上色。",
+          "duration_seconds": 480,
+          "heat_level": "上下火 200℃",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "检查最厚处熟度；达到要求后静置 3 分钟再切分装盘。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_207",
+      "name": "蒜蓉蒸虾",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常蒜蓉蒸虾，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "虾仁",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将虾仁处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "将300 克虾仁与清单中的生抽、盐和淀粉拌匀，静置 10 分钟入味。"
+        },
+        {
+          "instruction": "把配菜平铺在耐热盘底，再将主料单层铺在上面，不要堆成厚团。"
+        },
+        {
+          "instruction": "蒸锅加入足量清水，大火烧至持续冒蒸汽后再放入耐热盘。",
+          "duration_seconds": 180,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "加盖中火蒸 12 分钟，期间不要频繁开盖。",
+          "duration_seconds": 720,
+          "heat_level": "中火",
+          "safety_note": "开盖时让蒸汽远离面部和手臂。"
+        },
+        {
+          "instruction": "切开最厚的一块检查中心；未熟时重新加盖蒸 3 分钟后再次检查。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "确认熟透后关火，戴隔热手套取出，静置 1 分钟再食用蒜蓉蒸虾。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_208",
+      "name": "蒜香炒虾",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常蒜香炒虾，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "虾仁",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将虾仁处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "将300 克虾仁加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克虾仁，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_209",
+      "name": "红烧大虾",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常红烧大虾，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "虾仁",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将虾仁处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "锅中加入清单中的食用油，中火加热 30 秒；放入葱姜蒜炒约 30 秒，闻到香味即可。"
+        },
+        {
+          "instruction": "加入300 克虾仁，中火翻炒 4 分钟，使各面均匀受热。",
+          "duration_seconds": 240,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入配菜和清单中的清水、生抽等调味料，翻匀后大火煮至沸腾。"
+        },
+        {
+          "instruction": "转小火加盖炖煮 20 分钟；中途翻动一次，避免锅底粘连。",
+          "duration_seconds": 1200,
+          "heat_level": "小火"
+        },
+        {
+          "instruction": "开盖检查主料熟度和配菜软硬；未达到状态时继续加热 5 分钟再检查。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入清单中的盐调味，中火收汁 2 分钟，汤汁达到菜名“红烧大虾”需要的浓度后关火。",
+          "duration_seconds": 120,
+          "heat_level": "中火"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_210",
+      "name": "香辣虾",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常香辣虾，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "虾仁",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将虾仁处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "将300 克虾仁加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克虾仁，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_211",
+      "name": "椒盐虾",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常椒盐虾，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "虾仁",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将虾仁处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "用厨房纸吸干虾仁表面水分，加入清单中的盐和调味料拌匀，静置 10 分钟。"
+        },
+        {
+          "instruction": "平底锅加入清单中的食用油，中火加热 30 秒。",
+          "duration_seconds": 30,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "放入300 克虾仁单层铺开，先不要移动，煎 3 分钟至底面定型。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "翻面后加入配菜，继续煎炒 3 分钟，使各面均匀上色。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "检查最大一块的中心状态；未熟时转小火每次续煎 1 分钟并再次检查。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "达到熟度后关火，静置 2 分钟再装盘，完成椒盐虾。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_212",
+      "name": "干锅虾",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常干锅虾，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "虾仁",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将虾仁处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "将300 克虾仁加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克虾仁，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_213",
+      "name": "避风塘炒虾",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常避风塘炒虾，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "虾仁",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将虾仁处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "将300 克虾仁加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克虾仁，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_214",
+      "name": "茄汁虾仁",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常茄汁虾仁，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "虾仁",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将虾仁处理成约 2 厘米的均匀块或片，配菜分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "将300 克虾仁加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克虾仁，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入配菜，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        }
+      ],
+      "beginner_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_215",
+      "name": "虾仁炒蛋",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常虾仁炒蛋，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "鸡蛋",
+          "amount": "2 个"
+        },
+        {
+          "name": "虾仁",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将鸡蛋处理成约 2 厘米的均匀块或片，300 克虾仁分别洗净切好。",
+          "safety_note": "生肉和水产不要在水槽中冲洗；处理后清洗双手、刀具、砧板和台面。"
+        },
+        {
+          "instruction": "将2 个鸡蛋加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入2 个鸡蛋，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        },
+        {
+          "instruction": "加入300 克虾仁，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "切开最厚处检查，动物性食材中心不得有粉红或透明部分。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_216",
+      "name": "虾仁炒西兰花",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常虾仁炒西兰花，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "西兰花",
+          "amount": "200 克"
+        },
+        {
+          "name": "虾仁",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将西兰花处理成约 2 厘米的均匀块或片，300 克虾仁分别洗净切好。"
+        },
+        {
+          "instruction": "将200 克西兰花加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入200 克西兰花，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克虾仁，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_217",
+      "name": "虾仁炒黄瓜",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常虾仁炒黄瓜，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "黄瓜",
+          "amount": "200 克"
+        },
+        {
+          "name": "虾仁",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将黄瓜处理成约 2 厘米的均匀块或片，300 克虾仁分别洗净切好。"
+        },
+        {
+          "instruction": "将200 克黄瓜加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入200 克黄瓜，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克虾仁，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_218",
+      "name": "虾仁炒玉米",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常虾仁炒玉米，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "玉米",
+          "amount": "200 克"
+        },
+        {
+          "name": "虾仁",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将玉米处理成约 2 厘米的均匀块或片，300 克虾仁分别洗净切好。"
+        },
+        {
+          "instruction": "将200 克玉米加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入200 克玉米，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克虾仁，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_219",
+      "name": "虾仁炒豌豆",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常虾仁炒豌豆，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "豌豆",
+          "amount": "200 克"
+        },
+        {
+          "name": "虾仁",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将豌豆处理成约 2 厘米的均匀块或片，300 克虾仁分别洗净切好。"
+        },
+        {
+          "instruction": "将200 克豌豆加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入200 克豌豆，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克虾仁，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
+    },
+    {
+      "recipe_id": "local_expansion_220",
+      "name": "虾仁炒豆腐",
+      "default_servings": 2,
+      "estimated_time_minutes": 25,
+      "difficulty": "简单",
+      "equipment": [
+        "炒锅"
+      ],
+      "summary": "适合日常餐桌的家常虾仁炒豆腐，步骤清楚，味道温和，下饭易做。",
+      "ingredients": [
+        {
+          "name": "豆腐",
+          "amount": "300 克"
+        },
+        {
+          "name": "虾仁",
+          "amount": "300 克"
+        },
+        {
+          "name": "姜",
+          "amount": "10 克"
+        },
+        {
+          "name": "葱",
+          "amount": "15 克"
+        },
+        {
+          "name": "生抽",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食用油",
+          "amount": "15 毫升"
+        },
+        {
+          "name": "食盐",
+          "amount": "2 克"
+        }
+      ],
+      "steps": [
+        {
+          "instruction": "按清单称量食材。将豆腐处理成约 2 厘米的均匀块或片，300 克虾仁分别洗净切好。"
+        },
+        {
+          "instruction": "将300 克豆腐加入清单中的生抽、淀粉或盐拌匀，静置 10 分钟；蔬菜类无需腌制。"
+        },
+        {
+          "instruction": "炒锅加入清单中的食用油，中火加热 30 秒，放入葱姜蒜炒香。",
+          "duration_seconds": 60,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克豆腐，铺开后翻炒 3 分钟，使表面均匀受热。",
+          "duration_seconds": 180,
+          "heat_level": "中火"
+        },
+        {
+          "instruction": "加入300 克虾仁，转大火翻炒 2 分钟，至蔬菜断生或配料热透。",
+          "duration_seconds": 120,
+          "heat_level": "大火"
+        },
+        {
+          "instruction": "沿锅边加入清单中的生抽、盐等调味料，快速翻匀；锅底太干时加入清单中的清水。"
+        },
+        {
+          "instruction": "检查最大一块主料的中心状态，确认达到熟度后关火装盘。",
+          "safety_note": "以食材实际状态为准，不只依赖计时。"
+        }
+      ],
+      "beginner_review_version": 1,
+      "ingredient_review_version": 1
     }
   ]
 }

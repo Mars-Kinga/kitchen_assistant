@@ -25,3 +25,16 @@ jobs:
         run: python -m pytest -q
       - name: Smoke test
         run: python robot_main.py --no-play 你好
+
+  console-ui-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Console UI regression checks
+        run: |
+          for test_file in tests/*.cjs; do
+            node "$test_file"
+          done

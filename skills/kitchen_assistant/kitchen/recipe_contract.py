@@ -3,6 +3,8 @@ from __future__ import annotations
 from collections.abc import Iterable
 from typing import Any
 
+from .pantry_defaults import pantry_meal_rule, pantry_seasoning_rule
+
 
 REQUEST_FIELDS = (
     "requested_dish",
@@ -18,6 +20,7 @@ REQUEST_FIELDS = (
     "steak_doneness",
     "steak_thickness_cm",
     "excluded_candidate_ids",
+    "unavailable_ingredients",
 )
 
 ALLOWED_DIFFICULTIES = {"简单", "中等"}
@@ -48,28 +51,40 @@ RECIPE_BUNDLE_SCHEMA_TEXT = (
 
 
 def candidate_limit(request: dict[str, Any]) -> int:
-    """Cloud generation returns one complete recipe to keep latency bounded."""
+    """Generate choices for pantry discovery, but one answer for a named dish."""
+    if request.get("available_ingredients") and not request.get("requested_dish"):
+        return 3
     return 1
 
 
 def bundle_prompt_rules(request: dict[str, Any]) -> list[str]:
     limit = candidate_limit(request)
-    count_rule = "只生成1个完整候选，不生成同菜变体或额外候选。"
+    count_rule = (
+        "生成1至3个不同的完整候选，优先生成2个以保证完整输出；有1个可行方案也返回。优先覆盖全部available_ingredients，允许部分未使用，按实际使用数量从多到少排列。"
+        if limit == 3
+        else "只生成1个完整候选，不生成同菜变体或额外候选。"
+    )
     rules = [
         "一次生成候选及完整recipe。只输出合法JSON；不要Markdown、解释、URL、来源或设备控制。",
         count_rule,
         "requested_dish存在时title必须含完整菜名，缺料也不能换菜；不得重复excluded_candidate_ids中的菜名。文本字段各不超过120字。",
         "每个candidate都必须有recipe，二者title完全一致；详情不完整就不输出该候选。",
         "servings须完全一致；estimated_minutes为1至240的整数且不超过max_cooking_minutes；difficulty仅简单或中等。",
-        "食材调料不得命中dietary_restrictions；equipment不得命中unavailable_equipment；equipment_only=true时只用available_equipment。",
-        "available_ingredients为空=库存未知且missing_ingredients=[]；库存明确且未指定菜名时必须用完全部库存食材。",
+        "食材调料不得命中dietary_restrictions或使用unavailable_ingredients；equipment不得命中unavailable_equipment；equipment_only=true时只用available_equipment。",
+        "available_ingredients为空=库存未知且missing_ingredients=[]；库存明确且未指定菜名时优先使用全部确认食材，也允许部分食材没用到。每份方案至少实际使用一种确认食材，不能只写在简介或配料表；实际使用食材须出现在recipe.ingredients及步骤中。可分区、分段或配菜搭配，不必强行混炒。",
         "main_ingredients列核心食材，盐糖油酱醋料酒胡椒列main_seasonings；两者都须出现在recipe.ingredients。",
         "每项ingredient须有name、明确amount、非空unit和boolean optional，amount不得出现适量/少量/少许/按口味。instruction允许用“少许”描述微量润锅油或点缀香料，仍禁止适量/少量/按口味；分批操作只写“分批下锅”。首次加入主要食材和调料时优先照抄ingredients中的准确用量。",
-        "recipe保持完整的6至10步；step_number从1连续；每步一个阶段且instruction不超过80字。summary和match_reason各不超过30字，safety_note不超过40字。空泛的准备调料步骤禁止，调味汁须列出全部用量。",
+        "recipe保持完整的6至10步；step_number从1连续。面向零基础新手逐项写清动作顺序、准确用量、火力、时长和可观察完成状态，不把切配、调味、下锅等多个阶段压缩成一句；每步只做一个阶段且instruction不超过120字。summary和match_reason各不超过30字，safety_note不超过40字。空泛的准备调料步骤禁止，调味汁须列出全部用量。",
         "duration_seconds仅用于加热或等待，洗切拌调味装盘填null；时间合理并写可观察状态。steps不含解冻，不保证已熟。",
         "输出前自检人数、时间、忌口、厨具、库存、用量、标题和JSON；不合格候选不要输出。",
         f"输出结构：{RECIPE_BUNDLE_SCHEMA_TEXT}",
     ]
+    if limit == 3:
+        rules.insert(-2, pantry_meal_rule(request))
+        rules.insert(-2, "多菜组合不受单道菜6至10步限制：两道可写12至18步，三道可写18至30步；每道菜保留完整新手细节。ingredients和实际使用步骤保留用户食材名称，避免只用‘蔬菜’‘肉’等泛称；每道都写明用量和做法。")
+    seasoning_rule = pantry_seasoning_rule(request)
+    if seasoning_rule:
+        rules.insert(-2, seasoning_rule)
     return rules
 
 
@@ -127,7 +142,10 @@ def validate_raw_recipe(raw: Any, request: Any) -> None:
     for index, step in enumerate(steps, start=1):
         if not isinstance(step, dict):
             raise ValueError("步骤说明无效")
-        instruction = validate_text(step.get("instruction"), "步骤")
+        try:
+            instruction = validate_text(step.get("instruction"), "步骤")
+        except ValueError as exc:
+            raise ValueError(f"步骤无效（第{index}步：说明为空或超过{MAX_TEXT_LENGTH}字，请拆成独立操作）") from exc
         vague_marker = next(
             (marker for marker in VAGUE_QUANTITY_MARKERS if marker in instruction),
             None,

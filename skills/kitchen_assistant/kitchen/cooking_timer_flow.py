@@ -10,7 +10,7 @@ from .parallel_prep import (
     is_safe_water_boiling_prep,
     is_waiting_prep_instruction,
 )
-from .response_builder import feedback
+from .response_builder import DEFAULTS, feedback
 from .states import COOKING
 from .timer_controller import Timer, format_seconds, step_timer_hint
 
@@ -404,7 +404,7 @@ def current_step_feedback(session: Any, prefix: str = "") -> dict[str, str]:
         instruction = f"{instruction} {parallel_hint}"
     if step.get("safety_note"):
         instruction += f" 注意：{step['safety_note']}"
-    display = step["display_text"]
+    display = step.get("display_text") or step["instruction"]
     if step.get("safety_note"):
         display = f"{display}\n注意：{step['safety_note']}"
     if timer_hint:
@@ -414,9 +414,9 @@ def current_step_feedback(session: Any, prefix: str = "") -> dict[str, str]:
     return feedback(
         f"{prefix}{instruction}",
         display,
-        robot_action=step["robot_action"],
-        led_effect=step["led_effect"],
-        expression=step["expression"],
+        robot_action=step.get("robot_action") or DEFAULTS["robot_action"],
+        led_effect=step.get("led_effect") or DEFAULTS["led_effect"],
+        expression=step.get("expression") or DEFAULTS["expression"],
     )
 
 

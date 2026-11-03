@@ -21,7 +21,7 @@ from kitchen.recipe_normalizer import RecipeNormalizer  # noqa: E402
 
 VAGUE_MARKERS = ("适量", "少量", "少许", "按口味")
 MINIMUM_CURATED_RECIPES = 20
-EXPECTED_TOTAL_RECIPES = 100
+EXPECTED_TOTAL_RECIPES = 440
 
 
 def validate_catalog(recipes_dir: Path = RECIPES_DIR) -> list[str]:

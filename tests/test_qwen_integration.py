@@ -25,7 +25,7 @@ from llm.config import (
     QwenConfig,
 )  # noqa: E402
 from llm.prompts import candidate_messages, recipe_bundle_messages, recipe_messages  # noqa: E402
-from providers.qwen_ai_recipe_provider import AIRecipeProviderError, QwenAIRecipeProvider  # noqa: E402
+from providers.qwen_ai_recipe_provider import AIRecipeProviderError, QwenAIRecipeProvider, _prepare_bundle_payload  # noqa: E402
 from providers.mock_recipe_provider import MockRecipeSearchProvider  # noqa: E402
 from runtime_core.executor import RuntimeExecutor  # noqa: E402
 
@@ -90,7 +90,7 @@ def recipe_data(title: str = "AI 番茄鸡蛋面") -> dict:
         "title": title, "servings": 1, "estimated_minutes": 15, "difficulty": "简单",
         "ingredients": [{"name": "面条", "amount": 100, "unit": "克", "optional": False}, {"name": "番茄", "amount": 1, "unit": "个", "optional": False}, {"name": "鸡蛋", "amount": 1, "unit": "个", "optional": False}],
         "equipment": ["小锅"], "safety_notes": ["注意沸水和蒸汽"],
-        "steps": [{"step_number": 7, "instruction": "锅中加水烧开后放入面条。", "duration_seconds": None, "heat_level": "大火", "safety_note": "注意沸水。"}, {"step_number": 9, "instruction": "加入番茄煮软后关火。", "duration_seconds": 180, "heat_level": "中火", "safety_note": None}],
+        "steps": [{"step_number": 7, "instruction": "锅中加水烧开后放入面条。", "duration_seconds": None, "heat_level": "大火", "safety_note": "注意沸水。"}, {"step_number": 9, "instruction": "加入番茄和打散的鸡蛋，煮至熟透后关火。", "duration_seconds": 180, "heat_level": "中火", "safety_note": None}],
         "source_url": "https://invented.example/not-allowed",
     }
 
@@ -219,11 +219,16 @@ def test_recipe_prompt_requires_serving_quantities_and_detailed_cooking_order() 
     assert "只生成1个完整候选" in bundle_prompt
     assert "不生成同菜变体或额外候选" in bundle_prompt
     assert "6至10步" in bundle_prompt
+    assert "面向零基础新手" in bundle_prompt
+    assert "不把切配、调味、下锅等多个阶段压缩成一句" in bundle_prompt
     assert "适量" in bundle_prompt
-    assert len(bundle_prompt) < 1550
+    assert len(bundle_prompt) < 1900
 
     pantry_prompt = recipe_bundle_messages({"available_ingredients": ["番茄", "鸡蛋"]})[0]["content"]
-    assert "只生成1个完整候选" in pantry_prompt
+    assert "生成1至3个不同的完整候选" in pantry_prompt
+    assert "有1个可行方案也返回" in pantry_prompt
+    assert "优先覆盖全部available_ingredients" in pantry_prompt
+    assert "从多到少排列" in pantry_prompt
 
 
 def test_prompts_compact_payload_and_only_add_relevant_dish_rules() -> None:
@@ -268,15 +273,72 @@ def test_bundle_prompt_keeps_all_equipment_and_refresh_constraints() -> None:
     assert "equipment_only=true" in messages[0]["content"]
 
 
-def test_inventory_recommendation_prompts_require_every_stated_ingredient() -> None:
+def test_inventory_recommendation_prompts_allow_compatible_subsets() -> None:
     request = {"available_ingredients": ["牛肉", "蘑菇"], "servings": 1}
     candidate_prompt = candidate_messages(request)[0]["content"]
     recipe_prompt = recipe_messages({"title": "蘑菇牛肉"}, request)[0]["content"]
 
     assert "牛肉、蘑菇" in candidate_prompt
-    assert "不能忽略其中任何一种" in candidate_prompt
+    assert "优先使用全部库存" in candidate_prompt
     assert "牛肉、蘑菇" in recipe_prompt
-    assert "不可遗漏" in recipe_prompt
+    assert "优先用完所有库存，允许没用到部分食材" in recipe_prompt
+
+
+def test_pantry_ai_keeps_one_recipe_without_full_inventory_coverage(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    payload = json.loads(candidate_payload())
+    payload["candidates"] = payload["candidates"][:1]
+    llm, fake = llm_with(monkeypatch, [json.dumps(payload, ensure_ascii=False)])
+    provider = QwenAIRecipeProvider(
+        llm,
+        CloudOnlyMockRecipeSearchProvider(SKILL_ROOT / "recipes"),
+    )
+
+    candidates = provider.search_recipes(RecipeSearchRequest(
+        available_ingredients=["番茄", "鸡蛋", "面条", "白菜", "牛奶", "蜂蜜"],
+        servings=1,
+    ))
+    assert len(candidates) == 1
+    assert candidates[0].unused_ingredients == ["白菜", "牛奶", "蜂蜜"]
+    assert len(fake.completions.calls) == 1
+
+
+def test_console_can_start_a_generated_candidate(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    llm, _ = llm_with(monkeypatch, [candidate_payload()])
+    session = KitchenSession(recipe_provider=QwenAIRecipeProvider(
+        llm,
+        CloudOnlyMockRecipeSearchProvider(SKILL_ROOT / "recipes"),
+    ))
+    generated = session.recommend_from_ingredients(
+        ["番茄", "鸡蛋", "面条"], servings=1,
+    )
+
+    selected = session.select_console_recipe(
+        generated["recipe_candidates"][0]["candidate_id"], servings=1,
+    )
+
+    assert selected["kitchen_state"] == COOKING
+    assert session.current_recipe is not None
+    assert session.current_recipe["name"] == generated["recipe_candidates"][0]["title"]
+
+
+def test_console_can_explicitly_confirm_ai_generation_for_missing_named_dish(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    llm, fake = llm_with(monkeypatch, [candidate_payload()])
+    session = KitchenSession(recipe_provider=QwenAIRecipeProvider(
+        llm,
+        CloudOnlyMockRecipeSearchProvider(SKILL_ROOT / "recipes"),
+    ))
+
+    result = session.generate_console_recipe("番茄鸡蛋面", servings=1)
+
+    assert result["provider_mode"] == "ai_generated"
+    assert result["recipe_candidates"][0]["title"] == "番茄鸡蛋面"
+    assert len(fake.completions.calls) == 1
 
 
 def test_steak_prompt_requires_complete_ingredients_and_avoids_generic_two_minute_sides() -> None:
@@ -292,12 +354,12 @@ def test_ai_provider_generates_candidates_and_normalized_recipe(monkeypatch: pyt
     provider = QwenAIRecipeProvider(llm, fallback)
     request = RecipeSearchRequest(available_ingredients=["番茄", "鸡蛋", "面条"], servings=1, taste_preferences=["少盐"])
     candidates = provider.search_recipes(request)
-    assert len(candidates) == 1
+    assert len(candidates) == 3
     assert candidates[0].source_name == "千问 AI 生成"
     assert provider.get_recipe_detail(candidates[0])["name"] == "番茄鸡蛋面"
     assert len(fake.completions.calls) == 1
     call = fake.completions.calls[0]
-    assert call["max_completion_tokens"] == 3600
+    assert call["max_completion_tokens"] == 7200
     assert "max_tokens" not in call
     assert call["response_format"] == {"type": "json_object"}
 
@@ -778,7 +840,7 @@ def test_named_dish_returns_one_complete_recipe_in_one_call(monkeypatch: pytest.
     assert len(cached) == 1
 
 
-def test_pantry_request_returns_one_preloaded_detail_in_one_call(
+def test_pantry_request_returns_up_to_three_preloaded_details_in_one_call(
     monkeypatch: pytest.MonkeyPatch,
     tmp_path: Path,
 ) -> None:
@@ -795,10 +857,109 @@ def test_pantry_request_returns_one_preloaded_detail_in_one_call(
         taste_preferences=["少盐"],
     ))
 
-    assert len(candidates) == 1
+    assert len(candidates) == 3
     assert len(fake.completions.calls) == 1
-    assert len(list(generated_dir.glob("cached_*.json"))) == 1
+    assert len(list(generated_dir.glob("cached_*.json"))) == 3
     assert provider.get_recipe_detail(candidates[0])["name"] == "番茄鸡蛋面"
+
+
+def test_pantry_ai_candidates_are_sorted_by_inventory_coverage(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    payload = json.loads(three_candidate_payload())
+    payload["candidates"][0]["title"] = "只用番茄"
+    payload["candidates"][0]["recipe"]["title"] = "只用番茄"
+    payload["candidates"][0]["main_ingredients"] = ["番茄"]
+    payload["candidates"][0]["recipe"]["ingredients"] = [
+        item for item in payload["candidates"][0]["recipe"]["ingredients"] if item["name"] == "番茄"
+    ]
+    payload["candidates"][0]["recipe"]["steps"] = [{"instruction": "番茄切片装盘。"}]
+    payload["candidates"][1]["title"] = "使用番茄鸡蛋"
+    payload["candidates"][1]["recipe"]["title"] = "使用番茄鸡蛋"
+    payload["candidates"][1]["main_ingredients"] = ["番茄", "鸡蛋"]
+    payload["candidates"][1]["recipe"]["ingredients"] = [
+        item for item in payload["candidates"][1]["recipe"]["ingredients"] if item["name"] != "面条"
+    ]
+    payload["candidates"][1]["recipe"]["steps"] = [{"instruction": "番茄与鸡蛋炒熟。"}]
+    payload["candidates"][2]["title"] = "使用三种库存"
+    payload["candidates"][2]["recipe"]["title"] = "使用三种库存"
+    llm, _ = llm_with(monkeypatch, [json.dumps(payload, ensure_ascii=False)])
+    provider = QwenAIRecipeProvider(
+        llm,
+        CloudOnlyMockRecipeSearchProvider(SKILL_ROOT / "recipes"),
+    )
+
+    candidates = provider.search_recipes(RecipeSearchRequest(
+        available_ingredients=["番茄", "鸡蛋", "面条"],
+        servings=1,
+    ))
+
+    assert [candidate.title for candidate in candidates] == [
+        "使用三种库存", "使用番茄鸡蛋", "只用番茄",
+    ]
+    assert candidates[0].unused_ingredients == []
+    assert candidates[1].unused_ingredients == ["面条"]
+
+
+@pytest.mark.parametrize("defect", ["only_one", "duplicate_titles", "optional", "not_in_steps"])
+def test_pantry_bundle_keeps_one_or_partial_recipe_and_reports_real_use(defect: str) -> None:
+    payload = json.loads(three_candidate_payload())
+    if defect == "only_one":
+        payload["candidates"] = payload["candidates"][:1]
+    elif defect == "duplicate_titles":
+        payload["candidates"] = [payload["candidates"][0]] * 3
+    else:
+        for row in payload["candidates"]:
+            if defect == "optional":
+                next(item for item in row["recipe"]["ingredients"] if item["name"] == "鸡蛋")["optional"] = True
+            else:
+                row["recipe"]["steps"][1]["instruction"] = "加入番茄煮熟。"
+    prepared = _prepare_bundle_payload(payload, RecipeSearchRequest(
+        available_ingredients=["番茄", "鸡蛋", "面条"], servings=1,
+    ), 3)
+    assert prepared
+    if defect in {"only_one", "duplicate_titles"}:
+        assert len(prepared) == 1
+        assert prepared[0][0].unused_ingredients == []
+    else:
+        assert "鸡蛋" in prepared[0][0].unused_ingredients
+
+
+@pytest.mark.parametrize("count", [2, 3])
+def test_local_pantry_results_put_all_ingredients_first(count: int) -> None:
+    from kitchen.recommendation_service import rank_recipes
+
+    recipes = []
+    for index, foods in enumerate((["番茄"], ["鸡蛋"], ["番茄", "鸡蛋"])):
+        recipes.append({
+            "recipe_id": f"local_{index}", "name": f"方案{index}",
+            "ingredients": [{"name": food, "amount": "100克"} for food in foods],
+            "steps": [{"instruction": "、".join(foods) + "煮熟装盘"}],
+            "estimated_time_minutes": 60 if len(foods) == 2 else 5,
+        })
+    selected = recipes[-count:]
+    candidates = rank_recipes(selected, RecipeSearchRequest(
+        available_ingredients=["番茄", "鸡蛋"], max_cooking_minutes=10,
+    ))
+    assert len(candidates) == count
+    assert candidates[0].title == "方案2"
+    assert candidates[0].unused_ingredients == []
+    assert candidates[1].unused_ingredients
+    partial = rank_recipes(recipes[:2], RecipeSearchRequest(
+        available_ingredients=["番茄", "鸡蛋"],
+    ))
+    assert len(partial) == 2
+    assert all(candidate.unused_ingredients for candidate in partial)
+
+
+def test_pantry_bundle_accepts_two_candidates() -> None:
+    payload = json.loads(three_candidate_payload())
+    payload["candidates"] = payload["candidates"][:2]
+    prepared = _prepare_bundle_payload(payload, RecipeSearchRequest(
+        available_ingredients=["番茄", "鸡蛋", "面条"], servings=1,
+    ), 3)
+    assert len(prepared) == 2
+    assert prepared[0][0].unused_ingredients == []
 
 
 def test_session_uses_ai_then_waits_for_confirmation(monkeypatch: pytest.MonkeyPatch) -> None:
@@ -910,7 +1071,9 @@ def test_invalid_ai_dish_candidates_are_not_replaced_with_unrelated_mock_dishes(
     response = session.handle("正常")
     assert response["provider_mode"] == "mock"
     assert response["recipe_candidates"] == []
-    assert "暂无候选" in response["steps"][-1]["display"]
+    assert "暂无候选" in response["display"]
+    assert response["recommendation_error"]["code"] == "invalid_recipe"
+    assert "正在" not in response["display"]
 
 
 def test_ai_generated_feedback_reaches_all_mock_channels(monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str]) -> None:

@@ -4,6 +4,7 @@ import importlib.util
 import json
 from pathlib import Path
 import re
+import threading
 from typing import Any, Callable, Iterable
 
 from jsonschema import Draft202012Validator
@@ -33,6 +34,7 @@ class SkillManager:
         self.registry: list[dict[str, Any]] = []
         self.load_errors: list[str] = []
         self._modules: dict[str, Any] = {}
+        self._module_lock = threading.RLock()
         self.active_skill_name: str | None = None
 
     def load_skills(self) -> list[dict[str, Any]]:
@@ -230,14 +232,7 @@ class SkillManager:
     ) -> dict[str, Any]:
         self._validate_payload(skill, arguments, output=False)
         entrypoint = Path(skill["_entrypoint_path"])
-        module = self._modules.get(skill["name"])
-        if module is None:
-            spec = importlib.util.spec_from_file_location(f"{skill['name']}_run", entrypoint)
-            if spec is None or spec.loader is None:
-                raise RuntimeError(f"无法加载 Skill 入口：{entrypoint}")
-            module = importlib.util.module_from_spec(spec)
-            spec.loader.exec_module(module)
-            self._modules[skill["name"]] = module
+        module = self._load_skill_module(skill)
         if not hasattr(module, "run"):
             raise RuntimeError(f"Skill 入口缺少 run(arguments) 函数：{entrypoint}")
 
@@ -255,6 +250,47 @@ class SkillManager:
             # Callbacks belong to one host turn only.  Keeping one around
             # would make a later timer event write into a stale executor.
             set_progress_callback(None)
+
+    def call_skill_hook(
+        self,
+        skill_name: str,
+        hook_name: str,
+        *args: Any,
+        validate_output: bool = False,
+        activate_session: bool = False,
+        **kwargs: Any,
+    ) -> Any:
+        """Call one trusted host integration hook from a loaded Skill module."""
+        if not self.registry:
+            self.load_skills()
+        skill = self.get_skill(skill_name)
+        if skill is None:
+            raise RuntimeError(f"找不到 Skill：{skill_name}")
+        module = self._load_skill_module(skill)
+        hook = getattr(module, hook_name, None)
+        if not callable(hook):
+            raise RuntimeError(f"Skill {skill_name} 不支持接口：{hook_name}")
+        result = hook(*args, **kwargs)
+        if validate_output:
+            self._validate_payload(skill, result, output=True)
+        if activate_session and isinstance(result, dict):
+            self.active_skill_name = skill_name if result.get("session_active") is True else None
+        return result
+
+    def _load_skill_module(self, skill: dict[str, Any]) -> Any:
+        name = str(skill["name"])
+        with self._module_lock:
+            module = self._modules.get(name)
+            if module is not None:
+                return module
+            entrypoint = Path(skill["_entrypoint_path"])
+            spec = importlib.util.spec_from_file_location(f"{name}_run", entrypoint)
+            if spec is None or spec.loader is None:
+                raise RuntimeError(f"无法加载 Skill 入口：{entrypoint}")
+            module = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(module)
+            self._modules[name] = module
+            return module
 
     @staticmethod
     def _validate_payload(skill: dict[str, Any], payload: Any, *, output: bool) -> None:
