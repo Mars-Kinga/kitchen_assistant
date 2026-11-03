@@ -1,5 +1,7 @@
 # AI 厨房助手 kitchen_assistant
 
+本说明于 2026-11-03 按公开源码快照 `e645b53` 核对。当前公开版本为 CLI、相机问答和可选语音流程，固定目录为 100 道菜。本地另有 440 道菜、局域网控制台、视频/图文导入及迁移启动脚本，尚未发布到 `main`；本次只同步文档。版本范围见 [英文首页](../README.md)。
+
 这是一个可在本地运行、可完成完整演示闭环的 Python Robot Skill Runtime。用户输入会经过意图路由和 Skill 状态机，结果再由执行器调用五类模拟机器人能力：语音、屏幕、动作、灯带和表情。
 
 项目目前包含：
@@ -20,11 +22,11 @@
 
 ```text
 IDLE
-  → COLLECTING_REQUEST / COLLECTING_PREFERENCES
+  → COLLECTING_REQUEST / COLLECTING_INGREDIENTS / COLLECTING_PREFERENCES
   → SEARCHING_RECIPES
   → PRESENTING_CANDIDATES
   → WAITING_RECIPE_CONFIRMATION
-  → WAITING_MEAT_THAW（含生肉时）
+  → WAITING_MEAT_THAW（需要确认肉类或水产状态时）
   → COOKING
   → COMPLETED / CANCELLED
 ```
@@ -33,7 +35,7 @@ IDLE
 
 ## 环境与安装
 
-建议使用 Python 3.11–3.13。当前本地验证环境为 Python 3.13.9，CI 会覆盖 3.11、3.12 和 3.13。
+建议使用 Python 3.11–3.13，GitHub Actions 配置覆盖这三个版本。本次只核对说明与代码，未重新运行业务测试或真实设备验证。
 
 ### 最快文字演示（推荐评审使用）
 
@@ -59,13 +61,13 @@ python -m pip install -r requirements-dev.txt
 python -m pytest -q
 ```
 
-如果虚拟环境已经创建过，只需激活后执行最后三条命令，不需要反复创建或升级 pip。只运行程序可安装 `requirements.txt`；开发、测试使用 `requirements-dev.txt`。
+如果虚拟环境已经创建过，只需激活后安装所需依赖并运行测试，不需要反复创建或升级 pip。只运行程序可安装 `requirements.txt`；开发、测试使用 `requirements-dev.txt`。
 
 基础安装不再包含 `pygame`。macOS 播放 Edge TTS 生成的 MP3 时直接使用系统自带的 `afplay`，因此不会再因为缺少 `SDL.h` 阻塞安装。
 
 ## 可选环境变量
 
-文字模式、离线菜谱和全部默认测试不需要 API Key。
+文字模式、离线菜谱和全部默认测试不需要 API Key。公开版本只读取环境变量，不自动加载 `.env` 或 `config/qwen.env`；配置示例需要在启动程序的终端中设置，服务地址与模型权限以实际账号为准。
 
 千问 AI 菜谱、问答和视觉识别：
 在终端进入文件夹之后，输入：
@@ -80,7 +82,7 @@ export QWEN_VISION_TIMEOUT_SECONDS='20'
 export QWEN_MAX_RETRIES='0'
 ```
 
-文字与视觉模型独立配置。文字请求使用 Qwen Omni 的流式接口，视觉请求使用 Qwen VL；两者都显式关闭深度思考。菜谱先查本地固定目录和已验证缓存，本地只要有匹配结果就完全不调用云端；本地没有时，云端一次只生成 1 份包含 6–10 步的完整菜谱。默认不自动重试，非法 JSON 也不会再次请求模型。
+文字与视觉模型独立配置。文字请求使用 Qwen Omni 的流式接口，视觉请求使用 Qwen VL；两者都显式关闭深度思考。菜谱先查本地固定目录和已验证缓存，本地只要有匹配结果就完全不调用云端；本地没有时，云端一次只生成 1 份包含 6–10 步的完整菜谱。客户端默认不重试；业务层对非法 JSON 或可纠正校验失败可在原时间预算内定向纠错一次。剩余不足 2 秒不纠错，纠错超时最多 8 秒且不超过剩余预算。
 
 需要显式验证真实千问连接时，运行一次生产客户端检查；它不属于 pytest，也不会在默认测试中联网：
 
@@ -111,7 +113,7 @@ python robot_main.py --no-play 这是大葱还是小葱
 python text_input.py --no-play 你好      # 委托 robot_main.main
 ```
 
-未来扩展语音输入时，录音、VAD、ASR 和 TTS 继续放在 `runtime_core/voice_io.py`；`robot_main.py` 只负责组合输入模式与统一 Runtime，不承载厨房业务规则。
+已有 `--voice` 和 `--voice --manual` 入口，录音、VAD、ASR 与 TTS 位于 `runtime_core/voice_io.py`。安装 `requirements-voice.txt`，并配置独立的 `MIMO_API_KEY`（或 `TOKEN_PLAN_API_KEY`）、`MIMO_BASE_URL`、`MIMO_ASR_MODEL` 后可验证语音链路；千问配置不等于 ASR 配置。转写文字复用 Runtime，录音写入 `voice_outputs/`，完整设备体验仍待验证。
 
 ## 目录与调用关系
 
@@ -191,7 +193,7 @@ robot_main.handle_input
 我不知道做什么，我有胡萝卜和鸡肉
 ```
 
-厨房助手会收集必要的人数、口味、忌口、时间、难度和厨具约束。每次先查询本地固定目录和已验证生成缓存，命中后立即使用本地结果，不访问千问；只有本地完全没有匹配菜谱时，AI 才会一次生成一份带完整详情的菜谱。单候选页面可直接说“好”或“开始吧”确认。
+厨房助手会收集必要的人数、口味、忌口、时间、难度和厨具约束。每次先查询本地固定目录和已验证生成缓存，命中后立即使用本地结果，不访问千问；只有本地完全没有匹配菜谱时，AI 才会一次生成一份带完整详情的菜谱。单候选可直接说“好”或“开始吧”确认。
 
 ### Provider 与缓存边界
 
@@ -200,7 +202,7 @@ robot_main.handle_input
 - `local_cache`：复用此前已通过校验的 AI 菜谱，并按人数缩放用量。
 - `web_search`：仅预留，当前不发起真实搜索请求。
 
-AI 会在一次响应中生成一个候选及其完整 6–10 步菜谱，只展示详情校验通过的结果，并保存到 `skills/kitchen_assistant/recipes/generated/`。Prompt 与本地校验共享 `recipe_contract.py` 中的字段和硬约束；语义失败不会自动再次调用模型。生成 JSON 是运行数据，默认被 Git 忽略。
+AI 会在一次响应中生成一个候选及其完整 6–10 步菜谱，只展示详情校验通过的结果，并保存到 `skills/kitchen_assistant/recipes/generated/`。Prompt 与本地校验共享 `recipe_contract.py` 中的字段和硬约束；非法 JSON 或符合纠错条件的语义失败最多追加一次有预算限制的定向纠错，仍失败时由会话尝试本地回退。生成 JSON 是运行数据，默认被 Git 忽略。
 
 ### 本地菜谱目录
 
@@ -224,9 +226,9 @@ python scripts/prune_generated_recipe_duplicates.py --apply
 ### 计时与并行准备安全规则
 
 - 只有加热、预热、煮炖焖煎烤蒸炸焯炒收汁，以及腌制、浸泡、泡发、静置等步骤保留计时。
-- 用户必须说“开始”“下锅了”“开始计时”等才启动当前步骤计时。
+- 常规步骤通过“开始”“下锅了”“开始计时”等指令启动计时；特定菜品确认节点完成后，本地流程可以启动下一段计时，因此不是所有计时都要求额外说一次“开始计时”。
 - 带时长步骤尚未启动计时时，“下一步”“跳过”或“做好了”不会直接越过。用户必须选择“开始计时”，或明确说“确认完成”表示已自行计时并检查状态。
-- 计时只是下限参考；到时后仍需根据完全变色、中心无粉红、蔬菜断生等可观察状态确认，不自动判断熟度。
+- 普通到期提醒要求检查实际状态，不自动判断熟度；特定菜品的 `timer_end_action` 可进入确认或推进分支。计时不构成食品安全判断。
 - 计时运行中要求提前进入下一步时，必须再次确认是否结束计时。
 - 腌制/浸泡期间仅在后续存在真实、独立且安全的准备步骤时提供并行建议。建议不能重复当前步骤已经量取或加入的调料，也不能提前热油、空烧锅或接触腌制中的肉。
 - 没有合适并行步骤时统一提示：“在这段时间里你可以同步做自己想做的事情，时间到了我会叫你～”。
@@ -262,7 +264,7 @@ AI Prompt 与本地筛选使用相同规则；即使模型生成了不合规的�
 
 ## 已知限制
 
-- 没有完成语音输入功能
+- 已有录音、ASR、TTS 和语音入口代码；完整麦克风、识别服务、播放及连续对话体验仍待设备验证。
 - 单 Python 进程、单活动会话，没有用户身份、跨进程恢复或持久化会话。
 - 视觉能力只识别 Mac 摄像头中的食材或菜品，不能确认过敏原、食品安全或食物是否已熟。
 - 未接通真实网页菜谱搜索。
@@ -270,7 +272,7 @@ AI Prompt 与本地筛选使用相同规则；即使模型生成了不合规的�
 
 ## 下一阶段计划
 
-1. 将语音输入抽象成独立输入适配器，支持可打断播报和异步计时提醒。
+1. 完善并验证语音设备体验、可打断播报与录音期间的计时提醒。
 2. 在获得官方搜索 API、鉴权和响应样例后实现带来源引用的真实菜谱搜索。
 3. 增加缓存版本、过期策略和运行数据清理命令。
 4. 增加情绪价值提供，回答的语气等再进行优化。
@@ -278,4 +280,4 @@ AI Prompt 与本地筛选使用相同规则；即使模型生成了不合规的�
 
 
 
-更细的厨房 Skill 输入输出和限制见 [skills/kitchen_assistant/SKILL.md](skills/kitchen_assistant/SKILL.md)，模块边界见 [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)。
+更细的厨房 Skill 输入输出和限制见 [skills/kitchen_assistant/SKILL.md](../skills/kitchen_assistant/SKILL.md)，模块边界见 [docs/ARCHITECTURE.md](ARCHITECTURE.md)。

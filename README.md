@@ -1,128 +1,108 @@
 # Kitchen Assistant Robot Skill
 
-A Python Robot Skill runtime for guided cooking interactions. The project combines deterministic state-machine orchestration with optional Qwen-powered recipe generation, kitchen Q&A, and camera-based ingredient recognition.
+A Python Robot Skill runtime for guided cooking. Deterministic session logic handles recipe selection, ingredient checks, cooking steps, timers, pause/resume, and completion. Optional Qwen services provide recipe generation, kitchen Q&A, and camera-based ingredient recognition.
 
-The public repository runs locally with mock adapters for five robot capabilities: speech, display, motion, lighting, and facial expression. It is structured so those adapters can be replaced by a robot SDK during deployment; proprietary hardware integration is not included here.
+The public code uses mock robot adapters. Speech can use an optional TTS backend; motion, display, lighting, and expressions are simulated. Physical robot SDK integration is not included.
 
-[中文说明](docs/README.zh-CN.md)
+[中文说明](docs/README.zh-CN.md) · [Architecture](docs/ARCHITECTURE.md) · [Integration requirements](docs/MISSING_INPUTS.md)
 
-## What it demonstrates
+## Published version and local development
 
-- A complete interaction loop from intent routing to safe completion or cancellation.
-- A state machine for preference collection, recipe selection, confirmation, thawing checks, cooking guidance, pausing, timers, and feedback.
-- Optional Qwen integration through an OpenAI-compatible API for recipe generation, kitchen questions, and visual ingredient recognition.
-- A validated local recipe catalog with serving-size normalization and offline fallback behavior.
-- JSON Schema validation, capability checks, fault isolation, and graceful degradation for robot actions.
-- Offline unit, scenario, and regression tests across Python 3.11, 3.12, and 3.13 in GitHub Actions.
+Documentation reviewed on **2026-11-03** against the public source snapshot [`e645b53`](https://github.com/Mars-Kinga/kitchen_assistant/tree/e645b53b2bd5b59bf69290f04e42e5729a9c88fc). This documentation update does not publish newer local application code.
+
+| Area | Available in this public source snapshot | Newer local implementation, not yet published on `main` |
+| --- | --- | --- |
+| Interaction | Chinese CLI, optional voice input, camera ingredient questions | LAN web console, photo inventory confirmation, robot feedback events |
+| Recipes | 100 fixed recipes, validated generated cache, one AI candidate per request | 440 fixed recipes; ingredient requests can return 1–3 complete options or meal combinations |
+| Model configuration | Environment variables only | Allowed values in `config/qwen.env` override environment variables |
+| Tutorial import | Not included | Video/image-text import, editable drafts, provenance and confirmation |
+| Installation | Python virtual environment and CLI | Portable install/start/check scripts and port fallback |
+
+Local implementation is not a release or a claim of device validation. The commands below apply to the code available in this repository.
+
+## What the public runtime demonstrates
+
+- Local intent routing and a single active cooking session with explicit states.
+- Local-first recipe lookup, serving-size normalization, dietary checks, and validated AI generation when local results do not match.
+- One complete AI candidate per request, with at most one targeted correction for eligible JSON/validation failures within the original time budget. SDK retries default to zero; correction is a separate request.
+- JSON Schema and capability validation, per-Skill fault isolation, and independent output-channel fallback.
+- Local timers with pause/resume and confirmation rules. Recipe-specific timer actions can request confirmation or advance a step; timers do not establish food safety or doneness.
+- Python tests and a GitHub Actions matrix configured for Python 3.11, 3.12, and 3.13. The matrix configuration is not a statement that tests were rerun for this documentation update.
 
 ## Interaction flow
 
 ```text
-User input
-  -> intent router
-  -> Kitchen Skill state machine
-  -> validated action plan
-  -> runtime executor
-  -> speech / display / motion / lighting / expression adapters
-  -> user feedback or safe termination
+Chinese text / optional ASR transcript
+  -> explicit visual request, or SkillManager / local intent router
+  -> KitchenSession
+  -> validated five-channel feedback
+  -> RuntimeExecutor
+  -> MockRobotSDK + optional VoiceOutput
 ```
 
-Typical states:
-
-```text
-IDLE
-  -> COLLECTING_REQUEST / COLLECTING_PREFERENCES
-  -> SEARCHING_RECIPES
-  -> PRESENTING_CANDIDATES
-  -> WAITING_RECIPE_CONFIRMATION
-  -> WAITING_MEAT_THAW (when raw meat is used)
-  -> COOKING
-  -> COMPLETED / CANCELLED
-```
-
-## Architecture
-
-```text
-robot_main.py                  Main CLI and runtime composition
-runtime_core/
-  agent.py                     Intent routing
-  skill_manager.py             Manifest, schema, and capability validation
-  executor.py                  Five-channel action execution and fallback
-  ingredient_vision.py         Vision intent and result validation
-  mock_robot_sdk.py            Replaceable robot capability adapters
-skills/kitchen_assistant/
-  kitchen/                     Deterministic state machine and safety rules
-  providers/                   Local, AI, cache, and future search providers
-  llm/                         Qwen text and vision clients
-  recipes/                     Curated catalog and generated cache
-  schemas/                     Input and output contracts
-tests/                         Unit, scenario, and entry-point regression tests
-```
-
-More detail is available in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
+The session collects a request and preferences, finds candidates, confirms a recipe and relevant animal-ingredient conditions, then enters `COOKING`. It can move to `PAUSED`, `COMPLETED`, or `CANCELLED`. The model does not directly control hardware or session transitions.
 
 ## Quick start
 
-Python 3.11-3.13 is recommended.
+Use Python 3.11–3.13. The current rule-based router and examples use Chinese; English cooking sentences are not equivalent routing examples.
 
 ```bash
 git clone https://github.com/Mars-Kinga/kitchen_assistant.git
 cd kitchen_assistant
-
 python -m venv .venv
-source .venv/bin/activate        # Windows: .venv\Scripts\activate
+source .venv/bin/activate
 python -m pip install -r requirements-dev.txt
-
 python -m pytest -q
-python robot_main.py --no-play "I want to make tomato and eggs"
+python robot_main.py --no-play "我想做番茄炒蛋"
 ```
 
-Text interaction, the mock robot capabilities, the local catalog, and the default test suite do not require an API key.
+On Windows PowerShell, activate with `.\.venv\Scripts\Activate.ps1` instead. Install `requirements.txt` if you only need to run the application.
 
-## Optional Qwen features
+The local catalog, text interaction with `--no-play`, and default tests do not need an API key. This published snapshot does not have `--console`, tutorial import, or the portable installer.
 
-Copy the example configuration and add your own credentials:
+## Optional Qwen configuration
+
+This public version reads **environment variables only**. Copying the example to `.env` or `config/qwen.env` does not load it automatically. Set the variables in the terminal that starts the application.
+
+macOS / Linux:
 
 ```bash
-cp config/qwen.env.example .env
+export DASHSCOPE_API_KEY='your_api_key'
+export QWEN_BASE_URL='https://dashscope.aliyuncs.com/compatible-mode/v1'
+export QWEN_TEXT_MODEL='qwen3-omni-flash'
+export QWEN_VISION_MODEL='qwen3-vl-flash'
+export QWEN_TIMEOUT_SECONDS='25'
+export QWEN_VISION_TIMEOUT_SECONDS='20'
+export QWEN_MAX_RETRIES='0'
 ```
 
-The relevant variables are:
+Windows PowerShell uses `$env:NAME='value'`, for example `$env:DASHSCOPE_API_KEY='your_api_key'`. Use an endpoint and models your account can access; the names above are project defaults, not a guarantee of service availability. Restart the application after changing its launch environment. Never commit credentials.
 
-```bash
-DASHSCOPE_API_KEY=your_api_key
-QWEN_BASE_URL=https://dashscope.aliyuncs.com/compatible-mode/v1
-QWEN_TEXT_MODEL=qwen3-omni-flash
-QWEN_VISION_MODEL=qwen3-vl-flash
-```
-
-The application checks the local catalog and validated cache first. It calls the model only when no local recipe satisfies the request. Default tests remain offline; the explicit connection check is:
+The provider checks local recipes and validated cache before calling Qwen. `OnlineRecipeSearchProvider` remains a placeholder; generated recipes are not web search results. To explicitly make a real connection check:
 
 ```bash
 python scripts/check_qwen_connection.py
 ```
 
-## Example commands
+## Text, vision and optional voice
 
 ```bash
-# Interactive text mode
-python robot_main.py
+# Interactive text mode without audio playback
+python robot_main.py --no-play
 
-# One-shot text input without audio playback
-python robot_main.py --no-play "I have chicken and carrots"
+# Ingredient-based request
+python robot_main.py --no-play "我有胡萝卜和鸡肉，不知道做什么"
 
-# Camera-based ingredient question on macOS
-python robot_main.py --no-play "Is this a scallion or a leek?"
+# Explicit visual question using the local camera
+python robot_main.py --no-play "这是大葱还是小葱"
+
+# Optional voice path, after installing requirements-voice.txt and configuring ASR
+python robot_main.py --voice
+python robot_main.py --voice --manual
 ```
 
-## Safety and reliability
+ASR uses `MIMO_API_KEY` or `TOKEN_PLAN_API_KEY`, with `MIMO_BASE_URL` and `MIMO_ASR_MODEL`; these are independent of Qwen. Voice code includes VAD, transcription and TTS, but target-device recording, playback and conversational behavior still require verification. Recordings are written to `voice_outputs/`. Camera pictures are handled in memory and do not automatically modify the cooking session.
 
-- Timer completion is treated as a minimum reference; the assistant still asks the user to verify observable doneness.
-- Raw meat and seafood flows include thawing and handling checks.
-- Fire, gas, smoke, burns, and electrical hazards take priority over the cooking flow.
-- Invalid manifests, missing capabilities, malformed model output, and individual output-channel failures degrade safely instead of crashing the full runtime.
-- The assistant never claims to see the physical environment unless a camera result is available.
+## Boundaries
 
-## Current boundary
-
-This repository contains a locally runnable demonstration runtime. It does not connect to a production AgiBot device, and `OnlineRecipeSearchProvider` is currently an extension point rather than a live web-search implementation.
+This is a single-process demonstration with one active session, without user accounts or session/timer recovery after restart. Risk-related text is handled by local rules before ordinary model Q&A; those rules are not a validated emergency-response system. Camera output and timers cannot confirm food safety, allergens, doneness, or the safety of the physical environment. Real robot integration, live recipe search, and the newer local features listed above are not included in the published source snapshot.
